@@ -1,0 +1,90 @@
+#skills .section-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5% 0;
+
+}
+
+#skills .skills-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#skills .skills-wrapper > * {
+    margin-top: 40px;
+    padding:3%;
+    width: 50%;
+    flex-shrink: 0;
+    flex: 0 0 auto;
+}
+
+#skills .skills-wrapper i {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+#skills .skills-wrapper p {
+    font-size: .8rem;
+    font-style: italic;
+}
+
+#skills .skill-container {
+    padding-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    #skills .skills-wrapper > * {
+        flex: 0 0 auto;
+        width: 25%;
+    }
+}
+
+#skills .progress {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: 0.75rem;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+    margin-bottom: 20px;
+}
+
+#skills .progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #0d6efd;
+    transition: width 0.6s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+    #skills .progress-bar {
+        transition: none;
+    }
+}
+
+#skills p {
+    line-height: 1.5rem;
+}
+
+
+#skills .selected {
+    color: black !important;
+}
+
+#skills .btn:hover {
+    color: black;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#skills .skills-text {
+    padding: 3%;
+    margin: 10px 20px;
+    text-align: left;
+}

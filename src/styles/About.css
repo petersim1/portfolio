@@ -1,0 +1,43 @@
+#about {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about .about-me {
+    width: 60%;
+    padding: 10% 0;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+@media (max-width: 750px) { 
+    #about .about-me {
+       width: 80%;        
+    }
+}
+
+#about h1 {
+    font-size: 5rem;
+}
+
+
+#about #about-me-text {
+    font-weight:300;
+    line-height: 2rem;
+}
+
+#about h5,#typer {
+    line-height: 3rem;
+    font-size: 1.5rem;
+}
+
+#about h5 {
+    cursor: pointer !important;
+}
+
+#about #typer {
+    color:#CD4CDA;
+}

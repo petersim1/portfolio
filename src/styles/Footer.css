@@ -1,0 +1,33 @@
+footer {
+    background-color: black;
+    width: 100%;
+    opacity: .9;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    color: white;
+}
+
+footer .div-footer {
+    padding: 3% 0 1%;
+    margin: 0 auto;
+    width: 60%;
+}
+
+
+footer p {
+    font-style: italic;
+    font-weight: 100;
+}
+
+footer a {
+    color: white;
+    margin:10px;
+    font-size: 1.5rem;
+    line-height: 4rem;
+    text-decoration: none;
+}
+
+footer i:hover {
+    transform: scale(1.2);
+}
