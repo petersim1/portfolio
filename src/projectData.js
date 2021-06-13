@@ -28,22 +28,26 @@ const skills = {
         {
             language:'python',
             logo:'<i class="fab fa-python"></i>',
-            blurb:"Most of my experience is in python, where I've work with machine learning, data visualization, web/api scraping, scripting, and creating pipelines."
+            level:80, //out of 100.
+            blurb:"Machine learning, data visualization, web/api scraping, scripting, and creating pipelines."
         },
         {
             language:'javascript',
             logo:'<i class="fab fa-js"></i>',
-            blurb:'I have experience in javascript making static and interactive websites, as well as some react.js and node.js exposure.'
+            level:60,
+            blurb:'Website functionality, react.js, node.js, express framework.'
         },
         {
             language:'html / css',
             logo:'<i class="fab fa-html5"></i>',
-            blurb:'I have experience building and styling static and interactive websites.'
+            level:70,
+            blurb:'Building and styling static and interactive websites.'
         },
         {
             language:'R',
             logo:'<i class="fab fa-r-project"></i>',
-            blurb:'My experience in R is with scripting and data visualization'
+            level:50,
+            blurb:'Data visualization, biostatistics, scripting.'
         }
     ],
     'text':[

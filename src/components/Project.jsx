@@ -17,9 +17,11 @@ function Project() {
                         <h3 className='card-title'>{item.title}</h3>
                         <h6 className="card-subtitle">{item.type}</h6>
                         <p className="card-text" dangerouslySetInnerHTML={{__html: item.description}}></p>
-                        <button href={item.url} target="_blank" rel="noreferrer" disabled={item.disabled}>
-                            <i className="fab fa-github"></i> Repo
-                        </button>
+                        <a href={item.url} target="_blank" rel="noreferrer" > 
+                            <button disabled={item.disabled}>
+                                <i className="fab fa-github"></i> Repo
+                            </button>
+                        </a>
                         <hr />
                         <span className='languages'>{item.languages}</span>
                     </div>
