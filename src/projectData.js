@@ -53,11 +53,11 @@ const skills = {
     'text':[
         {
             title:'Machine Learning',
-            text:"I have academic and industry experience in Data Science, applying machine learning and deep learning methods to solve complex problems. I have experience with multivariate regression, logistic regression, SVM, and contextual bandits, to more modern deep learing methods. I've worked with regression, classification, time-series problems, auto-encoders, and causal analysis. Within deep learning, I've used custom feed-forward and recurrent neural networks, such as regression, multi-classification, auto-encoder methods, LSTM, GRU, and recurrent encoder-decoder methods."
+            text:"I have academic and industry experience in Data Science, applying machine learning and deep learning methods to solve complex problems. I have experience with machine learning models such as multivariate regression, logistic regression, SVM, and contextual bandits, and experience in deep learning working with auto-encoders, feed-forward regression and multi-classification, as well as recurrent networks using LSTM, GRU, and encoder-decoder methods"
         },
         {
             title:'Other Tools/Libraries',
-            text:'Most of my experience is within python, where I have experience in machine learning packages (numpy, pandas, sklearn, pytorch), data visualization (matplotlib, seaborn), and web scraping packages. I also have some experience working with javascript libraries such as node.js and react.js . I am comfortable with SQL and mongoDB databases, and primarily work in mac/linux environments.'
+            text:"Most of my experience is within python, where I've used machine learning packages (numpy, pandas, scipy, statsmodels, sklearn, pytorch), data visualization (matplotlib, seaborn), and web scraping packages. I've also worked with javascript libraries such as node.js and react.js . I am comfortable with SQL and mongoDB databases, and primarily work in mac/linux environments."
         }
     ]
 }
@@ -84,9 +84,9 @@ const projects = [
         title:'commodity price forecasting',
         type:'Course Project',
         description:'In this project I built an encoder-decoder recurrent neural network to forecast biodiesel prices.',
-        url:'hhttps://github.com/Jonas-JP-Peeters/raizen-biofuel',
+        url:'https://github.com/petersim1/raizen-biofuel',
         languages:'python, jupyter',
-        disabled:true
+        disabled:false
     },
     {
         title:'recommender system',
