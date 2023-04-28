@@ -1,0 +1,63 @@
+.layout_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+}
+
+.header_holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.nav_holder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 5px 15px;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.nav_holder span {
+  display: block;
+  width: fit-content;
+  opacity: 0;
+  transition: max-width 1s ease-in-out, opacity 0.9s ease-in-out, margin 1s ease-in-out, color 0.25s ease-in-out;
+}
+
+.nav_holder .active {
+  color: blue;
+  max-width: 100px;
+  opacity: 1;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.nav_holder span:not(.active) {
+  max-width: 0;
+}
+
+.nav_holder:hover span {
+  max-width: 100px;
+  opacity: 1;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.nav_holder span:not(.active):hover {
+  color: grey;
+}
+
+.profile_pic {
+  border-radius: 100%;
+}

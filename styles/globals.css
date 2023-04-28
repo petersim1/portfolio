@@ -129,14 +129,9 @@ h5 {
 /* we'll only allow the wrapper div to grow to a certain width */
 /* I'd rather pad main to a max() width, than use margin:auto on the child with a max-width */
 main,
-footer {
-  padding: 0 max(20px, calc((100vw - 1440px + 2*55px)/2))
-}
-
+footer,
 nav {
-  height: var(--header-fixed-height);
-  width: 100%;
-  background: var(--bg-header);
+  padding: 0 max(20px, calc((100vw - 1440px + 2*55px)/2))
 }
 
 footer {
