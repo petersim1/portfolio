@@ -1,14 +1,23 @@
 import Image from "next/image";
 import classNames from "classnames";
-import { useState } from "react";
 
 import styles from "@/styles/layout.module.css";
 import { worksans } from "@/styles/fonts";
 
-const Header = (): JSX.Element => {
-  const [active, setActive] = useState(0);
-
-  const options = ["Intro", "Blurb", "Education", "Projects"];
+const Header = ({
+  active,
+  setActive,
+  options,
+}: {
+  active: number;
+  setActive: React.Dispatch<React.SetStateAction<number>>;
+  options: string[];
+}): JSX.Element => {
+  const handleClick = (ind: number, option: string): void => {
+    setActive(ind);
+    const el = document.getElementById(option);
+    el?.scrollIntoView();
+  };
 
   return (
     <nav className={classNames(styles.header, worksans.className)}>
@@ -26,15 +35,13 @@ const Header = (): JSX.Element => {
             <span
               key={ind}
               className={classNames({ [styles.active]: active === ind })}
-              onClick={(): void => setActive(ind)}
+              onClick={(): void => handleClick(ind, option)}
             >
-              {option}
+              {option.charAt(0).toUpperCase() + option.substring(1)}
             </span>
           ))}
         </div>
       </div>
-      <button onClick={(): void => setActive(active + 1)}>click me +</button>
-      <button onClick={(): void => setActive(active - 1)}>click me -</button>
     </nav>
   );
 };
