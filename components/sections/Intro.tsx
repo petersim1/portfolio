@@ -8,10 +8,7 @@ const Intro = ({ progress }: { progress: number }): JSX.Element => {
   const options = ["ml/ai", "web dev", "web3", "sports", "research"];
 
   const active = useMemo((): number => {
-    return Math.min(
-      options.length - 1,
-      Math.round(((progress / 100) * (options.length - 1)) / 0.8),
-    );
+    return Math.min(options.length - 1, Math.round((progress / 100) * (options.length - 1)));
   }, [progress]);
 
   return (
