@@ -5,11 +5,14 @@ import Layout from "@/components/layout/Layout";
 import Footer from "@/components/layout/Footer";
 import Intro from "@/components/sections/Intro";
 import Blurb from "@/components/sections/Blurb";
+import Education from "@/components/sections/Education";
+import Projects from "@/components/sections/Projects";
 
 const Home = (): JSX.Element => {
   const [progress, setProgress] = useState<number[]>([]);
   const [options, setOptions] = useState<string[]>([]);
   const [active, setActive] = useState(0);
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     // A global identifier of scroll in each section, pass to child components.
@@ -40,12 +43,35 @@ const Home = (): JSX.Element => {
     };
   }, []);
 
+  useEffect(() => {
+    const theme = localStorage.getItem("-portfolio-theme-dark");
+    let isDark = false;
+    if (!theme) {
+      const { matches } = window.matchMedia("(prefers-color-scheme: dark)");
+      localStorage.setItem("-portfolio-theme-dark", JSON.stringify(matches));
+      isDark = matches;
+      document.documentElement.dataset.dark = matches ? "true" : "false";
+    } else {
+      document.documentElement.dataset.dark = theme;
+      isDark = JSON.parse(theme);
+    }
+    setDark(isDark);
+  }, []);
+
   return (
     <Layout>
-      <Header active={active} setActive={setActive} options={options} />
+      <Header
+        active={active}
+        setActive={setActive}
+        options={options}
+        dark={dark}
+        setDark={setDark}
+      />
       <main>
         <Intro progress={progress.length > 0 ? progress[0] : 0} />
-        <Blurb progress={progress.length > 0 ? progress[1] : 0} />
+        <Blurb />
+        <Education />
+        <Projects />
       </main>
       <Footer />
     </Layout>

@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
 import classNames from "classnames";
 
-import styles from "@/styles/layout.module.css";
+import styles from "@/styles/intro.module.css";
 import { worksans } from "@/styles/fonts";
 
 const Intro = ({ progress }: { progress: number }): JSX.Element => {

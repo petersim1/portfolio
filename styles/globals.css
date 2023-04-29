@@ -10,6 +10,23 @@
   --footer-fixed-height: 130px;
 }
 
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-reduced-motion:no-preference){
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+[data-dark="true"] {
+  --bg: #121212;
+  --font: #FFFFFF;
+}
+
 
 *,
 ::before,
@@ -26,18 +43,6 @@ body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
-@media (prefers-reduced-motion:no-preference){
-  :root{
-      scroll-behavior:smooth
-  }
 }
 
 @media screen and (max-width: 1680px) {
@@ -82,8 +87,8 @@ h6 {
 
 p {
   margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.15rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: 400;
 }
 
@@ -113,10 +118,8 @@ h2 {
 }
 
 h3 {
-  font-size: 1.125rem;
-  line-height: 1.15rem;
-  font-weight: 700;
-  text-decoration: underline;
+  font-size: 2rem;
+  font-weight: 200;
 }
 
 h4 {
@@ -149,6 +152,10 @@ footer {
 section {
   width: 100%;
   position: relative;
+}
+
+section.h_50 {
+  height: 50vh;
 }
 
 section.h_100 {
