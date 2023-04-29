@@ -5,7 +5,8 @@ import styles from "@/styles/layout.module.css";
 import { worksans } from "@/styles/fonts";
 
 const Intro = ({ progress }: { progress: number }): JSX.Element => {
-  const options = ["ml/ai", "web dev", "web3", "sports", "research"];
+  // repeat 1st and last indices to give appearance that it's cycling.
+  const options = ["research", "ml/ai", "web dev", "web3", "sports", "research", "ml/ai"];
   const [large, setLarge] = useState(true);
 
   useEffect(() => {
@@ -26,8 +27,8 @@ const Intro = ({ progress }: { progress: number }): JSX.Element => {
 
   const query = useMemo(() => {
     const activeInd = Math.min(
-      options.length - 1,
-      Math.round((progress / 100) * (options.length - 1)),
+      options.length - 2,
+      Math.round((progress / 100) * (options.length - 3)),
     );
     let transform;
     if (large) {
@@ -63,7 +64,7 @@ const Intro = ({ progress }: { progress: number }): JSX.Element => {
                 <div
                   key={ind}
                   className={classNames(styles.item, {
-                    [styles.active]: query.active === ind,
+                    [styles.active]: query.active === ind - 1,
                     [styles.large]: large,
                   })}
                 >

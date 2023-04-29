@@ -64,6 +64,12 @@ body {
   }
 }
 
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 10px;
+  }
+}
+
 h1,
 h2,
 h3,

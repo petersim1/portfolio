@@ -14,6 +14,7 @@ const Header = ({
   options: string[];
 }): JSX.Element => {
   const handleClick = (ind: number, option: string): void => {
+    // const nav = document.getElementById("nav_hover");
     setActive(ind);
     const el = document.getElementById(option);
     el?.scrollIntoView();
@@ -22,15 +23,16 @@ const Header = ({
   return (
     <nav className={classNames(styles.header, worksans.className)}>
       <div className={styles.header_holder}>
-        <Image
-          src="/images/propic.jpeg"
-          alt="profile"
-          priority={true}
-          height={65}
-          width={65}
-          className={styles.profile_pic}
-        />
-        <div className={styles.nav_holder}>
+        <div className={styles.image}>
+          <Image
+            src="/images/propic.jpeg"
+            alt="profile"
+            priority={true}
+            fill={true}
+            className={styles.profile_pic}
+          />
+        </div>
+        <div className={styles.nav_holder} id="nav_hover">
           {options.map((option, ind) => (
             <span
               key={ind}
