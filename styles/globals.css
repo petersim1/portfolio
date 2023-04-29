@@ -93,6 +93,14 @@ h1 {
   line-height: 11rem;
 }
 
+@media screen and (max-width: 850px) {
+  h1 {
+    font-size: 6rem;
+    line-height: 7rem;
+    text-align: center;
+  }
+}
+
 h2 {
   font-size: 1.5rem;
   font-weight: 900;
