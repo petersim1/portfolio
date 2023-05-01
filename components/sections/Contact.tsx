@@ -1,11 +1,10 @@
 import classNames from "classnames";
-import { useMemo, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import styles from "@/styles/contact.module.css";
-import { worksans } from "@/styles/fonts";
+import { worksans, spacemono, inconsolata } from "@/styles/fonts";
 import { contacts } from "@/constants";
 import { Mirror, Twitter, Linkedin, Github, Mail } from "@/assets";
-import ContactItem from "../contact";
 
 const Contact = ({progress}: {progress: number}): JSX.Element => {
 
@@ -37,15 +36,26 @@ const Contact = ({progress}: {progress: number}): JSX.Element => {
     }
   }, [social])
 
-  const position = useMemo(() => {
-    return [
-      31 + (100 - 31)*progress/100,
-      0 + (100 - 0)*progress/100,
-      10 + (100 - 10)*progress/150,
-      31 + (100 - 31)*progress/150,
-      20 + (100 - 20)*progress/100,
-    ]
-  },[progress]);
+  const Icon = (props: any): JSX.Element => {
+
+    const {type, ...rest} = props;
+
+    if (type==="twitter") {
+      return <Twitter {...rest} fill="#1DA1F2" />
+    }
+    if (type==="github") {
+      return <Github {...rest} fill="var(--font)" />
+    }
+    if (type==="email") {
+      return <Mail {...rest} fill="var(--font)" />
+    }
+    if (type==="linkedin") {
+      return <Linkedin {...rest} fill="#0072b1" />
+    }
+    return <Mirror {...rest}/>
+  }
+
+  const powers = [1.25, 1.2, 1.15, 1.1, 1]
 
   return (
     <section className="h_150" id="contact">
@@ -55,30 +65,43 @@ const Contact = ({progress}: {progress: number}): JSX.Element => {
             <b>Get in Contact</b>
           </h3>
         </div>
-        <div className={styles.code_box}>
-          <code>{`% cd socials && python init_follow.py ${typed}`}<span /></code>
+        <div className={classNames(styles.code_box, spacemono.className)}>
+          <code>{`% python init_follow.py --social ${typed}`}<span /></code>
         </div>
-        <div className={styles.contact_wrapper}>
+        <div className={classNames(styles.contact_wrapper, inconsolata.className)}>
           {contacts.map((contact, ind) => (
-            <ContactItem {...contact} setSocial={setSocial} key={ind}/>
+            <a key={ind} href={contact.link} target="_blank" referrerPolicy="no-referrer" onMouseEnter={() => setSocial(contact.type)}>
+              <div className={styles.contact}>
+                <div className={styles.placeholder}>
+                  <Icon type={contact.type} height="30px" style={{opacity: 0.1, filter: "brightness(0.5)"}} />
+                  <Icon
+                    type={contact.type}
+                    height="30px"
+                    style={{
+                      left: `calc(max(0px,100vw*(100 - ${Math.pow(progress, powers[ind])})/100))`,
+                      opacity: Math.min(1,Math.pow(progress, powers[ind])/200),
+                    }}
+                  />
+                </div>
+                <div className={classNames(
+                  styles.divider,
+                  {
+                    [styles.show]: Math.min(1,Math.pow(progress, powers[ind])/100) >= 1
+                  }
+                )}
+                />
+                <div className={classNames(
+                  styles.follow,
+                  {
+                    [styles.show]: Math.min(1,Math.pow(progress, powers[ind])/100) >= 1
+                  }
+                )}
+                >
+                  follow
+                </div>
+              </div>
+            </a>
           ))}
-        </div>
-      </div>
-      <div className={styles.parallax_group}>
-        <div className={styles.parallax_layer} style={{bottom: `${position[0]}%`}}>
-          <Mirror width="30px" />
-        </div>
-        <div className={styles.parallax_layer} style={{bottom: `${position[1]}%`}}>
-          <Twitter width="45px" fill="#1DA1F2"/>
-        </div>
-        <div className={styles.parallax_layer} style={{bottom: `${position[2]}%`}}>
-          <Github width="30px" fill="var(--font)"/>
-        </div>
-        <div className={styles.parallax_layer} style={{bottom: `${position[3]}%`}}>
-          <Linkedin width="45px" fill="#0072b1"/>
-        </div>
-        <div className={styles.parallax_layer} style={{bottom: `${position[4]}%`}}>
-          <Mail width="30px" fill="var(--font)"/>
         </div>
       </div>
     </section>

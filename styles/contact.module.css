@@ -16,11 +16,13 @@
 .code_box {
   color: var(--green);
   padding: 5px 10px 5px 0;
-  font-size: 1rem;
-  line-height: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 200;
 }
 
 .code_box span {
+  display: inline-block;
   font-size: inherit;
   line-height: inherit;
   width: 2px;
@@ -31,61 +33,67 @@
 }
 
 .contact_wrapper {
-  margin-top: 10px;
-  font-size: 1.5rem;
+  margin-top: 1rem;
+  font-size: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 400px;
+  max-width: 90%;
 }
 
 .contact {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.divider {
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--font);
+  opacity: 0.1;
+  position: relative;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.divider.show {
+  opacity: 0.25;
+}
+
+.divider::after {
+  content: ">";
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(-50%);
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.placeholder {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.placeholder svg {
+  transform: translate(5px, 5px);
+  position: absolute;
 }
 
 .contact:hover {
   opacity: 0.8;
 }
 
-.parallax_group {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+.follow {
+  opacity: 0.1;
+  transition: opacity 0.25s ease-in-out;
 }
 
-.parallax_layer {
-  position: absolute;
-}
-
-.parallax_layer:nth-child(1) {
-  opacity: 0.8;
-  left: 50%;
-  transform: translateX(-35vw);
-}
-
-.parallax_layer:nth-child(2) {
-  opacity: 0.5;
-  left: 50%;
-  transform: translateX(-10vw);
-}
-
-.parallax_layer:nth-child(3) {
-  opacity: 0.8;
-  left: 50%;
-  transform: translateX(20vw);
-}
-
-.parallax_layer:nth-child(4) {
-  opacity: 0.6;
-  left: 50%;
-  transform: translateX(35vw);
-}
-
-.parallax_layer:nth-child(5) {
+.follow.show {
   opacity: 1;
-  left: 50%;
-  transform: translateX(-20vw);
 }
