@@ -1,26 +1,31 @@
 :root {
-  --bg: #FFFFFF;
-  --bg-header: linear-gradient(91.14deg, #37373B -32.36%, #121212 150.13%);
-  --bg-footer: #37373B;
-  --bg-highlight: linear-gradient(89.34deg, #FF8FFB -21.02%, #81FFFF 122.91%);
-  --bg-break: rgba(55,55,55,0.2);
+  --bg: #FAFAFA;
   --font: #000000;
-  --green-faint: #F3FFF4;
-  --green-dark: #E0F7E0;
-  --green-font: #89AC8C;
-  --orange-faint: #F8EDE3;
-  --orange-dark: #F8EDE3;
-  --orange-font:#B7A798;
-  --blue-faint: #E3E9F8;
-  --blue-dark: #F3F6FF;
-  --blue-font: #868EBB;
-  --grey-dark: #FBFBFB;
-  --grey-faint: #EAEAEA;
-  --error-red: #DC3545;
-  --color-primary: #007BFF;
-  --color-success: #28A745;
-  --header-fixed-height: 130px;
-  --footer-fixed-height: 130px;
+  --color-one: #222831;
+  --color-two: #393e46;
+  --color-three: #0092ca;
+  --color-four: #eeeeee;
+  --box-shadow: rgba(0,0,0,0.2);
+  --code: #32AFFF;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-reduced-motion:no-preference){
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+[data-dark="true"] {
+  --bg: #121212;
+  --font: #FFFFFF;
+  --box-shadow: rgba(255,255,255,0.3);
+  --code: #4AF626;
 }
 
 
@@ -39,18 +44,6 @@ body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
-@media (prefers-reduced-motion:no-preference){
-  :root{
-      scroll-behavior:smooth
-  }
 }
 
 @media screen and (max-width: 1680px) {
@@ -77,6 +70,12 @@ body {
   }
 }
 
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 10px;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -89,8 +88,8 @@ h6 {
 
 p {
   margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.15rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: 400;
 }
 
@@ -101,8 +100,17 @@ a {
 
 h1 {
   text-transform: uppercase;
-  color: white;
-  font-size: 3.75rem;
+  font-size: 10rem;
+  letter-spacing: 1rem;
+  line-height: 11rem;
+}
+
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 6rem;
+    line-height: 7rem;
+    text-align: center;
+  }
 }
 
 h2 {
@@ -111,10 +119,8 @@ h2 {
 }
 
 h3 {
-  font-size: 1.125rem;
-  line-height: 1.15rem;
-  font-weight: 700;
-  text-decoration: underline;
+  font-size: 2rem;
+  font-weight: 200;
 }
 
 h4 {
@@ -128,19 +134,46 @@ h5 {
 
 /* we'll only allow the wrapper div to grow to a certain width */
 /* I'd rather pad main to a max() width, than use margin:auto on the child with a max-width */
-main,
-footer {
-  padding: 0 max(20px, calc((100vw - 1440px + 2*55px)/2))
+section,
+footer,
+nav {
+  padding: 0 max(40px, calc((100vw - 1440px + 2*55px)/2))
 }
 
 nav {
-  height: var(--header-fixed-height);
-  width: 100%;
-  background: var(--bg-header);
+  z-index: 999;
 }
 
 footer {
   width: 100%;
-  background: var(--bg-footer);
-  height: var(--footer-fixed-height);
+  background: var(--bg);
+}
+
+section {
+  width: 100%;
+  position: relative;
+}
+
+section.h_50 {
+  height: 50vh;
+}
+
+section.h_100 {
+  height: 100vh;
+}
+
+section.h_100_min {
+  min-height: 100vh;
+}
+
+section.h_150 {
+  height: 150vh;
+}
+
+section.h_200 {
+  height: 200vh;
+}
+
+section.h_300 {
+  height: 300vh;
 }

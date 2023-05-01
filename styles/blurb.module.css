@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.title b {
+  text-shadow: 5px 5px 10px var(--box-shadow);
+}
+
+.blurb {
+  max-width: 70ch;
+}
