@@ -82,6 +82,7 @@
   border-radius: 10px;
   cursor: pointer;
   overflow: hidden;
+  background: var(--bg);
 }
 
 .nav_holder span {
@@ -89,26 +90,25 @@
   width: fit-content;
   opacity: 0;
   font-size: 1rem;
-  transition: max-width 1s ease-in-out, opacity 0.9s ease-in-out, margin 1s ease-in-out, color 0.25s ease-in-out;
+  transition: max-width 1s ease-in-out, opacity 0.9s ease-in-out, margin 1s ease-in-out, color 0.25s ease-in-out, max-height 1s ease-in-out;
 }
 
-.nav_holder .active {
-  color: var(--font);
-  max-width: 100px;
-  opacity: 1;
-  margin-right: 5px;
-  margin-left: 5px;
-}
-
-.nav_holder span:not(.active) {
+.nav_holder span {
   max-width: 0;
+  color: var(--font);
+  opacity: 0;
+}
+
+.nav_holder span.active {
+  max-width: 100px;
+  margin: 0 5px;
+  opacity: 1;
 }
 
 .nav_holder:hover span {
   max-width: 100px;
   opacity: 1;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin: 0 5px;
 }
 
 .nav_holder span:not(.active):hover,
@@ -118,4 +118,62 @@
 
 .profile_pic {
   border-radius: 100%;
+}
+
+@media screen and (max-width: 570px) {
+  .header_holder {
+    flex-direction: column;
+  }
+  .nav_holder {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav_holder span {
+    max-height: 0;
+    max-width: fit-content;
+  }
+  .nav_holder span.active {
+    max-width: fit-content;
+    max-height: 1.1rem;
+    margin: 0;
+  }
+  .nav_holder:hover span {
+    margin: 3px 0;
+    max-height: 1.1rem;
+  }
+  .nav_holder span:not(.active):hover,
+  .nav_holder span:not(.active):focus {
+    color: var(--font);
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 3rem 0;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  border-top: 1px solid var(--font);
+}
+
+.footer b {
+  text-shadow: 5px 5px 10px var(--box-shadow);
+}
+
+.count_holder {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+}
+
+.counts {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 5px;
 }

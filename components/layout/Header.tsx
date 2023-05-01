@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
 import Image from "next/image";
 import classNames from "classnames";
+import { useState } from "react";
 
 import styles from "@/styles/layout.module.css";
 import { worksans } from "@/styles/fonts";
-import { Sun, Moon } from "@/assets";
 
 const Header = ({
   active,
@@ -15,8 +15,18 @@ const Header = ({
   setActive: React.Dispatch<React.SetStateAction<number>>;
   options: string[];
 }): JSX.Element => {
+
+  const [blocked, setBlocked] = useState(true);
+
+  const handleBlock = () => {
+    // throttling. Otherwise difficult to use on mobile.
+    setTimeout(() => {
+      setBlocked(false);
+    }, 200);
+  }
+
   const handleClick = (ind: number, option: string): void => {
-    // const nav = document.getElementById("nav_hover");
+    if (blocked) return;
     setActive(ind);
     const el = document.getElementById(option);
     el?.scrollIntoView();
@@ -34,7 +44,7 @@ const Header = ({
             className={styles.profile_pic}
           />
         </div>
-        <div className={styles.nav_holder} id="nav_hover">
+        <div className={styles.nav_holder} id="nav_hover" onMouseEnter={handleBlock} onMouseLeave={() => setBlocked(true)}>
           {options.map((option, ind) => (
             <span
               key={ind}

@@ -58,7 +58,7 @@ const Contact = ({progress}: {progress: number}): JSX.Element => {
   const powers = [1.25, 1.2, 1.15, 1.1, 1]
 
   return (
-    <section className="h_150" id="contact">
+    <section className="h_200" id="contact">
       <div className={classNames(styles.content, worksans.className)}>
         <div className={styles.title}>
           <h3>

@@ -12,11 +12,11 @@ const Intro = ({ progress }: { progress: number }): JSX.Element => {
 
   useEffect(() => {
     const fixSize = (): void => {
-      const { matches } = window.matchMedia("(max-width: 850px)");
+      const { matches } = window.matchMedia("(max-width: 900px)");
       setLarge(!matches);
     };
 
-    const { matches } = window.matchMedia("(max-width: 850px)");
+    const { matches } = window.matchMedia("(max-width: 900px)");
     setLarge(!matches);
 
     window.addEventListener("resize", fixSize);

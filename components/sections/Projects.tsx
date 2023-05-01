@@ -12,7 +12,7 @@ const Projects = (): JSX.Element => {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="h_150" id="projects">
+    <section className="h_100_min" id="projects">
       <div className={styles.wrapper}>
         <div className={classNames(worksans.className)}>
           <div className={styles.title}>

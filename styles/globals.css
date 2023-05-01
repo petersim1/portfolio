@@ -1,14 +1,12 @@
 :root {
-  --bg: #FFFFFF;
+  --bg: #FAFAFA;
   --font: #000000;
   --color-one: #222831;
   --color-two: #393e46;
   --color-three: #0092ca;
   --color-four: #eeeeee;
-  --header-fixed-height: 130px;
-  --footer-fixed-height: 130px;
   --box-shadow: rgba(0,0,0,0.2);
-  --green: #4AF626;
+  --code: #4AF626;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -106,7 +104,7 @@ h1 {
   line-height: 11rem;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
   h1 {
     font-size: 6rem;
     line-height: 7rem;
@@ -147,8 +145,8 @@ nav {
 
 footer {
   width: 100%;
+  padding-top: 10vh;
   background: var(--bg);
-  height: var(--footer-fixed-height);
 }
 
 section {
@@ -162,6 +160,10 @@ section.h_50 {
 
 section.h_100 {
   height: 100vh;
+}
+
+section.h_100_min {
+  min-height: 100vh;
 }
 
 section.h_150 {
