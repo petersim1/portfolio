@@ -6,7 +6,7 @@
   --color-three: #0092ca;
   --color-four: #eeeeee;
   --box-shadow: rgba(0,0,0,0.2);
-  --code: #4AF626;
+  --code: #32AFFF;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,6 +25,7 @@
   --bg: #121212;
   --font: #FFFFFF;
   --box-shadow: rgba(255,255,255,0.3);
+  --code: #4AF626;
 }
 
 
@@ -145,7 +146,6 @@ nav {
 
 footer {
   width: 100%;
-  padding-top: 10vh;
   background: var(--bg);
 }
 
