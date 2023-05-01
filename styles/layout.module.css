@@ -36,7 +36,7 @@
   gap: 10px;
   width: fit-content;
   border-radius: 100px;
-  border: 1px solid var(--font);
+  border: 2px solid var(--font);
   padding: 5px 7px;
   position: relative;
   cursor: pointer;
@@ -113,7 +113,7 @@
 
 .nav_holder span:not(.active):hover,
 .nav_holder span:not(.active):focus {
-  color: var(--color-three);
+  color: var(--code);
 }
 
 .profile_pic {

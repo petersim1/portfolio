@@ -66,7 +66,7 @@ const Contact = ({progress}: {progress: number}): JSX.Element => {
           </h3>
         </div>
         <div className={classNames(styles.code_box, spacemono.className)}>
-          <code>{`% python init_follow.py --social ${typed}`}<span /></code>
+          <code>{`% python connect_w_me.py --method ${typed}`}<span /></code>
         </div>
         <div className={classNames(styles.contact_wrapper, inconsolata.className)}>
           {contacts.map((contact, ind) => (
@@ -97,7 +97,7 @@ const Contact = ({progress}: {progress: number}): JSX.Element => {
                   }
                 )}
                 >
-                  follow
+                  {contact.type === "email" ? "contact" : "follow"}
                 </div>
               </div>
             </a>
