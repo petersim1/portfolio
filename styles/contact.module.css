@@ -1,0 +1,91 @@
+.content {
+  top: 0;
+  height: 100vh;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.code_box {
+  color: var(--green);
+  padding: 5px 10px 5px 0;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.code_box span {
+  font-size: inherit;
+  line-height: inherit;
+  width: 2px;
+  height: 1rem;
+  vertical-align: bottom;
+  background-color: currentColor;
+  margin-left: 2px;
+}
+
+.contact_wrapper {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.contact:hover {
+  opacity: 0.8;
+}
+
+.parallax_group {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.parallax_layer {
+  position: absolute;
+}
+
+.parallax_layer:nth-child(1) {
+  opacity: 0.8;
+  left: 50%;
+  transform: translateX(-35vw);
+}
+
+.parallax_layer:nth-child(2) {
+  opacity: 0.5;
+  left: 50%;
+  transform: translateX(-10vw);
+}
+
+.parallax_layer:nth-child(3) {
+  opacity: 0.8;
+  left: 50%;
+  transform: translateX(20vw);
+}
+
+.parallax_layer:nth-child(4) {
+  opacity: 0.6;
+  left: 50%;
+  transform: translateX(35vw);
+}
+
+.parallax_layer:nth-child(5) {
+  opacity: 1;
+  left: 50%;
+  transform: translateX(-20vw);
+}

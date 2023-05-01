@@ -1,6 +1,5 @@
 :root {
   --bg: #FFFFFF;
-  --bg-footer: #37373B;
   --font: #000000;
   --color-one: #222831;
   --color-two: #393e46;
@@ -8,6 +7,8 @@
   --color-four: #eeeeee;
   --header-fixed-height: 130px;
   --footer-fixed-height: 130px;
+  --box-shadow: rgba(0,0,0,0.2);
+  --green: #4AF626;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,6 +26,7 @@
 [data-dark="true"] {
   --bg: #121212;
   --font: #FFFFFF;
+  --box-shadow: rgba(255,255,255,0.3);
 }
 
 
@@ -136,7 +138,7 @@ h5 {
 section,
 footer,
 nav {
-  padding: 0 max(20px, calc((100vw - 1440px + 2*55px)/2))
+  padding: 0 max(40px, calc((100vw - 1440px + 2*55px)/2))
 }
 
 nav {
@@ -145,7 +147,7 @@ nav {
 
 footer {
   width: 100%;
-  background: var(--bg-footer);
+  background: var(--bg);
   height: var(--footer-fixed-height);
 }
 
@@ -160,6 +162,10 @@ section.h_50 {
 
 section.h_100 {
   height: 100vh;
+}
+
+section.h_150 {
+  height: 150vh;
 }
 
 section.h_200 {

@@ -62,8 +62,15 @@ module.exports = {
     {
       files: ["*.test.*"],
       rules: {
-        "import/no-named-as-default-member": OFF,
+        "import/no-named-as-default-member": [OFF],
       },
+    },
+    {
+      files: ["/assets/*.tsx"],
+      rules: {
+        "max-len": [OFF],
+        "@typescript-eslint/no-explicit-any": [OFF],
+      }
     },
   ],
   env: {

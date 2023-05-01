@@ -6,59 +6,13 @@ import classNames from "classnames";
 import { inconsolata, worksans } from "@/styles/fonts";
 import styles from "@/styles/projects.module.css";
 import Project from "../project";
+import { projects } from "@/constants";
 
 const Projects = (): JSX.Element => {
   const [open, setOpen] = useState(0);
 
-  const datas = [
-    {
-      title: "Progressive Web App",
-      year: 2023,
-    },
-    {
-      title: "Slackbot Summarizer",
-      year: 2023,
-    },
-    {
-      title: "TL;DR",
-      year: 2023,
-    },
-    {
-      title: "Agree",
-      year: 2023,
-    },
-    {
-      title: "Blackjack RL Agent",
-      year: 2023,
-    },
-    {
-      title: "Pulse Plus",
-      year: 2022,
-    },
-    {
-      title: "Fur Insure",
-      year: 2022,
-    },
-    {
-      title: "Networth Simulator",
-      year: 2022,
-    },
-    {
-      title: "Bet Hedging",
-      year: 2021,
-    },
-    {
-      title: "Commodity Price Forecasting",
-      year: 2021,
-    },
-    {
-      title: "Goodreads Recommender",
-      year: 2020,
-    },
-  ];
-
   return (
-    <section className="h_100" id="projects">
+    <section className="h_150" id="projects">
       <div className={styles.wrapper}>
         <div className={classNames(worksans.className)}>
           <div className={styles.title}>
@@ -68,7 +22,7 @@ const Projects = (): JSX.Element => {
           </div>
         </div>
         <div className={classNames(styles.projects, inconsolata.className)}>
-          {datas.map((data, ind) => (
+          {projects.map((data, ind) => (
             <Project data={data} ind={ind} open={open} setOpen={setOpen} key={ind} />
           ))}
         </div>

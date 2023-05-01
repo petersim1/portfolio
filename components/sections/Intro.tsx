@@ -3,10 +3,11 @@ import classNames from "classnames";
 
 import styles from "@/styles/intro.module.css";
 import { worksans } from "@/styles/fonts";
+import { cycle } from "@/constants";
 
 const Intro = ({ progress }: { progress: number }): JSX.Element => {
   // repeat 1st and last indices to give appearance that it's cycling.
-  const options = ["research", "ml/ai", "web dev", "web3", "sports", "research", "ml/ai"];
+  const options = cycle.slice(-1).concat(cycle).concat(cycle.slice(0, 1));
   const [large, setLarge] = useState(true);
 
   useEffect(() => {

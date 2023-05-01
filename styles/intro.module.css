@@ -67,10 +67,10 @@
 .cycle_holder:not(.large):after {
   background: linear-gradient(
     90deg,
-    white 0%,
+    var(--bg) 0%,
     transparent 45%,
     transparent 65%,
-    white 100%
+    var(--bg) 100%
   );
 }
 
@@ -109,9 +109,14 @@
   width: var(--fixed-width);
   min-width: var(--fixed-width);
   max-width: var(--fixed-width);
+  font-size: 1rem;
 }
 
 .item.active {
   font-size: 2.5rem;
   color: var(--color-three);
+}
+
+.item:not(.large).active {
+  font-size: 2rem;
 }

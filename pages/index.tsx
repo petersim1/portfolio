@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 
 import Header from "@/components/layout/Header";
+import Light from "@/components/layout/Light";
 import Layout from "@/components/layout/Layout";
 import Footer from "@/components/layout/Footer";
 import Intro from "@/components/sections/Intro";
 import Blurb from "@/components/sections/Blurb";
 import Education from "@/components/sections/Education";
 import Projects from "@/components/sections/Projects";
+import Contact from "@/components/sections/Contact";
 
 const Home = (): JSX.Element => {
   const [progress, setProgress] = useState<number[]>([]);
@@ -64,14 +66,14 @@ const Home = (): JSX.Element => {
         active={active}
         setActive={setActive}
         options={options}
-        dark={dark}
-        setDark={setDark}
       />
+      <Light dark={dark} setDark={setDark}/>
       <main>
         <Intro progress={progress.length > 0 ? progress[0] : 0} />
         <Blurb />
         <Education />
         <Projects />
+        <Contact progress={progress.length >0 ? progress[4] : 0}/>
       </main>
       <Footer />
     </Layout>
