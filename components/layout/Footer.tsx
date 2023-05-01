@@ -1,7 +1,9 @@
-const Footer = (): JSX.Element => {
+const Footer = ({stars, forks}: {stars: number; forks: number}): JSX.Element => {
+  
   return (
     <footer>
-      <div></div>
+      <div>{forks}</div>
+      <div>{stars}</div>
     </footer>
   );
 };

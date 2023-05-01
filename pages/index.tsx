@@ -1,3 +1,4 @@
+import type { GetServerSideProps } from "next";
 import { useState, useEffect } from "react";
 
 import Header from "@/components/layout/Header";
@@ -10,7 +11,31 @@ import Education from "@/components/sections/Education";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
 
-const Home = (): JSX.Element => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+
+  const response = await fetch("https://api.github.com/repos/petersim1/portfolio");
+  if (!response.ok) {
+    return {
+      props: {
+        stargazers_count: 0,
+        forks_count: 0,
+      }
+    }
+  }
+  
+  const result = await response.json();
+
+  const {stargazers_count, forks_count} = result;
+
+  return {
+    props: {
+      stargazers_count,
+      forks_count,
+    },
+  };
+};
+
+const Home = ({stargazers_count, forks_count}: {stargazers_count: number, forks_count: number}): JSX.Element => {
   const [progress, setProgress] = useState<number[]>([]);
   const [options, setOptions] = useState<string[]>([]);
   const [active, setActive] = useState(0);
@@ -75,7 +100,7 @@ const Home = (): JSX.Element => {
         <Projects />
         <Contact progress={progress.length >0 ? progress[4] : 0}/>
       </main>
-      <Footer />
+      <Footer stars={stargazers_count} forks={forks_count} />
     </Layout>
   );
 };
