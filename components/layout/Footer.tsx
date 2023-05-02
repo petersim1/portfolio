@@ -1,6 +1,8 @@
+import Link from "next/link";
+
 import styles from "@/styles/layout.module.css";
 import { inconsolata } from "@/styles/fonts";
-import { Branch, Star } from "@/assets";
+import { Branch, Star, Arrow } from "@/assets";
 
 const Footer = ({ stars, forks }: { stars: number; forks: number }): JSX.Element => {
   return (
@@ -19,6 +21,12 @@ const Footer = ({ stars, forks }: { stars: number; forks: number }): JSX.Element
             {stars}
           </div>
         </div>
+        <Link href="/resume">
+          <div className={styles.resume}>
+            <span>my resume</span>
+            <Arrow fill="var(--font)" height="0.75rem" />
+          </div>
+        </Link>
       </div>
     </footer>
   );

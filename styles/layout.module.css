@@ -152,7 +152,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 2rem;
   padding: 3rem 0;
   font-size: 1.5rem;
   white-space: nowrap;
@@ -161,6 +161,18 @@
 
 .footer b {
   text-shadow: 5px 5px 10px var(--box-shadow);
+}
+
+.resume {
+  padding: 7px 15px;
+  height: fit-content;
+  border: 1px solid var(--font);
+  border-radius: 10px;
+  font-size: 0.8em;
+}
+
+.resume span {
+  margin-right: 10px;
 }
 
 .count_holder {

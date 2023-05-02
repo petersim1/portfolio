@@ -39,7 +39,6 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
   const [progress, setProgress] = useState<number[]>([]);
   const [options, setOptions] = useState<string[]>([]);
   const [active, setActive] = useState(0);
-  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     // A global identifier of scroll in each section, pass to child components.
@@ -86,25 +85,10 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
     };
   }, []);
 
-  useEffect(() => {
-    const theme = localStorage.getItem("-portfolio-theme-dark");
-    let isDark = false;
-    if (!theme) {
-      const { matches } = window.matchMedia("(prefers-color-scheme: dark)");
-      localStorage.setItem("-portfolio-theme-dark", JSON.stringify(matches));
-      isDark = matches;
-      document.documentElement.dataset.dark = matches ? "true" : "false";
-    } else {
-      document.documentElement.dataset.dark = theme;
-      isDark = JSON.parse(theme);
-    }
-    setDark(isDark);
-  }, []);
-
   return (
     <Layout>
       <Header active={active} setActive={setActive} options={options} />
-      <Light dark={dark} setDark={setDark} />
+      <Light />
       <main>
         <Intro progress={progress.length > 0 ? progress[0] : 0} />
         <Blurb />
