@@ -114,7 +114,7 @@
 
 .item.active {
   font-size: 2.5rem;
-  color: var(--color-three);
+  color: var(--code);
 }
 
 .item:not(.large).active {

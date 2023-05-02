@@ -9,7 +9,7 @@ import EducationItem from "../education";
 
 const Education = (): JSX.Element => {
   return (
-    <section className="h_100" id="education">
+    <section className="h_100" id="education" data-offset-top={50} data-offset-bottom={50}>
       <div className={styles.wrapper}>
         <div className={classNames(worksans.className)}>
           <div className={styles.title}>

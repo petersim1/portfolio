@@ -44,7 +44,7 @@ const Intro = ({ progress }: { progress: number }): JSX.Element => {
   }, [progress, large]);
 
   return (
-    <section className="h_300" id="intro">
+    <section className="h_300" id="intro" data-offset-top={0} data-offset-bottom={0}>
       <div className={styles.parallax}>
         <div
           className={classNames(styles.intro_holder, worksans.className, { [styles.large]: large })}
