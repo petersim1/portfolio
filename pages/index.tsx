@@ -35,13 +35,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-const Home = ({
-  stargazers_count,
-  forks_count,
-}: {
-  stargazers_count: number;
-  forks_count: number;
-}): JSX.Element => {
+const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element => {
   const [progress, setProgress] = useState<number[]>([]);
   const [options, setOptions] = useState<string[]>([]);
   const [active, setActive] = useState(0);
@@ -135,7 +129,7 @@ const Home = ({
               style={{
                 position: "absolute",
                 left: "50%",
-                transform: "translateX(-50%)",
+                transform: "translate(-50%, 10px)",
                 height: "100%",
                 opacity: 0.1,
               }}
@@ -150,13 +144,13 @@ const Home = ({
                 bottom: 0,
                 left: 0,
                 overflow: "hidden",
-                background: "var(--bg)",
+                background: "linear-gradient(0deg, var(--bg) 97.5%, transparent)",
               }}
             />
           </div>
         )}
       </main>
-      <Footer stars={stargazers_count} forks={forks_count} />
+      <Footer stars={stars} forks={forks} />
     </Layout>
   );
 };
