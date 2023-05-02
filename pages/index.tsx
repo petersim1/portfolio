@@ -64,8 +64,8 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
         //   arrs.push(Math.max(0, Math.min(100, (100 * -top) / (height - innerHeight))));
         // }
         const { offsetTop, offsetBottom } = section.dataset;
-        const trueOffsetTop = (innerHeight * Number(offsetTop!)) / 100;
-        const trueOffsetBottom = (innerHeight * Number(offsetBottom!)) / 100;
+        const trueOffsetTop = (innerHeight * Number(offsetTop || "0")) / 100;
+        const trueOffsetBottom = (innerHeight * Number(offsetBottom || "0")) / 100;
         const val = Math.max(
           0,
           Math.min(
@@ -129,7 +129,7 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
               style={{
                 position: "absolute",
                 left: "50%",
-                transform: "translate(-50%, 10px)",
+                transform: "translate(-50%, 0)",
                 height: "100%",
                 opacity: 0.1,
               }}
@@ -144,7 +144,7 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
                 bottom: 0,
                 left: 0,
                 overflow: "hidden",
-                background: "linear-gradient(0deg, var(--bg) 97.5%, transparent)",
+                background: "linear-gradient(0deg, var(--bg) 92%, transparent)",
               }}
             />
           </div>
