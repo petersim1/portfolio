@@ -101,8 +101,6 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
     setDark(isDark);
   }, []);
 
-  console.log(progress);
-
   return (
     <Layout>
       <Header active={active} setActive={setActive} options={options} />

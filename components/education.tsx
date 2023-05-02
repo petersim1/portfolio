@@ -4,7 +4,13 @@ import Image from "next/image";
 import { inconsolata } from "@/styles/fonts";
 import styles from "@/styles/education.module.css";
 
-const Education = (props: any): JSX.Element => {
+type EduI = {
+  img: string;
+  title: string;
+  courses: string[];
+};
+
+const Education = (props: EduI): JSX.Element => {
   const { img, title, courses } = props;
 
   return (

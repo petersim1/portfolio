@@ -11,6 +11,8 @@ import Mail from "./mail";
 import Branch from "./branch";
 import Star from "./star";
 import NN from "./nn";
+import Plus from "./plus";
+import Minus from "./minus";
 
 export {
   Arrow,
@@ -26,4 +28,6 @@ export {
   Branch,
   Star,
   NN,
+  Plus,
+  Minus,
 };

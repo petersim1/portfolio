@@ -17,7 +17,7 @@ const Header = ({
 }): JSX.Element => {
   const [blocked, setBlocked] = useState(true);
 
-  const handleBlock = () => {
+  const handleBlock = (): void => {
     // throttling. Otherwise difficult to use on mobile.
     setTimeout(() => {
       setBlocked(false);
@@ -47,7 +47,7 @@ const Header = ({
           className={styles.nav_holder}
           id="nav_hover"
           onMouseEnter={handleBlock}
-          onMouseLeave={() => setBlocked(true)}
+          onMouseLeave={(): void => setBlocked(true)}
         >
           {options.map((option, ind) => (
             <span

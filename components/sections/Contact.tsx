@@ -35,7 +35,7 @@ const Contact = ({ progress }: { progress: number }): JSX.Element => {
     }
   }, [social]);
 
-  const Icon = (props: any): JSX.Element => {
+  const Icon = (props: React.HTMLProps<SVGElement>): JSX.Element => {
     const { type, ...rest } = props;
 
     if (type === "twitter") {
@@ -56,7 +56,7 @@ const Contact = ({ progress }: { progress: number }): JSX.Element => {
   const powers = [1.25, 1.2, 1.15, 1.1, 1];
 
   return (
-    <section className="h_200" id="contact" data-offset-top={0} data-offset-bottom={0}>
+    <section className="h_200" id="contact" data-offset-top={0} data-offset-bottom={-10}>
       <div className={classNames(styles.content, worksans.className)}>
         <div className={styles.title}>
           <h3>
@@ -76,7 +76,7 @@ const Contact = ({ progress }: { progress: number }): JSX.Element => {
               href={contact.link}
               target="_blank"
               referrerPolicy="no-referrer"
-              onMouseEnter={() => setSocial(contact.type)}
+              onMouseEnter={(): void => setSocial(contact.type)}
             >
               <div className={styles.contact}>
                 <div className={styles.placeholder}>

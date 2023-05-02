@@ -44,36 +44,17 @@
   opacity: 0.25;
 }
 
-@keyframes wiggle {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(60deg);
-  }
-  50% {
-    transform: rotate(40deg);
-  }
-  75% {
-    transform: rotate(45deg);
-  }
-}
-
-.arrow {
-  width: 20px;
-  height: 20px;
+.plus_minus {
+  width: 15px;
+  height: 15px;
   transform: rotate(0deg);
   position: relative;
-  transition: transform 0.25s ease-in-out;
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
 }
 
-.arrow.open {
-  transform: rotate(45deg);
-}
-
-.project_header:hover .arrow:not(.open) {
-  animation: wiggle 0.5s linear;
-  transform: rotate(45deg);
+.project_header:hover .plus_minus:not(.open) {
+  opacity: 0.75;
 }
 
 .content {
