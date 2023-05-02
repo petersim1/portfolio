@@ -10,7 +10,7 @@ import Blurb from "@/components/sections/Blurb";
 import Education from "@/components/sections/Education";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
-import { NN } from "@/assets";
+import Mask from "@/components/mask";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch("https://api.github.com/repos/petersim1/portfolio");
@@ -113,42 +113,7 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
         <Education />
         <Projects />
         <Contact progress={progress.length > 0 ? progress[4] : 0} />
-        {progress.length > 0 && (
-          <div
-            style={{
-              position: "absolute",
-              top: "300vh",
-              right: 0,
-              height: "200vh",
-              left: 0,
-              zIndex: 0,
-              overflow: "hidden",
-            }}
-          >
-            <NN
-              style={{
-                position: "absolute",
-                left: "50%",
-                transform: "translate(-50%, 0)",
-                height: "100%",
-                opacity: 0.1,
-              }}
-              fill="grey"
-              stroke="grey"
-            />
-            <div
-              style={{
-                position: "absolute",
-                height: `calc(200vh*(100 - (${progress[1] + progress[2]})/2)/100)`,
-                right: 0,
-                bottom: 0,
-                left: 0,
-                overflow: "hidden",
-                background: "linear-gradient(0deg, var(--bg) 92%, transparent)",
-              }}
-            />
-          </div>
-        )}
+        <Mask progress={progress} />
       </main>
       <Footer stars={stars} forks={forks} />
     </Layout>
