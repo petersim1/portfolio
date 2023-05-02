@@ -64,7 +64,17 @@ const Home = ({stargazers_count, forks_count}: {stargazers_count: number, forks_
         // } else {
         //   arrs.push(Math.max(0, Math.min(100, (100 * -top) / (height - innerHeight))));
         // }
-        arrs.push(Math.max(0, Math.min(100, 100 * top / (innerHeight - height))));
+        const {offsetTop, offsetBottom} = section.dataset;
+        const trueOffsetTop = innerHeight * Number(offsetTop!) / 100;
+        const trueOffsetBottom = innerHeight * Number(offsetBottom!) / 100;
+        const val = Math.max(
+          0,
+          Math.min(
+            100,
+            100 * (top - trueOffsetTop)/ (innerHeight - height - trueOffsetTop - trueOffsetBottom)
+            )
+        );
+        arrs.push(val);
       });
       setProgress(arrs);
     };
@@ -91,6 +101,8 @@ const Home = ({stargazers_count, forks_count}: {stargazers_count: number, forks_
     setDark(isDark);
   }, []);
 
+  console.log(progress);
+
   return (
     <Layout>
       <Header
@@ -107,7 +119,7 @@ const Home = ({stargazers_count, forks_count}: {stargazers_count: number, forks_
         <Contact progress={progress.length >0 ? progress[4] : 0}/>
         {progress.length > 0 && (
           <div style={{position: "absolute", top: "300vh", right: 0, height: "200vh", left: 0, zIndex: 0, overflow: "hidden"}}>
-            <NNFigma style={{position: "absolute", left: "50%", transform: "translateX(-50%)", height: "100%"}}/>
+            <NNFigma style={{position: "absolute", left: "50%", transform: "translateX(-50%)", height: "100%", opacity: 0.1}} fill="grey" stroke="grey"/>
             <div style={{position: "absolute", height: `calc(200vh*(100 - (${progress[1] + progress[2]})/2)/100)`, right: 0, bottom: 0, left: 0, overflow: "hidden", background: "var(--bg)"}}/>
         </div>
         )}
