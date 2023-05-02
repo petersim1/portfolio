@@ -11,6 +11,19 @@ import Mail from "./mail";
 import Branch from "./branch";
 import Star from "./star";
 import NN from "./nn";
-import NNFigma from "./nn_figma"
 
-export { Arrow, Moon, Sun, Github, Outlink, Note, Mirror, Linkedin, Twitter, Mail, Branch, Star, NN, NNFigma };
+export {
+  Arrow,
+  Moon,
+  Sun,
+  Github,
+  Outlink,
+  Note,
+  Mirror,
+  Linkedin,
+  Twitter,
+  Mail,
+  Branch,
+  Star,
+  NN,
+};

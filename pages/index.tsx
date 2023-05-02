@@ -10,7 +10,7 @@ import Blurb from "@/components/sections/Blurb";
 import Education from "@/components/sections/Education";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
-import { NNFigma } from "@/assets";
+import { NN } from "@/assets";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch("https://api.github.com/repos/petersim1/portfolio");
@@ -125,7 +125,7 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
               overflow: "hidden",
             }}
           >
-            <NNFigma
+            <NN
               style={{
                 position: "absolute",
                 left: "50%",
