@@ -12,7 +12,6 @@ const Light = ({
   dark: boolean;
   setDark: React.Dispatch<React.SetStateAction<boolean>>;
 }): JSX.Element => {
-
   const handleToggle = (): void => {
     setDark(!dark);
     const theme = localStorage.getItem("-portfolio-theme-dark");

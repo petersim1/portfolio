@@ -19,7 +19,7 @@ const Education = (): JSX.Element => {
           </div>
           <div className={styles.education_wrapper}>
             {education.map((ed, ind) => (
-              <EducationItem {...ed} key={ind}/>
+              <EducationItem {...ed} key={ind} />
             ))}
           </div>
         </div>

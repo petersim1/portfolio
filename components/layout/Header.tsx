@@ -15,7 +15,6 @@ const Header = ({
   setActive: React.Dispatch<React.SetStateAction<number>>;
   options: string[];
 }): JSX.Element => {
-
   const [blocked, setBlocked] = useState(true);
 
   const handleBlock = () => {
@@ -23,7 +22,7 @@ const Header = ({
     setTimeout(() => {
       setBlocked(false);
     }, 200);
-  }
+  };
 
   const handleClick = (ind: number, option: string): void => {
     if (blocked) return;
@@ -44,7 +43,12 @@ const Header = ({
             className={styles.profile_pic}
           />
         </div>
-        <div className={styles.nav_holder} id="nav_hover" onMouseEnter={handleBlock} onMouseLeave={() => setBlocked(true)}>
+        <div
+          className={styles.nav_holder}
+          id="nav_hover"
+          onMouseEnter={handleBlock}
+          onMouseLeave={() => setBlocked(true)}
+        >
           {options.map((option, ind) => (
             <span
               key={ind}

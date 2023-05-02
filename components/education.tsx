@@ -5,8 +5,8 @@ import { inconsolata } from "@/styles/fonts";
 import styles from "@/styles/education.module.css";
 
 const Education = (props: any): JSX.Element => {
-  const {img, title, courses} = props;
-  
+  const { img, title, courses } = props;
+
   return (
     <div className={styles.education}>
       <div className={styles.logo}>
@@ -16,7 +16,9 @@ const Education = (props: any): JSX.Element => {
         <p>{title}</p>
         <div className={classNames(styles.courses, inconsolata.className)}>
           {courses.map((course: string, ind: number) => (
-            <div className={styles.course} key={ind}>{course}</div>
+            <div className={styles.course} key={ind}>
+              {course}
+            </div>
           ))}
         </div>
       </div>
