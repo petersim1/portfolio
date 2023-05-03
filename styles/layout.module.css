@@ -247,8 +247,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: calc((100% - 40px*6)/5);
-  justify-content: center;
+  justify-content: space-between;
 }
 
 @keyframes flicker {
@@ -270,6 +269,7 @@
   width: 40px;
   height: 40px;
   overflow: hidden;
+  opacity: 0;
   animation-name: flicker;
   animation-duration: 4s;
   animation-timing-function: linear;
@@ -281,23 +281,23 @@
 }
 
 .logo[data-animation-delay="1"] {
-  animation-delay: 0.65s;
+  animation-delay: 0.6667s;
 }
 
 .logo[data-animation-delay="2"] {
-  animation-delay: 1.3s;
+  animation-delay: 1.3334s;
 }
 
 .logo[data-animation-delay="3"] {
-  animation-delay: 1.95s;
+  animation-delay: 2.0001s;
 }
 
 .logo[data-animation-delay="4"] {
-  animation-delay: 2.6s;
+  animation-delay: 2.6668s;
 }
 
 .logo[data-animation-delay="5"] {
-  animation-delay: 3.25;
+  animation-delay: 3.3335s;
 }
 
 .logo svg {

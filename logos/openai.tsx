@@ -1,7 +1,7 @@
 const Logo = (): JSX.Element => {
   return (
     <svg
-      fill="#000000"
+      fill="var(--font)"
       width="800px"
       height="800px"
       viewBox="0 0 24 24"

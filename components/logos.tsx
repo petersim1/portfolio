@@ -16,6 +16,7 @@ import {
   Reactjs,
   Starlette,
   Supabase,
+  Openai,
 } from "@/logos";
 import styles from "@/styles/layout.module.css";
 
@@ -35,36 +36,36 @@ const Logos = (): JSX.Element => {
           <div className={styles.logo} data-animation-delay={0}>
             <Pinecone />
           </div>
-          <div className={styles.logo} data-animation-delay={1}>
+          <div className={styles.logo} data-animation-delay={2}>
             <Git />
           </div>
-          <div className={styles.logo} data-animation-delay={2}>
+          <div className={styles.logo} data-animation-delay={4}>
             <Nodejs />
           </div>
-          <div className={styles.logo} data-animation-delay={3}>
+          <div className={styles.logo} data-animation-delay={5}>
             <Javascript />
           </div>
-          <div className={styles.logo} data-animation-delay={4}>
+          <div className={styles.logo} data-animation-delay={3}>
             <Graphql />
           </div>
-          <div className={styles.logo} data-animation-delay={5}>
+          <div className={styles.logo} data-animation-delay={1}>
             <Docker />
           </div>
         </div>
         <div className={styles.logo_row}>
-          <div className={styles.logo} data-animation-delay={5}>
+          <div className={styles.logo} data-animation-delay={1}>
             <Starlette />
           </div>
-          <div className={styles.logo} data-animation-delay={4}>
+          <div className={styles.logo} data-animation-delay={3}>
             <Firestore />
           </div>
-          <div className={styles.logo} data-animation-delay={3}>
+          <div className={styles.logo} data-animation-delay={5}>
             <Python />
           </div>
-          <div className={styles.logo} data-animation-delay={2}>
+          <div className={styles.logo} data-animation-delay={4}>
             <Typescript />
           </div>
-          <div className={styles.logo} data-animation-delay={1}>
+          <div className={styles.logo} data-animation-delay={2}>
             <Reactjs />
           </div>
           <div className={styles.logo} data-animation-delay={0}>
@@ -86,6 +87,9 @@ const Logos = (): JSX.Element => {
           </div>
           <div className={styles.logo} data-animation-delay={4}>
             <Supabase />
+          </div>
+          <div className={styles.logo} data-animation-delay={4}>
+            <Openai />
           </div>
         </div>
       </div>
