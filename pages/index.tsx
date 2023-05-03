@@ -97,7 +97,7 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
         <Projects />
         <Contact progress={progress.length > 0 ? progress[4] : 0} />
         <Mask progress={progress} />
-        <Logos progress={progress} />
+        <Logos />
       </main>
       <Footer stars={stars} forks={forks} />
     </Layout>

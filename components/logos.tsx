@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import {
   Python,
   Pinecone,
@@ -17,12 +16,11 @@ import {
   Reactjs,
   Starlette,
   Supabase,
+  Openai,
 } from "@/logos";
 import styles from "@/styles/layout.module.css";
 
-const Logos = ({ progress }: { progress: number[] }): JSX.Element => {
-  const totProgress = progress.length > 0 ? progress[1] + progress[2] : 0;
-
+const Logos = (): JSX.Element => {
   // const getParabolicOpacity = (offset: number, duration: number): number => {
   //   // offset in terms of when to start wrt progress
   //   // duration in terms of how long process lasts wrt progress
@@ -34,57 +32,64 @@ const Logos = ({ progress }: { progress: number[] }): JSX.Element => {
   return (
     <div className={styles.logo_wrapper}>
       <div className={styles.logos_holder}>
-        <div className={styles.logos}>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 80 })}>
+        <div className={styles.logo_row}>
+          <div className={styles.logo} data-animation-delay={0}>
             <Pinecone />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 100 })}>
-            <Python />
-          </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 80 })}>
-            <Pytorch />
-          </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 90 })}>
-            <Javascript />
-          </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 110 })}>
-            <Typescript />
-          </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 80 })}>
-            <Docker />
-          </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 110 })}>
-            <Ethereum />
-          </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 100 })}>
-            <Firestore />
-          </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 90 })}>
+          <div className={styles.logo} data-animation-delay={2}>
             <Git />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 110 })}>
-            <Graphql />
-          </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 100 })}>
-            <Mongodb />
-          </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 80 })}>
-            <Mysql />
-          </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 110 })}>
-            <Nextjs />
-          </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 90 })}>
+          <div className={styles.logo} data-animation-delay={4}>
             <Nodejs />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 100 })}>
-            <Reactjs />
+          <div className={styles.logo} data-animation-delay={5}>
+            <Javascript />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 100 })}>
+          <div className={styles.logo} data-animation-delay={3}>
+            <Graphql />
+          </div>
+          <div className={styles.logo} data-animation-delay={1}>
+            <Docker />
+          </div>
+        </div>
+        <div className={styles.logo_row}>
+          <div className={styles.logo} data-animation-delay={1}>
             <Starlette />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 80 })}>
+          <div className={styles.logo} data-animation-delay={3}>
+            <Firestore />
+          </div>
+          <div className={styles.logo} data-animation-delay={5}>
+            <Python />
+          </div>
+          <div className={styles.logo} data-animation-delay={4}>
+            <Typescript />
+          </div>
+          <div className={styles.logo} data-animation-delay={2}>
+            <Reactjs />
+          </div>
+          <div className={styles.logo} data-animation-delay={0}>
+            <Mysql />
+          </div>
+        </div>
+        <div className={styles.logo_row}>
+          <div className={styles.logo} data-animation-delay={3}>
+            <Mongodb />
+          </div>
+          <div className={styles.logo} data-animation-delay={1}>
+            <Nextjs />
+          </div>
+          <div className={styles.logo} data-animation-delay={0}>
+            <Ethereum />
+          </div>
+          <div className={styles.logo} data-animation-delay={2}>
+            <Pytorch />
+          </div>
+          <div className={styles.logo} data-animation-delay={4}>
             <Supabase />
+          </div>
+          <div className={styles.logo} data-animation-delay={4}>
+            <Openai />
           </div>
         </div>
       </div>

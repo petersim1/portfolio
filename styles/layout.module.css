@@ -219,25 +219,13 @@
   background: linear-gradient(0deg, var(--bg) 92%, transparent);
 }
 
-@keyframes flicker {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.2;
-  }
-  40% {
-    opacity: 0;
-  }
-}
-
 .logo_wrapper {
   position: absolute;
   top: 400vh;
   transform: translateY(-50%);
   width: 100%;
-  height: 200px;
   overflow: hidden;
+  height: 200px;
 }
 
 .logos_holder {
@@ -246,31 +234,70 @@
   top: 0;
   transform: translateX(-50%);
   margin: auto;
-  width: 800px;
-  min-width: 800px;
+  max-width: 1000px;
+  width: 90%;
+  min-width: 600px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 }
 
-.logos {
+.logo_row {
   width: 100%;
-  overflow-x: hidden;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
-  column-gap: 80px;
-  row-gap: 40px;
+  justify-content: space-between;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .logo {
-  display: inline-block;
   width: 40px;
   height: 40px;
   overflow: hidden;
   opacity: 0;
+  animation-name: flicker;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-.logo.active {
-  animation: flicker 4s linear infinite;
+.logo[data-animation-delay="0"] {
+  animation-delay: 0s;
+}
+
+.logo[data-animation-delay="1"] {
+  animation-delay: 0.6667s;
+}
+
+.logo[data-animation-delay="2"] {
+  animation-delay: 1.3334s;
+}
+
+.logo[data-animation-delay="3"] {
+  animation-delay: 2.0001s;
+}
+
+.logo[data-animation-delay="4"] {
+  animation-delay: 2.6668s;
+}
+
+.logo[data-animation-delay="5"] {
+  animation-delay: 3.3335s;
 }
 
 .logo svg {
