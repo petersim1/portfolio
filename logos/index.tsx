@@ -16,6 +16,7 @@ import Reactjs from "./reactjs";
 import Starlette from "./starlette";
 import Supabase from "./supabase";
 import Typescript from "./typescript";
+import Openai from "./openai";
 
 export {
   Docker,
@@ -36,4 +37,5 @@ export {
   Starlette,
   Supabase,
   Typescript,
+  Openai,
 };

@@ -36,55 +36,55 @@ const Logos = (): JSX.Element => {
             <Pinecone />
           </div>
           <div className={styles.logo} data-animation-delay={1}>
-            <Python />
+            <Git />
+          </div>
+          <div className={styles.logo} data-animation-delay={2}>
+            <Nodejs />
           </div>
           <div className={styles.logo} data-animation-delay={3}>
-            <Pytorch />
-          </div>
-          <div className={styles.logo} data-animation-delay={1}>
             <Javascript />
           </div>
-          <div className={styles.logo} data-animation-delay={0}>
-            <Typescript />
-          </div>
           <div className={styles.logo} data-animation-delay={4}>
+            <Graphql />
+          </div>
+          <div className={styles.logo} data-animation-delay={5}>
             <Docker />
           </div>
         </div>
         <div className={styles.logo_row}>
-          <div className={styles.logo} data-animation-delay={3}>
-            <Ethereum />
+          <div className={styles.logo} data-animation-delay={5}>
+            <Starlette />
           </div>
           <div className={styles.logo} data-animation-delay={4}>
             <Firestore />
           </div>
-          <div className={styles.logo} data-animation-delay={0}>
-            <Git />
-          </div>
-          <div className={styles.logo} data-animation-delay={1}>
-            <Graphql />
+          <div className={styles.logo} data-animation-delay={3}>
+            <Python />
           </div>
           <div className={styles.logo} data-animation-delay={2}>
-            <Mongodb />
+            <Typescript />
           </div>
           <div className={styles.logo} data-animation-delay={1}>
+            <Reactjs />
+          </div>
+          <div className={styles.logo} data-animation-delay={0}>
             <Mysql />
           </div>
         </div>
         <div className={styles.logo_row}>
-          <div className={styles.logo} data-animation-delay={0}>
+          <div className={styles.logo} data-animation-delay={3}>
+            <Mongodb />
+          </div>
+          <div className={styles.logo} data-animation-delay={1}>
             <Nextjs />
           </div>
           <div className={styles.logo} data-animation-delay={0}>
-            <Nodejs />
-          </div>
-          <div className={styles.logo} data-animation-delay={4}>
-            <Reactjs />
-          </div>
-          <div className={styles.logo} data-animation-delay={1}>
-            <Starlette />
+            <Ethereum />
           </div>
           <div className={styles.logo} data-animation-delay={2}>
+            <Pytorch />
+          </div>
+          <div className={styles.logo} data-animation-delay={4}>
             <Supabase />
           </div>
         </div>
