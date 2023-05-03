@@ -11,6 +11,7 @@ import Education from "@/components/sections/Education";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
 import Mask from "@/components/mask";
+import Logos from "@/components/logos";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch("https://api.github.com/repos/petersim1/portfolio");
@@ -96,6 +97,7 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
         <Projects />
         <Contact progress={progress.length > 0 ? progress[4] : 0} />
         <Mask progress={progress} />
+        <Logos progress={progress} />
       </main>
       <Footer stars={stars} forks={forks} />
     </Layout>
