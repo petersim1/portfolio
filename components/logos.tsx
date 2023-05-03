@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import {
   Python,
   Pinecone,
@@ -20,9 +19,7 @@ import {
 } from "@/logos";
 import styles from "@/styles/layout.module.css";
 
-const Logos = ({ progress }: { progress: number[] }): JSX.Element => {
-  const totProgress = progress.length > 0 ? progress[1] + progress[2] : 0;
-
+const Logos = (): JSX.Element => {
   // const getParabolicOpacity = (offset: number, duration: number): number => {
   //   // offset in terms of when to start wrt progress
   //   // duration in terms of how long process lasts wrt progress
@@ -34,56 +31,60 @@ const Logos = ({ progress }: { progress: number[] }): JSX.Element => {
   return (
     <div className={styles.logo_wrapper}>
       <div className={styles.logos_holder}>
-        <div className={styles.logos}>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 80 })}>
+        <div className={styles.logo_row}>
+          <div className={styles.logo} data-animation-delay={0}>
             <Pinecone />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 100 })}>
+          <div className={styles.logo} data-animation-delay={1}>
             <Python />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 80 })}>
+          <div className={styles.logo} data-animation-delay={3}>
             <Pytorch />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 90 })}>
+          <div className={styles.logo} data-animation-delay={1}>
             <Javascript />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 110 })}>
+          <div className={styles.logo} data-animation-delay={0}>
             <Typescript />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 80 })}>
+          <div className={styles.logo} data-animation-delay={4}>
             <Docker />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 110 })}>
+        </div>
+        <div className={styles.logo_row}>
+          <div className={styles.logo} data-animation-delay={3}>
             <Ethereum />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 100 })}>
+          <div className={styles.logo} data-animation-delay={4}>
             <Firestore />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 90 })}>
+          <div className={styles.logo} data-animation-delay={0}>
             <Git />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 110 })}>
+          <div className={styles.logo} data-animation-delay={1}>
             <Graphql />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 100 })}>
+          <div className={styles.logo} data-animation-delay={2}>
             <Mongodb />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 80 })}>
+          <div className={styles.logo} data-animation-delay={1}>
             <Mysql />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 110 })}>
+        </div>
+        <div className={styles.logo_row}>
+          <div className={styles.logo} data-animation-delay={0}>
             <Nextjs />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 90 })}>
+          <div className={styles.logo} data-animation-delay={0}>
             <Nodejs />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 100 })}>
+          <div className={styles.logo} data-animation-delay={4}>
             <Reactjs />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 100 })}>
+          <div className={styles.logo} data-animation-delay={1}>
             <Starlette />
           </div>
-          <div className={classNames(styles.logo, { [styles.active]: totProgress >= 80 })}>
+          <div className={styles.logo} data-animation-delay={2}>
             <Supabase />
           </div>
         </div>
