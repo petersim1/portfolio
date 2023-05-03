@@ -1,81 +1,89 @@
 const NN = (props: any): JSX.Element => {
-
-  const lineStyle = {strokeWidth: 0.5, strokeOpacity: 0.43, stroke: "rgb(80,80,80)"};
-  const circleStyle = {fill: "rgb(255,255,255)", stroke: "rgb(51,51,51)"};
-
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2560 969" {...props}>
-      <g>
-        <path className="link" marker-end="" d="M1130,204.5, 1210,434.5" style={lineStyle} />
-        <path className="link" marker-end="" d="M1130,204.5, 1250,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1130,204.5, 1290,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1130,204.5, 1330,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1170,204.5, 1210,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1170,204.5, 1250,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1170,204.5, 1290,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1170,204.5, 1330,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1210,204.5, 1210,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1210,204.5, 1250,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1210,204.5, 1290,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1210,204.5, 1330,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1250,204.5, 1210,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1250,204.5, 1250,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1250,204.5, 1290,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1250,204.5, 1330,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1290,204.5, 1210,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1290,204.5, 1250,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1290,204.5, 1290,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1290,204.5, 1330,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1330,204.5, 1210,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1330,204.5, 1250,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1330,204.5, 1290,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1330,204.5, 1330,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1370,204.5, 1210,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1370,204.5, 1250,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1370,204.5, 1290,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1370,204.5, 1330,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1410,204.5, 1210,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1410,204.5, 1250,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1410,204.5, 1290,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1410,204.5, 1330,434.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1210,434.5, 1210,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1210,434.5, 1250,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1210,434.5, 1290,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1210,434.5, 1330,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1250,434.5, 1210,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1250,434.5, 1250,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1250,434.5, 1290,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1250,434.5, 1330,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1290,434.5, 1210,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1290,434.5, 1250,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1290,434.5, 1290,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1290,434.5, 1330,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1330,434.5, 1210,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1330,434.5, 1250,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1330,434.5, 1290,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1330,434.5, 1330,664.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1210,664.5, 1270,894.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1250,664.5, 1270,894.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1290,664.5, 1270,894.5" style={lineStyle}/>
-        <path className="link" marker-end="" d="M1330,664.5, 1270,894.5" style={lineStyle}/>
-        <circle r="10" className="node" id="0_0" cx="10" cy="10" style={circleStyle}/>
-        <circle r="10" className="node" id="0_1" cx="1170" cy="10" style={circleStyle}/>
-        <circle r="10" className="node" id="0_2" cx="1210" cy="10" style={circleStyle}/>
-        <circle r="10" className="node" id="0_3" cx="1250" cy="10" style={circleStyle}/>
-        <circle r="10" className="node" id="0_4" cx="1290" cy="10" style={circleStyle}/>
-        <circle r="10" className="node" id="0_5" cx="1330" cy="10" style={circleStyle}/>
-        <circle r="10" className="node" id="0_6" cx="1370" cy="10" style={circleStyle}/>
-        <circle r="10" className="node" id="0_7" cx="1410" cy="10" style={circleStyle}/>
-        <circle r="10" className="node" id="1_0" cx="1210" cy="434.5" style={circleStyle}/>
-        <circle r="10" className="node" id="1_1" cx="1250" cy="434.5" style={circleStyle}/>
-        <circle r="10" className="node" id="1_2" cx="1290" cy="434.5" style={circleStyle}/>
-        <circle r="10" className="node" id="1_3" cx="1330" cy="434.5" style={circleStyle}/>
-        <circle r="10" className="node" id="2_0" cx="1210" cy="664.5" style={circleStyle}/>
-        <circle r="10" className="node" id="2_1" cx="1250" cy="664.5" style={circleStyle}/>
-        <circle r="10" className="node" id="2_2" cx="1290" cy="664.5" style={circleStyle}/>
-        <circle r="10" className="node" id="2_3" cx="1330" cy="664.5" style={circleStyle}/>
-        <circle r="10" className="node" id="3_0" cx="1270" cy="894.5" style={circleStyle}/>
-      </g>
+    <svg viewBox="0 0 1512 1890" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <circle cx="47.5" cy="150.0" r="12" />
+      <circle cx="249.92857142857142" cy="150.0" r="12" />
+      <circle cx="452.35714285714283" cy="150.0" r="12" />
+      <circle cx="654.7857142857142" cy="150.0" r="12" />
+      <circle cx="857.2142857142857" cy="150.0" r="12" />
+      <circle cx="1059.642857142857" cy="150.0" r="12" />
+      <circle cx="1262.0714285714284" cy="150.0" r="12" />
+      <circle cx="1464.4999999999998" cy="150.0" r="12" />
+      <circle cx="224.625" cy="630.0" r="12" />
+      <circle cx="490.3125" cy="630.0" r="12" />
+      <circle cx="756.0" cy="630.0" r="12" />
+      <circle cx="1021.6875" cy="630.0" r="12" />
+      <circle cx="1287.375" cy="630.0" r="12" />
+      <circle cx="401.75" cy="1110.0" r="12" />
+      <circle cx="637.9166666666666" cy="1110.0" r="12" />
+      <circle cx="874.0833333333333" cy="1110.0" r="12" />
+      <circle cx="1110.25" cy="1110.0" r="12" />
+      <circle cx="756.0" cy="1590.0" r="12" />
+      <line x1="47.5" y1="150.0" x2="224.625" y2="630.0" />
+      <line x1="47.5" y1="150.0" x2="490.3125" y2="630.0" />
+      <line x1="47.5" y1="150.0" x2="756.0" y2="630.0" />
+      <line x1="47.5" y1="150.0" x2="1021.6875" y2="630.0" />
+      <line x1="47.5" y1="150.0" x2="1287.375" y2="630.0" />
+      <line x1="249.92857142857142" y1="150.0" x2="224.625" y2="630.0" />
+      <line x1="249.92857142857142" y1="150.0" x2="490.3125" y2="630.0" />
+      <line x1="249.92857142857142" y1="150.0" x2="756.0" y2="630.0" />
+      <line x1="249.92857142857142" y1="150.0" x2="1021.6875" y2="630.0" />
+      <line x1="249.92857142857142" y1="150.0" x2="1287.375" y2="630.0" />
+      <line x1="452.35714285714283" y1="150.0" x2="224.625" y2="630.0" />
+      <line x1="452.35714285714283" y1="150.0" x2="490.3125" y2="630.0" />
+      <line x1="452.35714285714283" y1="150.0" x2="756.0" y2="630.0" />
+      <line x1="452.35714285714283" y1="150.0" x2="1021.6875" y2="630.0" />
+      <line x1="452.35714285714283" y1="150.0" x2="1287.375" y2="630.0" />
+      <line x1="654.7857142857142" y1="150.0" x2="224.625" y2="630.0" />
+      <line x1="654.7857142857142" y1="150.0" x2="490.3125" y2="630.0" />
+      <line x1="654.7857142857142" y1="150.0" x2="756.0" y2="630.0" />
+      <line x1="654.7857142857142" y1="150.0" x2="1021.6875" y2="630.0" />
+      <line x1="654.7857142857142" y1="150.0" x2="1287.375" y2="630.0" />
+      <line x1="857.2142857142857" y1="150.0" x2="224.625" y2="630.0" />
+      <line x1="857.2142857142857" y1="150.0" x2="490.3125" y2="630.0" />
+      <line x1="857.2142857142857" y1="150.0" x2="756.0" y2="630.0" />
+      <line x1="857.2142857142857" y1="150.0" x2="1021.6875" y2="630.0" />
+      <line x1="857.2142857142857" y1="150.0" x2="1287.375" y2="630.0" />
+      <line x1="1059.642857142857" y1="150.0" x2="224.625" y2="630.0" />
+      <line x1="1059.642857142857" y1="150.0" x2="490.3125" y2="630.0" />
+      <line x1="1059.642857142857" y1="150.0" x2="756.0" y2="630.0" />
+      <line x1="1059.642857142857" y1="150.0" x2="1021.6875" y2="630.0" />
+      <line x1="1059.642857142857" y1="150.0" x2="1287.375" y2="630.0" />
+      <line x1="1262.0714285714284" y1="150.0" x2="224.625" y2="630.0" />
+      <line x1="1262.0714285714284" y1="150.0" x2="490.3125" y2="630.0" />
+      <line x1="1262.0714285714284" y1="150.0" x2="756.0" y2="630.0" />
+      <line x1="1262.0714285714284" y1="150.0" x2="1021.6875" y2="630.0" />
+      <line x1="1262.0714285714284" y1="150.0" x2="1287.375" y2="630.0" />
+      <line x1="1464.4999999999998" y1="150.0" x2="224.625" y2="630.0" />
+      <line x1="1464.4999999999998" y1="150.0" x2="490.3125" y2="630.0" />
+      <line x1="1464.4999999999998" y1="150.0" x2="756.0" y2="630.0" />
+      <line x1="1464.4999999999998" y1="150.0" x2="1021.6875" y2="630.0" />
+      <line x1="1464.4999999999998" y1="150.0" x2="1287.375" y2="630.0" />
+      <line x1="224.625" y1="630.0" x2="401.75" y2="1110.0" />
+      <line x1="224.625" y1="630.0" x2="637.9166666666666" y2="1110.0" />
+      <line x1="224.625" y1="630.0" x2="874.0833333333333" y2="1110.0" />
+      <line x1="224.625" y1="630.0" x2="1110.25" y2="1110.0" />
+      <line x1="490.3125" y1="630.0" x2="401.75" y2="1110.0" />
+      <line x1="490.3125" y1="630.0" x2="637.9166666666666" y2="1110.0" />
+      <line x1="490.3125" y1="630.0" x2="874.0833333333333" y2="1110.0" />
+      <line x1="490.3125" y1="630.0" x2="1110.25" y2="1110.0" />
+      <line x1="756.0" y1="630.0" x2="401.75" y2="1110.0" />
+      <line x1="756.0" y1="630.0" x2="637.9166666666666" y2="1110.0" />
+      <line x1="756.0" y1="630.0" x2="874.0833333333333" y2="1110.0" />
+      <line x1="756.0" y1="630.0" x2="1110.25" y2="1110.0" />
+      <line x1="1021.6875" y1="630.0" x2="401.75" y2="1110.0" />
+      <line x1="1021.6875" y1="630.0" x2="637.9166666666666" y2="1110.0" />
+      <line x1="1021.6875" y1="630.0" x2="874.0833333333333" y2="1110.0" />
+      <line x1="1021.6875" y1="630.0" x2="1110.25" y2="1110.0" />
+      <line x1="1287.375" y1="630.0" x2="401.75" y2="1110.0" />
+      <line x1="1287.375" y1="630.0" x2="637.9166666666666" y2="1110.0" />
+      <line x1="1287.375" y1="630.0" x2="874.0833333333333" y2="1110.0" />
+      <line x1="1287.375" y1="630.0" x2="1110.25" y2="1110.0" />
+      <line x1="401.75" y1="1110.0" x2="756.0" y2="1590.0" />
+      <line x1="637.9166666666666" y1="1110.0" x2="756.0" y2="1590.0" />
+      <line x1="874.0833333333333" y1="1110.0" x2="756.0" y2="1590.0" />
+      <line x1="1110.25" y1="1110.0" x2="756.0" y2="1590.0" />
+      <line x1="756.0" y1="1590.0" x2="756.0" y2="1890" />
     </svg>
   );
 };

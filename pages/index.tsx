@@ -10,7 +10,8 @@ import Blurb from "@/components/sections/Blurb";
 import Education from "@/components/sections/Education";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
-import { NNFigma } from "@/assets";
+import Mask from "@/components/mask";
+import Logos from "@/components/logos";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch("https://api.github.com/repos/petersim1/portfolio");
@@ -39,7 +40,6 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
   const [progress, setProgress] = useState<number[]>([]);
   const [options, setOptions] = useState<string[]>([]);
   const [active, setActive] = useState(0);
-  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     // A global identifier of scroll in each section, pass to child components.
@@ -64,8 +64,8 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
         //   arrs.push(Math.max(0, Math.min(100, (100 * -top) / (height - innerHeight))));
         // }
         const { offsetTop, offsetBottom } = section.dataset;
-        const trueOffsetTop = (innerHeight * Number(offsetTop!)) / 100;
-        const trueOffsetBottom = (innerHeight * Number(offsetBottom!)) / 100;
+        const trueOffsetTop = (innerHeight * Number(offsetTop || "0")) / 100;
+        const trueOffsetBottom = (innerHeight * Number(offsetBottom || "0")) / 100;
         const val = Math.max(
           0,
           Math.min(
@@ -86,69 +86,18 @@ const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element =
     };
   }, []);
 
-  useEffect(() => {
-    const theme = localStorage.getItem("-portfolio-theme-dark");
-    let isDark = false;
-    if (!theme) {
-      const { matches } = window.matchMedia("(prefers-color-scheme: dark)");
-      localStorage.setItem("-portfolio-theme-dark", JSON.stringify(matches));
-      isDark = matches;
-      document.documentElement.dataset.dark = matches ? "true" : "false";
-    } else {
-      document.documentElement.dataset.dark = theme;
-      isDark = JSON.parse(theme);
-    }
-    setDark(isDark);
-  }, []);
-
-  console.log(progress);
-
   return (
     <Layout>
       <Header active={active} setActive={setActive} options={options} />
-      <Light dark={dark} setDark={setDark} />
+      <Light />
       <main>
         <Intro progress={progress.length > 0 ? progress[0] : 0} />
         <Blurb />
         <Education />
         <Projects />
         <Contact progress={progress.length > 0 ? progress[4] : 0} />
-        {progress.length > 0 && (
-          <div
-            style={{
-              position: "absolute",
-              top: "300vh",
-              right: 0,
-              height: "200vh",
-              left: 0,
-              zIndex: 0,
-              overflow: "hidden",
-            }}
-          >
-            <NNFigma
-              style={{
-                position: "absolute",
-                left: "50%",
-                transform: "translate(-50%, 10px)",
-                height: "100%",
-                opacity: 0.1,
-              }}
-              fill="grey"
-              stroke="grey"
-            />
-            <div
-              style={{
-                position: "absolute",
-                height: `calc(200vh*(100 - (${progress[1] + progress[2]})/2)/100)`,
-                right: 0,
-                bottom: 0,
-                left: 0,
-                overflow: "hidden",
-                background: "linear-gradient(0deg, var(--bg) 97.5%, transparent)",
-              }}
-            />
-          </div>
-        )}
+        <Mask progress={progress} />
+        <Logos progress={progress} />
       </main>
       <Footer stars={stars} forks={forks} />
     </Layout>

@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 import classNames from "classnames";
-import { worksans, inconsolata } from "@/styles/fonts";
+import { worksans } from "@/styles/fonts";
 import styles from "@/styles/education.module.css";
 import { education } from "@/constants";
 import EducationItem from "../education";

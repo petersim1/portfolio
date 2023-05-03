@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
 import styles from "@/styles/projects.module.css";
-import { Arrow, Github, Outlink, Note } from "@/assets";
+import { Github, Outlink, Note, Plus, Minus } from "@/assets";
 
 type DataI = {
   title: string;
@@ -37,16 +37,14 @@ const Project = ({
     }
   };
 
-  const getIcon = (type: string) => {
-    if (type === "site") {
-      return <Outlink fill="var(--font)" />;
-    }
+  const getIcon = (type: string): JSX.Element => {
     if (type === "github") {
       return <Github fill="var(--font)" />;
     }
     if (type === "blog") {
       return <Note fill="var(--font)" />;
     }
+    return <Outlink fill="var(--font)" />;
   };
 
   return (
@@ -55,8 +53,8 @@ const Project = ({
         <div>{data.title}</div>
         <div className={styles.divider} />
         <div>{data.year}</div>
-        <div className={classNames(styles.arrow, { [styles.open]: open === ind })}>
-          <Arrow fill="var(--font)" />
+        <div className={classNames(styles.plus_minus, { [styles.open]: open === ind })}>
+          {open === ind ? <Minus fill="var(--font)" /> : <Plus fill="var(--font)" />}
         </div>
       </div>
       <div className={classNames(styles.content, { [styles.open]: open === ind })}>
