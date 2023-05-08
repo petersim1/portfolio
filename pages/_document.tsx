@@ -9,7 +9,9 @@ const Document = (): JSX.Element => {
         <meta name="theme-color" content="#121212" />
         <link rel="apple-touch-icon" href="/apple-touch.png" />
         <link rel="manifest" href="/manifest.json" />
+        {/* <!-- HTML Meta Tags --> */}
         <meta name="description" content="Portfolio - Peter Simone" />
+        {/* <!-- Facebook Meta Tags --> */}
         <meta property="og:locale" content="en_US" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -18,6 +20,7 @@ const Document = (): JSX.Element => {
         <meta property="og:description" content="Portfolio - Peter Simone" />
         <meta property="og:title" content="Portfolio" />
         <meta property="og:url" content="https://petersim.one" />
+        {/* <!-- Twitter Meta Tags --> */}
         <meta name="twitter:image" content="/og.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@pete_sim1" />
