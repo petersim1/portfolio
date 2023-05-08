@@ -9,7 +9,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
     <ThemeProvider>
       <Head>
         <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <meta property="og:type" content="website" />
+        <title>Portfolio - Peter Simone</title>
       </Head>
       <Component {...pageProps} />
     </ThemeProvider>
