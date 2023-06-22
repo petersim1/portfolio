@@ -49,7 +49,7 @@ const Intro = ({ progress }: { progress: number }): JSX.Element => {
         <div
           className={classNames(styles.intro_holder, worksans.className, { [styles.large]: large })}
         >
-          <div>
+          <div className={styles.grain}>
             <h1>
               Peter
               <br />

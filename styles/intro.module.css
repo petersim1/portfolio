@@ -26,6 +26,16 @@
   flex-direction: column;
 }
 
+.grain {
+  background: radial-gradient(ellipse at 50% 50%, var(--grainy)), url("https://grainy-gradients.vercel.app/noise.svg");
+  filter: contrast(600%) brightness(100%);
+  background-repeat: repeat;
+  background-blend-mode: overlay;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .cycle_holder {
   --fix-height: calc(2*11rem);
   --gap-vert: calc(var(--fix-height)/3);
