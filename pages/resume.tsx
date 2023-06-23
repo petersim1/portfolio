@@ -6,7 +6,7 @@ import { worksans } from "@/styles/fonts";
 import { Arrow } from "@/assets";
 import Light from "@/components/layout/Light";
 
-const Page = (): JSX.Element => {
+export default (): JSX.Element => {
   return (
     <main>
       <section className="h_100" style={{ overflow: "hidden" }}>
@@ -25,16 +25,15 @@ const Page = (): JSX.Element => {
             <Light />
           </div>
           <div className={styles.resume_holder}>
-            <embed
-              src="/resume.pdf#toolbar=0&navpanes=0&scrollbar=0&view=fitH&zoom=120"
+            <object
+              data="/resume.pdf#toolbar=0&navpanes=0&scrollbar=0&view=fitH&zoom=100"
               type="application/pdf"
               className={styles.resume}
             />
+            <p>Can't display resume, but feel free to download it instead!</p>
           </div>
         </div>
       </section>
     </main>
   );
 };
-
-export default Page;

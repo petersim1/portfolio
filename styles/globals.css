@@ -7,7 +7,9 @@
   --color-four: #eeeeee;
   --box-shadow: rgba(0,0,0,0.2);
   --code: #32AFFF;
-  --grainy: var(--font) 50%, var(--bg) 150%;
+  --grainy: var(--bg) -50%, var(--font) 35%;
+  --grainy-mobile: var(--bg) -150%, var(--font) 80%;
+  --grainy-angle: 100deg;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,7 +29,8 @@
   --font: #FFFFFF;
   --box-shadow: rgba(255,255,255,0.3);
   --code: #4AF626;
-  --grainy: var(--font) 40%, var(--bg) 100%;
+  --grainy: var(--bg) -20%, var(--font) 80%;
+  --grainy-mobile: var(--bg) -80%, var(--font) 200%;
 }
 
 

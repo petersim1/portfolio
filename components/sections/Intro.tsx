@@ -4,6 +4,7 @@ import classNames from "classnames";
 import styles from "@/styles/intro.module.css";
 import { worksans } from "@/styles/fonts";
 import { cycle } from "@/constants";
+import { Arrow } from "@/assets";
 
 const Intro = ({ progress }: { progress: number }): JSX.Element => {
   // repeat 1st and last indices to give appearance that it's cycling.
@@ -74,6 +75,14 @@ const Intro = ({ progress }: { progress: number }): JSX.Element => {
               ))}
             </div>
           </div>
+        </div>
+        <div
+          className={classNames(styles.arrow_fix, {
+            [styles.hide]: progress === 100,
+            [styles.large]: large,
+          })}
+        >
+          <Arrow height="1.5rem" width="1.5rem" fill="var(--font)" />
         </div>
       </div>
     </section>
