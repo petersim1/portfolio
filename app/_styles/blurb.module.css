@@ -1,21 +1,20 @@
 .wrapper {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  text-align: right;
+  justify-content: flex-start;
+  text-align: left;
   flex-wrap: wrap;
   height: 100%;
   width: 100%;
+  padding-top: max(5rem, 20%);
+  padding-bottom: max(5rem, 20%);
 }
 
-.title {
-  margin-bottom: 1rem;
+.blurb p {
+  font-size: 2.5rem;
+  line-height: normal;
 }
 
-.title b {
+.blurb b {
   text-shadow: 5px 5px 10px var(--box-shadow);
-}
-
-.blurb {
-  max-width: 70ch;
 }

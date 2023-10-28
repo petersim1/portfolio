@@ -1,10 +1,13 @@
 .wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-wrap: wrap;
+  text-align: right;
   height: 100%;
   width: 100%;
+  padding-top: max(5rem, 20%);
+  padding-bottom: max(5rem, 20%);
 }
 
 .title {
@@ -21,7 +24,7 @@
 .education {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
   column-gap: 20px;
   row-gap: 10px;
 }
