@@ -5,15 +5,18 @@ import styles from "@/_styles/layout.module.css";
 import { NN } from "@/_lib/assets";
 
 const Mask = (): JSX.Element => {
-  const { progress } = useScrollContext();
-  console.log(progress);
-  const totProgress = progress.length > 0 ? progress[1] + progress[2] : 0;
+  const { breakpoints, progress } = useScrollContext();
+  let totProgress = 0;
+  if (progress.length > 0) {
+    totProgress = progress.slice(0, 3).reduce((a, b) => a + b, 0) / 3;
+  }
+  const totHeight = breakpoints[2];
   return (
-    <div className={styles.mask_holder}>
+    <div className={styles.mask_holder} style={{ height: `${totHeight}px` }}>
       <NN />
       <div
         style={{
-          height: `calc(200vh*(100 - (${totProgress})/2)/100)`,
+          height: `calc(${totHeight}px*(100 - ${totProgress})/100)`,
         }}
       />
     </div>
