@@ -7,7 +7,7 @@ type GithubI = {
 };
 
 export const github = (): Promise<GithubI> => {
-  return fetch("https://api.github.com/repos/petersim1/petersim1.github.io")
+  return fetch("https://api.github.com/repos/petersim1/portfolio")
     .then((response) => {
       if (response.ok) {
         return response.json();

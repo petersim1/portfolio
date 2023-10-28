@@ -1,6 +1,4 @@
-"use client";
-
-import { useContext } from "react";
+"use server";
 
 import Header from "@/_components/layout/Header";
 import Light from "@/_components/layout/Light";
@@ -13,26 +11,23 @@ import Projects from "@/_components/sections/Projects";
 import Contact from "@/_components/sections/Contact";
 import Mask from "@/_components/mask";
 import Logos from "@/_components/logos";
-import { ScrollContext } from "@/_state";
-// import { github } from "@/_actions";
 
-export default (): JSX.Element => {
-  const { active, setActive, options, progress } = useContext(ScrollContext);
+export default async (): Promise<JSX.Element> => {
   return (
     <Layout>
-      <Header active={active} setActive={setActive} options={options} />
+      <Header />
       <Light />
       <main>
-        <Intro progress={progress.length > 0 ? progress[0] : 0} />
+        <Intro />
         <Blurb />
         <Education />
         <Projects />
-        <Contact progress={progress.length > 0 ? progress[4] : 0} />
-        <Mask progress={progress} />
+        <Contact />
+        <Mask />
         <Logos />
       </main>
-      {/* <Footer stars={stars} forks={forks} /> */}
-      <Footer stars={0} forks={0} />
+      {/* @ts-expect-error Server Component */}
+      <Footer />
     </Layout>
   );
 };

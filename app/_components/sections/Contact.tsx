@@ -1,15 +1,21 @@
-import classNames from "classnames";
-import { useState, useEffect } from "react";
+"use client";
 
+import classNames from "classnames";
+import { useState, useEffect, useContext } from "react";
+
+import { ScrollContext } from "@/_state";
 import styles from "@/_styles/contact.module.css";
 import { worksans, spacemono, inconsolata } from "@/_styles/fonts";
 import { contacts } from "@/_lib/constants";
 import { Mirror, Twitter, Linkedin, Github, Mail } from "@/_assets";
 
-const Contact = ({ progress }: { progress: number }): JSX.Element => {
+const Contact = (): JSX.Element => {
   const [social, setSocial] = useState("");
   const [prevSocial, setPrevSocial] = useState("");
   const [typed, setTyped] = useState("");
+
+  const { progress } = useContext(ScrollContext);
+  const iProgress = progress.length > 0 ? progress[4] : 0;
 
   useEffect(() => {
     if (social !== prevSocial) {
@@ -89,19 +95,19 @@ const Contact = ({ progress }: { progress: number }): JSX.Element => {
                     type={contact.type}
                     height="30px"
                     style={{
-                      left: `calc(max(0px,100vw*(100 - ${Math.pow(progress, powers[ind])})/100))`,
-                      opacity: Math.min(1, Math.pow(progress, powers[ind]) / 200),
+                      left: `calc(max(0px,100vw*(100 - ${Math.pow(iProgress, powers[ind])})/100))`,
+                      opacity: Math.min(1, Math.pow(iProgress, powers[ind]) / 200),
                     }}
                   />
                 </div>
                 <div
                   className={classNames(styles.divider, {
-                    [styles.show]: Math.min(1, Math.pow(progress, powers[ind]) / 100) >= 1,
+                    [styles.show]: Math.min(1, Math.pow(iProgress, powers[ind]) / 100) >= 1,
                   })}
                 />
                 <div
                   className={classNames(styles.follow, {
-                    [styles.show]: Math.min(1, Math.pow(progress, powers[ind]) / 100) >= 1,
+                    [styles.show]: Math.min(1, Math.pow(iProgress, powers[ind]) / 100) >= 1,
                   })}
                 >
                   {contact.type === "email" ? "contact" : "follow"}

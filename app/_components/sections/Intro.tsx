@@ -1,13 +1,18 @@
-import { useMemo, useState, useEffect } from "react";
+"use client";
+
+import { useMemo, useState, useEffect, useContext } from "react";
 import classNames from "classnames";
 
+import { ScrollContext } from "@/_state";
 import styles from "@/_styles/intro.module.css";
 import { worksans } from "@/_styles/fonts";
 import { cycle } from "@/_lib/constants";
 import { Arrow } from "@/_assets";
 
-const Intro = ({ progress }: { progress: number }): JSX.Element => {
+const Intro = (): JSX.Element => {
   // repeat 1st and last indices to give appearance that it's cycling.
+  const { progress } = useContext(ScrollContext);
+  const iProgress = progress.length > 0 ? progress[0] : 0;
   const options = cycle.slice(-1).concat(cycle).concat(cycle.slice(0, 1));
   const [large, setLarge] = useState(true);
 
@@ -30,7 +35,7 @@ const Intro = ({ progress }: { progress: number }): JSX.Element => {
   const query = useMemo(() => {
     const activeInd = Math.min(
       options.length - 2,
-      Math.round((progress / 100) * (options.length - 3)),
+      Math.round((iProgress / 100) * (options.length - 3)),
     );
     let transform;
     if (large) {
@@ -78,7 +83,7 @@ const Intro = ({ progress }: { progress: number }): JSX.Element => {
         </div>
         <div
           className={classNames(styles.arrow_fix, {
-            [styles.hide]: progress === 100,
+            [styles.hide]: iProgress === 100,
             [styles.large]: large,
           })}
         >

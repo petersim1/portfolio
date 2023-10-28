@@ -1,21 +1,16 @@
-/* eslint-disable max-len */
+"use client";
+
 import Image from "next/image";
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useContext } from "react";
 
+import { ScrollContext } from "@/_state";
 import styles from "@/_styles/layout.module.css";
 import { worksans } from "@/_styles/fonts";
 
-const Header = ({
-  active,
-  setActive,
-  options,
-}: {
-  active: number;
-  setActive: React.Dispatch<React.SetStateAction<number>>;
-  options: string[];
-}): JSX.Element => {
+const Header = (): JSX.Element => {
   const [blocked, setBlocked] = useState(true);
+  const { active, setActive, options } = useContext(ScrollContext);
 
   const handleBlock = (): void => {
     // throttling. Otherwise difficult to use on mobile.
