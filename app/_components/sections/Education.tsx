@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import Image from "next/image";
-
 import classNames from "classnames";
-import { worksans } from "@/styles/fonts";
-import styles from "@/styles/education.module.css";
-import { education } from "@/constants";
+
+import { worksans } from "@/_styles/fonts";
+import styles from "@/_styles/education.module.css";
+import { education } from "@/_lib/constants";
 import EducationItem from "../education";
 
 const Education = (): JSX.Element => {

@@ -54,9 +54,10 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["*/api/*.ts"],
+      files: ["app/_actions/*.tsx"],
       rules: {
         "@typescript-eslint/explicit-function-return-type": [OFF],
+        "@typescript-eslint/no-explicit-any": [OFF],
       },
     },
     {
@@ -66,7 +67,7 @@ module.exports = {
       },
     },
     {
-      files: ["assets/*.tsx", "logos/*.tsx"],
+      files: ["app/_lib/assets/*.tsx", "app/_lib/logos/*.tsx"],
       rules: {
         "max-len": [OFF],
         "@typescript-eslint/no-explicit-any": [OFF],

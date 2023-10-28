@@ -1,10 +1,12 @@
 import Link from "next/link";
 
-import styles from "@/styles/layout.module.css";
-import { inconsolata } from "@/styles/fonts";
-import { Branch, Star, Arrow } from "@/assets";
+import styles from "@/_styles/layout.module.css";
+import { inconsolata } from "@/_styles/fonts";
+import { Branch, Star, Arrow } from "@/_lib/assets";
+import { github } from "@/_actions";
 
-const Footer = ({ stars, forks }: { stars: number; forks: number }): JSX.Element => {
+export default async (): Promise<JSX.Element> => {
+  const { stars, forks } = await github();
   return (
     <footer className={inconsolata.className}>
       <div className={styles.footer}>
@@ -31,5 +33,3 @@ const Footer = ({ stars, forks }: { stars: number; forks: number }): JSX.Element
     </footer>
   );
 };
-
-export default Footer;

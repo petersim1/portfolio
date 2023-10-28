@@ -1,21 +1,24 @@
-import { FC, ReactNode, createContext, useState, useEffect, useMemo } from "react";
+"use client";
+
+import { FC, ReactNode, createContext, useState, useEffect, useMemo, useContext } from "react";
 
 const INITIAL_STATE_CONTEXT = {
   dark: false,
   toggleTheme: (): void => {},
 };
 
-type StateContextType = {
+interface ThemeContextI {
   dark: boolean;
   toggleTheme: () => void;
-};
+}
 
-export const ThemeContext = createContext<StateContextType>(INITIAL_STATE_CONTEXT);
+export const ThemeContext = createContext<ThemeContextI>(INITIAL_STATE_CONTEXT);
 
 export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
+    document.body.style.visibility = "visible";
     const theme = localStorage.getItem("-portfolio-theme-dark");
     let isDark = false;
     if (!theme) {
@@ -49,3 +52,5 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };
+
+export const useThemeContext = (): ThemeContextI => useContext(ThemeContext);

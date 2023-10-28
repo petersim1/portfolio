@@ -1,14 +1,14 @@
-/* eslint-disable max-len */
-import { useContext } from "react";
+"use client";
+
 import classNames from "classnames";
 
-import styles from "@/styles/layout.module.css";
-import { worksans } from "@/styles/fonts";
-import { Sun, Moon } from "@/assets";
-import { ThemeContext } from "@/state";
+import styles from "@/_styles/layout.module.css";
+import { worksans } from "@/_styles/fonts";
+import { Sun, Moon } from "@/_lib/assets";
+import { useThemeContext } from "@/_store/theme";
 
 const Light = (): JSX.Element => {
-  const { dark, toggleTheme } = useContext(ThemeContext);
+  const { dark, toggleTheme } = useThemeContext();
 
   return (
     <div className={classNames(styles.light_holder, worksans.className)}>

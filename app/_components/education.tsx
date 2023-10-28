@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import Image from "next/image";
 
-import { inconsolata } from "@/styles/fonts";
-import styles from "@/styles/education.module.css";
+import { inconsolata } from "@/_styles/fonts";
+import styles from "@/_styles/education.module.css";
 
-type EduI = {
+interface EduI {
   img: string;
   title: string;
   courses: string[];
-};
+}
 
 const Education = (props: EduI): JSX.Element => {
   const { img, title, courses } = props;
@@ -16,7 +16,7 @@ const Education = (props: EduI): JSX.Element => {
   return (
     <div className={styles.education}>
       <div className={styles.logo}>
-        <Image src={img} alt="school logo" fill={true} />
+        <Image src={img} alt="school logo" fill={true} sizes="any" />
       </div>
       <div className={styles.description}>
         <p>{title}</p>

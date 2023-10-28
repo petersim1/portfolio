@@ -1,9 +1,9 @@
 import classNames from "classnames";
 
-import styles from "@/styles/projects.module.css";
-import { Github, Outlink, Note, Plus, Minus } from "@/assets";
+import styles from "@/_styles/projects.module.css";
+import { Github, Outlink, Note, Plus, Minus } from "@/_lib/assets";
 
-type DataI = {
+interface DataI {
   title: string;
   year: number;
   description: {
@@ -16,7 +16,7 @@ type DataI = {
       link: string;
     }[];
   };
-};
+}
 
 const Project = ({
   ind,

@@ -1,21 +1,16 @@
-/* eslint-disable max-len */
+"use client";
+
 import Image from "next/image";
 import classNames from "classnames";
 import { useState } from "react";
 
-import styles from "@/styles/layout.module.css";
-import { worksans } from "@/styles/fonts";
+import { useScrollContext } from "@/_store/scroll";
+import styles from "@/_styles/layout.module.css";
+import { worksans } from "@/_styles/fonts";
 
-const Header = ({
-  active,
-  setActive,
-  options,
-}: {
-  active: number;
-  setActive: React.Dispatch<React.SetStateAction<number>>;
-  options: string[];
-}): JSX.Element => {
+const Header = (): JSX.Element => {
   const [blocked, setBlocked] = useState(true);
+  const { active, setActive, options } = useScrollContext();
 
   const handleBlock = (): void => {
     // throttling. Otherwise difficult to use on mobile.
@@ -40,6 +35,7 @@ const Header = ({
             alt="profile"
             priority={true}
             fill={true}
+            sizes="any"
             className={styles.profile_pic}
           />
         </div>
