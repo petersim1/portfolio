@@ -1,15 +1,14 @@
 "use client";
 
-import { useContext } from "react";
 import classNames from "classnames";
 
 import styles from "@/_styles/layout.module.css";
 import { worksans } from "@/_styles/fonts";
 import { Sun, Moon } from "@/_lib/assets";
-import { ThemeContext } from "@/_state";
+import { useThemeContext } from "@/_store/theme";
 
 const Light = (): JSX.Element => {
-  const { dark, toggleTheme } = useContext(ThemeContext);
+  const { dark, toggleTheme } = useThemeContext();
 
   return (
     <div className={classNames(styles.light_holder, worksans.className)}>

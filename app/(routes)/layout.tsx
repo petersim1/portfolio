@@ -1,5 +1,6 @@
 import "@/globals.css";
-import { ThemeProvider, ScrollProvider } from "@/_state";
+import { ThemeProvider } from "@/_store/theme";
+import { ScrollProvider } from "@/_store/scroll";
 import { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
@@ -53,7 +54,7 @@ export const viewport: Viewport = {
 export default ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
     <html lang="en">
-      <body>
+      <body style={{ visibility: "hidden" }}>
         <ThemeProvider>
           <ScrollProvider>{children}</ScrollProvider>
         </ThemeProvider>

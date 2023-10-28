@@ -2,15 +2,15 @@
 
 import Image from "next/image";
 import classNames from "classnames";
-import { useState, useContext } from "react";
+import { useState } from "react";
 
-import { ScrollContext } from "@/_state";
+import { useScrollContext } from "@/_store/scroll";
 import styles from "@/_styles/layout.module.css";
 import { worksans } from "@/_styles/fonts";
 
 const Header = (): JSX.Element => {
   const [blocked, setBlocked] = useState(true);
-  const { active, setActive, options } = useContext(ScrollContext);
+  const { active, setActive, options } = useScrollContext();
 
   const handleBlock = (): void => {
     // throttling. Otherwise difficult to use on mobile.

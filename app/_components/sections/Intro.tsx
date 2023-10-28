@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useState, useEffect, useContext } from "react";
+import { useMemo, useState, useEffect } from "react";
 import classNames from "classnames";
 
-import { ScrollContext } from "@/_state";
+import { useScrollContext } from "@/_store/scroll";
 import styles from "@/_styles/intro.module.css";
 import { worksans } from "@/_styles/fonts";
 import { cycle } from "@/_lib/constants";
@@ -11,7 +11,7 @@ import { Arrow } from "@/_lib/assets";
 
 const Intro = (): JSX.Element => {
   // repeat 1st and last indices to give appearance that it's cycling.
-  const { progress } = useContext(ScrollContext);
+  const { progress } = useScrollContext();
   const iProgress = progress.length > 0 ? progress[0] : 0;
   const options = cycle.slice(-1).concat(cycle).concat(cycle.slice(0, 1));
   const [large, setLarge] = useState(true);

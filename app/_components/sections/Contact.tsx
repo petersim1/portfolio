@@ -1,9 +1,9 @@
 "use client";
 
 import classNames from "classnames";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 
-import { ScrollContext } from "@/_state";
+import { useScrollContext } from "@/_store/scroll";
 import styles from "@/_styles/contact.module.css";
 import { worksans, spacemono, inconsolata } from "@/_styles/fonts";
 import { contacts } from "@/_lib/constants";
@@ -14,7 +14,7 @@ const Contact = (): JSX.Element => {
   const [prevSocial, setPrevSocial] = useState("");
   const [typed, setTyped] = useState("");
 
-  const { progress } = useContext(ScrollContext);
+  const { progress } = useScrollContext();
   const iProgress = progress.length > 0 ? progress[4] : 0;
 
   useEffect(() => {
