@@ -35,6 +35,7 @@ const Header = (): JSX.Element => {
             alt="profile"
             priority={true}
             fill={true}
+            sizes="any"
             className={styles.profile_pic}
           />
         </div>

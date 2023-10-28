@@ -43,6 +43,8 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
     }
   };
 
+  console.log(dark);
+
   const value = useMemo(() => {
     return {
       dark,

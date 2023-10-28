@@ -54,7 +54,7 @@ export const projects = [
     description: {
       text: "Built a full-stack app integrated with OpenAI's API to allow users to upload\
       PDF's and recursively run GPT-3, outside of the model's context window size, to produce summaries.",
-      image: "https://tldr.variable.space/og_1200x630.jpg",
+      image: "/images/og_tldr.jpg",
       languages: ["javascript", "html", "css"],
       tools: ["nextjs", "openai api", "orm"],
       links: [
@@ -109,7 +109,7 @@ export const projects = [
     year: 2022,
     description: {
       text: "Developed a dynamic marketing landing page for pulse.plus, built using React",
-      image: "https://api.pulse.plus/og_pulseplus.jpg",
+      image: "/images/og_pulseplus.jpg",
       languages: ["javascript", "html", "css"],
       tools: ["react"],
       links: [
@@ -125,7 +125,7 @@ export const projects = [
     year: 2022,
     description: {
       text: "Developed a dynamic marketing page and waitlist sign up flow for fur.insure, built using React",
-      image: "https://www.fur.insure/static/images/og_furinsure.jpg",
+      image: "/images/og_furinsure.jpg",
       languages: ["javascript", "html", "css"],
       tools: ["react", "airtable", "rest api"],
       links: [

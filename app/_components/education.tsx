@@ -16,7 +16,7 @@ const Education = (props: EduI): JSX.Element => {
   return (
     <div className={styles.education}>
       <div className={styles.logo}>
-        <Image src={img} alt="school logo" fill={true} />
+        <Image src={img} alt="school logo" fill={true} sizes="any" />
       </div>
       <div className={styles.description}>
         <p>{title}</p>
