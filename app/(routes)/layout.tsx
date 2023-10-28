@@ -1,8 +1,9 @@
 import "@/globals.css";
-import { ThemeProvider } from "@/_state";
+import { ThemeProvider, ScrollProvider } from "@/_state";
 import { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://petersim.one"),
   title: "Portfolio - Peter Simone",
   description: "Portfolio - Peter Simone",
   icons: {
@@ -53,7 +54,9 @@ export default ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
     <html lang="en">
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <ScrollProvider>{children}</ScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

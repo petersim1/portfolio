@@ -1,4 +1,5 @@
-/* eslint-disable max-len */
+"use client";
+
 import { useContext } from "react";
 import classNames from "classnames";
 
