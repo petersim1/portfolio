@@ -1,13 +1,21 @@
+"use client";
+
 import classNames from "classnames";
 
 import styles from "@/_styles/layout.module.css";
-import { worksans } from "@/_styles/fonts";
+import { spacemono } from "@/_styles/fonts";
+import { useScrollContext } from "@/_store/scroll";
 
 const Header = (): JSX.Element => {
+  const { progress } = useScrollContext();
   return (
-    <nav className={classNames(styles.header, worksans.className)}>
+    <nav
+      className={classNames(styles.header, spacemono.className, {
+        [styles.hide]: progress[0] > 15,
+      })}
+    >
       <div className={styles.header_holder}>
-        <h3>peter simone</h3>
+        <h4>peter simone</h4>
       </div>
     </nav>
   );

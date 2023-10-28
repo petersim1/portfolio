@@ -11,6 +11,11 @@
   --grainy: var(--bg) -50%, var(--font) 35%;
   --grainy-mobile: var(--bg) -150%, var(--font) 80%;
   --grainy-angle: 100deg;
+  --gradient: linear-gradient(
+    90deg,
+    hsla(139, 81%, 79%, 1) 0%,
+    hsla(176, 94%, 67%, 1) 100%
+  );
 }
 
 @media (prefers-color-scheme: dark) {
