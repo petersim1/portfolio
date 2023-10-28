@@ -22,13 +22,13 @@ export const projects = [
       display their top content in a given set of channels over time.\
       Built a Starlette ASGI python REST API to handle authorization and Slack\
       SDK integration. Built a custom a frontend with protected routing.",
-      image: "/images/slack_og.png",
+      image: "/images/sightings_og.png",
       languages: ["python", "javascript", "html", "css"],
       tools: ["starlette", "express", "nextjs", "slack sdk", "rest api", "openai api", "firebase"],
       links: [
         {
           type: "site",
-          link: "https://slackbot-next.vercel.app/",
+          link: "https://sightings-next.vercel.app/",
         },
       ],
     },

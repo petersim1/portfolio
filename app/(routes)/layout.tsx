@@ -3,6 +3,11 @@ import { ThemeProvider } from "@/_store/theme";
 import { ScrollProvider } from "@/_store/scroll";
 import { Metadata, Viewport } from "next";
 
+import Layout from "@/_components/layout/Layout";
+import Header from "@/_components/layout/Header";
+import Footer from "@/_components/layout/Footer";
+import Light from "@/_components/layout/Light";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://petersim.one"),
   title: "Portfolio - Peter Simone",
@@ -56,7 +61,15 @@ export default ({ children }: { children: React.ReactNode }): JSX.Element => {
     <html lang="en">
       <body style={{ visibility: "hidden" }}>
         <ThemeProvider>
-          <ScrollProvider>{children}</ScrollProvider>
+          <ScrollProvider>
+            <Layout>
+              <Header />
+              {children}
+              {/* @ts-expect-error Server Component */}
+              <Footer />
+            </Layout>
+            <Light />
+          </ScrollProvider>
         </ThemeProvider>
       </body>
     </html>
