@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import styles from "@/styles/layout.module.css";
-import { inconsolata } from "@/styles/fonts";
-import { Branch, Star, Arrow } from "@/assets";
+import styles from "@/_styles/layout.module.css";
+import { inconsolata } from "@/_styles/fonts";
+import { Branch, Star, Arrow } from "@/_assets";
 
 const Footer = ({ stars, forks }: { stars: number; forks: number }): JSX.Element => {
   return (

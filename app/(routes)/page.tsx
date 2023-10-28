@@ -1,48 +1,29 @@
-import type { GetServerSideProps } from "next";
+"use client";
+
 import { useState, useEffect } from "react";
 
-import Header from "@/components/layout/Header";
-import Light from "@/components/layout/Light";
-import Layout from "@/components/layout/Layout";
-import Footer from "@/components/layout/Footer";
-import Intro from "@/components/sections/Intro";
-import Blurb from "@/components/sections/Blurb";
-import Education from "@/components/sections/Education";
-import Projects from "@/components/sections/Projects";
-import Contact from "@/components/sections/Contact";
-import Mask from "@/components/mask";
-import Logos from "@/components/logos";
+import Header from "@/_components/layout/Header";
+import Light from "@/_components/layout/Light";
+import Layout from "@/_components/layout/Layout";
+import Footer from "@/_components/layout/Footer";
+import Intro from "@/_components/sections/Intro";
+import Blurb from "@/_components/sections/Blurb";
+import Education from "@/_components/sections/Education";
+import Projects from "@/_components/sections/Projects";
+import Contact from "@/_components/sections/Contact";
+import Mask from "@/_components/mask";
+import Logos from "@/_components/logos";
+import { github } from "@/_actions";
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await fetch("https://api.github.com/repos/petersim1/portfolio");
-  if (!response.ok) {
-    return {
-      props: {
-        stargazers_count: 0,
-        forks_count: 0,
-      },
-    };
-  }
-
-  const result = await response.json();
-
-  const { stargazers_count: stars, forks_count: forks } = result;
-
-  return {
-    props: {
-      stars,
-      forks,
-    },
-  };
-};
-
-const Home = ({ stars, forks }: { stars: number; forks: number }): JSX.Element => {
+const Home = async (): Promise<JSX.Element> => {
   const [progress, setProgress] = useState<number[]>([]);
   const [options, setOptions] = useState<string[]>([]);
   const [active, setActive] = useState(0);
 
+  const { stars, forks } = await github();
+
   useEffect(() => {
-    // A global identifier of scroll in each section, pass to child components.
+    // A global identifier of scroll in each section, pass to child _components.
     // empty until component mounts. Will dictate nav item too.
     const sections = document.querySelectorAll("section");
     setOptions(Array.from(sections).map((section) => section.id));

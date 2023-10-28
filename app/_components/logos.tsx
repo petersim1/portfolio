@@ -17,8 +17,8 @@ import {
   Starlette,
   Supabase,
   Openai,
-} from "@/logos";
-import styles from "@/styles/layout.module.css";
+} from "@/_logos";
+import styles from "@/_styles/layout.module.css";
 
 const Logos = (): JSX.Element => {
   // const getParabolicOpacity = (offset: number, duration: number): number => {

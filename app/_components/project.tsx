@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
-import styles from "@/styles/projects.module.css";
-import { Github, Outlink, Note, Plus, Minus } from "@/assets";
+import styles from "@/_styles/projects.module.css";
+import { Github, Outlink, Note, Plus, Minus } from "@/_assets";
 
 type DataI = {
   title: string;

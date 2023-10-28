@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import Image from "next/image";
 
-import { inconsolata } from "@/styles/fonts";
-import styles from "@/styles/education.module.css";
+import { inconsolata } from "@/_styles/fonts";
+import styles from "@/_styles/education.module.css";
 
 type EduI = {
   img: string;

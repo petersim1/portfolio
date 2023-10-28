@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import { useState, useEffect } from "react";
 
-import styles from "@/styles/contact.module.css";
-import { worksans, spacemono, inconsolata } from "@/styles/fonts";
-import { contacts } from "@/constants";
-import { Mirror, Twitter, Linkedin, Github, Mail } from "@/assets";
+import styles from "@/_styles/contact.module.css";
+import { worksans, spacemono, inconsolata } from "@/_styles/fonts";
+import { contacts } from "@/_lib/constants";
+import { Mirror, Twitter, Linkedin, Github, Mail } from "@/_assets";
 
 const Contact = ({ progress }: { progress: number }): JSX.Element => {
   const [social, setSocial] = useState("");

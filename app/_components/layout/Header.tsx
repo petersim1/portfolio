@@ -3,8 +3,8 @@ import Image from "next/image";
 import classNames from "classnames";
 import { useState } from "react";
 
-import styles from "@/styles/layout.module.css";
-import { worksans } from "@/styles/fonts";
+import styles from "@/_styles/layout.module.css";
+import { worksans } from "@/_styles/fonts";
 
 const Header = ({
   active,

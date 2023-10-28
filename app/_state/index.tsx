@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, ReactNode, createContext, useState, useEffect, useMemo } from "react";
 
 const INITIAL_STATE_CONTEXT = {

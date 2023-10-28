@@ -1,5 +1,5 @@
-import styles from "@/styles/layout.module.css";
-import { NN } from "@/assets";
+import styles from "@/_styles/layout.module.css";
+import { NN } from "@/_assets";
 
 const Mask = ({ progress }: { progress: number[] }): JSX.Element => {
   const totProgress = progress.length > 0 ? progress[1] + progress[2] : 0;

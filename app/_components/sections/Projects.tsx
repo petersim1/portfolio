@@ -1,12 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable max-len */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import classNames from "classnames";
-import { inconsolata, worksans } from "@/styles/fonts";
-import styles from "@/styles/projects.module.css";
+
+import { inconsolata, worksans } from "@/_styles/fonts";
+import styles from "@/_styles/projects.module.css";
 import Project from "../project";
-import { projects } from "@/constants";
+import { projects } from "@/_lib/constants";
 
 const Projects = (): JSX.Element => {
   const [open, setOpen] = useState(0);

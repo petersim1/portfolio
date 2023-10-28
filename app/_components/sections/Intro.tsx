@@ -1,10 +1,10 @@
 import { useMemo, useState, useEffect } from "react";
 import classNames from "classnames";
 
-import styles from "@/styles/intro.module.css";
-import { worksans } from "@/styles/fonts";
-import { cycle } from "@/constants";
-import { Arrow } from "@/assets";
+import styles from "@/_styles/intro.module.css";
+import { worksans } from "@/_styles/fonts";
+import { cycle } from "@/_lib/constants";
+import { Arrow } from "@/_assets";
 
 const Intro = ({ progress }: { progress: number }): JSX.Element => {
   // repeat 1st and last indices to give appearance that it's cycling.

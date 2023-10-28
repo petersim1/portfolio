@@ -2,10 +2,10 @@
 import { useContext } from "react";
 import classNames from "classnames";
 
-import styles from "@/styles/layout.module.css";
-import { worksans } from "@/styles/fonts";
-import { Sun, Moon } from "@/assets";
-import { ThemeContext } from "@/state";
+import styles from "@/_styles/layout.module.css";
+import { worksans } from "@/_styles/fonts";
+import { Sun, Moon } from "@/_assets";
+import { ThemeContext } from "@/_state";
 
 const Light = (): JSX.Element => {
   const { dark, toggleTheme } = useContext(ThemeContext);

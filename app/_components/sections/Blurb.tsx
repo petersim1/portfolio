@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import classNames from "classnames";
-import { worksans } from "@/styles/fonts";
-import styles from "@/styles/blurb.module.css";
+import { worksans } from "@/_styles/fonts";
+import styles from "@/_styles/blurb.module.css";
 
 const Blurb = (): JSX.Element => {
   return (
