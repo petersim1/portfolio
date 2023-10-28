@@ -7,7 +7,7 @@ import { ScrollContext } from "@/_state";
 import styles from "@/_styles/contact.module.css";
 import { worksans, spacemono, inconsolata } from "@/_styles/fonts";
 import { contacts } from "@/_lib/constants";
-import { Mirror, Twitter, Linkedin, Github, Mail } from "@/_assets";
+import { Mirror, Twitter, Linkedin, Github, Mail } from "@/_lib/assets";
 
 const Contact = (): JSX.Element => {
   const [social, setSocial] = useState("");

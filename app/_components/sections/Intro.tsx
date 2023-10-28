@@ -7,7 +7,7 @@ import { ScrollContext } from "@/_state";
 import styles from "@/_styles/intro.module.css";
 import { worksans } from "@/_styles/fonts";
 import { cycle } from "@/_lib/constants";
-import { Arrow } from "@/_assets";
+import { Arrow } from "@/_lib/assets";
 
 const Intro = (): JSX.Element => {
   // repeat 1st and last indices to give appearance that it's cycling.

@@ -4,11 +4,11 @@ import Image from "next/image";
 import { inconsolata } from "@/_styles/fonts";
 import styles from "@/_styles/education.module.css";
 
-type EduI = {
+interface EduI {
   img: string;
   title: string;
   courses: string[];
-};
+}
 
 const Education = (props: EduI): JSX.Element => {
   const { img, title, courses } = props;

@@ -1,10 +1,10 @@
 "use server";
 
-type GithubI = {
+interface GithubI {
   success: boolean;
   stars: number;
   forks: number;
-};
+}
 
 export const github = (): Promise<GithubI> => {
   return fetch("https://api.github.com/repos/petersim1/portfolio")

@@ -17,7 +17,7 @@ import {
   Starlette,
   Supabase,
   Openai,
-} from "@/_logos";
+} from "@/_lib/logos";
 import styles from "@/_styles/layout.module.css";
 
 const Logos = (): JSX.Element => {

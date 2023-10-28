@@ -5,7 +5,7 @@ import classNames from "classnames";
 
 import styles from "@/_styles/layout.module.css";
 import { worksans } from "@/_styles/fonts";
-import { Sun, Moon } from "@/_assets";
+import { Sun, Moon } from "@/_lib/assets";
 import { ThemeContext } from "@/_state";
 
 const Light = (): JSX.Element => {

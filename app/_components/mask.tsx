@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 import { ScrollContext } from "@/_state";
 import styles from "@/_styles/layout.module.css";
-import { NN } from "@/_assets";
+import { NN } from "@/_lib/assets";
 
 const Mask = (): JSX.Element => {
   const { progress } = useContext(ScrollContext);

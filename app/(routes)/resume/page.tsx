@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import styles from "@/_styles/resume.module.css";
 import { worksans } from "@/_styles/fonts";
-import { Arrow } from "@/_assets";
+import { Arrow } from "@/_lib/assets";
 import Light from "@/_components/layout/Light";
 
 export default (): JSX.Element => {

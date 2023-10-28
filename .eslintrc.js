@@ -67,7 +67,7 @@ module.exports = {
       },
     },
     {
-      files: ["app/_assets/*.tsx", "app/_logos/*.tsx"],
+      files: ["app/_lib/assets/*.tsx", "app/_lib/logos/*.tsx"],
       rules: {
         "max-len": [OFF],
         "@typescript-eslint/no-explicit-any": [OFF],

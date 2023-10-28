@@ -8,12 +8,12 @@ const INITIAL_STATE_CONTEXT = {
   toggleTheme: (): void => {},
 };
 
-type StateContextType = {
+interface StateContextI {
   dark: boolean;
   toggleTheme: () => void;
-};
+}
 
-export const ThemeContext = createContext<StateContextType>(INITIAL_STATE_CONTEXT);
+export const ThemeContext = createContext<StateContextI>(INITIAL_STATE_CONTEXT);
 
 export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [dark, setDark] = useState(false);
@@ -60,14 +60,14 @@ const INITIAL_SCROLL_CONTEXT = {
   setActive: (): void => {},
 };
 
-type ScrollContextType = {
+interface ScrollContextI {
   progress: number[];
   options: string[];
   active: number;
   setActive: React.Dispatch<React.SetStateAction<number>>;
-};
+}
 
-export const ScrollContext = createContext<ScrollContextType>(INITIAL_SCROLL_CONTEXT);
+export const ScrollContext = createContext<ScrollContextI>(INITIAL_SCROLL_CONTEXT);
 
 export const ScrollProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [progress, setProgress] = useState<number[]>([]);
