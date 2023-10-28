@@ -12,13 +12,11 @@ const Projects = (): JSX.Element => {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="h_100_min" id="projects" data-offset-top={0} data-offset-bottom={0}>
+    <section id="projects" data-offset-top={0} data-offset-bottom={0}>
       <div className={styles.wrapper}>
         <div className={classNames(worksans.className)}>
           <div className={styles.title}>
-            <h3>
-              <b>What I've Built</b>
-            </h3>
+            <h3>What I've Built</h3>
           </div>
         </div>
         <div className={classNames(styles.projects, inconsolata.className)}>
