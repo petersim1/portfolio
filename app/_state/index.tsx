@@ -75,10 +75,7 @@ export const ScrollProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [active, setActive] = useState(0);
   const pathname = usePathname();
 
-  console.log(progress);
-
   useEffect(() => {
-    console.log("fired");
     // A global identifier of scroll in each section, pass to child _components.
     // empty until component mounts. Will dictate nav item too.
     const sections = document.querySelectorAll("section");
