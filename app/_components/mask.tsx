@@ -6,6 +6,7 @@ import { NN } from "@/_lib/assets";
 
 const Mask = (): JSX.Element => {
   const { progress } = useScrollContext();
+  console.log(progress);
   const totProgress = progress.length > 0 ? progress[1] + progress[2] : 0;
   return (
     <div className={styles.mask_holder}>

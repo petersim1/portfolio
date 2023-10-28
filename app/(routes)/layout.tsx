@@ -7,6 +7,7 @@ import Layout from "@/_components/layout/Layout";
 import Header from "@/_components/layout/Header";
 import Footer from "@/_components/layout/Footer";
 import Light from "@/_components/layout/Light";
+import Mask from "@/_components/mask";
 import { GeistSans } from "geist/font";
 
 export const metadata: Metadata = {
@@ -69,6 +70,7 @@ export default ({ children }: { children: React.ReactNode }): JSX.Element => {
               {/* @ts-expect-error Server Component */}
               <Footer />
             </Layout>
+            <Mask />
             <Light />
           </ScrollProvider>
         </ThemeProvider>

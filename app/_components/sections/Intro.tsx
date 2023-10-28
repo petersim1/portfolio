@@ -20,7 +20,7 @@ rgb(0, 204, 255) 70%\
   };
 
   return (
-    <section className="h_100" id="intro" data-offset-top={0} data-offset-bottom={0}>
+    <section className="h_100" id="intro" data-offset-top={0} data-offset-bottom={50}>
       <div className={styles.intro_holder}>
         <div className={styles.gradient} onMouseMove={handleHover} id="hoverGrad">
           <h2>

@@ -127,7 +127,7 @@
 
 .mask_holder {
   position: absolute;
-  top: 300vh;
+  top: 0;
   right: 0;
   height: 200vh;
   left: 0;
@@ -155,19 +155,12 @@
 }
 
 .logo_wrapper {
-  position: absolute;
-  top: 400vh;
-  transform: translateY(-50%);
   width: 100%;
   overflow: hidden;
   height: 200px;
 }
 
 .logos_holder {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
   margin: auto;
   max-width: 1000px;
   width: 90%;
