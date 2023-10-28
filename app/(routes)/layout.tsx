@@ -7,6 +7,7 @@ import Layout from "@/_components/layout/Layout";
 import Header from "@/_components/layout/Header";
 import Footer from "@/_components/layout/Footer";
 import Light from "@/_components/layout/Light";
+import { GeistSans } from "geist/font";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://petersim.one"),
@@ -59,7 +60,7 @@ export const viewport: Viewport = {
 export default ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
     <html lang="en">
-      <body style={{ visibility: "hidden" }}>
+      <body style={{ visibility: "hidden" }} className={GeistSans.className}>
         <ThemeProvider>
           <ScrollProvider>
             <Layout>

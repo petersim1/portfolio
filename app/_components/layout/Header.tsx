@@ -11,7 +11,7 @@ const Header = (): JSX.Element => {
   return (
     <nav
       className={classNames(styles.header, spacemono.className, {
-        [styles.hide]: progress[0] > 15,
+        [styles.hide]: progress[0] > 25,
       })}
     >
       <div className={styles.header_holder}>

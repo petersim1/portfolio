@@ -1,93 +1,36 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
-import classNames from "classnames";
-
-import { useScrollContext } from "@/_store/scroll";
 import styles from "@/_styles/intro.module.css";
-import { worksans } from "@/_styles/fonts";
-import { cycle } from "@/_lib/constants";
-import { Arrow } from "@/_lib/assets";
 
 const Intro = (): JSX.Element => {
-  // repeat 1st and last indices to give appearance that it's cycling.
-  const { progress } = useScrollContext();
-  const iProgress = progress.length > 0 ? progress[0] : 0;
-  const options = cycle.slice(-1).concat(cycle).concat(cycle.slice(0, 1));
-  const [large, setLarge] = useState(true);
+  const handleHover = (event: React.MouseEvent<HTMLDivElement>): void => {
+    const { x, y, height, width } = event.currentTarget.getBoundingClientRect();
+    const { clientX, clientY } = event;
 
-  useEffect(() => {
-    const fixSize = (): void => {
-      const { matches } = window.matchMedia("(max-width: 900px)");
-      setLarge(!matches);
-    };
+    const percentX = (100 * (clientX - x)) / width;
+    const percentY = (100 * (clientY - y)) / height;
 
-    const { matches } = window.matchMedia("(max-width: 900px)");
-    setLarge(!matches);
-
-    window.addEventListener("resize", fixSize);
-
-    return () => {
-      window.addEventListener("resize", fixSize);
-    };
-  }, []);
-
-  const query = useMemo(() => {
-    const activeInd = Math.min(
-      options.length - 2,
-      Math.round((iProgress / 100) * (options.length - 3)),
-    );
-    let transform;
-    if (large) {
-      transform = `translateY(calc(-1*(var(--gap-vert) + 2.5rem)*${activeInd}))`;
-    } else {
-      transform = `translateX(calc(-1*(var(--fixed-width))*${activeInd}))`;
-    }
-    return {
-      active: activeInd,
-      transform,
-    };
-  }, [progress, large]);
+    const style = `radial-gradient(\
+circle at ${percentX}% ${percentY}%, \
+rgb(195, 251, 214) 10%, \
+rgb(0, 204, 255) 70%\
+    )`;
+    event.currentTarget.style.setProperty("background", style);
+    event.currentTarget.style.setProperty("-webkit-background-clip", "text");
+  };
 
   return (
-    <section className="h_300" id="intro" data-offset-top={0} data-offset-bottom={0}>
-      <div className={styles.parallax}>
-        <div
-          className={classNames(styles.intro_holder, worksans.className, { [styles.large]: large })}
-        >
-          <div className={styles.grain}>
-            <h1>
-              Peter
-              <br />
-              Simone
-            </h1>
-          </div>
-          <div className={classNames(styles.cycle_holder, { [styles.large]: large })}>
-            <div
-              className={classNames(styles.cycle, { [styles.large]: large })}
-              style={{ transform: query.transform }}
-            >
-              {options.map((option, ind) => (
-                <div
-                  key={ind}
-                  className={classNames(styles.item, {
-                    [styles.active]: query.active === ind - 1,
-                    [styles.large]: large,
-                  })}
-                >
-                  {option}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div
-          className={classNames(styles.arrow_fix, {
-            [styles.hide]: iProgress === 100,
-            [styles.large]: large,
-          })}
-        >
-          <Arrow height="1.5rem" width="1.5rem" fill="var(--font)" />
+    <section className="h_100" id="intro" data-offset-top={0} data-offset-bottom={0}>
+      <div className={styles.intro_holder}>
+        <div className={styles.gradient} onMouseMove={handleHover} id="hoverGrad">
+          <h2>
+            <span>I'm a </span>
+            <span className={styles.transparent}>data scientist</span>
+            <br />
+            <span>and </span>
+            <span className={styles.transparent}>full stack developer</span>
+            <span>.</span>
+          </h2>
         </div>
       </div>
     </section>
