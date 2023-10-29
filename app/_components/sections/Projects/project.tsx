@@ -31,6 +31,12 @@ export default ({ data }: { data: DataI }): JSX.Element => {
   return (
     <div className={styles.project}>
       <div className={styles.outgoing}>
+        <div className={styles.info}>
+          <h4>
+            <b>{data.title}</b>
+          </h4>
+          <p>{data.year}</p>
+        </div>
         <div
           className={styles.image}
           style={{ backgroundImage: `url(${data.description.image})` }}
@@ -53,12 +59,6 @@ export default ({ data }: { data: DataI }): JSX.Element => {
         </div>
       </div>
       <div className={styles.text}>
-        <div className={styles.info}>
-          <h4>
-            <b>{data.title}</b>
-          </h4>
-          <p>{data.year}</p>
-        </div>
         <div className={styles.blurb}>{data.description.text}</div>
         <div className={styles.holder}>
           {data.description.tools.concat(data.description.languages).map((tool, ind2) => (
