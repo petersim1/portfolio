@@ -10,11 +10,15 @@ export default (): JSX.Element => {
     <section id="projects" data-offset-top={0} data-offset-bottom={0}>
       <div className={styles.wrapper}>
         <div className={classNames(styles.title, worksans.className)}>
-          <h3>Here's </h3>
+          <h2>
+            some <span className={styles.transparent}>projects</span> I'm proud of
+          </h2>
         </div>
         <div className={classNames(styles.projects, inconsolata.className)}>
           {projects.map((data, ind) => (
-            <Project data={data} key={ind} />
+            <div className={styles.project_wrapper} key={ind}>
+              <Project data={data} />
+            </div>
           ))}
         </div>
       </div>

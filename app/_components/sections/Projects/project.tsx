@@ -57,6 +57,7 @@ export default ({ data }: { data: DataI }): JSX.Element => {
           <h4>
             <b>{data.title}</b>
           </h4>
+          <p>{data.year}</p>
         </div>
         <div className={styles.blurb}>{data.description.text}</div>
         <div className={styles.holder}>

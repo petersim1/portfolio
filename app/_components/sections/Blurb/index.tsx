@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import classNames from "classnames";
 import { worksans } from "@/_lib/fonts";
 import styles from "./blurb.module.css";
@@ -9,11 +8,11 @@ export default (): JSX.Element => {
       <div className={classNames(styles.wrapper, worksans.className)}>
         <div className={styles.blurb}>
           <p>
-            I like to <b>build</b> and
+            I like to <b>build things</b>
             <br />
-            deeply understand
+            and learn how
             <br />
-            <b>how stuff works</b>.
+            <b>stuff works</b>.
           </p>
         </div>
       </div>

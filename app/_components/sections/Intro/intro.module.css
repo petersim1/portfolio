@@ -11,17 +11,6 @@
   text-align: center;
 }
 
-.grain {
-  /* background: radial-gradient(ellipse at 50% 50%, var(--grainy)), url("/assets/grain.svg"); */
-  background: linear-gradient(var(--grainy-angle), var(--grainy)), url("/assets/grain.svg");
-  filter: contrast(1000%) brightness(100%);
-  background-repeat: repeat;
-  background-blend-mode: saturation;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
 .gradient {
   background: radial-gradient(
     circle at 0%,

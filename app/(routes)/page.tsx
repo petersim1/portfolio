@@ -3,7 +3,6 @@
 import Intro from "@/_components/sections/Intro";
 import Blurb from "@/_components/sections/Blurb";
 // import Education from "@/_components/sections/Education";
-import Passion from "@/_components/sections/Passion";
 import Projects from "@/_components/sections/Projects";
 import Contact from "@/_components/sections/Contact";
 // import Logos from "@/_components/logos";
@@ -14,7 +13,6 @@ export default async (): Promise<JSX.Element> => {
     <main>
       <Intro />
       <Blurb />
-      <Passion />
       {/* <Education /> */}
       {/* <Logos /> */}
       <Projects />

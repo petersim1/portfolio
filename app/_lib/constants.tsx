@@ -1,4 +1,4 @@
-export const cycle = ["ml/ai", "web dev", "web3", "sports", "research"];
+export const cycle = ["machine learning", "web dev", "web3", "sports", "research"];
 
 export const education = [
   {
@@ -174,28 +174,6 @@ export const projects = [
           link: "https://mirror.xyz/0x6a3b4A12739eAFB1DaD6edbA890862121e218EFC/0bGM5NuOVPi2IkNb095BvYlzv9xP-5b3vZESs61ofqs",
         },
       ],
-    },
-  },
-  {
-    title: "Pulse Plus",
-    year: 2022,
-    description: {
-      text: "Developed a dynamic marketing landing page for pulse.plus, built using React",
-      image: "/images/og_pulseplus.jpg",
-      languages: ["javascript", "html", "css"],
-      tools: ["react"],
-      links: [],
-    },
-  },
-  {
-    title: "Fur Insure",
-    year: 2022,
-    description: {
-      text: "Developed a dynamic marketing page and waitlist sign up flow for fur.insure, built using React",
-      image: "/images/og_furinsure.jpg",
-      languages: ["javascript", "html", "css"],
-      tools: ["react", "airtable", "rest api"],
-      links: [],
     },
   },
   {
