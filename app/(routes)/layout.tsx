@@ -3,6 +3,12 @@ import { ThemeProvider } from "@/_store/theme";
 import { ScrollProvider } from "@/_store/scroll";
 import { Metadata, Viewport } from "next";
 
+import Layout from "@/_components/layout/Layout";
+import Header from "@/_components/layout/Header";
+import Footer from "@/_components/layout/Footer";
+import Light from "@/_components/elements/Light";
+import { GeistSans } from "geist/font";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://petersim.one"),
   title: "Portfolio - Peter Simone",
@@ -54,9 +60,17 @@ export const viewport: Viewport = {
 export default ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
     <html lang="en">
-      <body style={{ visibility: "hidden" }}>
+      <body style={{ visibility: "hidden" }} className={GeistSans.className}>
         <ThemeProvider>
-          <ScrollProvider>{children}</ScrollProvider>
+          <ScrollProvider>
+            <Layout>
+              <Header />
+              {children}
+              {/* @ts-expect-error Server Component */}
+              <Footer />
+            </Layout>
+            <Light />
+          </ScrollProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -5,11 +5,17 @@
   --color-two: #393e46;
   --color-three: #0092ca;
   --color-four: #eeeeee;
+  --sun: #F28C38;
   --box-shadow: rgba(0,0,0,0.2);
   --code: #32AFFF;
   --grainy: var(--bg) -50%, var(--font) 35%;
   --grainy-mobile: var(--bg) -150%, var(--font) 80%;
   --grainy-angle: 100deg;
+  --gradient: linear-gradient(
+    90deg,
+    hsla(139, 81%, 79%, 1) 0%,
+    hsla(176, 94%, 67%, 1) 100%
+  );
 }
 
 @media (prefers-color-scheme: dark) {
@@ -119,17 +125,18 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-size: 4rem;
+  font-weight: 300;
+  cursor: default;
 }
 
 h3 {
-  font-size: 2rem;
-  font-weight: 200;
+  font-size: 2.5rem;
+  font-weight: 400;
 }
 
 h4 {
-  font-size: 1.2rem;
+  font-size: 1.75rem;
   font-weight: 700;
 }
 h5 {
@@ -142,7 +149,7 @@ h5 {
 section,
 footer,
 nav {
-  padding: 0 max(40px, calc((100vw - 1440px + 2*55px)/2))
+  padding: 0 max(0px, calc((100vw - 1440px + 2*55px)/2))
 }
 
 nav {

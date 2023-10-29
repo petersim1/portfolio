@@ -1,0 +1,191 @@
+/* Theme Toggle + Screen Nav */
+
+.light_holder {
+  position: fixed;
+  bottom: 40px;
+  right: max(40px, calc((100vw - 1440px)/2));
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: translateY(60px);
+  transition: all 0.25s ease-in-out;
+}
+
+.light_holder.active {
+  transform: translateY(0);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  border: 1px solid var(--font);
+  padding: 5px;
+  cursor: pointer;
+}
+
+.toggle svg {
+  height: 100%
+}
+
+.toggle.nav {
+  transform: rotate(-90deg);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.toggle.nav.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* NN Mask */
+
+.mask_holder {
+  position: absolute;
+  height: 100vh;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* rotating it, so need to make height a fct of the width. */
+.mask_holder svg {
+  transform: rotate(270deg);
+  opacity: 0.25;
+  fill: gray;
+  stroke: gray;
+  min-width: 100vh;
+  min-height: 100vw;
+}
+
+/* @media (min-aspect-ratio: 1 / 1) {
+  .mask_holder svg {
+    max-width: 100vh;
+  }
+} */
+
+.mask_holder div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  /* background: linear-gradient(-90deg, var(--bg) 92%, transparent); */
+}
+
+/* Logo Flicker */
+
+.logo_wrapper {
+  width: 100%;
+  overflow: hidden;
+  height: 200px;
+  position: relative;
+  z-index: 2;
+}
+
+.logos_holder {
+  margin: auto;
+  max-width: 1000px;
+  width: 90%;
+  min-width: 600px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.logo_row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  opacity: 0;
+  animation-name: flicker;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.logo[data-animation-delay="0"] {
+  animation-delay: 0s;
+}
+
+.logo[data-animation-delay="1"] {
+  animation-delay: 0.6667s;
+}
+
+.logo[data-animation-delay="2"] {
+  animation-delay: 1.3334s;
+}
+
+.logo[data-animation-delay="3"] {
+  animation-delay: 2.0001s;
+}
+
+.logo[data-animation-delay="4"] {
+  animation-delay: 2.6668s;
+}
+
+.logo[data-animation-delay="5"] {
+  animation-delay: 3.3335s;
+}
+
+.logo svg {
+  height: 100%;
+  width: 100%;
+}
+
+/* Generic Pill */
+
+.pill {
+  font-size: 1rem;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background: var(--bg);
+  position: relative;
+  text-transform: lowercase;
+}
+.pill::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  right: -1px;
+  left: -1px;
+  border-radius: 10px;
+  z-index: -1;
+  background: var(--gradient);
+}

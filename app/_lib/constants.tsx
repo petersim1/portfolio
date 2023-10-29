@@ -1,4 +1,4 @@
-export const cycle = ["ml/ai", "web dev", "web3", "sports", "research"];
+export const cycle = ["machine learning", "web dev", "web3", "sports", "research"];
 
 export const education = [
   {
@@ -15,6 +15,76 @@ export const education = [
 
 export const projects = [
   {
+    title: "Strava Viz",
+    year: 2023,
+    description: {
+      text: "Engineered an application based off Strava's API, allowing users\
+      to oauth with strava account and view a aggregate data visualization of\
+      their routes. Solely reliant on Browser Storage API's, so no data is retained\
+      by the application itself.",
+      image: "/images/og_strava.png",
+      languages: ["javascript", "html", "css"],
+      tools: ["nextjs", "indexeddb", "strava api", "oauth", "d3.js"],
+      links: [
+        {
+          type: "site",
+          link: "https://strava.petersim.one",
+        },
+        {
+          type: "github",
+          link: "https://github.com/petersim1/strava-next",
+        },
+      ],
+    },
+  },
+  {
+    title: "Bevor",
+    year: 2023,
+    description: {
+      text: "Co-developed a POC (with plans to fully build) for decentralized\
+      auditing processes within the web3 ecosystem. Built out the marketing page, protocol dApp,\
+      helped guide the DAO and protocol designs, conducted market research, and presented to\
+      incubator programs and partners.",
+      image: "/images/og_bevor.png",
+      languages: ["javascript", "solidity", "html", "css"],
+      tools: ["nextjs", "wagmi", "ethersjs", "DAOs", "smart contracts"],
+      links: [
+        {
+          type: "site",
+          link: "https://bevor.io/",
+        },
+        {
+          type: "github",
+          link: "https://github.com/Bevor-Protocol",
+        },
+      ],
+    },
+  },
+  {
+    title: "Active Listening AI",
+    year: 2023,
+    description: {
+      text: "Developed a microservice for actively listening to video conferencing\
+      calls and automating post-call manual form-filling processes for various types\
+      of form responses. Integrated with 3rd party services for audio streaming,\
+      speech recognition, LLM's, AI tooling, and vector databases. Built out a \
+      custom Starlette API for internal use. Led the development and established performance\
+      criteria.",
+      image: "",
+      languages: ["python"],
+      tools: [
+        "starlette",
+        "openai api",
+        "recall ai",
+        "assembly ai",
+        "chroma db",
+        "llama-index",
+        "streamlit",
+      ],
+      links: [],
+    },
+  },
+  {
     title: "Slack Summarizer",
     year: 2023,
     description: {
@@ -22,13 +92,13 @@ export const projects = [
       display their top content in a given set of channels over time.\
       Built a Starlette ASGI python REST API to handle authorization and Slack\
       SDK integration. Built a custom a frontend with protected routing.",
-      image: "/images/slack_og.png",
+      image: "/images/sightings_og.png",
       languages: ["python", "javascript", "html", "css"],
       tools: ["starlette", "express", "nextjs", "slack sdk", "rest api", "openai api", "firebase"],
       links: [
         {
           type: "site",
-          link: "https://slackbot-next.vercel.app/",
+          link: "https://sightings-next.vercel.app/",
         },
       ],
     },
@@ -70,7 +140,7 @@ export const projects = [
     year: 2023,
     description: {
       text: "Built a full-stack product to allow users to create and view immutable contracts\
-      on-chain. Built using web3 tools, and allow users to interact with custom smart contracts.",
+      on-chain. Built using web3 tools, it allows users to interact with custom smart contracts.",
       image: "https://www.agree.xyz/_next/image?url=%2Fimages%2FReciept.png&w=256&q=75",
       languages: ["javascript", "html", "css"],
       tools: ["nextjs", "ethersjs", "wagmi", "firebase", "smart contracts", "rest api"],
@@ -86,8 +156,10 @@ export const projects = [
     title: "Blackjack RL Agent",
     year: 2023,
     description: {
-      text: "Developed a Reinforcement Learning agent for playing Blackjack and published\
-      a post to Mirror. Hoping to iterate on this using deep reinforcement learning.",
+      text: "Developed a Reinforcement Learning agent for playing Blackjack, and\
+      iterated on this using deep q learning. Published multiple blog posts to Mirror.\
+      Plans to build out a frontend to allow users to play blackjack \
+      while evaluating their strategy, and observing optimal gameplay.",
       image:
         "https://mirror-media.imgix.net/publication-images/1PBrFqkO8npyjOLoNQt4-.jpeg?height=320&width=640&h=320&w=640&auto=compress",
       languages: ["python"],
@@ -100,38 +172,6 @@ export const projects = [
         {
           type: "blog",
           link: "https://mirror.xyz/0x6a3b4A12739eAFB1DaD6edbA890862121e218EFC/0bGM5NuOVPi2IkNb095BvYlzv9xP-5b3vZESs61ofqs",
-        },
-      ],
-    },
-  },
-  {
-    title: "Pulse Plus",
-    year: 2022,
-    description: {
-      text: "Developed a dynamic marketing landing page for pulse.plus, built using React",
-      image: "/images/og_pulseplus.jpg",
-      languages: ["javascript", "html", "css"],
-      tools: ["react"],
-      links: [
-        {
-          type: "site",
-          link: "https://pulse.plus",
-        },
-      ],
-    },
-  },
-  {
-    title: "Fur Insure",
-    year: 2022,
-    description: {
-      text: "Developed a dynamic marketing page and waitlist sign up flow for fur.insure, built using React",
-      image: "/images/og_furinsure.jpg",
-      languages: ["javascript", "html", "css"],
-      tools: ["react", "airtable", "rest api"],
-      links: [
-        {
-          type: "site",
-          link: "https://fur.insure",
         },
       ],
     },
