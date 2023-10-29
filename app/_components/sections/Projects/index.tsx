@@ -31,8 +31,8 @@ export default (): JSX.Element => {
               <div
                 className={classNames(styles.project_wrapper, {
                   [styles.active]: activeInd === ind,
-                  [styles.fadeOut]: activeInd === ind + 1,
-                  [styles.fadeIn]: activeInd === ind - 1,
+                  [styles.fadeOut]: activeInd > ind,
+                  [styles.fadeIn]: activeInd < ind,
                 })}
                 key={ind}
               >
