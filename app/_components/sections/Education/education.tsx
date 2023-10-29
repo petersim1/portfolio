@@ -1,8 +1,9 @@
 import classNames from "classnames";
 import Image from "next/image";
 
-import { inconsolata } from "@/_styles/fonts";
-import styles from "@/_styles/education.module.css";
+import { inconsolata } from "@/_lib/fonts";
+import styles from "./education.module.css";
+import Pill from "@/_components/elements/pill";
 
 interface EduI {
   img: string;
@@ -10,7 +11,7 @@ interface EduI {
   courses: string[];
 }
 
-const Education = (props: EduI): JSX.Element => {
+export default (props: EduI): JSX.Element => {
   const { img, title, courses } = props;
 
   return (
@@ -19,9 +20,7 @@ const Education = (props: EduI): JSX.Element => {
         <p>{title}</p>
         <div className={classNames(styles.courses, inconsolata.className)}>
           {courses.map((course: string, ind: number) => (
-            <div className={styles.course} key={ind}>
-              {course}
-            </div>
+            <Pill text={course} key={ind} />
           ))}
         </div>
       </div>
@@ -31,5 +30,3 @@ const Education = (props: EduI): JSX.Element => {
     </div>
   );
 };
-
-export default Education;

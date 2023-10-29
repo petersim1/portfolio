@@ -1,8 +1,8 @@
 "use client";
 
-import styles from "@/_styles/intro.module.css";
+import styles from "./intro.module.css";
 
-const Intro = (): JSX.Element => {
+export default (): JSX.Element => {
   const handleHover = (event: React.MouseEvent<HTMLDivElement>): void => {
     const { x, y, height, width } = event.currentTarget.getBoundingClientRect();
     const { clientX, clientY } = event;
@@ -36,5 +36,3 @@ rgb(0, 204, 255) 70%\
     </section>
   );
 };
-
-export default Intro;

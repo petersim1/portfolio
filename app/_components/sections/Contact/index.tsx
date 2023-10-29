@@ -4,18 +4,18 @@ import classNames from "classnames";
 import { useState, useEffect } from "react";
 
 import { useScrollContext } from "@/_store/scroll";
-import styles from "@/_styles/contact.module.css";
-import { worksans, spacemono, inconsolata } from "@/_styles/fonts";
+import styles from "./contact.module.css";
+import { worksans, spacemono, inconsolata } from "@/_lib/fonts";
 import { contacts } from "@/_lib/constants";
 import { Mirror, Twitter, Linkedin, Github, Mail } from "@/_lib/assets";
 
-const Contact = (): JSX.Element => {
+export default (): JSX.Element => {
   const [social, setSocial] = useState("");
   const [prevSocial, setPrevSocial] = useState("");
   const [typed, setTyped] = useState("");
 
   const { progress } = useScrollContext();
-  const iProgress = progress.length > 0 ? progress[4] : 0;
+  const iProgress = progress.length > 0 ? progress[3] : 0;
 
   useEffect(() => {
     if (social !== prevSocial) {
@@ -120,5 +120,3 @@ const Contact = (): JSX.Element => {
     </section>
   );
 };
-
-export default Contact;

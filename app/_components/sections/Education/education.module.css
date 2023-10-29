@@ -6,7 +6,7 @@
   text-align: right;
   height: 100%;
   width: 100%;
-  padding-top: 5rem;
+  padding-top: max(5rem, 20%);
   padding-bottom: max(5rem, 20%);
 }
 

@@ -2,8 +2,8 @@
 
 import classNames from "classnames";
 
-import styles from "@/_styles/layout.module.css";
-import { worksans } from "@/_styles/fonts";
+import styles from "./elements.module.css";
+import { worksans } from "@/_lib/fonts";
 import { Sun, Moon, Arrow } from "@/_lib/assets";
 import { useThemeContext } from "@/_store/theme";
 import { useScrollContext } from "@/_store/scroll";

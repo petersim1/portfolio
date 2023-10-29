@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import classNames from "classnames";
 
-import { worksans } from "@/_styles/fonts";
-import styles from "@/_styles/education.module.css";
+import { worksans } from "@/_lib/fonts";
+import styles from "./education.module.css";
 import { education } from "@/_lib/constants";
-import EducationItem from "../education";
+import EducationItem from "./education";
 
-const Education = (): JSX.Element => {
+export default (): JSX.Element => {
   return (
     <section id="education" data-offset-top={50} data-offset-bottom={50}>
       <div className={styles.wrapper}>
@@ -24,5 +24,3 @@ const Education = (): JSX.Element => {
     </section>
   );
 };
-
-export default Education;

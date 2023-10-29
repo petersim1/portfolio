@@ -6,7 +6,7 @@ import { Metadata, Viewport } from "next";
 import Layout from "@/_components/layout/Layout";
 import Header from "@/_components/layout/Header";
 import Footer from "@/_components/layout/Footer";
-import Light from "@/_components/layout/Light";
+import Light from "@/_components/elements/Light";
 import { GeistSans } from "geist/font";
 
 export const metadata: Metadata = {

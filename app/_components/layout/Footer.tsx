@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import styles from "@/_styles/layout.module.css";
-import { inconsolata } from "@/_styles/fonts";
+import styles from "./layout.module.css";
+import { inconsolata } from "@/_lib/fonts";
 import { Branch, Star, Arrow } from "@/_lib/assets";
 import { github } from "@/_actions";
 

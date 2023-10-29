@@ -1,24 +1,22 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import classNames from "classnames";
-import { worksans } from "@/_styles/fonts";
-import styles from "@/_styles/blurb.module.css";
+import { worksans } from "@/_lib/fonts";
+import styles from "./passion.module.css";
 
-const Blurb = (): JSX.Element => {
+export default (): JSX.Element => {
   return (
-    <section id="blurb" data-offset-top={50} data-offset-bottom={50}>
+    <section id="passion" data-offset-top={50} data-offset-bottom={50}>
       <div className={classNames(styles.wrapper, worksans.className)}>
         <div className={styles.blurb}>
           <p>
-            I like to <b>build stuff</b>
+            I'm <b>passionate</b> about
             <br />
-            and deeply understand
+            many different
             <br />
-            <b>how things work</b>.
+            <b>things...</b>
           </p>
         </div>
       </div>
     </section>
   );
 };
-
-export default Blurb;

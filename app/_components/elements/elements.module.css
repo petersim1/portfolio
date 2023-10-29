@@ -1,43 +1,3 @@
-.layout_wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  transform: translateY(0);
-  transition: transform 0.25s ease-in-out;
-}
-
-.header.hide {
-  transform: translateY(calc(-1.2rem - 20px));
-}
-
-.header_holder {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px 0;
-}
-
-.header_holder h4 {
-  color: transparent;
-  text-transform: uppercase;
-  background: var(--gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  font-weight: 700;
-  line-height: 1.2rem;
-}
-
 .light_holder {
   position: fixed;
   bottom: 40px;
@@ -82,52 +42,9 @@
   opacity: 1;
 }
 
-.footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  padding: 3rem 0;
-  font-size: 1.5rem;
-  white-space: nowrap;
-  border-top: 1px solid var(--font);
-}
-
-.footer b {
-  text-shadow: 5px 5px 10px var(--box-shadow);
-}
-
-.resume {
-  padding: 7px 15px;
-  height: fit-content;
-  border: 1px solid var(--font);
-  border-radius: 10px;
-  font-size: 0.8em;
-}
-
-.resume span {
-  margin-right: 10px;
-}
-
-.count_holder {
-  display: flex;
-  flex-direction: row;
-  gap: 3rem;
-  font-size: 1.2rem;
-  line-height: 1.2rem;
-}
-
-.counts {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  gap: 5px;
-}
-
 .mask_holder {
   position: absolute;
-  top: 0;
+  top: 50vh;
   right: 0;
   left: 0;
   z-index: 0;
@@ -139,7 +56,7 @@
   left: 50%;
   transform: translate(-50%, 0);
   height: 100%;
-  opacity: 0.1;
+  opacity: 0.05;
   fill: gray;
   stroke: gray;
 }
@@ -157,6 +74,8 @@
   width: 100%;
   overflow: hidden;
   height: 200px;
+  position: relative;
+  z-index: 2;
 }
 
 .logos_holder {
@@ -230,4 +149,24 @@
 .logo svg {
   height: 100%;
   width: 100%;
+}
+
+.pill {
+  font-size: 1rem;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background: var(--bg);
+  position: relative;
+  text-transform: lowercase;
+}
+.pill::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  right: -1px;
+  left: -1px;
+  border-radius: 10px;
+  z-index: -1;
+  background: var(--gradient);
 }

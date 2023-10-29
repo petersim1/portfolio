@@ -2,9 +2,9 @@ import Link from "next/link";
 import classNames from "classnames";
 
 import styles from "@/_styles/resume.module.css";
-import { worksans } from "@/_styles/fonts";
+import { worksans } from "@/_lib/fonts";
 import { Arrow } from "@/_lib/assets";
-import Light from "@/_components/layout/Light";
+import Light from "@/_components/elements/Light";
 
 export default (): JSX.Element => {
   return (

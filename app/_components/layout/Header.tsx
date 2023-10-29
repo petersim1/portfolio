@@ -2,8 +2,8 @@
 
 import classNames from "classnames";
 
-import styles from "@/_styles/layout.module.css";
-import { spacemono } from "@/_styles/fonts";
+import styles from "./layout.module.css";
+import { spacemono } from "@/_lib/fonts";
 import { useScrollContext } from "@/_store/scroll";
 
 const Header = (): JSX.Element => {
