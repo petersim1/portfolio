@@ -4,7 +4,7 @@ import styles from "./blurb.module.css";
 
 export default (): JSX.Element => {
   return (
-    <section id="blurb" data-offset-top={50} data-offset-bottom={50}>
+    <section id="blurb" data-offset-top={100} data-offset-bottom={0}>
       <div className={classNames(styles.wrapper, worksans.className)}>
         <div className={styles.blurb}>
           <p>

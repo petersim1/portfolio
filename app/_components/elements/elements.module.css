@@ -1,3 +1,5 @@
+/* Theme Toggle + Screen Nav */
+
 .light_holder {
   position: fixed;
   bottom: 40px;
@@ -42,33 +44,48 @@
   opacity: 1;
 }
 
+/* NN Mask */
+
 .mask_holder {
   position: absolute;
-  top: 50vh;
+  height: 100vh;
   right: 0;
   left: 0;
   z-index: 0;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* rotating it, so need to make height a fct of the width. */
 .mask_holder svg {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  height: 100%;
-  opacity: 0.05;
+  transform: rotate(270deg);
+  opacity: 0.25;
   fill: gray;
   stroke: gray;
+  min-width: 100vh;
+  min-height: 100vw;
 }
+
+/* @media (min-aspect-ratio: 1 / 1) {
+  .mask_holder svg {
+    max-width: 100vh;
+  }
+} */
 
 .mask_holder div {
   position: absolute;
-  right: 0;
+  top: 0;
   bottom: 0;
-  left: 0;
+  right: 0;
   overflow: hidden;
-  background: linear-gradient(0deg, var(--bg) 92%, transparent);
+  height: 100vh;
+  width: 100vw;
+  /* background: linear-gradient(-90deg, var(--bg) 92%, transparent); */
 }
+
+/* Logo Flicker */
 
 .logo_wrapper {
   width: 100%;
@@ -150,6 +167,8 @@
   height: 100%;
   width: 100%;
 }
+
+/* Generic Pill */
 
 .pill {
   font-size: 1rem;

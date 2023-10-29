@@ -56,10 +56,8 @@ export const ScrollProvider: FC<{ children: ReactNode }> = ({ children }) => {
       setProgress(arrs);
     };
 
-    if (!progress.length) {
-      setProgress(Array(sections.length).fill(0));
-      breakVals();
-    }
+    scrollPos();
+    breakVals();
 
     window.addEventListener("scroll", scrollPos);
     window.addEventListener("resize", breakVals);
