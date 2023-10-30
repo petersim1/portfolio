@@ -29,7 +29,7 @@ const Light = (): JSX.Element => {
         className={classNames(styles.toggle, styles.nav, { [styles.active]: active })}
         onClick={moveToTop}
       >
-        <Arrow height="1.5rem" width="1.5rem" fill="var(--font)" />
+        <Arrow height="70%" width="70%" fill="var(--font)" />
       </div>
     </div>
   );

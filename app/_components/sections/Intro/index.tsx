@@ -12,8 +12,8 @@ export default (): JSX.Element => {
 
     const style = `radial-gradient(\
 circle at ${percentX}% ${percentY}%, \
-rgb(195, 251, 214) 10%, \
-rgb(0, 204, 255) 70%\
+var(--gradient-from), \
+var(--gradient-to)\
     )`;
     event.currentTarget.style.setProperty("background", style);
     event.currentTarget.style.setProperty("-webkit-background-clip", "text");
@@ -25,9 +25,11 @@ rgb(0, 204, 255) 70%\
         <div className={styles.gradient} onMouseMove={handleHover} id="hoverGrad">
           <h2>
             <span>I'm a </span>
+            <br className={styles.break_mobile} />
             <span className={styles.transparent}>data scientist</span>
             <br />
             <span>and </span>
+            <br className={styles.break_mobile} />
             <span className={styles.transparent}>full stack developer</span>
             <span>.</span>
           </h2>

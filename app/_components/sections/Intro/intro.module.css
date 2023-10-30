@@ -14,8 +14,8 @@
 .gradient {
   background: radial-gradient(
     circle at 0%,
-    rgb(195, 251, 214) 10%,
-    rgb(0, 204, 255) 70%
+    var(--gradient-from),
+    var(--gradient-to)
   );
   background-blend-mode: saturation;
   background-clip: text;
@@ -31,4 +31,14 @@
 .transparent {
   color: transparent;
   font-weight: 800;
+}
+
+.break_mobile {
+  display: none;
+}
+
+@media screen and (max-width: 609px) {
+  .break_mobile {
+    display: block;
+  }
 }

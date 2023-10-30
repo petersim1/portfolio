@@ -19,12 +19,12 @@ export const projects = [
     year: 2023,
     description: {
       text: "Engineered an application based off Strava's API, allowing users\
-      to oauth with strava account and view a aggregate data visualization of\
+      to oauth with their strava account and view an aggregate data visualization of\
       their routes. Solely reliant on Browser Storage API's, so no data is retained\
       by the application itself.",
       image: "/images/og_strava.png",
       languages: ["javascript", "html", "css"],
-      tools: ["nextjs", "indexeddb", "strava api", "oauth", "d3.js"],
+      tools: ["nextjs", "indexeddb", "strava api", "oauth", "jwt", "d3.js"],
       links: [
         {
           type: "site",
@@ -41,8 +41,8 @@ export const projects = [
     title: "Bevor",
     year: 2023,
     description: {
-      text: "Co-developed a POC (with plans to fully build) for decentralized\
-      auditing processes within the web3 ecosystem. Built out the marketing page, protocol dApp,\
+      text: "Co-developed a POC (with plans to fully build) for a decentralized\
+      auditing protocol within the web3 ecosystem. Built out the marketing page, protocol dApp,\
       helped guide the DAO and protocol designs, conducted market research, and presented to\
       incubator programs and partners.",
       image: "/images/og_bevor.png",
@@ -65,11 +65,11 @@ export const projects = [
     year: 2023,
     description: {
       text: "Developed a microservice for actively listening to video conferencing\
-      calls and automating post-call manual form-filling processes for various types\
+      calls and automating post-call form-filling processes for various types\
       of form responses. Integrated with 3rd party services for audio streaming,\
       speech recognition, LLM's, AI tooling, and vector databases. Built out a \
-      custom Starlette API for internal use. Led the development and established performance\
-      criteria.",
+      custom Starlette API for internal use. Led the development, established performance\
+      criteria, and created documentation.",
       image: "",
       languages: ["python"],
       tools: [
@@ -88,13 +88,23 @@ export const projects = [
     title: "Slack Summarizer",
     year: 2023,
     description: {
-      text: "Created a NextJS application allowing users to oauth with slack and\
+      text: "NextJS application allowing users to oauth with slack and\
       display their top content in a given set of channels over time.\
-      Built a Starlette ASGI python REST API to handle authorization and Slack\
-      SDK integration. Built a custom a frontend with protected routing.",
+      Built a Starlette ASGI python REST API to handle authorization, Slack\
+      SDK integration, and post-processing. Built a custom a frontend with protected routing. This\
+      drastically helped with content ingestion and dispersal.",
       image: "/images/sightings_og.png",
       languages: ["python", "javascript", "html", "css"],
-      tools: ["starlette", "express", "nextjs", "slack sdk", "rest api", "openai api", "firebase"],
+      tools: [
+        "starlette",
+        "nodejs",
+        "express",
+        "nextjs",
+        "slack sdk",
+        "rest api",
+        "openai api",
+        "firebase",
+      ],
       links: [
         {
           type: "site",
@@ -107,7 +117,7 @@ export const projects = [
     title: "Progressive Web App",
     year: 2023,
     description: {
-      text: "Built out the service worker component of a PWA product for a client as part\
+      text: "Built out the service worker component of a PWA for a client as part\
       of an effort to move away from native mobile apps.\
       Built within the React framework, I created the service worker update lifecycle\
       and established the pre-caching and run-time caching strategies.",
@@ -123,7 +133,7 @@ export const projects = [
     year: 2023,
     description: {
       text: "Built a full-stack app integrated with OpenAI's API to allow users to upload\
-      PDF's and recursively run GPT-3, outside of the model's context window size, to produce summaries.",
+      PDF's, extract text, and produce summaries, regardless of the model's context window size.",
       image: "/images/og_tldr.jpg",
       languages: ["javascript", "html", "css"],
       tools: ["nextjs", "openai api", "orm"],
@@ -140,7 +150,8 @@ export const projects = [
     year: 2023,
     description: {
       text: "Built a full-stack product to allow users to create and view immutable contracts\
-      on-chain. Built using web3 tools, it allows users to interact with custom smart contracts.",
+      on-chain. Built using web3 tools, it allows users to interact with custom smart contracts.\
+      Assisted with contract design and aligned with existing ERC standards.",
       image: "https://www.agree.xyz/_next/image?url=%2Fimages%2FReciept.png&w=256&q=75",
       languages: ["javascript", "html", "css"],
       tools: ["nextjs", "ethersjs", "wagmi", "firebase", "smart contracts", "rest api"],
@@ -157,13 +168,15 @@ export const projects = [
     year: 2023,
     description: {
       text: "Developed a Reinforcement Learning agent for playing Blackjack, and\
-      iterated on this using deep q learning. Published multiple blog posts to Mirror.\
+      iterated on this using deep Q learning within the pytorch framework.\
+      Published multiple blog posts to Mirror\
+      detailing the training processes and analytical results.\
       Plans to build out a frontend to allow users to play blackjack \
       while evaluating their strategy, and observing optimal gameplay.",
       image:
         "https://mirror-media.imgix.net/publication-images/1PBrFqkO8npyjOLoNQt4-.jpeg?height=320&width=640&h=320&w=640&auto=compress",
       languages: ["python"],
-      tools: ["jupyter", "reinforcement learning", "mirror blog"],
+      tools: ["jupyter", "reinforcement learning", "deep learning", "pytorch", "mirror blog"],
       links: [
         {
           type: "github",
@@ -218,7 +231,7 @@ export const projects = [
       image:
         "https://agriculture.basf.us/content/dam/cxm/agriculture/crop-protection/shared-files/images/CRP201800021_Hero_Crop_Imgs_Credenz_Soybeans.jpg",
       languages: ["python"],
-      tools: ["jupyter", "machine learning", "deep learning"],
+      tools: ["jupyter", "machine learning", "deep learning", "pytorch"],
       links: [
         {
           type: "github",

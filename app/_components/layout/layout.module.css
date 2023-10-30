@@ -28,7 +28,7 @@
 .header_holder h4 {
   color: transparent;
   text-transform: uppercase;
-  background: var(--gradient);
+  background: linear-gradient(90deg, var(--gradient-from), var(--gradient-to));
   background-clip: text;
   -webkit-background-clip: text;
   font-weight: 700;

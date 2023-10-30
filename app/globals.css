@@ -8,14 +8,8 @@
   --sun: #F28C38;
   --box-shadow: rgba(0,0,0,0.2);
   --code: #32AFFF;
-  --grainy: var(--bg) -50%, var(--font) 35%;
-  --grainy-mobile: var(--bg) -150%, var(--font) 80%;
-  --grainy-angle: 100deg;
-  --gradient: linear-gradient(
-    90deg,
-    hsla(139, 81%, 79%, 1) 0%,
-    hsla(176, 94%, 67%, 1) 100%
-  );
+  --gradient-from: #74bf97 10%;
+  --gradient-to: #265381 70%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,8 +29,8 @@
   --font: #FFFFFF;
   --box-shadow: rgba(255,255,255,0.3);
   --code: #4AF626;
-  --grainy: var(--bg) -20%, var(--font) 80%;
-  --grainy-mobile: var(--bg) -80%, var(--font) 200%;
+  --gradient-from: rgb(195, 251, 214) 10%;
+  --gradient-to: rgb(0, 204, 255) 70%;
 }
 
 
@@ -149,7 +143,7 @@ h5 {
 section,
 footer,
 nav {
-  padding: 0 max(0px, calc((100vw - 1440px + 2*55px)/2))
+  padding: 0 max(20px, calc((100vw - 1440px + 2*55px)/2));
 }
 
 nav {
