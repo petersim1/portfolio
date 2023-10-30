@@ -25,9 +25,11 @@ rgb(0, 204, 255) 70%\
         <div className={styles.gradient} onMouseMove={handleHover} id="hoverGrad">
           <h2>
             <span>I'm a </span>
+            <br className={styles.break_mobile} />
             <span className={styles.transparent}>data scientist</span>
             <br />
             <span>and </span>
+            <br className={styles.break_mobile} />
             <span className={styles.transparent}>full stack developer</span>
             <span>.</span>
           </h2>
