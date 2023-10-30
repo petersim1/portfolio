@@ -10,6 +10,14 @@
   padding-bottom: max(5rem, 20%);
 }
 
+@media (max-aspect-ratio: 1 / 1) {
+  .wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100vh;
+  }
+}
+
 .blurb p {
   font-size: 2.5rem;
   line-height: normal;
