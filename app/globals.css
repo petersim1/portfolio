@@ -149,7 +149,7 @@ h5 {
 section,
 footer,
 nav {
-  padding: 0 max(0px, calc((100vw - 1440px + 2*55px)/2))
+  padding: 0 max(20px, calc((100vw - 1440px + 2*55px)/2));
 }
 
 nav {
