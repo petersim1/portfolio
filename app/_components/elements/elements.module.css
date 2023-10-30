@@ -197,5 +197,5 @@
   left: -1px;
   border-radius: 10px;
   z-index: -1;
-  background: var(--gradient);
+  background: linear-gradient(90deg, var(--gradient-from), var(--gradient-to));
 }
