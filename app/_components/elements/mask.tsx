@@ -6,10 +6,9 @@ import { useScrollContext } from "@/_store/scroll";
 import styles from "./elements.module.css";
 import { NN } from "@/_lib/assets";
 
-const Mask = (): JSX.Element => {
+export default (): JSX.Element => {
   const { breakpoints, progress } = useScrollContext();
   const totHeight = useMemo(() => breakpoints[1] - breakpoints[0], [breakpoints]);
-  console.log(progress[1]);
   return (
     <div className={styles.mask_holder} style={{ top: `${(breakpoints[0] + totHeight) / 2}px` }}>
       <NN />
@@ -22,5 +21,3 @@ const Mask = (): JSX.Element => {
     </div>
   );
 };
-
-export default Mask;

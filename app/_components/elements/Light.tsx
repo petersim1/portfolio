@@ -8,7 +8,7 @@ import { Sun, Moon, Arrow } from "@/_lib/assets";
 import { useThemeContext } from "@/_store/theme";
 import { useScrollContext } from "@/_store/scroll";
 
-const Light = (): JSX.Element => {
+export default (): JSX.Element => {
   const { dark, toggleTheme } = useThemeContext();
   const { progress } = useScrollContext();
 
@@ -34,5 +34,3 @@ const Light = (): JSX.Element => {
     </div>
   );
 };
-
-export default Light;
