@@ -52,16 +52,27 @@
   text-shadow: 5px 5px 10px var(--box-shadow);
 }
 
-.resume {
-  padding: 7px 15px;
-  height: fit-content;
-  border: 1px solid var(--font);
-  border-radius: 10px;
-  font-size: 0.8em;
+.contact_wrapper {
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
 }
 
-.resume span {
-  margin-right: 10px;
+.contact {
+  height: 1.5rem;
+  position: relative;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.contact svg {
+  height: 100%;
+  width: 100%;
+}
+
+.contact:hover {
+  opacity: 0.8;
 }
 
 .count_holder {
