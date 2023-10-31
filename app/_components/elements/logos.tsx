@@ -20,7 +20,7 @@ import {
 } from "@/_lib/logos";
 import styles from "./elements.module.css";
 
-const Logos = (): JSX.Element => {
+export default (): JSX.Element => {
   // const getParabolicOpacity = (offset: number, duration: number): number => {
   //   // offset in terms of when to start wrt progress
   //   // duration in terms of how long process lasts wrt progress
@@ -96,5 +96,3 @@ const Logos = (): JSX.Element => {
     </div>
   );
 };
-
-export default Logos;

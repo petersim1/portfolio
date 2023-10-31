@@ -35,7 +35,7 @@ export default ({ data }: { data: DataI }): JSX.Element => {
           <h4>
             <b>{data.title}</b>
           </h4>
-          <p>{data.year}</p>
+          {/* <p>{data.year}</p> */}
         </div>
         <div
           className={styles.image}
@@ -60,7 +60,7 @@ export default ({ data }: { data: DataI }): JSX.Element => {
       </div>
       <div className={styles.text}>
         <div className={styles.blurb}>{data.description.text}</div>
-        <div className={styles.holder}>
+        <div className={styles.tag_holder}>
           {data.description.tools.concat(data.description.languages).map((tool, ind2) => (
             <Pill text={tool} key={ind2} />
           ))}

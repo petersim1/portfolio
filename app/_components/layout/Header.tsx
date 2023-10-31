@@ -6,7 +6,7 @@ import styles from "./layout.module.css";
 import { spacemono } from "@/_lib/fonts";
 import { useScrollContext } from "@/_store/scroll";
 
-const Header = (): JSX.Element => {
+export default (): JSX.Element => {
   const { progress } = useScrollContext();
   return (
     <nav
@@ -20,5 +20,3 @@ const Header = (): JSX.Element => {
     </nav>
   );
 };
-
-export default Header;

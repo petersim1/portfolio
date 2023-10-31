@@ -32,73 +32,36 @@
   font-weight: 800;
 }
 
-@keyframes wiggle {
-  0% {transform: translateY(0) rotate(90deg);}
-  80% {transform: translateY(0px) rotate(90deg);}
-  85% {transform: translateY(-1px) rotate(90deg);}
-  95% {transform: translateY(4px) rotate(90deg);}
-  100% {transform: translateY(0) rotate(90deg);}
-}
-
-.arrow_holder {
-  width: 30px;
-  height: 30px;
-  transform: rotate(90deg);
-  animation: wiggle 2s ease-in-out infinite;
-}
-
-.parallax {
-  height: 500vh;
-  width: 100%;
-}
-
 .projects {
-  height: 100vh;
-  position: sticky;
-  top: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
-  max-width: 100%;
-  perspective: 300px;
+  max-width: 1200px;
+  --cols: 2;
+}
+
+@keyframes growShrink {
+  0% {transform: scale(1)}
+  20% {transform: scale(1.01)}
+  30% {transform: scale(1.01)}
+  50% {transform: scale(1)}
+  70% {transform: scale(0.99)}
+  80% {transform: scale(0.99)}
+  100% {transform: scale(1)}
 }
 
 .project_wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  max-width: 800px;
-  width: 90%;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-}
-
-.project_wrapper.active {
-  visibility: visible;
-  opacity: 1;
-  /* transform: translate(-50%, -50%); */
-  transform: translate3d(-50%, -50%, 0) rotateX(0deg);
-  z-index: 3;
-}
-
-.project_wrapper.fadeOut {
-  opacity: 0;
-  /* transform: translate(-100%, 100%); */
-  transform: translate3d(-50%, -20%, -50px) rotateX(3deg);
-  z-index: 1;
-}
-
-.project_wrapper.fadeIn {
-  opacity: 0;
-  /* transform: translate(100%, 100%); */
-  transform: translate3d(-50%, 0%, 50px) rotateX(-10deg);
-  z-index: 2;
+  padding: 1% 5%;
+  flex: 1 0 calc(100% / (var(--cols) + 1) + 1%);
+  pointer-events: none;
+  transition: flex 0.75s ease-in-out;
 }
 
 .project {
+  pointer-events: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,6 +69,14 @@
   gap: 30px;
   width: 100%;
   padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  animation: growShrink 2s linear infinite;
+  transition: border 0.75s ease-in-out;
+}
+
+.project_wrapper:hover {
+  flex: 4 0 calc(100% / (var(--cols) + 1) + 1%);
 }
 
 .outgoing {
@@ -113,6 +84,16 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 10px;
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  margin-top: auto;
   width: 100%;
 }
 
@@ -128,6 +109,22 @@
   box-shadow: -3px 3px 5px var(--box-shadow);
 }
 
+.links {
+  display: flex;
+  flex-direction: row;
+  margin: 0 15px;
+  gap: 20px;
+  height: 15px;
+  max-height: 0;
+  transition: all 0.75s ease-in-out;
+}
+
+.link {
+  height: 100%;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
 .text {
   display: flex;
   flex-direction: column;
@@ -138,40 +135,53 @@
   position: relative;
 }
 
-.links {
-  display: flex;
-  flex-direction: row;
-  margin: 0 15px;
-  gap: 20px;
-  height: 15px;
-}
-
-.link {
-  height: 100%;
-  display: block;
-  aspect-ratio: 1 / 1;
-}
-
 .blurb {
+  font-size: 1rem;
   line-height: 1.5rem;
   position: relative;
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition: all 0.75s ease-in-out;
 }
 
-.holder {
+.tag_holder {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.75s ease-in-out;
 }
 
-.info {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-  margin-top: auto;
-  width: 100%;
+.project_wrapper:hover .project {
+  animation: none;
+  border: 1px solid var(--font);
+}
+
+.project_wrapper:hover .links {
+  max-height: 100px;
+}
+
+.project_wrapper:hover .blurb {
+  opacity: 1;
+  max-height: 500px;
+}
+
+.project_wrapper:hover .tag_holder {
+  max-height: 500px;
+  opacity: 1;
+}
+
+@media screen and (max-width: 736px) {
+  .project_wrapper {
+    flex: 0 0 80%;
+  }
+
+  .project_wrapper:hover {
+    flex: 1 0 80%;
+  }
 }
