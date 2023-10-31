@@ -56,10 +56,12 @@
 .project_wrapper {
   padding: 1% 5%;
   flex: 1 0 calc(100% / (var(--cols) + 1) + 1%);
-  transition: all 0.75s ease-in-out;
+  pointer-events: none;
+  transition: flex 0.75s ease-in-out;
 }
 
 .project {
+  pointer-events: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,7 +72,7 @@
   border: 1px solid transparent;
   border-radius: 10px;
   animation: growShrink 2s linear infinite;
-  transition: all 0.75s ease-in-out;
+  transition: border 0.75s ease-in-out;
 }
 
 .project_wrapper:hover {
