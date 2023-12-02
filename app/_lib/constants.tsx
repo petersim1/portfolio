@@ -15,6 +15,36 @@ export const education = [
 
 export const projects = [
   {
+    title: "Blackjack Gameplay",
+    year: 2023,
+    description: {
+      text: "Wrote custom python modules to handle blackjack gameplay, and deployed\
+      a Starlette Websocket server to allow users to interact with it.\
+      Created a NextJS application to interface with the websocket server and have users\
+      play blackjack. With a Deep Q Learning model that I previously trained for learning\
+      optimal blackjack strategy, I converted the pytorch model to ONNX and host it directly\
+      on the client, so users can see optimal moves.",
+      image:
+        "https://mirror-media.imgix.net/publication-images/1PBrFqkO8npyjOLoNQt4-.jpeg?height=320&width=640&h=320&w=640&auto=compress",
+      languages: ["python", "typescript", "javascript"],
+      tools: ["pytorch", "deep learning", "onnx", "nextjs", "starlette", "websocket"],
+      links: [
+        {
+          type: "site",
+          link: "https://blackjack-webapp.vercel.app",
+        },
+        {
+          type: "github",
+          link: "https://github.com/petersim1/blackjack-api",
+        },
+        {
+          type: "github",
+          link: "https://github.com/petersim1/blackjack-webapp",
+        },
+      ],
+    },
+  },
+  {
     title: "Strava Viz",
     year: 2023,
     description: {
@@ -213,7 +243,7 @@ export const projects = [
       links: [
         {
           type: "site",
-          link: "https://www.petersim.one/BetHedgingSite/",
+          link: "https://petersim1.github.io/BetHedgingSite",
         },
         {
           type: "github",
@@ -236,24 +266,6 @@ export const projects = [
         {
           type: "github",
           link: "https://github.com/petersim1/raizen-biofuel",
-        },
-      ],
-    },
-  },
-  {
-    title: "Goodreads Recommender",
-    year: 2020,
-    description: {
-      text: "Built a recommender system for the Goodreads dataset using\
-      the pyspark framework and cluster computing.",
-      image:
-        "https://opengraph.githubassets.com/9afa1be49fa74de00214b2e5474fc756bfcd94d946f4bd8e09531a8d7aceee44/petersim1/Recommender_System",
-      languages: ["python"],
-      tools: ["jupyter", "pyspark", "bash"],
-      links: [
-        {
-          type: "github",
-          link: "https://github.com/petersim1/Recommender_System",
         },
       ],
     },
