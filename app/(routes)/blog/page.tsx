@@ -1,7 +1,18 @@
+import Link from "next/link";
 import { getAllContents } from "@/_actions";
 
-export default async ({ params }: { params: { slug: string } }): Promise<JSX.Element> => {
-  const data = await getAllContents();
-  console.log(data);
-  return <div>{params.slug}</div>;
+export default (): JSX.Element => {
+  const datas = getAllContents();
+  return (
+    <div>
+      {datas.map((data, ind) => (
+        <div key={ind}>
+          <Link href={"/blog/" + data.file}>
+            <p>{data.data.title}</p>
+            <p>{data.data.date.toString()}</p>
+          </Link>
+        </div>
+      ))}
+    </div>
+  );
 };

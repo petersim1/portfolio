@@ -3,7 +3,37 @@ title: My MDX File
 date: 2023-12-13
 author: John Doe
 ---
+import Pill from "@/_compontents/elements/pill"
 
-# hey there
+# biggest
+
+## big
+
+### smaller
+
+#### small
 
 This is a test.
+
+`heres some code`
+
+```
+def function():
+  a = math.random()
+  if a > .2:
+    return "yo"
+  return "sup"
+```
+
+<p>this is some random p tag that should render</p>
+
+Here's some really long text and I want to test that it wraps properly and such.
+I'm going to repeat it to make sure.
+I'm also not too certain what happens here.
+<br />
+This is testing that new lines don't break text. But \n\n does
+
+![image](/images/og_tldr.jpg)
+*this should be a caption*
+
+<Pill text="testing" />

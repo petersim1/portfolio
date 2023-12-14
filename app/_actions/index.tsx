@@ -9,14 +9,10 @@ interface GithubI {
   forks: number;
 }
 
-interface MatterI {
+interface MdxI {
   file: string;
-  data: {
-    title: string;
-    date: Date;
-    blurb: string;
-    content: string;
-  };
+  data: { [key: string]: any };
+  content: string;
 }
 
 export const github = (): Promise<GithubI> => {
@@ -50,30 +46,34 @@ const getMdxFiles = (): string[] => {
   return fs.readdirSync(directory).filter((file) => path.extname(file) === ".mdx");
 };
 
-const getMdxContent = (file: string): MatterI => {
+const getMdxContent = (file: string): MdxI => {
   const filePath = path.join("./app", "_blog", file);
   const fileContent = fs.readFileSync(filePath, "utf8");
-  const { data, content } = matter(fileContent);
+  const { content, data } = matter(fileContent);
   return {
-    file,
-    data: {
-      title: data.title,
-      date: data.date,
-      blurb: data.blurb,
-      content,
-    },
+    file: file.replace(".mdx", ""),
+    data,
+    content,
   };
 };
 
-export const getAllContents = (): MatterI[] => {
+export const getAllContents = (): { file: string; data: { [key: string]: any } }[] => {
   const files = getMdxFiles();
-  const contents = files.map((file) => getMdxContent(file));
+  const contents = files
+    .map((f) => {
+      const { file, data } = getMdxContent(f);
+      return { file, data };
+    })
+    .sort((a, b) => b.data.date - a.data.date);
   return contents;
 };
 
-export const getContent = (file: string): string => {
+export const getContent = (file: string): { data: any; content: string } => {
   const allFiles = getMdxFiles();
   const fileName = allFiles.filter((f) => path.parse(f).name === file);
-  const content = getMdxContent(fileName[0]);
-  return content.data.content;
+  const { data, content } = getMdxContent(fileName[0]);
+  return {
+    data,
+    content,
+  };
 };

@@ -66,7 +66,6 @@ export default ({ children }: { children: React.ReactNode }): JSX.Element => {
             <Layout>
               <Header />
               {children}
-              {/* @ts-expect-error Server Component */}
               <Footer />
             </Layout>
             <Light />
