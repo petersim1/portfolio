@@ -7,7 +7,7 @@ export default (): JSX.Element => {
     <div>
       {datas.map((data, ind) => (
         <div key={ind}>
-          <Link href={"/blog/" + data.file}>
+          <Link href={`/blog/${data.file}`} prefetch={true}>
             <p>{data.data.title}</p>
             <p>{data.data.date.toString()}</p>
           </Link>

@@ -8,7 +8,6 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
   return (
     <div>
       <p>{data.title}</p>
-      {/* @ts-expect-error Async Server Component */}
       <MDXRemote source={content} components={{ Pill }} />
     </div>
   );
