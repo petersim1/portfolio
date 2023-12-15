@@ -1,15 +1,18 @@
 import Link from "next/link";
-import { getAllContents } from "@/_actions";
+import { allPosts, Post } from "contentlayer/generated";
 
 export default (): JSX.Element => {
-  const datas = getAllContents();
+  const posts: Post[] = allPosts.toSorted(
+    (a: Post, b: Post) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
   return (
     <div>
-      {datas.map((data, ind) => (
+      {posts.map((post, ind) => (
         <div key={ind}>
-          <Link href={`/blog/${data.file}`} prefetch={true}>
-            <p>{data.data.title}</p>
-            <p>{data.data.date.toString()}</p>
+          <Link href={post.url} prefetch={true}>
+            <p>{post.title}</p>
+            <p>{post.date.toString()}</p>
+            <p>{post.excerpt}</p>
           </Link>
         </div>
       ))}
