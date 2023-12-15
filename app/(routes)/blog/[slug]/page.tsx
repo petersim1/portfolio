@@ -2,12 +2,12 @@ import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 
 import Pill from "@/_components/elements/pill";
-import Code from "@/_components/elements/code";
+import mdComponent from "@/_components/elements/blog";
 import Blog from "@/_components/blog/Blog";
 
 const components = {
   Pill,
-  code: Code,
+  ...mdComponent,
 };
 
 export default ({ params }: { params: { slug: string } }): JSX.Element => {
