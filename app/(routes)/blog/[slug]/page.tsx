@@ -17,6 +17,7 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
 
   return (
     <main style={{ flex: "1 0 0" }}>
+      <section id="blog" style={{position: "absolute", height: "100vh"}}/>
       <Blog post={post} components={components} />
     </main>
   );

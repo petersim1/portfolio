@@ -25,21 +25,21 @@ By default, I use the following rules, which might vary across casinos, but are 
 
 In the field of Machine Learning, specifically supervised machine learning, we observe some prediction, compare it to ground truth, and learn from it. Think of regression models, where we try and predict a real number from some data; we have a ground truth real number during training, and learn to best fit data to predict that ground truth. At each set of datapoints, we can predict some outcome, and directly observe whether it was a good prediction or not and learn from it.
 
-Reinforcement Learning is a rather different approach. Rather than predicting a direct result, we try and maximize our cumulative rewards from a series of states and actions taken. Think of trying to create an agent that moves through a maze. We don’t have “ground truth” or direct “labels” about what the immediate action should be. However, we know that if the agent completes the maze efficiently without human interference, then it was properly trained. Maybe each step receives a reward of -1, and reaching the goal receives a reward of 10. Surely, reaching the goal in the least number of steps leads to the highest cumulative reward. But how do we train this, since we don’t observe immediate feedback from a given action? That’s where Reinforcement Learning comes in.
+Reinforcement Learning is a rather different approach. Rather than predicting a direct result, we try and maximize our cumulative rewards from a series of states and actions taken. Think of trying to create an agent that moves through a maze. We don't have “ground truth” or direct “labels” about what the immediate action should be. However, we know that if the agent completes the maze efficiently without human interference, then it was properly trained. Maybe each step receives a reward of -1, and reaching the goal receives a reward of 10. Surely, reaching the goal in the least number of steps leads to the highest cumulative reward. But how do we train this, since we don't observe immediate feedback from a given action? That's where Reinforcement Learning comes in.
 
-In the game of blackjack, we have an environment. Let’s think of this as the rules of the game, the objective, and generally just the boundaries of what’s possible in the game. At each point during the game, we observe a state. Simply put, this includes a player’s current cards and the face-up house card (let’s assume we have no idea what the card count is, as we easily forget what cards we’ve seen previously). We are presented with a policy of possible actions to take. What is our optimal action according to this policy? Can we learn what the optimal action should be? We don’t necessarily care what the immediate action is, we simply care about maximizing our reward from the series of actions taken. Maybe we take a seemingly sub-optimal immediate action, because it actually leads to a higher long term reward.
+In the game of blackjack, we have an environment. Let's think of this as the rules of the game, the objective, and generally just the boundaries of what's possible in the game. At each point during the game, we observe a state. Simply put, this includes a player's current cards and the face-up house card (let's assume we have no idea what the card count is, as we easily forget what cards we've seen previously). We are presented with a policy of possible actions to take. What is our optimal action according to this policy? Can we learn what the optimal action should be? We don't necessarily care what the immediate action is, we simply care about maximizing our reward from the series of actions taken. Maybe we take a seemingly sub-optimal immediate action, because it actually leads to a higher long term reward.
 
 ### Q learning
 
-Blackjack is an episodic task; observe a state, take an action, and repeat until the gameplay ends, meaning we’ve reached a terminal state. At each step, given a current state, we can take a specific action that is available in that state. Upon each action, we receive some reward. In some instances, we can observe the probability of moving to that next state, given the action taken. In other instances, we don’t know this transition probability, so we can consider this model-free learning. In this blackjack reinforcement learning agent, I’ll use a model-free approach to learn an optimal policy, maximizing our cumulative rewards from gameplay.
+Blackjack is an episodic task; observe a state, take an action, and repeat until the gameplay ends, meaning we've reached a terminal state. At each step, given a current state, we can take a specific action that is available in that state. Upon each action, we receive some reward. In some instances, we can observe the probability of moving to that next state, given the action taken. In other instances, we don't know this transition probability, so we can consider this model-free learning. In this blackjack reinforcement learning agent, I'll use a model-free approach to learn an optimal policy, maximizing our cumulative rewards from gameplay.
 
-Traditionally in Reinforcement Learning, we can observe the Value of being in a given state. Ideally, we’d want to take an action that leads to the maximum Value of the next state. Newer approaches abstract this further, and introduce the concept of Q values, which denote a measure of state-action pairs. So, rather than simply observing Value of a state, we observe a Q value of a state-action pair, and can selection our action accordingly.
+Traditionally in Reinforcement Learning, we can observe the Value of being in a given state. Ideally, we'd want to take an action that leads to the maximum Value of the next state. Newer approaches abstract this further, and introduce the concept of Q values, which denote a measure of state-action pairs. So, rather than simply observing Value of a state, we observe a Q value of a state-action pair, and can selection our action accordingly.
 
 Through reinforcement learning, we aim to learn to the Q function through iterative approaches.
 
 $$ Q(s,a) = Q(s,a) + lr*\[R + gamma * max(Q(s`,a)) - Q(s,a)\] $$
 
-At each state s, we take an action a, receive a reward R, and end up in state $s`$. Assuming that $s`$ is not a terminal state, we can evaluate the optimal Q value in this new state as well (if it is terminal, we’ll assume it’s 0). Essentially, we are taking a weighted average of current Q value and new information.
+At each state s, we take an action a, receive a reward R, and end up in state $s`$. Assuming that $s`$ is not a terminal state, we can evaluate the optimal Q value in this new state as well (if it is terminal, we'll assume it's 0). Essentially, we are taking a weighted average of current Q value and new information.
 
 - Q(s,a) : Q value of a state-action pair
 - max(Q(s`,a)) : Maximum Q value across all actions in the following state (the state in which our current action brings us to)
@@ -56,7 +56,7 @@ The “states” I use are: Player Card Total, House Card Shown, Useable Ace. Th
 Exploration vs. Exploitation is a core problem of reinforcement learning. How much new exploration do we do of the space, versus how much do exploit the current knowledge of what we know is “good” or “bad”. There are ways around this during the training process, such as :
 
 - Greedy policies: Every single time, we take the action that we know is best given our current information.
-  - Not good. If by chance we take a suboptimal action, and it turns out to be decent, we’ll continue taking it in each iteration, without exploring other actions.
+  - Not good. If by chance we take a suboptimal action, and it turns out to be decent, we'll continue taking it in each iteration, without exploring other actions.
 - e-Greedy policies: Each episode, with probability epsilon, we randomly take an action, otherwise we take the best action. Through learning, we can decay the epsilon value, such that we transition from high exploration initially, to more exploitation later in learning.
 - Posterior Sampling: Each episode, we sample from the Q-space to determine an action. State-action Q values that are “good” are more likely to be selected, but we never allow for zero probability of selecting a “less good” action given the policy and the current state.
 
@@ -68,15 +68,15 @@ I developed some python modules to simulate a Player and overall Gameplay. Next,
 
 I assume that only 1 Player is used during training, who wagers 1 unit each round.
 
-Cards are depleted during gameplay until the “stop card” is reached. I place this stop card 2/3rd’s through the deck. This is a solution that casinos game up with to avoid perfect card counting towards the end of decks. Some casinos re-shuffle after every used card, but I don’t do this.
+Cards are depleted during gameplay until the “stop card” is reached. I place this stop card 2/3rd's through the deck. This is a solution that casinos game up with to avoid perfect card counting towards the end of decks. Some casinos re-shuffle after every used card, but I don't do this.
 
 I evaluate the Q-learning process every 50,000 rounds, where I evaluate 200 separate games for 50 rounds each. This allows me to get nice bootstrapped confidence intervals and mostly normal distributions of cumulative rewards.
 
-I don’t do any early stopping during training, and I don’t do any backtracking of optimal Q values either.
+I don't do any early stopping during training, and I don't do any backtracking of optimal Q values either.
 
-If the house is dealt a natural blackjack, I skip the learning process for that round. There’s nothing a player can do (sort of).
+If the house is dealt a natural blackjack, I skip the learning process for that round. There's nothing a player can do (sort of).
 
-I intentionally exclude “surrender” as being a valid move. I initially had this, but I don’t have a valid way of handling it properly without counting it as a side bet. Since it’s not a true side bet (as “insurance” is), and surrendering is a function of your current cards and the house card, I might re-visit this. However, I was observing that I was improperly accounting for surrenders given that I skip training if the house shows a natural blackjack.
+I intentionally exclude “surrender” as being a valid move. I initially had this, but I don't have a valid way of handling it properly without counting it as a side bet. Since it's not a true side bet (as “insurance” is), and surrendering is a function of your current cards and the house card, I might re-visit this. However, I was observing that I was improperly accounting for surrenders given that I skip training if the house shows a natural blackjack.
 
 - Learning Rate = 0.001
 - Gamma = 0.95
@@ -84,9 +84,9 @@ I intentionally exclude “surrender” as being a valid move. I initially had t
 
 ### Action Masking
 
-In order to properly sample from the Q space and determine the optimal policy, each player’s turn has the action space masked according to their current state. For example, “double” is only available as a first move. This means that after the player’s first move, “double” is masked in the action space and will never be sampled from or be selected as an optimal play. Doing this, versus adding additional partitions to the state-action pairs, allows me to share more information across iterations.
+In order to properly sample from the Q space and determine the optimal policy, each player's turn has the action space masked according to their current state. For example, “double” is only available as a first move. This means that after the player's first move, “double” is masked in the action space and will never be sampled from or be selected as an optimal play. Doing this, versus adding additional partitions to the state-action pairs, allows me to share more information across iterations.
 
-For example, I’ve seen implementations where the state-action pair includes player_total, house_shows, useable_ace, can_split. Actually, this was my first implementation as well. But abstracting away “can_split”, and using action masking instead, led to more efficient training and more shared information between states.
+For example, I've seen implementations where the state-action pair includes player_total, house_shows, useable_ace, can_split. Actually, this was my first implementation as well. But abstracting away “can_split”, and using action masking instead, led to more efficient training and more shared information between states.
 
 ### Training
 
@@ -102,11 +102,11 @@ Q value: {
 }
 ```
 
-The most confusing state is when the player total is 12. This can mean [8,4], for example, or a pair of 6’s, or a pair of Ace’s. The “useable_ace” value allows me to differentiate between pair of 6’s and Ace’s.
+The most confusing state is when the player total is 12. This can mean [8,4], for example, or a pair of 6's, or a pair of Ace's. The “useable_ace” value allows me to differentiate between pair of 6's and Ace's.
 
 As I mask the action space based off the current state, we are able to share information between states where a split is possible, versus when it is not (ie, share information between “hit” for an 8,4 and a 6,6), as “split” would be masked for the former, while the latter will still have access to the Q value for “hit” learned from the former.
 
-I can use monte-carlo methods to simulate gameplay. I currently don’t review the impact of including multiple players during training, although I don’t think this should impact performance, only complexity. Again, Q-values are updated each iteration, but performance is only evaluated every 50,000 iterations. Further, I can evaluate the learning process to a Baseline policy, which was found online (and adopted to fit the data structure used above), by comparing the % of moves that align with the baseline policy during inference. Results of training are shown below:
+I can use monte-carlo methods to simulate gameplay. I currently don't review the impact of including multiple players during training, although I don't think this should impact performance, only complexity. Again, Q-values are updated each iteration, but performance is only evaluated every 50,000 iterations. Further, I can evaluate the learning process to a Baseline policy, which was found online (and adopted to fit the data structure used above), by comparing the % of moves that align with the baseline policy during inference. Results of training are shown below:
 
 ### Evaluation
 
@@ -115,16 +115,16 @@ With my learned policy, I can now evaluate the agent against other benchmarks. N
 - Learned: the learned policy from training, shown above.
 - Accepted: I construct this policy based off internet searches of optimal policies. Takes into account useable Ace, doubling down, surrendering, and splitting. Remember that I purposefully exclude surrendering, but keep it in for this baseline policy.
 - Random: Simulate completely random gameplay, while still using action masking given the current state.
-- Mimic House: Emulate the house, meaning stay on anything >= 17 (even if it’s a soft total), hit otherwise.
+- Mimic House: Emulate the house, meaning stay on anything >= 17 (even if it's a soft total), hit otherwise.
 
 I can state the expected return of these different styles of gameplay, in terms of units
 
-- Random: -0.4243 net units per round. ie, play 100 rounds, and you’re expected to lose 42 units. I expected this to be closer to -0.5
+- Random: -0.4243 net units per round. ie, play 100 rounds, and you're expected to lose 42 units. I expected this to be closer to -0.5
 - Meh: -0.0628 net units per round
 - “Good”: -0.0094 net units per round. Nearly even expected value
 - Learned: -0.0082 net units per round. Nearly even expected value.
 
-To show the impact of the randomness of blackjack, I’ll explicitly show 10 different games played, over 100 rounds, and show the cumulative reward achieved in each.
+To show the impact of the randomness of blackjack, I'll explicitly show 10 different games played, over 100 rounds, and show the cumulative reward achieved in each.
 
 ### Value Function
 
@@ -132,7 +132,7 @@ I can display the value function by taking the expectation over the Q space for 
 
 ### Optimal Move
 
-As I’m sure it’d be of interest, I include color coordinated tables displaying the optimal action for a given state. Note that these optimal plays do not mean that they were far away the best action to select, they simply denote the action with the highest Q value. It could’ve narrowly edged out the next best choice, of which I’m sure many of these could be improved through additional training steps.
+As I'm sure it'd be of interest, I include color coordinated tables displaying the optimal action for a given state. Note that these optimal plays do not mean that they were far away the best action to select, they simply denote the action with the highest Q value. It could've narrowly edged out the next best choice, of which I'm sure many of these could be improved through additional training steps.
 
 For clarity, I also provide the baseline policy table. These are mutually exclusive tables. Also note that (“A”, ”A”), is not included in the “useable ace” table, even though it does have a useable ace, but it is in “can split”.
 
@@ -149,7 +149,7 @@ It is clear that there is drastic overlap between the “No Useable Ace” categ
 
 ### Typical House Results
 
-To provide further insights into how the house might perform given a face-up card being shown, I can further simulate gameplay to capture this information. Note that I don’t care about how the player plays. The house always plays independently of the player’s moves, which allows me to provide the following information more easily.
+To provide further insights into how the house might perform given a face-up card being shown, I can further simulate gameplay to capture this information. Note that I don't care about how the player plays. The house always plays independently of the player's moves, which allows me to provide the following information more easily.
 
 Since in every round, the house can either end with 17-21, or bust, I can show the likelihood of these events occurring through monte-carlo methods, given the card that the house shows. It seems quite clear that the house showing a 6 leads to the highest probability of the house going over 21, and is likely the most favorable card to be up against as a player. Here, 21 is inclusive of natural blackjacks, which is only possible if the house shows a 10 or 11. Being up against a house 2 is less favorable than a 3-6.
 
@@ -166,30 +166,30 @@ Total 26: 13.94%
 
 ### Bankroll
 
-Bankroll is an important component to consider during Blackjack. In games like poker, the concept is likely more intuitive. If your bankroll is significantly higher than someone else’s, you can wager a small portion of your bankroll, while forcing someone else all-in, drastically changing the style of play and risk tolerance.
+Bankroll is an important component to consider during Blackjack. In games like poker, the concept is likely more intuitive. If your bankroll is significantly higher than someone else's, you can wager a small portion of your bankroll, while forcing someone else all-in, drastically changing the style of play and risk tolerance.
 
-In blackjack, it has a slightly different connotation, as you are playing against the house and not against other players. From everything I’ve shown in this post, we know that the RL agent I trained is able to achieve roughly 0 Expected Value: Play forever, with infinite bankroll, and achieve  roughly 0 rewards per round. However, let’s assume we do have a bankroll, and the minimum wager consists of some percentage of our bankroll. Due to the randomness of blackjack, even using our “optimal” agent, there will be instances where our cumulative rewards dip below our bankroll threshold, forcing us to stop playing. We’ll never have a chance to continue gameplay to approach the roughly 0 EV over time.
+In blackjack, it has a slightly different connotation, as you are playing against the house and not against other players. From everything I've shown in this post, we know that the RL agent I trained is able to achieve roughly 0 Expected Value: Play forever, with infinite bankroll, and achieve  roughly 0 rewards per round. However, let's assume we do have a bankroll, and the minimum wager consists of some percentage of our bankroll. Due to the randomness of blackjack, even using our “optimal” agent, there will be instances where our cumulative rewards dip below our bankroll threshold, forcing us to stop playing. We'll never have a chance to continue gameplay to approach the roughly 0 EV over time.
 
-Let’s break this down more visually. We’ll simulate gameplay for 500 games, each game allowed to play for a maximum of 500 rounds. We can look at the probability of going broke in less than N rounds of gameplay (CDF), given our initial bankroll, and a wager of 1 unit per round. As our bankroll increases with respect to the minimum wager, our probability of going broke decreases, as we have the capabilities to play more rounds to achieve our roughly 0 EV.
+Let's break this down more visually. We'll simulate gameplay for 500 games, each game allowed to play for a maximum of 500 rounds. We can look at the probability of going broke in less than N rounds of gameplay (CDF), given our initial bankroll, and a wager of 1 unit per round. As our bankroll increases with respect to the minimum wager, our probability of going broke decreases, as we have the capabilities to play more rounds to achieve our roughly 0 EV.
 
 We can also look at the percent of hands that are profitable across each of these simulated gameplays. With different bankrolls, we don't observe great differences between the percent of profitable hands during that gameplay. This holds except for very low percent of profitable hands, where we see a large initial spike for 0% profitable hands for small bankrolls.
 
-Most interestingly, we can observe the effects of bankroll with respect to minimum wager on the unit profit per hand. Remember, if we have infinite bankroll, our expected value should hover around zero. However, it becomes clear that as our bankroll decreases with respect to the minimum wager of 1 unit, our likelihood of observing meaningfully negative returns per hand will increase. This is due to the randomness of blackjack, and enforcing constraints of a player’s initial bankroll. For example, let’s say we have a bankroll of 5 units, and wager 1 unit per hand. If we lose 5 hands straight (without doubling or splitting, which increases our wager), then we’ll run out of money after 5 rounds. Our net profit per hand is -1. We’ll never have a chance to continue gameplay to approach our expected value. With a small bankroll, we are more at the mercy of the randomness of blackjack. As our bankroll continues to increase, the plot will shift towards our expected value of around 0, with high probability.
+Most interestingly, we can observe the effects of bankroll with respect to minimum wager on the unit profit per hand. Remember, if we have infinite bankroll, our expected value should hover around zero. However, it becomes clear that as our bankroll decreases with respect to the minimum wager of 1 unit, our likelihood of observing meaningfully negative returns per hand will increase. This is due to the randomness of blackjack, and enforcing constraints of a player's initial bankroll. For example, let's say we have a bankroll of 5 units, and wager 1 unit per hand. If we lose 5 hands straight (without doubling or splitting, which increases our wager), then we'll run out of money after 5 rounds. Our net profit per hand is -1. We'll never have a chance to continue gameplay to approach our expected value. With a small bankroll, we are more at the mercy of the randomness of blackjack. As our bankroll continues to increase, the plot will shift towards our expected value of around 0, with high probability.
 
 ## Conclusion
 
 I was successfully able to create a blackjack agent to deeply understand the value of taking a certain move given the player + house states. Using Q-Learning, we learn an “optimal" policy, able to achieve roughly even expected value over time.
 
-While some of the learned optimal actions might intuitively seem sub-optimal, the learned policy is able to perform on-par with a baseline policy when looking at simulated cumulative rewards. This could be due to the low likelihood of reaching these states. When looking at the specific Q values where the optimal action differed from the baseline action (ie our learned policy said to split, while the baseline said to hit), a large majority of these optimal actions could’ve differed just through chance of sampling, given how similar their Q values are. Some were quite drastically different, which is interesting.
+While some of the learned optimal actions might intuitively seem sub-optimal, the learned policy is able to perform on-par with a baseline policy when looking at simulated cumulative rewards. This could be due to the low likelihood of reaching these states. When looking at the specific Q values where the optimal action differed from the baseline action (ie our learned policy said to split, while the baseline said to hit), a large majority of these optimal actions could've differed just through chance of sampling, given how similar their Q values are. Some were quite drastically different, which is interesting.
 
 Sampling from the Q space during training seemed to lead to quicker convergence, and a good balance of exploration / exploitation. Switching to deterministic action selection during inference led to non-negative cumulative rewards, on average.
 
 Observing real-world constraints of bankroll issues for a player leads to an interesting case study of how, while following the same exact optimal policy, decreasing your bankroll with respect to the unit wager makes a player much less profitable per hand, on average. If you walk up to a 20$ minimum table with 100$ (willing to lose it all), and you play the table minimum each hand, you are much worse off per hand, on average, than a player who walks up the same table with 1000$ that plays the table minimum. The player with 1000$ is less impacted by the randomness of blackjack in compared to the player with 100$.
 
-Clearly this is not a learned policy able to guarantee profit. Actually, on average, the expected value is essentially zero. How can we push this even further? Well, card count could be of use… What if we could remember which cards we’ve seen? Even less intensely, instead of remembering exact cards we’ve seen, what if we could remember how many “high” vs. “low” cards we’ve seen, and use that to our advantage?
+Clearly this is not a learned policy able to guarantee profit. Actually, on average, the expected value is essentially zero. How can we push this even further? Well, card count could be of use… What if we could remember which cards we've seen? Even less intensely, instead of remembering exact cards we've seen, what if we could remember how many “high” vs. “low” cards we've seen, and use that to our advantage?
 
-Including card count in this framework is infeasible. There are far too many states to store if we take it into account. Also, the extent of the boundaries of the card count will differ given the amount of decks in play, and the model would have to be adjusted accordingly. Our current implementation has 270 states. Let’s assume a 6 deck shoe, cut 2/3 of the way through. I’ve seen card count range from -20 to 20 in this deck size. This could lead to over 10,000 states. This poses an issue because 1) that requires a lot of memory, and 2) states will be visited so infrequently that you’d need to train way longer to get any meaningful result. Deep Q Networks are a perfect use case to solve this.
+Including card count in this framework is infeasible. There are far too many states to store if we take it into account. Also, the extent of the boundaries of the card count will differ given the amount of decks in play, and the model would have to be adjusted accordingly. Our current implementation has 270 states. Let's assume a 6 deck shoe, cut 2/3 of the way through. I've seen card count range from -20 to 20 in this deck size. This could lead to over 10,000 states. This poses an issue because 1) that requires a lot of memory, and 2) states will be visited so infrequently that you'd need to train way longer to get any meaningful result. Deep Q Networks are a perfect use case to solve this.
 
-In a future article, I’ll share my work on Deep Reinforcement Learning, where rather than explicitly storing Q values in memory, we can learn a neural network to approximate our Q function, and be able to take card count into account.
+In a future article, I'll share my work on Deep Reinforcement Learning, where rather than explicitly storing Q values in memory, we can learn a neural network to approximate our Q function, and be able to take card count into account.
 
-While the github is still a work a progress, you can find it below. Of course, feel free to fork it and experiment! I haven’t seen as thorough of an implementation allowing for card splitting or performance nearing non-negative rewards.
+While the github is still a work a progress, you can find it below. Of course, feel free to fork it and experiment! I haven't seen as thorough of an implementation allowing for card splitting or performance nearing non-negative rewards.
