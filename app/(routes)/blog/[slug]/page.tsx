@@ -4,7 +4,6 @@ import { allPosts } from "contentlayer/generated";
 import Pill from "@/_components/elements/pill";
 import mdComponent from "@/_components/elements/blog";
 import Blog from "@/_components/blog/Blog";
-
 const components = {
   Pill,
   ...mdComponent,

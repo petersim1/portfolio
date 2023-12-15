@@ -1,5 +1,5 @@
 .blog_holder {
-  margin-top: calc(1.6rem + 40px + 1rem);
+  margin-top: calc(1.6rem + 40px + 40px);
   width: 80%;
   max-width: 800px;
   margin-left: auto;
@@ -24,4 +24,13 @@
   flex-direction: column;
   gap: 5px;
   align-items: flex-start;
+}
+
+.back_arrow {
+  margin-bottom: 10px;
+}
+
+.back_arrow a {
+  display: inline-block;
+  width: fit-content;
 }
