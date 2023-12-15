@@ -1,5 +1,5 @@
+import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
-import type { Post } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 import Pill from "@/_components/elements/pill";
@@ -8,16 +8,11 @@ const components = {
   Pill,
 };
 
-const getPost = (slug: string): Post => {
-  const post = allPosts.find((p) => p._raw.flattenedPath === slug);
-  if (!post) {
-    throw new Error(`This article ${slug} doesn't exist`);
-  }
-  return post;
-};
-
 export default ({ params }: { params: { slug: string } }): JSX.Element => {
-  const post = getPost(params.slug);
+  const post = allPosts.find((p) => p._raw.flattenedPath === params.slug);
+  if (!post) {
+    return notFound();
+  }
 
   const Content = useMDXComponent(post.body.code);
   return (
