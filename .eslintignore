@@ -6,3 +6,4 @@ graphqlEnums.js
 .eslintrc.js
 commitlint.config.js
 next.config.js
+contentlayer.config.ts

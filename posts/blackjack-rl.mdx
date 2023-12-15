@@ -37,7 +37,7 @@ Traditionally in Reinforcement Learning, we can observe the Value of being in a 
 
 Through reinforcement learning, we aim to learn to the Q function through iterative approaches.
 
-$$ Q(s,a) = Q(s,a) + lr*\[R + gamma * max(Q(s`,a)) - Q(s,a)\] $$
+$$ Q(s,a) = Q(s,a) + lr * \[R + gamma * max(Q(s`,a)) - Q(s,a)\] $$
 
 At each state s, we take an action a, receive a reward R, and end up in state $s`$. Assuming that $s`$ is not a terminal state, we can evaluate the optimal Q value in this new state as well (if it is terminal, we'll assume it's 0). Essentially, we are taking a weighted average of current Q value and new information.
 

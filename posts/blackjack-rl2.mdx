@@ -1,0 +1,20 @@
+---
+title: Let's Play Blackjack
+date: 2023-12-15
+excerpt: "Overview of a Q Learning approach to Blackjack"
+---
+
+I've always been interested in the game of Blackjack and understanding how "optimal" certain moves are that you can find in a optimal strategy chart. I wondered if I could apply machine learning to Blackjack in order to understand the game more deeply, while creating agents to help infer optimal gameplay. If you go to a casino, the dealer is obliged to tell you the best move at a given point in time. But let's dive deeper...
+
+## The game of Blackjack
+
+Blackjack is a game played against the house. The objective is to get a higher card total than the house, without going over 21. At a given point in time, depending on the cards at play, a player can <Callout>hit, stay, double, split, surrender</Callout>. For the purpose of this analysis, I don't care about <Callout>insurance</Callout> or any other side bets. In blackjack, possible actions are conditional on the state that you are in, and the number of moves you have already taken. For example, after electing to hit, you can no longer double, surrender, or split, so the action space changes.
+
+After the players are finished with their round, the house draws cards until they have at least 17. Once the house is finished, rewards are distributed accordingly. A caveat is that if the house has natural blackjack, then the players cannot move and they lose immediately, unless the player also has natural blackjack, then they push.
+
+- player $\gt$ 21 : player loses
+- 21 $\ge$ player $\gt$ house : player wins
+- player $=$ house: push
+- player $\lt$ house $\le$ 21 : player loses
+
+$$ Q(s,a) = Q(s,a) + lr * [R + gamma * max(Q(s`,a)) - Q(s,a)] $$

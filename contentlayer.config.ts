@@ -1,4 +1,7 @@
+import { Pluggable } from "unified";
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 const Post = defineDocumentType(() => ({
   name: "Post",
@@ -32,4 +35,9 @@ const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "posts",
   documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [remarkMath],
+    // @ts-ignore
+    rehypePlugins: [rehypeKatex],
+  },
 });

@@ -1,4 +1,5 @@
 import "@/globals.css";
+import "katex/dist/katex.min.css";
 import { ThemeProvider } from "@/_store/theme";
 import { ScrollProvider } from "@/_store/scroll";
 import { Metadata, Viewport } from "next";

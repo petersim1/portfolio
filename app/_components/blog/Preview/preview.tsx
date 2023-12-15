@@ -11,11 +11,13 @@ type Props = {
 const options: Intl.DateTimeFormatOptions = {
   year: "numeric",
   month: "long",
-  day: "numeric"
+  day: "numeric",
+  timeZone: "UTC",
 };
 
 export default ({post, ...rest}: Props ): JSX.Element => {
   const date = new Date(post.date).toLocaleDateString("en-US", options);
+  console.log(post.date);
   return (
     <div className={styled.preview_div}>
       <p>{post.title}</p>
