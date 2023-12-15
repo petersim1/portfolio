@@ -16,12 +16,19 @@ This is a test.
 
 `heres some code`
 
-```
+```python
 def function():
   a = math.random()
   if a > .2:
     return "yo"
   return "sup"
+```
+
+```typescript
+export default ({ children, ...props }): JSX.Element => {
+  let codeHTML = highlight(children);
+  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+}
 ```
 
 <p>this is some random p tag that should render</p>

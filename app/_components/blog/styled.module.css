@@ -1,0 +1,27 @@
+.blog_holder {
+  margin-top: calc(1.6rem + 40px);
+  width: 80%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+  min-height: 100%;
+}
+
+.previews {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.preview {
+  width: 100%;
+  display: inline-block;
+}
+
+.preview_div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+}
