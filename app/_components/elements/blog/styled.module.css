@@ -12,12 +12,17 @@
 
 .md_image_holder * {
   font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .md_image{
   position: relative;
   width: 100%;
-  height: 300px;
+}
+
+.md_image img {
+  width: 100%;
+  height: auto;
 }
 
 .callout {
