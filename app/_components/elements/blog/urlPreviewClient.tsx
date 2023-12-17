@@ -1,9 +1,20 @@
 "use client";
+import Link from "next/link";
+import { Tweet } from "react-tweet";
 import { useEffect, useState } from "react";
+import classNames from "classnames";
 
 import styled from "./styled.module.css";
 
-export default ({ url, body }: { url: string; body: string }): JSX.Element => {
+export default ({
+  url,
+  body,
+  landscape,
+}: {
+  url: string;
+  body: string;
+  landscape: boolean;
+}): JSX.Element => {
   const [data, setData] = useState({ title: "", description: "", image: "" });
 
   useEffect(() => {
@@ -15,18 +26,36 @@ export default ({ url, body }: { url: string; body: string }): JSX.Element => {
     setData({ title, description, image });
   }, []);
 
+  const urlP = new URL(url);
+
+  if (urlP.host == "twitter.com") {
+    const id = urlP.pathname.match(/\/([^/]+)\/?$/)[1];
+    return (
+      <div className={styled.preview_div}>
+        <Tweet id={id} />
+      </div>
+    );
+  }
+
   if (!body) {
     return <div>couldn't load</div>;
   }
 
   return (
-    <div className={styled.preview_block}>
-      <div className={styled.preview_image} style={{ backgroundImage: `url(${data.image})` }} />
-      <div className={styled.preview_text}>
-        <p className={styled.preview_title}>{data.title}</p>
-        <p>{data.description}</p>
-        <p className={styled.preview_url}>{new URL(url).host.toLowerCase()}</p>
-      </div>
+    <div className={styled.preview_div}>
+      <Link href={url}>
+        <div className={classNames(styled.preview_block, { [styled.landscape]: landscape })}>
+          <div
+            className={classNames(styled.preview_image, { [styled.landscape]: landscape })}
+            style={{ backgroundImage: `url(${data.image})` }}
+          />
+          <div className={styled.preview_text}>
+            <p className={styled.preview_title}>{data.title}</p>
+            <p>{data.description}</p>
+            <p className={styled.preview_url}>{urlP.host.toLowerCase()}</p>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 };
