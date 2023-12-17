@@ -1,11 +1,11 @@
 import Code from "./code";
 import MdImage from "./image";
-import Callout from "./callout";
 import Table from "./table";
+import UrlPreview from "./urlPreview";
 
 export default {
   code: Code,
   MdImage,
-  Callout,
   Table,
+  UrlPreview,
 };

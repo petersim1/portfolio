@@ -31,3 +31,18 @@ export const github = (): Promise<GithubI> => {
       };
     });
 };
+
+export const getMetadata = (url: string): Promise<string | null> => {
+  return new Promise((resolve) => {
+    fetch(url)
+      .then((response) => {
+        if (response.ok) {
+          return response.text();
+        }
+        resolve(null);
+      })
+      .then((result) => {
+        resolve(result);
+      });
+  });
+};

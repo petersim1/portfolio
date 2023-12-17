@@ -129,10 +129,12 @@ pre:has(code) {
   margin-bottom: 2rem;
   padding: 1rem;
   border-radius: 10px;
+  font-size: 0.8em;
 }
 
 table {
   border-collapse: collapse;
+  margin: auto;
 }
 
 table td,
@@ -143,6 +145,16 @@ table th {
 
 table caption {
   margin-bottom: 5px;
+}
+
+mark {
+  padding: 2px 5px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  color: var(--font);
+  background-color: var(--code-bg);
+  font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+
 }
 
 /* we'll only allow the wrapper div to grow to a certain width */

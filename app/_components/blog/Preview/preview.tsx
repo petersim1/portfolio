@@ -18,7 +18,6 @@ const options: Intl.DateTimeFormatOptions = {
 
 export default ({ post, ...rest }: Props): JSX.Element => {
   const date = new Date(post.date).toLocaleDateString("en-US", options);
-  console.log(post);
   return (
     <div className={styled.preview_div}>
       <p>{post.title}</p>

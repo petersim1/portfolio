@@ -8,32 +8,32 @@ I've always been interested in the game of Blackjack and understanding how "opti
 
 ## The game of Blackjack
 
-Blackjack is a game played against the house. The objective is to get a higher card total than the house, without going over 21. At a given point in time, depending on the cards at play, a player can <Callout text="hit, stay, double, split, surrender" />. For the purpose of this analysis, I don't care about <Callout text="insurance" /> or any other side bets. In blackjack, possible actions are conditional on the state that you are in, and the number of moves you have already taken. For example, after electing to hit, you can no longer double, surrender, or split, so the action space changes.
+Blackjack is a game played against the house. The objective is to get a higher card total than the house, without going over 21. At a given point in time, depending on the cards at play, a player can <mark>hit, stay, double, split, surrender</mark>. For the purpose of this analysis, I don't care about <mark>insurance</mark> or any other side bets. In blackjack, possible actions are conditional on the state that you are in, and the number of moves you have already taken. For example, after electing to hit, you can no longer double, surrender, or split, so the action space changes.
 
 After the players are finished with their round, the house draws cards until they have at least 17. Once the house is finished, rewards are distributed accordingly. A caveat is that if the house has natural blackjack, then the players cannot move and they lose immediately, unless the player also has natural blackjack, then they push.
 
 Here's how results are determined:
-- player $\gt$ 21 : player loses
-- 21 $\ge$ player $\gt$ house : player wins
-- player $=$ house: push
-- player $\lt$ house $\le$ 21 : player loses
-- player surrenders: player forfeits half their wager
+- **player $\gt$ 21** : player loses
+- **21 $\ge$ player $\gt$ house** : player wins
+- **player $=$ house** : push
+- **player $\lt$ house $\le$ 21** : player loses
+- **player surrenders** : player forfeits half their wager
+
 
 Depending on which environment you play in, the rules might differ a bit. I'll outline common rules that I elected to use for my analysis, although these can be adjusted easily:
-- Dealer Hits Soft 17
-  - False
-- Push on Dealer 22
-  - False (some low minimum tables might have this...)
-- Allowed to Double After Split
-  - True
-- Allowed to Hit After Splitting Aces
-  - False
-- Blackjack Payout
-  - 3 / 2
-- Allow Surrender
-  - True
-- Split Any Ten
-  - True (can split 10+J, for example. Otherwise, card has to be an exact match)
+<Table
+  header={["Rule", "Default", "Description"]}
+  rows={[
+    ["Dealer hits soft 17", "false", ""],
+    ["Push on Dealer 22", "false", "some low minimum tables have this..."],
+    ["Double After Split", "true", ""],
+    ["Hit After Splitting Aces", "false", ""],
+    ["Blackjack Payout", "3 / 2", ""],
+    ["Allow Surrender", "true", ""],
+    ["Split any Ten", "true", "whether you can split any cards with a value of 10"]
+  ]}
+  caption="Allowed Rules and their default values"
+/>
 
 I also state that we use 6 decks, and cards are not replaced until a "stop card" is reached, which is 66.67% of the way through the deck.
 
@@ -61,14 +61,17 @@ $Q$ = q value\
 $lr$ = learning rate\
 $\gamma$ = discount factor. How important future actions are (0, 1)
 
-
-$$ Q(s,a) = Q(s,a) + lr * \lbrack R + \gamma * max(Q(s',a')) - Q(s,a)\rbrack $$
+```math
+\begin{aligned}
+Q(s,a) = Q(s,a) + lr * \lbrack R + \gamma * max(Q(s',a')) - Q(s,a)\rbrack
+\end{aligned}
+```
 
 At each state $s$, we take an action $a$, receive a reward $R$, and end up in state $s'$. Assuming that $s'$ is not a terminal state, we can evaluate the optimal $Q$ value in this new state as well (if it is terminal, we'll assume it's $0$). Essentially, we are taking a weighted average of the current $Q$ value and new information.
 
 This requires storing the Q values of all state-action pairs in memory. In our case of Blackjack, without accounting for card count, this is a tractable problem computationally, which is why simple Q learning is a valid approach.
 
-The “states” I use are: <Callout text="Player Card Total, House Card Shown, Useable Ace" />. The “actions” are: <Callout text="Hit, Stay, Double, Split, Surrender"/>. Each pair of these will have an associated Q-value. As mentioned earlier, not every action is feasible given the current state, so these unreachable states are “masked” given the valid moves determined by the Player module.
+The “states” I use are: <mark>Player Card Total, House Card Shown, Useable Ace</mark>. The “actions” are: <mark>Hit, Stay, Double, Split, Surrender</mark>. Each pair of these will have an associated Q-value. As mentioned earlier, not every action is feasible given the current state, so these unreachable states are “masked” given the valid moves determined by the Player module.
 
 ```json
 Q[(10, 4, false)] = {
@@ -84,15 +87,20 @@ Q[(10, 4, false)] = {
 
 Exploration vs. Exploitation is a core problem of reinforcement learning. How much new exploration do we do of the space, versus how much do exploit the current knowledge of what we know is “good” or “bad”. There are ways around this during the training process, such as :
 
-- Greedy policies: Every single time, we take the action that we know is best given our current information.
-  - Not good. If by chance we take a suboptimal action, and it turns out to be decent, we'll continue taking it in each iteration, without exploring other actions.
-- $\epsilon$-Greedy policies: Each episode, with probability $\epsilon$, we randomly take an action, otherwise we take the best action. Through learning, we can decay the epsilon value, such that we transition from high exploration initially, to more exploitation later in learning.
-- Posterior Sampling: Each episode, we sample from the Q-space to determine an action. State-action Q values that are “good” are more likely to be selected, but we never allow for zero probability of selecting a “less good” action given the policy and the current state.
+- **Greedy policies**
+  - We always take the action that we know is best given our current information.
+  - Prevents exploration.
+- **$\epsilon$-Greedy policies**
+   - Each episode, with probability $\epsilon$, we randomly take an action, otherwise we take the best action.
+   - Through learning, we can decay the epsilon value, such that we transition from high exploration initially, to more exploitation later in learning.
+- **Posterior Sampling**:
+  - Each episode, we sample from the Q-space to determine an action.
+  - State-action Q values that are “good” are more likely to be selected, but we never allow for zero probability of selecting a “less good” action given the policy and the current state.
 
 
 ## My Approach
 
-I created some extensible python modules to be able to play this game. It consists of 3 main modules, which are the <Callout text="Cards, Player, Game"/> modules. I won't go into the detail of these, but we're able to efficiently dictate gameplay for 1 to many players.
+I created some extensible python modules to be able to play this game. It consists of 3 main modules, which are the <mark>Cards, Player, Game</mark> modules. I won't go into the detail of these, but we're able to efficiently dictate gameplay for 1 to many players.
 
 Next, I wrote some helper functions to enable training and inference. Some of these include functions to generate episodes, select best actions, learn a policy, and accumulate rewards from $N$ games and $M$ rounds per game.
 
@@ -120,81 +128,125 @@ eps = get_current_decay_value(1, eps_decay, i)
 
 In order to properly sample from the Q space and determine the optimal policy, each player's turn has the action space masked according to their current state. For example, “double” is only available as a first move. This means that after the player's first move, “double” is masked in the action space and will never be sampled from or be selected as an optimal play. Doing this, versus adding additional partitions to the state-action pairs, allows me to share more information across iterations.
 
-For example, I've seen implementations where the state-action pair includes player_total, house_shows, useable_ace, can_split. Actually, this was my first implementation as well. But abstracting away “can_split”, and using action masking instead, led to more efficient training and more shared information between states.
+```python
+Q[(10, 4, false)] = {
+  "hit": 0,
+  "stay": 0,
+  "double": 0,
+  "split": 0,
+  "surrender": 0,
+}
+policy = ["hit", "stay"]
+print(applyMask(Q, policy))
+--------------------------
+Q[(10, 4, false)] = {
+  "hit": 0,
+  "stay": 0,
+}
+```
+
+For example, I've seen implementations where the state-action pair includes <mark>player_total, house_shows, useable_ace, can_split</mark>. Actually, this was my first implementation as well. But abstracting away <mark>can_split</mark>, and using action masking instead, led to more efficient training and more shared information between states.
 
 ### Training
 
-We can use monte-carlo methods to simulate gameplay and learn an optimal policy in each iteration. So, Q values are updated every iteration, but Q values are only evaluated every $50,000$ iterations, to speed up training.
+We can use monte-carlo methods to simulate gameplay and learn an optimal policy in each iteration. So, Q values are updated every iteration, but the learned policy are only evaluated every $50,000$ iterations, to speed up training.
 
-During each evaluation period, we can aggregate average rewards, but also percent of correct moves compared to a baseline "optimal strategy" that I found online. I partition these percent correctness scores by <Callout text="Hard Total, Soft Totals, Splits"/>, so I can truly quantify where the model is performing worst. There are many intricacies that I'm leaving out, but they can all be found in the code in my github.
+During each evaluation period, we can aggregate average rewards, but also percent of correct moves compared to a baseline "optimal strategy" that I found online. I partition these percent correctness scores by <mark>Hard Total, Soft Totals, Splits</mark>, so I can truly quantify where the model is performing worst. There are many intricacies that I'm leaving out, but they can all be found in the code in my github.
 
 Some states are visited very infrequently. Empirically I found that Q values didn't converge for these. What I ended up doing is find a aggregate of cards that were visited infrequently (basically just pairs and soft totals), and I force the Player hand to be initialized with these cards every 10 iterations.
 
-<MdImage src="/images/posts/q-learning-training-r.png">
-Average rewards through training
-</MdImage>
+<MdImage
+  src="/images/posts/q-learning-training-r.png"
+  caption="Average rewards through training"
+/>
 
-<MdImage src="/images/posts/q-learning-training-p.png">
-Percent correct moves compared to the baseline optimal strategy
-</MdImage>
+<MdImage
+  src="/images/posts/q-learning-training-p.png"
+  caption="Percent correct moves compared to the baseline optimal strategy"
+/>
 
 ### Evaluation
 
 Now that the model is trained, I can evaluate its performance and its value function. Below I compare policies and their reward distributions. To do this, I play $1,000$ games of $100$ rounds of blackjack, for each policy. For each of these games, I can find the optimal average reward per round, and plot the distribution of these.
 
-The 4 policies I evaluate are:
-- Learned: the learned policy from training, shown above.
-- Accepted: baseline optimal policy found online.
-- Random: completely random policy
-- Mimic House: stay on anything >= 17, hit otherwise
+<Table 
+  header={["Policy", "Description"]}
+  rows={[
+    ["Learned", "the learned policy from training"],
+    ["Accepted", "baseline optimal policy found online"],
+    ["Random", "completely random policy"],
+    ["Mimic House", "stay on anything higher than 16, hit otherwise"]
+  ]}
+  caption="4 policies evaluated"
+/>
 
-<MdImage src="/images/posts/q-learning-comparison.png" />
+<MdImage
+  src="/images/posts/q-learning-comparison.png"
+  caption="Rewards distribution for each policy"
+/>
 
-The average rewards, in term of units per round, are as follows:
-- Random: -0.4243 net units per round. ie, play 100 rounds, and you're expected to lose 42 units. I expected this to be closer to -0.5
-- Meh: -0.0628 net units per round
-- Accepted: -0.0094 net units per round. Nearly even expected value
-- Learned: -0.0082 net units per round. Nearly even expected value.
+While we have a rewards distribution, we can can capture the expected value of reward per round, in terms of units, for each policy.
+- **Learned**: -0.0082
+- **Accepted**: -0.0094
+- **Random**: -0.4243
+- **Mimic House**: -0.0628
 
 Next, I can determine the value function to be able to visualize our state values.
 
-$V_{\pi}(s)$ tells us, according to a policy $\pi$, what the "value" is of being in state $s$\
-$$V_{\pi}(s) = E_{\pi}\left[\sum_{t=0}^{T}\gamma^tr_t | s_t = s\right]$$\
-$Q_{\pi}(s,a)$ tells us, according to a policy $\pi$, what the "quality" is of being in state $s$ and taking action $a$\
-$$Q_{\pi}(s,a) = E_{\pi}\left[\sum_{t=0}^{T}\gamma^tr_t | s_t = s, a_t=a\right]$$\
-We can relate $V$ and $Q$ by taking marginal expections over $a$\
-$$V_{\pi}(s) = E_{\pi}\left[\sum_{t=0}^{T}\gamma^tr_t | s_t = s\right]$$\
-$$V_{\pi}(s) = E_a\left[E_{\pi}\left[\sum_{t=0}^{T}\gamma^tr_t | s_t = s, a_t=a\right] \right]$$\
-$$V_{\pi}(s) = E_a\left[Q_{\pi}(s,a)\right]$$\
-$$V_{\pi}(s) = \sum_{a}\pi(s,a)Q(s,a)$$\
-Where $\pi(s,a)$ is the probability of taking action $a$ in state $s$.\
-In our case, $\pi(s,a)$ will equal 1 if the action is equal to $max(Q(s,a))$, and $0$ otherwise, which leads to the following:\
-$$V_s = max(Q(s,a))$$\
+$V_{\pi}(s)$ tells us, according to a policy $\pi$, what the "value" is of being in state $s$. We can relate this back to $Q_{\pi}(s,a)$, as I'll show below. First, we have the equations for $V_{\pi}(s)$ and $Q_{\pi}(s,a)$:
+```math
+\begin{align*}
+V_{\pi}(s) &= E_{\pi}\left[\sum_{t=0}^{T}\gamma^tr_t | s_t = s\right]\\
+Q_{\pi}(s,a) &= E_{\pi}\left[\sum_{t=0}^{T}\gamma^tr_t | s_t = s, a_t=a\right]
+\end{align*}
+```
+We can relate $V$ and $Q$ by taking marginal expections over $a$
+```math
+\begin{align*}
+V_{\pi}(s) &= E_{\pi}\left[\sum_{t=0}^{T}\gamma^tr_t | s_t = s\right]\\
+V_{\pi}(s) &= E_a\left[E_{\pi}\left[\sum_{t=0}^{T}\gamma^tr_t | s_t = s, a_t=a\right] \right]\\
+V_{\pi}(s) &= E_a\left[Q_{\pi}(s,a)\right]\\
+V_{\pi}(s) &= \sum_{a}\pi(s,a)Q(s,a)
+\end{align*}
+```
 
-Performing this for all state-action pairs, partitioned by Hard Total, Soft Total, Can Split, results in the following:
+Where $\pi(s,a)$ is the probability of taking action $a$ in state $s$. In our case, $\pi(s,a)$ will equal 1 if the action is equal to $max(Q(s,a))$, and $0$ otherwise, since we don't have transition probabilities and assume we always take the optimal action during inference, which leads to the following:
+```math
+\begin{align*}
+V_s &= max(Q(s,a))
+\end{align*}
+```
+Performing this for all state-action pairs, partitioned by <mark>Hard Total, Soft Total, Can Split</mark> results in the following:
 
-<MdImage src="/images/posts/q-learning-value-fct.png">
-Value function for each state-action pair, partitioned by hand type.
-</MdImage>
+<MdImage
+  src="/images/posts/q-learning-value-fct.png"
+  caption="Value function for each state-action pair, partitioned by hand type."
+/>
 
-It's quite neat seeing these value functions arise. I think for the most part they're quite intuitive.
+It's quite neat seeing these value functions arise. I think for the most part they're rather intuitive. We exclude player values of 21 from the analysis, as the action-space is empty.
 
 ## Additional Analyses
 
-There's so many additional analyses that can be done having created the Blackjack gameplay modules, outlined the blackjack environment, and trained the RL agent.
+There are so many additional analyses that can be done having created the Blackjack gameplay modules, outlined the blackjack environment, and trained the RL agent.
 
 A lot of additional analyses is conducted in the notebook on github, but here I want to highlight the impact of bankroll, which I think is a really interesting component to dive into. A trained model isn't necessarily required to conduct these, but I'll use mine to get results empirically.
 
 Let's assume you wager 1 unit every round, as that is the table minimum. Let's evaluate the impact of your total bankroll, using the same exact policy to play the game of blackjack.
 
-<MdImage src="/images/posts/q-learning-bankroll-p2.png">
-Probability of being bankrolled in < N hands. All of these agents follow the same policy to generate the data.
-</MdImage>
+<MdImage
+  src="/images/posts/q-learning-bankroll-p2.png"
+  caption="Probability of being bankrolled in < N hands. All of these agents follow the same policy to generate the data."
+/>
 
 Lastly, I found it quite interesting to assess how your expected value changes according to your starting bankroll.
 
-<MdImage src="/images/posts/q-learning-bankroll-p1.png">
-As your bankroll decreases, your profitability per hand decreases as well.
-</MdImage>
+<MdImage
+  src="/images/posts/q-learning-bankroll-p1.png"
+  caption="As your bankroll decreases, your profitability per hand decreases as well."
+/>
 
 It's a classic example of bankroll across various games. Not matter what policy you follow, or how adept of a player you are, if you have a smaller bankroll, you are at a disadvantage. At least following a more optimal policy will help mitigate that risk, but only so much.
+
+<UrlPreview url="https://mirror.xyz" />
+
+<UrlPreview url="https://github.com/petersim1/blackjack-api" />
