@@ -5,14 +5,15 @@ import Back from "@/_components/blog/back";
 import styled from "../styled.module.css";
 
 type Props = {
-  post: Post,
-  [key: string]: any
-}
+  post: Post;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
+};
 
 const options: Intl.DateTimeFormatOptions = {
   year: "numeric",
   month: "long",
-  day: "numeric"
+  day: "numeric",
 };
 
 export default ({ post, ...rest }: Props): JSX.Element => {

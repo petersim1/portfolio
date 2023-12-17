@@ -6,6 +6,7 @@ import mdComponent from "@/_components/elements/blog";
 import Blog from "@/_components/blog/Blog";
 const components = {
   Pill,
+  p: ({ children }): JSX.Element => <p style={{ margin: "1rem 0" }}>{children}</p>,
   ...mdComponent,
 };
 

@@ -3,7 +3,7 @@ import type { Post } from "contentlayer/generated";
 import Preview from "./preview";
 import styled from "../styled.module.css";
 
-export default ({ previews }: { previews: Post[]}): JSX.Element => {
+export default ({ previews }: { previews: Post[] }): JSX.Element => {
   return (
     <div className={styled.blog_holder}>
       <h2>Blog Posts</h2>
@@ -13,5 +13,5 @@ export default ({ previews }: { previews: Post[]}): JSX.Element => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/image";
 
 import styled from "./styled.module.css";
 
@@ -10,5 +10,5 @@ export default ({ children, src }: { src: string; children: string }): JSX.Eleme
       </div>
       <em>{children}</em>
     </div>
-  )
-}
+  );
+};

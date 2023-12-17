@@ -45,7 +45,7 @@ At each state s, we take an action a, receive a reward R, and end up in state $s
 - max(Q(s`,a)) : Maximum Q value across all actions in the following state (the state in which our current action brings us to)
 - lr: learning rate. How quickly the agent learns, or how large the “jumps” are in Q values between learning an iteration
 - R : reward received
-- gamma: discount factor. Importance of future rewards. Must be in the range [0,1). Help ensure convergence due to infinite sums. Larger values mean we care about future rewards more.
+- gamma: discount factor. Importance of future rewards. Must be in the range $\[0,1\)$. Help ensure convergence due to infinite sums. Larger values mean we care about future rewards more.
 
 This requires storing the Q values of all state-action pairs in memory. In our case of Blackjack, without accounting for card count, this is a tractable problem computationally, which is why simple Q learning is a valid approach.
 
@@ -102,7 +102,7 @@ Q value: {
 }
 ```
 
-The most confusing state is when the player total is 12. This can mean [8,4], for example, or a pair of 6's, or a pair of Ace's. The “useable_ace” value allows me to differentiate between pair of 6's and Ace's.
+The most confusing state is when the player total is 12. This can mean $\[8,4\]$, for example, or a pair of 6's, or a pair of Ace's. The “useable_ace” value allows me to differentiate between pair of 6's and Ace's.
 
 As I mask the action space based off the current state, we are able to share information between states where a split is possible, versus when it is not (ie, share information between “hit” for an 8,4 and a 6,6), as “split” would be masked for the former, while the latter will still have access to the Q value for “hit” learned from the former.
 

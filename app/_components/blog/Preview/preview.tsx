@@ -4,9 +4,10 @@ import type { Post } from "contentlayer/generated";
 import styled from "../styled.module.css";
 
 type Props = {
-  post: Post,
+  post: Post;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
-}
+};
 
 const options: Intl.DateTimeFormatOptions = {
   year: "numeric",
@@ -15,7 +16,7 @@ const options: Intl.DateTimeFormatOptions = {
   timeZone: "UTC",
 };
 
-export default ({post, ...rest}: Props ): JSX.Element => {
+export default ({ post, ...rest }: Props): JSX.Element => {
   const date = new Date(post.date).toLocaleDateString("en-US", options);
   console.log(post);
   return (
@@ -27,7 +28,9 @@ export default ({post, ...rest}: Props ): JSX.Element => {
       {post.tags.map((tag, ind) => (
         <span key={ind}>{tag}</span>
       ))}
-      <Link href={post.url} {...rest} className={styled.preview}>{"Read ->"}</Link>
+      <Link href={post.url} {...rest} className={styled.preview}>
+        {"Read ->"}
+      </Link>
     </div>
-  )
-}
+  );
+};

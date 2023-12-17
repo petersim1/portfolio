@@ -62,39 +62,10 @@ body {
   margin: 0;
   color: var(--font);
   background-color: var(--bg);
-  font-size: 16px;
+  font-size: clamp(15px, calc(15px + 0.390625vw), 48px);
+  line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@media screen and (max-width: 1680px) {
-  html {
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 736px) {
-  html {
-    font-size: 13px;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  html {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  html {
-    font-size: 10px;
-  }
 }
 
 h1,
@@ -109,8 +80,6 @@ h6 {
 
 p {
   margin: 0;
-  font-size: 1.5rem;
-  line-height: 2rem;
   font-weight: 400;
 }
 
@@ -160,6 +129,20 @@ pre:has(code) {
   margin-bottom: 2rem;
   padding: 1rem;
   border-radius: 10px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table td,
+table th {
+  padding: 2px 4px;
+  border: 1px solid var(--font);
+}
+
+table caption {
+  margin-bottom: 5px;
 }
 
 /* we'll only allow the wrapper div to grow to a certain width */

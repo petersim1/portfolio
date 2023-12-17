@@ -27,7 +27,7 @@ def function():
   return "sup"
 ```
 
-```typescript
+```tsx
 export default ({ children, ...props }): JSX.Element => {
   let codeHTML = highlight(children);
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
@@ -39,9 +39,20 @@ export default ({ children, ...props }): JSX.Element => {
 Here's some really long text and I want to test that it wraps properly and such.
 I'm going to repeat it to make sure.
 I'm also not too certain what happens here.
-<br />
+
 This is testing that new lines don't break text. But \n\n does
 
 <MdImage src="/images/og_tldr.jpg">
 this should be a caption
 </MdImage>
+
+This should be a table
+
+<Table
+  header={["First Header", "Second Header"]}
+  rows={[
+    ["this", "should"],
+    ["work", "---"]
+  ]}
+  caption="testing this caption out"
+/>
