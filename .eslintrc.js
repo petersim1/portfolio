@@ -20,6 +20,7 @@ module.exports = {
   ],
   plugins: ["import", "prettier"],
   rules: {
+    "@typescript-eslint/no-empty-function": "off", // I think that setting "react": [ "./node_modules/@types/react" ], in tsconfig causes errors, unless this is present
     "no-underscore-dangle": "off",
     "no-extra-semi": OFF,
     "no-restricted-syntax": [ERROR, "WithStatement"],

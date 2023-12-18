@@ -1,0 +1,58 @@
+---
+title: My MDX File
+date: 2023-12-13
+excerpt: "This is a blurb of test.mdx"
+tags:
+- test
+- code
+---
+
+# biggest
+
+## big
+
+### smaller
+
+#### small
+
+This is a test.
+
+`heres some code`
+
+```python
+def function():
+  a = math.random()
+  if a > .2:
+    return "yo"
+  return "sup"
+```
+
+```tsx
+export default ({ children, ...props }): JSX.Element => {
+  let codeHTML = highlight(children);
+  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+}
+```
+
+<p>this is some random p tag that should render</p>
+
+Here's some really long text and I want to test that it wraps properly and such.
+I'm going to repeat it to make sure.
+I'm also not too certain what happens here.
+
+This is testing that new lines don't break text. But \n\n does
+
+<MdImage src="/images/og_tldr.jpg">
+this should be a caption
+</MdImage>
+
+This should be a table
+
+<Table
+  header={["First Header", "Second Header"]}
+  rows={[
+    ["this", "should"],
+    ["work", "---"]
+  ]}
+  caption="testing this caption out"
+/>

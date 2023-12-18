@@ -1,6 +1,7 @@
 "use client";
 
 import classNames from "classnames";
+import Link from "next/link";
 
 import styles from "./layout.module.css";
 import { spacemono } from "@/_lib/fonts";
@@ -15,7 +16,9 @@ export default (): JSX.Element => {
       })}
     >
       <div className={styles.header_holder}>
-        <h4>peter simone</h4>
+        <Link href="/">
+          <h4>peter simone</h4>
+        </Link>
       </div>
     </nav>
   );

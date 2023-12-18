@@ -8,7 +8,7 @@ import { Mirror, Twitter, Linkedin, Github, Mail } from "@/_lib/assets";
 // import { Branch, Star, Arrow } from "@/_lib/assets";
 // import { github } from "@/_actions";
 
-export default async (): Promise<JSX.Element> => {
+export default (): JSX.Element => {
   // const { stars, forks } = await github();
   const Icon = (props: React.HTMLProps<SVGElement>): JSX.Element => {
     const { type, ...rest } = props;
