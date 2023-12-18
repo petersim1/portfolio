@@ -35,22 +35,25 @@ export const TextShadow = ({ children }: { children: React.ReactNode }): JSX.Ele
   return <span className={styled.shadow}>{children}</span>;
 };
 
-export const Text = ({
-  children,
-  size = "md",
-}: {
+type PropsI = {
   children: React.ReactNode;
   size?: string;
-}): JSX.Element => {
+  [key: string]: any;
+};
+
+export const Text = (props: PropsI): JSX.Element => {
+  const { children, size, ...rest } = props;
   return (
     <p
       className={classNames({
-        [styled.text_xs]: size == "xs",
-        [styled.text_sm]: size == "sm",
-        [styled.text_md]: size == "md",
-        [styled.text_lg]: size == "lg",
-        [styled.text_xl]: size == "xl",
+        [styled.text_xxs]: (size ?? "md") === "xxs",
+        [styled.text_xs]: (size ?? "md") === "xs",
+        [styled.text_sm]: (size ?? "md") === "sm",
+        [styled.text_md]: (size ?? "md") === "md",
+        [styled.text_lg]: (size ?? "md") === "lg",
+        [styled.text_xl]: (size ?? "md") === "xl",
       })}
+      {...rest}
     >
       {children}
     </p>

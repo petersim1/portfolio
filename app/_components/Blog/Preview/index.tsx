@@ -7,7 +7,7 @@ import styled from "../styled.module.css";
 
 const options: Intl.DateTimeFormatOptions = {
   year: "numeric",
-  month: "long",
+  month: "short",
   day: "numeric",
   timeZone: "UTC",
 };
@@ -21,18 +21,26 @@ export default ({ previews }: { previews: Post[] }): JSX.Element => {
           const date = new Date(post.date).toLocaleDateString("en-US", options);
           return (
             <div className={styled.preview_div} key={ind}>
-              <Text size="xl">{post.title}</Text>
-              <time>{date}</time>
+              <div className={styled.header}>
+                <Text size="xl">{post.title}</Text>
+                <time>
+                  <span className={styled.faint}>{date}</span>
+                </time>
+              </div>
               <Text size="sm">{post.excerpt}</Text>
-              <Text size="xs">{post.readingTime.text}</Text>
               <div className={styled.tags}>
                 {post.tags.map((tag, ind2) => (
                   <Pill key={ind2} text={tag} />
                 ))}
               </div>
-              <Link href={post.url} className={styled.preview}>
-                <Text size="xs">{"Read ->"}</Text>
-              </Link>
+              <div className={styled.footer}>
+                <Text size="xs">
+                  <span className={styled.faint}>{post.readingTime.text}</span>
+                </Text>
+                <Link href={post.url} className={styled.preview}>
+                  <Text size="xs">{"Read ->"}</Text>
+                </Link>
+              </div>
             </div>
           );
         })}

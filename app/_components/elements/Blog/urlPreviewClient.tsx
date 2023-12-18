@@ -4,6 +4,7 @@ import { Tweet } from "react-tweet";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 
+import { Text } from "../Text";
 import styled from "./styled.module.css";
 
 export default ({
@@ -43,16 +44,20 @@ export default ({
 
   return (
     <div className={styled.preview_div}>
-      <Link href={url}>
+      <Link href={url} target="_blank">
         <div className={classNames(styled.preview_block, { [styled.landscape]: landscape })}>
           <div
             className={classNames(styled.preview_image, { [styled.landscape]: landscape })}
             style={{ backgroundImage: `url(${data.image})` }}
           />
           <div className={styled.preview_text}>
-            <p className={styled.preview_title}>{data.title}</p>
-            <p>{data.description}</p>
-            <p className={styled.preview_url}>{urlP.host.toLowerCase()}</p>
+            <Text size="xs" style={{ fontWeight: 800 }}>
+              {data.title}
+            </Text>
+            <Text size="xs">{data.description}</Text>
+            <Text size="xxs" style={{ opacity: 0.6 }}>
+              {urlP.host.toLowerCase()}
+            </Text>
           </div>
         </div>
       </Link>
