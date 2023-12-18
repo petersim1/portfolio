@@ -12,9 +12,7 @@ export default (): JSX.Element => {
       <div className={styles.wrapper}>
         <GradientBlock>
           <h3>
-            Check out some
-            <br />
-            <GradientText>projects</GradientText> I've worked on
+            some <GradientText>projects</GradientText> I've worked on
           </h3>
         </GradientBlock>
         <div className={classNames(styles.projects)}>

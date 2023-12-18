@@ -8,8 +8,8 @@
   --sun: #F28C38;
   --box-shadow: rgba(0,0,0,0.2);
   --code: #32AFFF;
-  --gradient-from: #74bf97 10%;
-  --gradient-to: #265381 70%;
+  --gradient-from: rgb(150, 219, 173) 10%;
+  --gradient-to: rgb(0, 204, 255) 70%;
 }
 
 :root {
