@@ -1,4 +1,4 @@
-import styles from "./projects.module.css";
+import styles from "./styled.module.css";
 import { Github, Outlink, Note } from "@/_lib/assets";
 import Pill from "@/_components/elements/pill";
 

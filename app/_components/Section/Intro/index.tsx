@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./intro.module.css";
+import styles from "./styled.module.css";
 
 export default (): JSX.Element => {
   const handleHover = (event: React.MouseEvent<HTMLDivElement>): void => {

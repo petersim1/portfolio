@@ -18,7 +18,7 @@ import {
   Supabase,
   Openai,
 } from "@/_lib/logos";
-import styles from "./elements.module.css";
+import styles from "./styled.module.css";
 
 export default (): JSX.Element => {
   // const getParabolicOpacity = (offset: number, duration: number): number => {

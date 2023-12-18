@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
 import { inconsolata, worksans } from "@/_lib/fonts";
-import styles from "./projects.module.css";
+import styles from "./styled.module.css";
 import Project from "./project";
 import { projects } from "@/_lib/constants";
 // import { Arrow } from "@/_lib/assets";

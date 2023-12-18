@@ -2,7 +2,7 @@
 
 import classNames from "classnames";
 
-import styles from "./elements.module.css";
+import styles from "./styled.module.css";
 import { worksans } from "@/_lib/fonts";
 import { Sun, Moon, Arrow } from "@/_lib/assets";
 import { useThemeContext } from "@/_store/theme";

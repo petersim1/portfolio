@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 
 import { useScrollContext } from "@/_store/scroll";
-import styles from "./elements.module.css";
+import styles from "./styled.module.css";
 import { NN } from "@/_lib/assets";
 
 export default (): JSX.Element => {

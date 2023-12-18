@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { worksans } from "@/_lib/fonts";
-import styles from "./blurb.module.css";
+import styles from "./styled.module.css";
 
 export default (): JSX.Element => {
   return (

@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import styles from "./contact.module.css";
+import styles from "./styled.module.css";
 import { worksans } from "@/_lib/fonts";
 
 export default (): JSX.Element => {
