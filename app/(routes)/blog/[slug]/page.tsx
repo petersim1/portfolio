@@ -18,9 +18,7 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
 
   return (
     <main style={{ flex: "1 0 0" }}>
-      <section>
-        <Blog post={post} components={components} />
-      </section>
+      <Blog post={post} components={components} />
     </main>
   );
 };
