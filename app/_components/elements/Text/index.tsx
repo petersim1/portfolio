@@ -49,6 +49,7 @@ export const Text = ({
         [styled.text_sm]: size == "sm",
         [styled.text_md]: size == "md",
         [styled.text_lg]: size == "lg",
+        [styled.text_xl]: size == "xl",
       })}
     >
       {children}
