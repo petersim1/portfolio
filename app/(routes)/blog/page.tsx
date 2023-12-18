@@ -8,9 +8,7 @@ export default (): JSX.Element => {
   );
   return (
     <main style={{ flex: "1 0 0" }}>
-      <section>
-        <Preview previews={posts} />
-      </section>
+      <Preview previews={posts} />
     </main>
   );
 };

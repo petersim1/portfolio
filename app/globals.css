@@ -62,7 +62,7 @@ body {
   margin: 0;
   color: var(--font);
   background-color: var(--bg);
-  font-size: clamp(14px, calc(100vw * .0104 + 9.304px), 26px);
+  font-size: clamp(14px, calc(100vw * .0104 + 9.304px), 22px);
   line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -115,6 +115,10 @@ h5 {
   font-weight: 500;
 }
 
+article {
+  overflow: hidden;
+}
+
 pre:has(code) {
   background-color: var(--code-bg);
   margin-top: 2rem;
@@ -122,11 +126,19 @@ pre:has(code) {
   padding: 1rem;
   border-radius: 10px;
   font-size: 0.8em;
+  overflow-x: scroll;
+}
+
+span.katex-display {
+  overflow: scroll;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 table {
   border-collapse: collapse;
   margin: auto;
+  overflow: scroll;
 }
 
 table td,
@@ -146,7 +158,6 @@ mark {
   color: var(--font);
   background-color: var(--code-bg);
   font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
-
 }
 
 /* we'll only allow the wrapper div to grow to a certain width */

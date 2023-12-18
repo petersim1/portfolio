@@ -183,19 +183,14 @@
 .pill {
   font-size: 0.6rem;
   padding: 2px 7px;
+  padding: 1px;
   border-radius: 10px;
-  background: var(--bg);
+  background: linear-gradient(90deg, var(--gradient-from), var(--gradient-to));
   position: relative;
   text-transform: lowercase;
 }
-.pill::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  bottom: -1px;
-  right: -1px;
-  left: -1px;
+.pill div {
+  padding: 2px 7px;
   border-radius: 10px;
-  z-index: -1;
-  background: linear-gradient(90deg, var(--gradient-from), var(--gradient-to));
+  background-color: var(--bg);
 }

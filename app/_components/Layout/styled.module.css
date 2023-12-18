@@ -59,7 +59,7 @@
 }
 
 .contact {
-  height: 1em;
+  height: 20px;
   position: relative;
   transition: opacity 0.25s ease-in-out;
 }

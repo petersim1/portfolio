@@ -1,7 +1,8 @@
 import type { Post } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
-import Back from "@/_components/Blog/back";
+import { Pill } from "@/_components/elements";
+import Back from "@/_components/elements/Blog/back";
 import styled from "../styled.module.css";
 
 type Props = {
@@ -24,7 +25,14 @@ export default ({ post, ...rest }: Props): JSX.Element => {
       <Back />
       <article>
         <h2>{post.title}</h2>
-        <time>{date}</time>
+        <div className={styled.tags} style={{ margin: "10px 0" }}>
+          {post.tags.map((tag, ind2) => (
+            <Pill key={ind2} text={tag} />
+          ))}
+        </div>
+        <time>
+          <span className={styled.faint}>{date}</span>
+        </time>
         <Content {...rest} />
       </article>
     </div>

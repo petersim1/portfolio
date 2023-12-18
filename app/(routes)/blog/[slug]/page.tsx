@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 
 import Pill from "@/_components/elements/pill";
-import mdComponent from "@/_components/Blog/Elements";
+import mdComponent from "@/_components/elements/Blog";
 import Blog from "@/_components/Blog/Post";
 const components = {
   Pill,
@@ -18,9 +18,7 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
 
   return (
     <main style={{ flex: "1 0 0" }}>
-      <section>
-        <Blog post={post} components={components} />
-      </section>
+      <Blog post={post} components={components} />
     </main>
   );
 };

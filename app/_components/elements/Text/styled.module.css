@@ -24,8 +24,12 @@
   text-shadow: 5px 5px 10px var(--box-shadow);
 }
 
+.text_xxs {
+  font-size: 0.6rem;
+}
+
 .text_xs {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 .text_sm {
