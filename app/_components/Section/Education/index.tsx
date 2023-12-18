@@ -2,7 +2,7 @@
 import classNames from "classnames";
 
 import { worksans } from "@/_lib/fonts";
-import styles from "./education.module.css";
+import styles from "./styled.module.css";
 import { education } from "@/_lib/constants";
 import EducationItem from "./education";
 

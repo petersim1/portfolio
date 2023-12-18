@@ -2,7 +2,7 @@ import classNames from "classnames";
 import Image from "next/image";
 
 import { inconsolata } from "@/_lib/fonts";
-import styles from "./education.module.css";
+import styles from "./styled.module.css";
 import Pill from "@/_components/elements/pill";
 
 interface EduI {

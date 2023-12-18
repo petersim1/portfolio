@@ -181,8 +181,8 @@
 /* Generic Pill */
 
 .pill {
-  font-size: 0.8rem;
-  padding: 3px 10px;
+  font-size: 0.6rem;
+  padding: 2px 7px;
   border-radius: 10px;
   background: var(--bg);
   position: relative;

@@ -1,10 +1,10 @@
 .blog_holder {
-  margin-top: calc(1.6rem + 40px + 40px);
+  padding-top: calc(1.6rem + 40px + 40px);
   width: 80%;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 5rem;
+  padding-bottom: 5rem;
   min-height: 100%;
 }
 

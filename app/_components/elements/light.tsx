@@ -1,22 +1,35 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 
-import styles from "./elements.module.css";
+import styles from "./styled.module.css";
 import { worksans } from "@/_lib/fonts";
 import { Sun, Moon, Arrow } from "@/_lib/assets";
 import { useThemeContext } from "@/_store/theme";
-import { useScrollContext } from "@/_store/scroll";
 
 export default (): JSX.Element => {
+  const [active, setActive] = useState(false);
   const { dark, toggleTheme } = useThemeContext();
-  const { progress } = useScrollContext();
 
   const moveToTop = (): void => {
     window.scrollTo(0, 0);
   };
 
-  const active = progress[0] == 100;
+  useEffect(() => {
+    const handleLightShow = (): void => {
+      const { scrollY, innerHeight } = window;
+      if (scrollY / innerHeight > 0.2) {
+        setActive(true);
+      } else {
+        setActive(false);
+      }
+    };
+    window.addEventListener("scroll", handleLightShow);
+    return () => {
+      window.removeEventListener("scroll", handleLightShow);
+    };
+  }, []);
 
   return (
     <div

@@ -8,8 +8,8 @@
   --sun: #F28C38;
   --box-shadow: rgba(0,0,0,0.2);
   --code: #32AFFF;
-  --gradient-from: #74bf97 10%;
-  --gradient-to: #265381 70%;
+  --gradient-from: rgb(150, 219, 173) 10%;
+  --gradient-to: rgb(0, 204, 255) 70%;
 }
 
 :root {
@@ -62,7 +62,7 @@ body {
   margin: 0;
   color: var(--font);
   background-color: var(--bg);
-  font-size: clamp(15px, calc(15px + 0.390625vw), 48px);
+  font-size: clamp(14px, calc(100vw * .0104 + 9.304px), 26px);
   line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -90,22 +90,13 @@ a {
 
 h1 {
   text-transform: uppercase;
-  font-size: 10rem;
+  font-size: 4rem;
   letter-spacing: 1rem;
-  line-height: 11rem;
-}
-
-@media screen and (max-width: 900px) {
-  h1 {
-    font-size: 6rem;
-    line-height: 7rem;
-    text-align: center;
-  }
 }
 
 h2 {
-  font-size: 4rem;
-  font-weight: 300;
+  font-size: 3rem;
+  font-weight: 600;
   cursor: default;
 }
 
@@ -115,9 +106,10 @@ h3 {
 }
 
 h4 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
+
 h5 {
   font-size: 1rem;
   font-weight: 500;

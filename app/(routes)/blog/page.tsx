@@ -1,6 +1,6 @@
 import { allPosts, Post } from "contentlayer/generated";
 
-import Preview from "@/_components/blog/Preview";
+import Preview from "@/_components/Blog/Preview";
 
 export default (): JSX.Element => {
   const posts: Post[] = allPosts.sort(
@@ -8,7 +8,9 @@ export default (): JSX.Element => {
   );
   return (
     <main style={{ flex: "1 0 0" }}>
-      <Preview previews={posts} />
+      <section>
+        <Preview previews={posts} />
+      </section>
     </main>
   );
 };

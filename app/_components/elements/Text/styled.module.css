@@ -1,19 +1,6 @@
-.intro_holder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  row-gap: 40px;
-  column-gap: 60px;
-  overflow: hidden;
-  text-align: center;
-}
-
 .gradient {
   background: radial-gradient(
-    circle at 0%,
+    circle at var(--grad-x) var(--grad-y),
     var(--gradient-from),
     var(--gradient-to)
   );
@@ -33,12 +20,26 @@
   font-weight: 800;
 }
 
-.break_mobile {
-  display: none;
+.shadow {
+  text-shadow: 5px 5px 10px var(--box-shadow);
 }
 
-@media screen and (max-width: 609px) {
-  .break_mobile {
-    display: block;
-  }
+.text_xs {
+  font-size: 0.8rem;
+}
+
+.text_sm {
+  font-size: 0.9rem;
+}
+
+.text_md {
+  font-size: 1rem;
+}
+
+.text_lg {
+  font-size: 1.2rem;
+}
+
+.text_xl {
+  font-size: 2rem;
 }
