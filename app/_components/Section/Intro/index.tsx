@@ -1,39 +1,22 @@
-"use client";
-
+import { GradientBlock, GradientText } from "@/_components/elements/Text";
 import styles from "./styled.module.css";
 
 export default (): JSX.Element => {
-  const handleHover = (event: React.MouseEvent<HTMLDivElement>): void => {
-    const { x, y, height, width } = event.currentTarget.getBoundingClientRect();
-    const { clientX, clientY } = event;
-
-    const percentX = (100 * (clientX - x)) / width;
-    const percentY = (100 * (clientY - y)) / height;
-
-    const style = `radial-gradient(\
-circle at ${percentX}% ${percentY}%, \
-var(--gradient-from), \
-var(--gradient-to)\
-    )`;
-    event.currentTarget.style.setProperty("background", style);
-    event.currentTarget.style.setProperty("-webkit-background-clip", "text");
-  };
-
   return (
     <section className="h_100" id="intro" data-offset-top={0} data-offset-bottom={50}>
       <div className={styles.intro_holder}>
-        <div className={styles.gradient} onMouseMove={handleHover} id="hoverGrad">
+        <GradientBlock>
           <h2>
             <span>I'm a </span>
             <br className={styles.break_mobile} />
-            <span className={styles.transparent}>data scientist</span>
+            <GradientText>data scientist</GradientText>
             <br />
             <span>and </span>
             <br className={styles.break_mobile} />
-            <span className={styles.transparent}>full stack developer</span>
+            <GradientText>full stack developer</GradientText>
             <span>.</span>
           </h2>
-        </div>
+        </GradientBlock>
       </div>
     </section>
   );

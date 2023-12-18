@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import { inconsolata, worksans } from "@/_lib/fonts";
+import { inconsolata } from "@/_lib/fonts";
 import styles from "./styled.module.css";
 import Project from "./project";
 import { projects } from "@/_lib/constants";
@@ -10,12 +10,12 @@ export default (): JSX.Element => {
   return (
     <section id="projects" data-offset-top={0} data-offset-bottom={0}>
       <div className={styles.wrapper}>
-        <div className={classNames(styles.title, worksans.className)}>
-          <h2>
-            check out some
+        <div className={styles.title}>
+          <h3>
+            Check out some
             <br />
             <span className={styles.transparent}>projects</span> I've worked on
-          </h2>
+          </h3>
         </div>
         <div className={classNames(styles.projects, inconsolata.className)}>
           {projects.map((data, ind) => (

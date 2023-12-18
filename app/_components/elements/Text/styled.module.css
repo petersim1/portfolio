@@ -1,0 +1,21 @@
+.gradient {
+  background: radial-gradient(
+    circle at var(--grad-x) var(--grad-y),
+    var(--gradient-from),
+    var(--gradient-to)
+  );
+  background-blend-mode: saturation;
+  background-clip: text;
+  -webkit-background-clip: text;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60%;
+  width: 100%;
+}
+
+.transparent {
+  color: transparent;
+  font-weight: 800;
+}
