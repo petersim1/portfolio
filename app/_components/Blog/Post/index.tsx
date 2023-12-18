@@ -1,7 +1,7 @@
 import type { Post } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
-import Back from "@/_components/Blog/back";
+import Back from "@/_components/elements/Blog/back";
 import styled from "../styled.module.css";
 
 type Props = {

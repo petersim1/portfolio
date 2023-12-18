@@ -146,7 +146,11 @@ mark {
   color: var(--font);
   background-color: var(--code-bg);
   font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+}
 
+time {
+  font-size: 0.75rem;
+  opacity: 0.8;
 }
 
 /* we'll only allow the wrapper div to grow to a certain width */

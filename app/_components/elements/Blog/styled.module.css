@@ -89,3 +89,12 @@
   opacity: 0.6;
   font-size: 0.6em;
 }
+
+.back_arrow {
+  margin-bottom: 10px;
+}
+
+.back_arrow a {
+  display: inline-block;
+  width: fit-content;
+}
