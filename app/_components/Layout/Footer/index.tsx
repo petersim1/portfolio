@@ -1,8 +1,9 @@
 // import Link from "next/link";
 import classNames from "classnames";
 
+import { Text, TextShadow } from "@/_components/elements/Text";
 import styles from "../styled.module.css";
-import { inconsolata } from "@/_lib/fonts";
+import { worksans } from "@/_lib/fonts";
 import { contacts } from "@/_lib/constants";
 import { Mirror, Twitter, Linkedin, Github, Mail } from "@/_lib/assets";
 // import { Branch, Star, Arrow } from "@/_lib/assets";
@@ -28,12 +29,16 @@ export default (): JSX.Element => {
     return <Mirror {...rest} />;
   };
   return (
-    <footer className={inconsolata.className}>
+    <footer className={worksans.className}>
       <div className={styles.footer}>
-        <div>
-          ~ built by <b>peter simone</b> using nextjs ~
-        </div>
-        <div className={classNames(styles.contact_wrapper, inconsolata.className)}>
+        <Text size="xs">
+          ~ built by{" "}
+          <b>
+            <TextShadow>peter simone</TextShadow>
+          </b>{" "}
+          using nextjs ~
+        </Text>
+        <div className={classNames(styles.contact_wrapper)}>
           {contacts.map((contact, ind) => (
             <a key={ind} href={contact.link} target="_blank" referrerPolicy="no-referrer">
               <div className={styles.contact}>
