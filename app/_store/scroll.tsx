@@ -23,6 +23,7 @@ export const ScrollProvider: FC<{ children: ReactNode }> = ({ children }) => {
   useEffect(() => {
     // A global identifier of scroll in each section, pass to child _components.
     // empty until component mounts. Will dictate nav item too.
+    // As I changed the site quite a bit, this is likely no longer needed.
     const sections = document.querySelectorAll("section");
 
     const breakVals = (): void => {
