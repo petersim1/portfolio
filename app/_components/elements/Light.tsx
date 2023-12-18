@@ -16,7 +16,7 @@ export default (): JSX.Element => {
     window.scrollTo(0, 0);
   };
 
-  const active = progress[0] == 100;
+  const active = progress[0] > 25;
 
   return (
     <div

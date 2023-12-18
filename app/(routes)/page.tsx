@@ -1,18 +1,14 @@
-import Intro from "@/_components/sections/Intro";
-import Blurb from "@/_components/sections/Blurb";
-// import Education from "@/_components/sections/Education";
-import Projects from "@/_components/sections/Projects";
-import Contact from "@/_components/sections/Contact";
-// import Logos from "@/_components/logos";
-import Mask from "@/_components/elements/mask";
+import Intro from "@/_components/Section/Intro";
+import Blurb from "@/_components/Section/Blurb";
+import Projects from "@/_components/Section/Projects";
+import Contact from "@/_components/Section/Contact";
+import { Mask } from "@/_components/elements";
 
 export default (): JSX.Element => {
   return (
     <main>
       <Intro />
       <Blurb />
-      {/* <Education /> */}
-      {/* <Logos /> */}
       <Projects />
       <Contact />
       <Mask />

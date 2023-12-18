@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 
-import styles from "./layout.module.css";
+import styles from "../styled.module.css";
 import { spacemono } from "@/_lib/fonts";
 import { useScrollContext } from "@/_store/scroll";
 

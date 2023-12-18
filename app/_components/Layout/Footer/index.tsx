@@ -1,7 +1,7 @@
 // import Link from "next/link";
 import classNames from "classnames";
 
-import styles from "./layout.module.css";
+import styles from "../styled.module.css";
 import { inconsolata } from "@/_lib/fonts";
 import { contacts } from "@/_lib/constants";
 import { Mirror, Twitter, Linkedin, Github, Mail } from "@/_lib/assets";
