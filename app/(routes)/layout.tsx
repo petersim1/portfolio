@@ -12,8 +12,8 @@ import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://petersim.one"),
-  title: "Portfolio - Peter Simone",
-  description: "Portfolio - Peter Simone",
+  title: "Peter Simone | Portfolio",
+  description: "Peter Simone | Portfolio",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch.png",
@@ -21,29 +21,15 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "Portfolio - Peter Simone",
-    description: "Portfolio - Peter Simone",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
+    title: "Peter Simone | Portfolio",
+    description: "Peter Simone | Portfolio",
     type: "website",
     url: "https://petersim.one",
     locale: "en_US",
   },
   twitter: {
-    title: "Portfolio - Peter Simone",
-    description: "Portfolio - Peter Simone",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
+    title: "Peter Simone | Portfolio",
+    description: "Peter Simone | Portfolio",
     card: "summary_large_image",
     site: "@pete_sim1",
     creator: "@pete_sim1",
