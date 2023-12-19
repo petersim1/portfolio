@@ -7,16 +7,19 @@ import Preview from "@/_components/Blog/Preview";
 export const generateMetadata = async (props, parent: ResolvingMetadata): Promise<Metadata> => {
   const parentMeta = await parent;
 
+  const { images: ogImages, ...ogRest } = parentMeta.openGraph;
+  const { images: twImages, ...twRest } = parentMeta.twitter;
+
   return {
     title: "Peter Simone | Blog",
     description: "Peter Simone | Blog",
     openGraph: {
-      ...parentMeta.openGraph,
+      ...ogRest,
       title: "Peter Simone | Blog",
       description: "Peter Simone | Blog",
     },
     twitter: {
-      ...parentMeta.twitter,
+      ...twRest,
       title: "Peter Simone | Blog",
       description: "Peter Simone | Blog",
     },
