@@ -13,8 +13,9 @@ type Props = {
 
 const options: Intl.DateTimeFormatOptions = {
   year: "numeric",
-  month: "long",
+  month: "short",
   day: "numeric",
+  timeZone: "UTC",
 };
 
 export default ({ post, ...rest }: Props): JSX.Element => {

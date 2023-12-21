@@ -34,9 +34,9 @@
 
 .nav_items {
   position: absolute;
-  right: max(20px, calc((100vw - 1440px + 2*55px)/2));
+  right: 0;
   top: 50%;
-  transform: translate(-100%, -50%);
+  transform: translate(0, -50%);
 }
 
 

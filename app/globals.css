@@ -62,10 +62,12 @@ body {
   margin: 0;
   color: var(--font);
   background-color: var(--bg);
-  font-size: clamp(14px, calc(100vw * .0104 + 9.304px), 22px);
+  /* assume linear bw 420px - 1600px */
+  font-size: clamp(16px, calc(0.8474576vw + 12.44068px), 26px);
   line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
 }
 
 h1,
@@ -119,6 +121,11 @@ article {
   overflow: hidden;
 }
 
+article > * {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 pre:has(code) {
   background-color: var(--code-bg);
   margin-top: 2rem;
@@ -158,6 +165,22 @@ mark {
   color: var(--font);
   background-color: var(--code-bg);
   font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+}
+
+blockquote {
+  margin-left: 0;
+  padding-left: 1em;
+  position: relative;
+}
+blockquote::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 10px;
+  background-color: var(--color-three);
 }
 
 /* we'll only allow the wrapper div to grow to a certain width */

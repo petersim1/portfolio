@@ -46,8 +46,8 @@ export const viewport: Viewport = {
 
 export default ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
-    <html lang="en">
-      <body style={{ visibility: "hidden" }} className={GeistSans.className}>
+    <html lang="en" className={GeistSans.className}>
+      <body style={{ visibility: "hidden" }}>
         <ThemeProvider>
           <ScrollProvider>
             <Layout>{children}</Layout>

@@ -128,3 +128,7 @@
   margin: 1rem 0;
   overflow-x: scroll;
 }
+
+.link {
+  text-decoration: underline;
+}

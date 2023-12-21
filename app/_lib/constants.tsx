@@ -182,7 +182,7 @@ export const projects = [
       text: "Built a full-stack product to allow users to create and view immutable contracts\
       on-chain. Built using web3 tools, it allows users to interact with custom smart contracts.\
       Assisted with contract design and aligned with existing ERC standards.",
-      image: "https://www.agree.xyz/_next/image?url=%2Fimages%2FReciept.png&w=256&q=75",
+      image: "/images/og_agree.jpeg",
       languages: ["javascript", "html", "css"],
       tools: ["nextjs", "ethersjs", "wagmi", "firebase", "smart contracts", "rest api"],
       links: [

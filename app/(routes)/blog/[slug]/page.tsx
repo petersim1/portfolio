@@ -8,6 +8,7 @@ import Blog from "@/_components/Blog/Post";
 const components = {
   Pill,
   p: ({ children }): JSX.Element => <p style={{ margin: "1rem 0" }}>{children}</p>,
+  hr: (): JSX.Element => <hr style={{ borderWidth: "0.5px", opacity: 0.5 }} />,
   ...mdComponent,
 };
 

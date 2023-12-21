@@ -1,0 +1,64 @@
+---
+title: Blackjack & Deep Q Learning
+date: 2023-12-20
+excerpt: "Overview of a Deep Q Learning approach to Blackjack"
+tags:
+  - deep learning
+  - machine learning
+  - reinforcement learning
+  - blackjack
+---
+
+This largely builds off off my previous post [here](blackjack-rl). While I outlined a Q Learning approach to training a blackjack RL agent, I'll extend it to neural networks and a Deep Q Learning implementation. While I showed that blackjack, without card count, is a tractible problem for Q learning where we memorize all state-action pairs in memory, this becomes a largely infeasible task when the action/state space expands.
+
+***
+
+## Why Deep Q Learning?
+
+In the Q Learning approach, we determine the Q function explicitly and require access to all state-action pairs in order to do so. Think of it as a lookup table. If our state-action space expands, this becomes intractible entirely. Imagine in the Q Learning approach, where our state-action space looked like this:
+
+```json
+Q[(10, 4, false)] = {
+  "hit": 0,
+  "stay": 0,
+  "double": 0,
+  "split": 0,
+  "surrender": 0,
+}
+```
+
+What if we wanted to add running card count to the state? What if we wanted to add true count to the state? It might look something like this
+
+```json
+Q[(10, 4, false, +1.321)] = {
+  "hit": 0,
+  "stay": 0,
+  "double": 0,
+  "split": 0,
+  "surrender": 0,
+}
+```
+
+While we can sacrifice some precision in that true count state variable in order to reduce the number of states, you can imagine that we'd run into issues where the state-action space expands too drastically to store in memory. Even if we were able to store these in memory, we'd have to visit each of these highly specific states incredibly often in order to learn the appropriate Q values.
+
+> Q Learning:\
+Look up: Q(s,a)\
+\
+Deep Q Learning:\
+Compute Q ≈ f(state) → Q[action_index]
+
+Neural networks fix this issue. Rather than explicitly learning this Q function for every possible state-action pair, we can learn an approximation for this Q function.
+
+<MdImage
+  src="https://assets-global.website-files.com/5d7b77b063a9066d83e1209c/612eafe4d24cf9625924a1b0_BsUThaUyWFmBakE7310T-jL7P5N2Jk3WWw-xOF2NXvk6Tu0EhxkhHyFDSdTF9JaLPUXNqLVf0U3BByTcv02yNcjd6YJn_Z5Yo_5hzDKp_klCOpe-pZ-q1t5gKHhdAZSDcFf8o_m3%3Ds0.png"
+  caption="A depiction of the comparisons between Q Learning methods and Deep Q Learning methods."
+/>
+
+***
+
+## Deep Q Learning
+
+Feed-forward neural networks trained in a supervised manner require ground truth targets to train on. In reinforcement learning, we don't quite have these ground truth targets, as our objective is to learn some function that maximizes our expected reward, whatever the steps to achieve that might entail, we just don't know yet.
+
+Our objective changes when extending Q Learning to Deep Q Learning. Instead of learning the Q function explicitly, we can approximate the Q function by minimizing the MSE (or Huber Loss) between Temporal Difference Q values of current and future states. Ultimately, we are regressing the Q value for each possible action for a given state.
+
