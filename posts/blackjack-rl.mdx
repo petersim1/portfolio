@@ -54,6 +54,8 @@ I use 6 decks, and cards are not replaced until a "stop card" is reached, which 
 
 Reinforcement learning is an application of machine learning where we're specifically tasked with maximizing some cumulative reward from a series of states and actions taken.
 
+> The goal of an RL agent is to maximize its cummulative expected reward
+
 Think of trying to create an agent that moves through a maze. We don't have “ground truth” or direct “labels” about what the immediate action should be. However, we know that if the agent completes the maze efficiently without human interference, then it was properly trained. Maybe each step receives a reward of -1, and reaching the goal receives a reward of 10. Surely, reaching the goal in the least number of steps leads to the highest cumulative reward. How do we train this? Well, that's where Reinforcement Learning comes in.
 
 In the game of blackjack, we have an environment. Let's think of this as the rules of the game, the objective, and generally just the boundaries of what's possible in the game. At each point during the game, we observe a state. Simply put, this includes a player's current cards and the face-up house card (let's assume we have no idea what the card count is, as we easily forget what cards we've seen previously). We are presented with a policy of possible actions to take. What is our optimal action according to this policy? Can we learn what the optimal action should be? We simply care about maximizing our expected total reward from the series of actions taken.
