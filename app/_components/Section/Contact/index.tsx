@@ -1,26 +1,27 @@
-import { Text, TextShadow } from "@/_components/elements/Text";
-import styles from "./styled.module.css";
+import { H2, Shadow } from "@/_components/Text";
+
+import { Section, CenteredFill, Br } from "@/_components/Common";
 
 export default (): JSX.Element => {
   return (
-    <section className="h_100" id="contact" data-offset-top={0} data-offset-bottom={0}>
-      <div className={styles.wrapper}>
-        <Text size="xl">
+    <Section $minHeight="100vh" id="contact" data-offset-top={0} data-offset-bottom={0}>
+      <CenteredFill>
+        <H2>
           Feel free to{" "}
           <b>
-            <TextShadow>connect</TextShadow>
+            <Shadow>connect</Shadow>
           </b>
-          <br />
-          with me. <br className={styles.break_mobile} />
+          <Br />
+          with me. <Br $mobileOnly />
           I'd love to hear
-          <br />
+          <Br />
           what you're{" "}
           <b>
-            <TextShadow>building</TextShadow>
+            <Shadow>building</Shadow>
           </b>
           .
-        </Text>
-      </div>
-    </section>
+        </H2>
+      </CenteredFill>
+    </Section>
   );
 };
