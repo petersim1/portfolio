@@ -1,23 +1,24 @@
-import { GradientBlock, GradientText } from "@/_components/elements/Text";
-import styles from "./styled.module.css";
+import { GradientBlock, ShowGradient, H1 } from "@/_components/Text";
+import { Section, Br } from "@/_components/Common";
+import { Intro } from "./styled";
 
 export default (): JSX.Element => {
   return (
-    <section className="h_100" id="intro" data-offset-top={0} data-offset-bottom={50}>
-      <div className={styles.intro_holder}>
+    <Section $minHeight="100vh" id="intro" data-offset-top={0} data-offset-bottom={50}>
+      <Intro>
         <GradientBlock>
-          <h2>
+          <H1>
             <span>I'm a </span>
-            <br className={styles.break_mobile} />
-            <GradientText>data scientist</GradientText>
-            <br />
+            <Br $mobileOnly />
+            <ShowGradient>data scientist</ShowGradient>
+            <Br />
             <span>and </span>
-            <br className={styles.break_mobile} />
-            <GradientText>full stack developer</GradientText>
+            <Br $mobileOnly />
+            <ShowGradient>full stack developer</ShowGradient>
             <span>.</span>
-          </h2>
+          </H1>
         </GradientBlock>
-      </div>
-    </section>
+      </Intro>
+    </Section>
   );
 };

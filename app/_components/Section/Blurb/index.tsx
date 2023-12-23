@@ -1,10 +1,11 @@
 import styles from "./styled.module.css";
 
 import { GradientBlock, GradientText } from "@/_components/elements/Text";
+import { Section } from "@/_components/Common";
 
 export default (): JSX.Element => {
   return (
-    <section className="h_100" id="blurb" data-offset-top={75} data-offset-bottom={0}>
+    <Section $minHeight="100vh" id="blurb" data-offset-top={75} data-offset-bottom={0}>
       <div className={styles.wrapper}>
         <GradientBlock>
           <h3>
@@ -16,6 +17,6 @@ export default (): JSX.Element => {
           </h3>
         </GradientBlock>
       </div>
-    </section>
+    </Section>
   );
 };
