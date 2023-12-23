@@ -6,7 +6,7 @@ import classNames from "classnames";
 import styles from "./styled.module.css";
 import { worksans } from "@/_lib/fonts";
 import { Sun, Moon, Arrow } from "@/_lib/assets";
-import { useThemeContext } from "@/_store/theme";
+import { useThemeContext } from "@/_providers/theme";
 
 export default (): JSX.Element => {
   const [active, setActive] = useState(false);

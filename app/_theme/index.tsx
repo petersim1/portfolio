@@ -1,5 +1,5 @@
 import { CSSProp, createGlobalStyle, css } from "styled-components";
-import { mainTheme } from "./colors";
+import { darkTheme, lightTheme } from "./colors";
 
 const BREAKPOINTS = {
   xs: 450,
@@ -44,9 +44,22 @@ const GAPS = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const getTheme = (): any => {
+export const getTheme = (dark: boolean): any => {
+  if (dark) {
+    return {
+      ...darkTheme,
+      mainPadLarge: "0 max(50px, calc((100vw - 1440px + 50px)/2))",
+      mainPadSmall: "0 20px",
+      gaps: GAPS,
+      fontsize: FONTSIZE,
+      opacity: OPACITIES,
+      transitions: TRANSITIONS,
+      breakpoints: BREAKPOINTS,
+    };
+  }
+
   return {
-    ...mainTheme,
+    ...lightTheme,
     mainPadLarge: "0 max(50px, calc((100vw - 1440px + 50px)/2))",
     mainPadSmall: "0 20px",
     gaps: GAPS,
@@ -66,6 +79,15 @@ export const getBreakpoint = (size: string, innerCSS: CSSProp): CSSProp => {
 };
 
 export const ThemedGlobalStyle = createGlobalStyle`
+  :root {
+    --sh-class: ${({ theme }): string => theme.code.class};
+    --sh-identifier: ${({ theme }): string => theme.code.identifier};
+    --sh-sign: ${({ theme }): string => theme.code.sign};
+    --sh-string: ${({ theme }): string => theme.code.string};
+    --sh-keyword: ${({ theme }): string => theme.code.keyword};
+    --sh-comment: ${({ theme }): string => theme.code.comment};
+    --sh-jsxliterals: ${({ theme }): string => theme.code.jsxliterals};
+  }
   *,
   ::before,
   ::after {
@@ -102,6 +124,73 @@ export const ThemedGlobalStyle = createGlobalStyle`
   h6,
   p {
     margin: 0;
+    line-height: normal;
+  }
+
+  article {
+    overflow: hidden;
+  }
+  
+  article > * {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  pre:has(code) {
+    background-color: ${({ theme }): string => theme.code.code};
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 0.8em;
+    overflow-x: scroll;
+  }
+  
+  span.katex-display {
+    overflow: scroll;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  table {
+    border-collapse: collapse;
+    margin: auto;
+    overflow: scroll;
+  }
+  
+  table td,
+  table th {
+    padding: 2px 4px;
+    border: 1px solid ${({ theme }): string => theme.textPrimary};
+  }
+  
+  table caption {
+    margin-bottom: 5px;
+  }
+  
+  mark {
+    padding: 2px 5px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    color: var(--font);
+    background-color: ${({ theme }): string => theme.code.code};
+    font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono;
+  }
+  
+  blockquote {
+    margin-left: 0;
+    padding-left: 1em;
+    position: relative;
+  }
+  blockquote::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-radius: 10px;
+    background-color: ${({ theme }): string => theme.blue};
   }
 
   @media (prefers-reduced-motion:no-preference){

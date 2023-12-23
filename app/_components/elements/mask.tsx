@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 
-import { useScrollContext } from "@/_store/scroll";
+import { useScrollContext } from "@/_providers/scroll";
 import styles from "./styled.module.css";
 import { NN } from "@/_lib/assets";
 

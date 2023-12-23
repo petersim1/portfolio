@@ -1,9 +1,10 @@
-import "@/globals.css";
+// import "@/globals.css";
 // while this is in the dist, I still get an error...?
 // eslint-disable-next-line import/no-extraneous-dependencies
 import "katex/dist/katex.min.css";
-import { ThemeProvider } from "@/_store/theme";
-import { ScrollProvider } from "@/_store/scroll";
+import { ThemeProvider } from "@/_providers/theme";
+import { ScrollProvider } from "@/_providers/scroll";
+import StyledComponentRegistry from "@/_providers/ssr_styled";
 import { Metadata, Viewport } from "next";
 
 import Layout from "@/_components/Layout";
@@ -48,12 +49,14 @@ export default ({ children }: { children: React.ReactNode }): JSX.Element => {
   return (
     <html lang="en" className={GeistSans.className}>
       <body style={{ visibility: "hidden" }}>
-        <ThemeProvider>
-          <ScrollProvider>
-            <Layout>{children}</Layout>
-            <Light />
-          </ScrollProvider>
-        </ThemeProvider>
+        <StyledComponentRegistry>
+          <ThemeProvider>
+            <ScrollProvider>
+              <Layout>{children}</Layout>
+              <Light />
+            </ScrollProvider>
+          </ThemeProvider>
+        </StyledComponentRegistry>
       </body>
     </html>
   );

@@ -1,6 +1,8 @@
 "use client";
 
 import { FC, ReactNode, createContext, useState, useEffect, useMemo, useContext } from "react";
+import { ThemeProvider as ScThemeProvider } from "styled-components";
+import { getTheme, ThemedGlobalStyle } from "@/_theme";
 
 const INITIAL_STATE_CONTEXT = {
   dark: false,
@@ -50,7 +52,14 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
     };
   }, [dark]);
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={value}>
+      <ScThemeProvider theme={getTheme(dark)}>
+        <ThemedGlobalStyle />
+        {children}
+      </ScThemeProvider>
+    </ThemeContext.Provider>
+  );
 };
 
 export const useThemeContext = (): ThemeContextI => useContext(ThemeContext);
