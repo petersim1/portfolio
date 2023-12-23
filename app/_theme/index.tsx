@@ -15,6 +15,7 @@ const TRANSITIONS = {
     md: "250ms",
   },
   ease: "ease-in-out",
+  speedMdEase: "250ms ease-in-out",
 };
 
 const FONTSIZE = {
@@ -45,28 +46,23 @@ const GAPS = {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getTheme = (dark: boolean): any => {
-  if (dark) {
-    return {
-      ...darkTheme,
-      mainPadLarge: "0 max(50px, calc((100vw - 1440px + 50px)/2))",
-      mainPadSmall: "0 20px",
-      gaps: GAPS,
-      fontsize: FONTSIZE,
-      opacity: OPACITIES,
-      transitions: TRANSITIONS,
-      breakpoints: BREAKPOINTS,
-    };
-  }
-
-  return {
-    ...lightTheme,
-    mainPadLarge: "0 max(50px, calc((100vw - 1440px + 50px)/2))",
-    mainPadSmall: "0 20px",
+  const theme = {
+    mainPad: "0 max(20px, calc((100vw - 1440px + 2*55px)/2))",
     gaps: GAPS,
     fontsize: FONTSIZE,
     opacity: OPACITIES,
     transitions: TRANSITIONS,
     breakpoints: BREAKPOINTS,
+  };
+  if (dark) {
+    return {
+      ...theme,
+      ...darkTheme,
+    };
+  }
+  return {
+    ...theme,
+    ...lightTheme,
   };
 };
 
@@ -88,6 +84,7 @@ export const ThemedGlobalStyle = createGlobalStyle`
     --sh-comment: ${({ theme }): string => theme.code.comment};
     --sh-jsxliterals: ${({ theme }): string => theme.code.jsxliterals};
   }
+
   *,
   ::before,
   ::after {
@@ -99,8 +96,8 @@ export const ThemedGlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-size: ${({ theme }): string => theme.fontsize.xl};
-    color: ${({ theme }): string => theme.textPrimary};
-    background: ${({ theme }): string => theme.bg};
+    color: ${({ theme }): string => theme.colors.font};
+    background: ${({ theme }): string => theme.colors.bg};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -125,6 +122,11 @@ export const ThemedGlobalStyle = createGlobalStyle`
   p {
     margin: 0;
     line-height: normal;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 
   article {
@@ -190,7 +192,7 @@ export const ThemedGlobalStyle = createGlobalStyle`
     bottom: 0;
     width: 3px;
     border-radius: 10px;
-    background-color: ${({ theme }): string => theme.blue};
+    background-color: ${({ theme }): string => theme.colors.blue};
   }
 
   @media (prefers-reduced-motion:no-preference){
