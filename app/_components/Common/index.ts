@@ -32,6 +32,13 @@ export const Main = styled.main`
   flex: 1 0 0;
 `;
 
+export const CenteredFill = styled(Row)`
+  ${Centered}
+  height: 100%;
+  width: 100%;
+  text-align: center;
+`;
+
 export const Section = styled.section<{ $minHeight?: string }>`
   ${CommonPad}
   width: 100%;

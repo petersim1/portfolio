@@ -1,22 +1,20 @@
-import styles from "./styled.module.css";
-
-import { GradientBlock, GradientText } from "@/_components/elements/Text";
-import { Section } from "@/_components/Common";
+import { GradientBlock, ShowGradient, H1 } from "@/_components/Text";
+import { Section, CenteredFill, Br } from "@/_components/Common";
 
 export default (): JSX.Element => {
   return (
     <Section $minHeight="100vh" id="blurb" data-offset-top={75} data-offset-bottom={0}>
-      <div className={styles.wrapper}>
+      <CenteredFill>
         <GradientBlock>
-          <h3>
-            I like to <GradientText>build things</GradientText>
-            <br />
+          <H1>
+            I like to <ShowGradient>build things</ShowGradient>
+            <Br />
             and learn how
-            <br />
-            <GradientText>stuff works</GradientText>.
-          </h3>
+            <Br />
+            <ShowGradient>stuff works</ShowGradient>.
+          </H1>
         </GradientBlock>
-      </div>
+      </CenteredFill>
     </Section>
   );
 };
