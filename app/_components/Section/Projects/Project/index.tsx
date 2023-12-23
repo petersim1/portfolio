@@ -1,10 +1,10 @@
 import { jakarta } from "@/_theme/fonts";
 import { Social, IconSmall } from "@/_components/Icon";
-import Pill from "@/_components/elements/pill";
 import { P, H3 } from "@/_components/Text";
 import { OGImage } from "@/_components/Image";
 import { Project, Links, Tags } from "./styled";
 import { DataI } from "@/_lib/types";
+import { Pill } from "@/_components/Common";
 
 export default ({ data }: { data: DataI }): JSX.Element => {
   return (
