@@ -9,6 +9,7 @@ export const Nav = styled.nav`
   width: 100%;
   top: 0;
   margin: auto;
+  z-index: 999;
   transform: translateY(0);
   transition: transform ${({ theme }): string => theme.transitions.speedMdEase};
   ${CommonPad}

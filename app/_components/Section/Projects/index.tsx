@@ -1,26 +1,26 @@
-import classNames from "classnames";
-
-import { GradientBlock, GradientText } from "@/_components/elements/Text";
-import styles from "./styled.module.css";
-import Project from "./project";
+import { GradientBlock, ShowGradient, H1 } from "@/_components/Text";
+import Project from "./Project";
 import { projects } from "@/_lib/constants";
-// import { Arrow } from "@/_lib/assets";
+import { Section } from "@/_components/Common";
+import { Wrapper, Projects, Title } from "./styled";
 
 export default (): JSX.Element => {
   return (
-    <section id="projects" data-offset-top={0} data-offset-bottom={0}>
-      <div className={styles.wrapper}>
-        <GradientBlock>
-          <h3>
-            some <GradientText>projects</GradientText> I've worked on
-          </h3>
-        </GradientBlock>
-        <div className={classNames(styles.projects)}>
+    <Section id="projects" data-offset-top={0} data-offset-bottom={0}>
+      <Wrapper>
+        <Title>
+          <GradientBlock>
+            <H1>
+              some <ShowGradient>projects</ShowGradient> I've worked on
+            </H1>
+          </GradientBlock>
+        </Title>
+        <Projects>
           {projects.map((data, ind) => (
             <Project data={data} key={ind} />
           ))}
-        </div>
-      </div>
-    </section>
+        </Projects>
+      </Wrapper>
+    </Section>
   );
 };

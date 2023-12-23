@@ -42,6 +42,7 @@ const GAPS = {
   rem1: "1rem",
   rem2: "2rem",
   rem3: "3rem",
+  rem5: "5rem",
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -53,6 +54,7 @@ export const getTheme = (dark: boolean): any => {
     opacity: OPACITIES,
     transitions: TRANSITIONS,
     breakpoints: BREAKPOINTS,
+    borderRadius: "10px",
   };
   if (dark) {
     return {

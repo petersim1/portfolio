@@ -8,7 +8,7 @@ import { Row, Centered } from "@/_components/Common";
 export const P = styled.p`
   font-size: 1rem;
   line-height: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
 `;
 
 export const H1 = styled.h1`
@@ -49,10 +49,9 @@ const GradientBlockText = styled(Row)<{ $posX: number; $posY: number }>`
   background-blend-mode: saturation;
   background-clip: text;
   -webkit-background-clip: text;
-  padding: 3rem;
   ${Centered}
-  height: 60%;
   width: 100%;
+  height: 100%;
 `;
 
 export const GradientBlock = ({ children }: { children: React.ReactNode }): JSX.Element => {

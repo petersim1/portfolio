@@ -1,7 +1,7 @@
 "use client";
 
 import styled, { css } from "styled-components";
-import { Mirror, Twitter, Linkedin, Github, Mail } from "@/_lib/assets";
+import { Mirror, Twitter, Linkedin, Github, Mail, Note, Outlink } from "@/_lib/assets";
 import { HoverDim } from "../Common";
 
 const Icon = css`
@@ -49,5 +49,14 @@ export const Social = (props: React.HTMLProps<SVGElement>): JSX.Element => {
   if (type === "linkedin") {
     return <Linkedin {...rest} fill="#0072b1" />;
   }
-  return <Mirror {...rest} />;
+  if (type === "blog") {
+    return <Note {...rest} fill="currentColor" />;
+  }
+  if (type === "mirror") {
+    return <Mirror {...rest} />;
+  }
+  if (type === "site") {
+    return <Outlink {...rest} fill="currentColor" />;
+  }
+  return <></>;
 };

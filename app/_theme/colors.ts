@@ -27,7 +27,7 @@ export const colors = {
   dark: {
     bg: "#121212",
     font: "#FFFFFF",
-    shadow: "rgba(0,0,0,0.2)",
+    shadow: "rgba(255,255,255,0.3)",
     gradientFrom: "rgb(195, 251, 214) 10%",
     gradientTo: "rgb(0, 204, 255) 70%",
   },
