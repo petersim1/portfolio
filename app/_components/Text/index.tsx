@@ -40,6 +40,10 @@ export const ShowGradient = styled.span`
   font-weight: 800;
 `;
 
+export const Faint = styled.span`
+  color: ${({ theme }): string => theme.colors.faint};
+`;
+
 const GradientBlockText = styled(Row)<{ $posX: number; $posY: number }>`
   background: radial-gradient(
     circle at ${({ $posX, $posY }): string => `${$posX}% ${$posY}%`},

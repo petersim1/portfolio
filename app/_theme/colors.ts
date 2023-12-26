@@ -27,6 +27,7 @@ export const colors = {
   dark: {
     bg: "#121212",
     font: "#FFFFFF",
+    faint: opacify(0.5, "#FFFFFF"),
     shadow: "rgba(255,255,255,0.3)",
     gradientFrom: "rgb(195, 251, 214) 10%",
     gradientTo: "rgb(0, 204, 255) 70%",
@@ -34,6 +35,7 @@ export const colors = {
   light: {
     bg: "#FAFAFA",
     font: "#000000",
+    faint: opacify(0.5, "#000000"),
     shadow: "rgba(0,0,0,0.2)",
     gradientFrom: "rgb(150, 219, 173) 10%",
     gradientTo: "rgb(0, 204, 255) 70%",
