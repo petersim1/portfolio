@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Text } from "@/_components/elements/Text";
+import { Text } from "@/_components/Elements/Text";
 import { spacemono } from "@/_lib/fonts";
 
 import { Nav, NavDiv, NavHolder, NavItems } from "./styled";

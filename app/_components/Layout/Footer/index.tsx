@@ -1,4 +1,4 @@
-import { Text, TextShadow } from "@/_components/elements/Text";
+import { Text, TextShadow } from "@/_components/Elements/Text";
 import { worksans } from "@/_lib/fonts";
 import { contacts } from "@/_lib/constants";
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Post } from "contentlayer/generated";
 
-import { Text } from "@/_components/elements/Text";
+import { Text } from "@/_components/Elements/Text";
 import { Pill } from "@/_components/Common";
 import styled from "../styled.module.css";
 

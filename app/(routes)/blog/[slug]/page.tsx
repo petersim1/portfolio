@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 
 import { Pill } from "@/_components/Common";
-import mdComponent from "@/_components/elements/Blog";
+import mdComponent from "@/_components/Elements/Blog";
 import Blog from "@/_components/Blog/Post";
 const components = {
   Pill,
