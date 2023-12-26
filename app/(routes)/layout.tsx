@@ -8,7 +8,7 @@ import StyledComponentRegistry from "@/_providers/ssr_styled";
 import { Metadata, Viewport } from "next";
 
 import Layout from "@/_components/Layout";
-import { Light } from "@/_components/elements";
+import Light from "@/_components/Light";
 import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {

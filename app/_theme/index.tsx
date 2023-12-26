@@ -49,6 +49,7 @@ const GAPS = {
 export const getTheme = (dark: boolean): any => {
   const theme = {
     mainPad: "0 max(20px, calc((100vw - 1440px + 2*55px)/2))",
+    lightPad: "max(20px, calc((100vw - 1440px + 2 * 15px) / 2))",
     gaps: GAPS,
     fontsize: FONTSIZE,
     opacity: OPACITIES,

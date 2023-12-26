@@ -1,16 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import classNames from "classnames";
-
-import styles from "./styled.module.css";
-import { worksans } from "@/_lib/fonts";
 import { Sun, Moon, Arrow } from "@/_lib/assets";
 import { useThemeContext } from "@/_providers/theme";
+import { useTheme } from "styled-components";
+import { ToggleHolder, Toggle, ToggleNav } from "./styled";
 
 export default (): JSX.Element => {
   const [active, setActive] = useState(false);
   const { dark, toggleTheme } = useThemeContext();
+  const theme = useTheme();
 
   const moveToTop = (): void => {
     window.scrollTo(0, 0);
@@ -32,18 +31,13 @@ export default (): JSX.Element => {
   }, []);
 
   return (
-    <div
-      className={classNames(styles.light_holder, worksans.className, { [styles.active]: active })}
-    >
-      <div className={styles.toggle} onClick={toggleTheme}>
-        {dark ? <Sun fill="var(--sun)" /> : <Moon fill="var(--font)" />}
-      </div>
-      <div
-        className={classNames(styles.toggle, styles.nav, { [styles.active]: active })}
-        onClick={moveToTop}
-      >
-        <Arrow height="70%" width="70%" fill="var(--font)" />
-      </div>
-    </div>
+    <ToggleHolder $active={active}>
+      <Toggle onClick={toggleTheme}>
+        {dark ? <Sun fill={theme.colors.sun} /> : <Moon fill="currentColor" />}
+      </Toggle>
+      <ToggleNav $active={active} onClick={moveToTop}>
+        <Arrow height="70%" width="70%" fill="currentColor" />
+      </ToggleNav>
+    </ToggleHolder>
   );
 };
