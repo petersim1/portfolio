@@ -2,15 +2,7 @@ import { Metadata, ResolvingMetadata } from "next";
 
 import { allPosts, type Post } from "contentlayer/generated";
 
-import {
-  BlogHolder,
-  Previews,
-  Preview,
-  Header,
-  Footer,
-  Tags,
-  ReadMore,
-} from "@/_components/Blog/Preview";
+import { BlogStyled } from "@/_components/Blog";
 import { H1, Faint, P } from "@/_components/Text";
 import { getFormattedDate } from "@/_lib/utils";
 import { Pill } from "@/_components/Common";
@@ -44,35 +36,37 @@ export default (): JSX.Element => {
   );
   return (
     <main style={{ flex: "1 0 0" }}>
-      <BlogHolder>
+      <BlogStyled.Holder>
         <H1>Blog Posts</H1>
-        <Previews>
-          {posts.map((post, ind) => (
-            <Preview key={ind}>
-              <Header>
-                <P>{post.title}</P>
-                <time>
-                  <Faint>{getFormattedDate(post.date)}</Faint>
-                </time>
-              </Header>
-              <P>{post.excerpt}</P>
-              <Tags>
-                {post.tags.map((tag, ind2) => (
-                  <Pill key={ind2} text={tag} />
-                ))}
-              </Tags>
-              <Footer>
-                <P>
-                  <Faint>{post.readingTime.text}</Faint>
-                </P>
-                <ReadMore href={post.url}>
-                  <P>{"Read ->"}</P>
-                </ReadMore>
-              </Footer>
-            </Preview>
-          ))}
-        </Previews>
-      </BlogHolder>
+        <BlogStyled.BlogHolder>
+          <BlogStyled.Previews>
+            {posts.map((post, ind) => (
+              <BlogStyled.Preview key={ind}>
+                <BlogStyled.Header>
+                  <P>{post.title}</P>
+                  <time>
+                    <Faint>{getFormattedDate(post.date)}</Faint>
+                  </time>
+                </BlogStyled.Header>
+                <P>{post.excerpt}</P>
+                <BlogStyled.Tags>
+                  {post.tags.map((tag, ind2) => (
+                    <Pill key={ind2} text={tag} />
+                  ))}
+                </BlogStyled.Tags>
+                <BlogStyled.Footer>
+                  <P>
+                    <Faint>{post.readingTime.text}</Faint>
+                  </P>
+                  <BlogStyled.ReadMore href={post.url}>
+                    <P>{"Read ->"}</P>
+                  </BlogStyled.ReadMore>
+                </BlogStyled.Footer>
+              </BlogStyled.Preview>
+            ))}
+          </BlogStyled.Previews>
+        </BlogStyled.BlogHolder>
+      </BlogStyled.Holder>
     </main>
   );
 };

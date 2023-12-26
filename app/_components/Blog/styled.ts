@@ -4,16 +4,20 @@ import Link from "next/link";
 import styled from "styled-components";
 import { Row, Column, Centered, HoverDim } from "@/_components/Common";
 
-export const BlogHolder = styled(Column)`
+export const Holder = styled(Column)`
   ${Centered}
   padding-top: calc(1.6rem + 40px + 40px);
   padding-bottom: 5rem;
   min-height: 100%;
 `;
 
-export const Previews = styled(Column)`
+export const BlogHolder = styled.div`
   width: 80%;
   max-width: 800px;
+`;
+
+export const Previews = styled(Column)`
+  width: 100%;
   gap: ${({ theme }): string => theme.gaps.rem2};
 `;
 

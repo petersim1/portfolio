@@ -4,7 +4,11 @@ import { allPosts } from "contentlayer/generated";
 
 import { Pill } from "@/_components/Common";
 import mdComponent from "@/_components/Elements/Blog";
-import Blog from "@/_components/Blog/Post";
+import Back from "@/_components/Elements/Blog/back";
+import { Faint } from "@/_components/Text";
+import Blog, { BlogStyled } from "@/_components/Blog";
+import { getFormattedDate } from "@/_lib/utils";
+
 const components = {
   Pill,
   p: ({ children }): JSX.Element => <p style={{ margin: "1rem 0" }}>{children}</p>,
@@ -51,7 +55,23 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
 
   return (
     <main style={{ flex: "1 0 0" }}>
-      <Blog post={post} components={components} />
+      <BlogStyled.Holder>
+        <BlogStyled.BlogHolder>
+          <Back />
+          <article>
+            <h2>{post.title}</h2>
+            <BlogStyled.Tags>
+              {post.tags.map((tag, ind2) => (
+                <Pill key={ind2} text={tag} />
+              ))}
+            </BlogStyled.Tags>
+            <time>
+              <Faint>{getFormattedDate(post.date)}</Faint>
+            </time>
+            <Blog post={post} components={components} />
+          </article>
+        </BlogStyled.BlogHolder>
+      </BlogStyled.Holder>
     </main>
   );
 };
