@@ -1,7 +1,7 @@
 import type { Post } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
-import { Pill } from "@/_components/elements";
+import { Pill } from "@/_components/Common";
 import Back from "@/_components/elements/Blog/back";
 import styled from "../styled.module.css";
 

@@ -2,7 +2,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 
-import Pill from "@/_components/elements/pill";
+import { Pill } from "@/_components/Common";
 import mdComponent from "@/_components/elements/Blog";
 import Blog from "@/_components/Blog/Post";
 const components = {
