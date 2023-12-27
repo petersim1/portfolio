@@ -1,5 +1,5 @@
 import { Social, IconSmall } from "@/_components/Icon";
-import { H3, ClipText } from "@/_components/Text";
+import { H3, ClippedText } from "@/_components/Text";
 import { OGImage } from "@/_components/Image";
 import { Project, Links, Tags, ImageHolder } from "./styled";
 import { DataI } from "@/_lib/types";
@@ -29,7 +29,7 @@ export default ({ data }: { data: DataI }): JSX.Element => {
           <Pill text={tool} key={ind2} />
         ))}
       </Tags>
-      <ClipText $lines={3}>{data.description.text}</ClipText>
+      <ClippedText $lines={3}>{data.description.text}</ClippedText>
     </Project>
   );
 };

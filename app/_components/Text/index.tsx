@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import styled from "styled-components";
+import styled, { css, CSSProp } from "styled-components";
 import { Row, Centered } from "@/_components/Common";
 
 export const P = styled.p`
@@ -52,13 +52,40 @@ export const Faint = styled.span`
   color: ${({ theme }): string => theme.colors.faint};
 `;
 
-export const ClipText = styled(P)<{ $lines: number }>`
+const ClipText = styled(P)<{ $lines: number; $open: boolean }>`
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: ${({ $lines }): number => $lines};
   line-clamp: ${({ $lines }): number => $lines};
   -webkit-box-orient: vertical;
+  max-height: ${({ $lines }): string => `calc(${$lines} * 1.5rem)`};
+  transition: max-height ${({ theme }): string => theme.transitions.speedMdEase};
+  cursor: pointer;
+
+  ${({ $open }): CSSProp =>
+    $open &&
+    css`
+      max-height: calc(20 * 1.5rem);
+      -webkit-line-clamp: 20;
+      line-clamp: 20;
+    `}
 `;
+
+export const ClippedText = ({
+  children,
+  $lines,
+}: {
+  children: React.ReactNode;
+  $lines: number;
+}): JSX.Element => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <ClipText $lines={$lines} $open={open} onClick={(): void => setOpen(!open)}>
+      {children}
+    </ClipText>
+  );
+};
 
 const GradientBlockText = styled(Row)<{ $posX: number; $posY: number }>`
   background: radial-gradient(
