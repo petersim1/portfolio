@@ -157,22 +157,6 @@ export const ThemedGlobalStyle = createGlobalStyle`
     padding-bottom: 1rem;
   }
   
-  table {
-    border-collapse: collapse;
-    margin: auto;
-    overflow: scroll;
-  }
-  
-  table td,
-  table th {
-    padding: 2px 4px;
-    border: 1px solid ${({ theme }): string => theme.textPrimary};
-  }
-  
-  table caption {
-    margin-bottom: 5px;
-  }
-  
   mark {
     padding: 2px 5px;
     border-radius: 10px;

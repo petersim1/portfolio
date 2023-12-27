@@ -1,6 +1,6 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { css, CSSProp } from "styled-components";
 import { Row, Column, Centered } from "@/_components/Common";
 
 export const Project = styled(Column)`
@@ -25,4 +25,16 @@ export const Tags = styled(Row)`
   ${Centered}
   flex-wrap: wrap;
   gap: ${({ theme }): string => theme.gaps.md};
+`;
+
+export const ImageHolder = styled.div<{ $round: boolean }>`
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+  ${({ $round, theme }): CSSProp =>
+    $round &&
+    css`
+      border-radius: ${theme.borderRadius};
+      box-shadow: -3px 3px 5px ${theme.colors.shadow};
+    `};
 `;

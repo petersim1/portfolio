@@ -3,8 +3,7 @@ import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 
 import { Pill } from "@/_components/Common";
-import mdComponent from "@/_components/Elements/Blog";
-import Back from "@/_components/Elements/Blog/back";
+import mdComponents, { Back } from "@/_components/Blog/components";
 import { Faint } from "@/_components/Text";
 import Blog, { BlogStyled } from "@/_components/Blog";
 import { getFormattedDate } from "@/_lib/utils";
@@ -13,7 +12,7 @@ const components = {
   Pill,
   p: ({ children }): JSX.Element => <p style={{ margin: "1rem 0" }}>{children}</p>,
   hr: (): JSX.Element => <hr style={{ borderWidth: "0.5px", opacity: 0.5 }} />,
-  ...mdComponent,
+  ...mdComponents,
 };
 
 export const generateMetadata = async (
@@ -57,7 +56,7 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
     <main style={{ flex: "1 0 0" }}>
       <BlogStyled.Holder>
         <BlogStyled.BlogHolder>
-          <Back />
+          <Back url="/blog" />
           <article>
             <h2>{post.title}</h2>
             <BlogStyled.Tags>

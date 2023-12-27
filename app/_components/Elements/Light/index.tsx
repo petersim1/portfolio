@@ -72,6 +72,7 @@ export default (): JSX.Element => {
         setActive(false);
       }
     };
+    handleLightShow();
     window.addEventListener("scroll", handleLightShow);
     return () => {
       window.removeEventListener("scroll", handleLightShow);
