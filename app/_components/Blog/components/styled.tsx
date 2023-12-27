@@ -97,16 +97,18 @@ const UrlPreviewBlock = styled.div<{ $landscape?: boolean }>`
 `;
 
 const UrlPreviewImage = styled.div<{ $landscape: boolean }>`
-  overflow: hidden;
-  width: 100%;
-  min-width: calc(1.9 * (24px + 16px + 3 * 1.5rem));
-  border-bottom-width: ${({ $landscape }): string => ($landscape ? "0px" : "1px")};
-  border-right-width: ${({ $landscape }): string => ($landscape ? "1px" : "0px")};
+  height: ${({ $landscape }): string => ($landscape ? "calc(24px + 16px + 3 * 1.5rem)" : "unset")};
+  aspect-ratio: 1.9 / 1;
   border-color: rgb(225, 232, 237);
   border-style: solid;
+  border-bottom-width: ${({ $landscape }): string => ($landscape ? "0px" : "1px")};
+  border-right-width: ${({ $landscape }): string => ($landscape ? "1px" : "0px")};
+  border-top-width: 0px;
+  border-left-width: 0px;
   ${getBreakpoint(
     "sm",
     css`
+      height: unset !important;
       border-right-width: 0px;
       border-bottom-width: 1px;
     `,
