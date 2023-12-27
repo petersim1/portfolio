@@ -23,6 +23,7 @@ export const colors = {
   common: {
     sun: "#F28C38",
     blue: "#0092ca",
+    borderColor: "rgb(97, 97, 97)",
   },
   dark: {
     bg: "#121212",

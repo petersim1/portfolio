@@ -2,7 +2,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 
-import { Pill } from "@/_components/Common";
+import { Main, Pill } from "@/_components/Common";
 import mdComponents, { Back } from "@/_components/Blog/components";
 import { Faint } from "@/_components/Text";
 import * as BlogStyled from "@/_components/Blog";
@@ -54,7 +54,7 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
   }
 
   return (
-    <main style={{ flex: "1 0 0" }}>
+    <Main>
       <BlogStyled.Holder>
         <BlogStyled.BlogHolder>
           <Back url="/blog" />
@@ -72,6 +72,6 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
           </article>
         </BlogStyled.BlogHolder>
       </BlogStyled.Holder>
-    </main>
+    </Main>
   );
 };

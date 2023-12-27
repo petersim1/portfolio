@@ -11,6 +11,11 @@ export const P = styled.p`
   font-weight: 400;
 `;
 
+export const SubHeader = styled.p`
+  font-size: 0.75rem;
+  line-height: 1rem;
+`;
+
 export const H1 = styled.h1`
   font-size: 3.75rem;
   font-weight: 700;
@@ -26,9 +31,10 @@ export const H2 = styled.h2`
 `;
 
 export const H3 = styled.h3`
-  font-size: 1.125rem;
-  line-height: 1.15rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
 `;
 
 export const Shadow = styled.span`
