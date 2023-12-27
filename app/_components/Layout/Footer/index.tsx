@@ -20,7 +20,7 @@ export default (): JSX.Element => {
         <FooterContacts>
           {contacts.map((contact, ind) => (
             <a key={ind} href={contact.link} target="_blank" referrerPolicy="no-referrer">
-              <IconSized $size="15px">
+              <IconSized $size="20px">
                 <Social type={contact.type} />
               </IconSized>
             </a>

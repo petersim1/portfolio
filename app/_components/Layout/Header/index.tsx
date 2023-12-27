@@ -16,7 +16,7 @@ export default (): JSX.Element => {
         </NavHolder>
         <NavItems>
           <Link href="/blog">
-            <P>blog</P>
+            <P>BLOG</P>
           </Link>
         </NavItems>
       </NavDiv>
