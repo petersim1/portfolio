@@ -1,36 +1,15 @@
-// import Link from "next/link";
-import classNames from "classnames";
-
-import { Text, TextShadow } from "@/_components/elements/Text";
-import styles from "../styled.module.css";
+import { Text, TextShadow } from "@/_components/Elements/Text";
 import { worksans } from "@/_lib/fonts";
 import { contacts } from "@/_lib/constants";
-import { Mirror, Twitter, Linkedin, Github, Mail } from "@/_lib/assets";
-// import { Branch, Star, Arrow } from "@/_lib/assets";
-// import { github } from "@/_actions";
+
+import { Footer, FooterDiv, FooterContacts } from "./styled";
+import { Social, IconSmall } from "@/_components/Icon";
 
 export default (): JSX.Element => {
   // const { stars, forks } = await github();
-  const Icon = (props: React.HTMLProps<SVGElement>): JSX.Element => {
-    const { type, ...rest } = props;
-
-    if (type === "twitter") {
-      return <Twitter {...rest} fill="#1DA1F2" />;
-    }
-    if (type === "github") {
-      return <Github {...rest} fill="var(--font)" />;
-    }
-    if (type === "email") {
-      return <Mail {...rest} fill="var(--font)" />;
-    }
-    if (type === "linkedin") {
-      return <Linkedin {...rest} fill="#0072b1" />;
-    }
-    return <Mirror {...rest} />;
-  };
   return (
-    <footer className={worksans.className}>
-      <div className={styles.footer}>
+    <Footer className={worksans.className}>
+      <FooterDiv>
         <Text size="xs">
           ~ built by{" "}
           <b>
@@ -38,16 +17,16 @@ export default (): JSX.Element => {
           </b>{" "}
           using nextjs ~
         </Text>
-        <div className={classNames(styles.contact_wrapper)}>
+        <FooterContacts>
           {contacts.map((contact, ind) => (
             <a key={ind} href={contact.link} target="_blank" referrerPolicy="no-referrer">
-              <div className={styles.contact}>
-                <Icon type={contact.type} />
-              </div>
+              <IconSmall>
+                <Social type={contact.type} />
+              </IconSmall>
             </a>
           ))}
-        </div>
-      </div>
-    </footer>
+        </FooterContacts>
+      </FooterDiv>
+    </Footer>
   );
 };
