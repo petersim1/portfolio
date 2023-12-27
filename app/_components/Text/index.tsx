@@ -52,6 +52,14 @@ export const Faint = styled.span`
   color: ${({ theme }): string => theme.colors.faint};
 `;
 
+export const ClipText = styled(P)<{ $lines: number }>`
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: ${({ $lines }): number => $lines};
+  line-clamp: ${({ $lines }): number => $lines};
+  -webkit-box-orient: vertical;
+`;
+
 const GradientBlockText = styled(Row)<{ $posX: number; $posY: number }>`
   background: radial-gradient(
     circle at ${({ $posX, $posY }): string => `${$posX}% ${$posY}%`},

@@ -1,4 +1,4 @@
-import { Text, TextShadow } from "@/_components/Elements/Text";
+import { P, Shadow } from "@/_components/Text";
 import { worksans } from "@/_lib/fonts";
 import { contacts } from "@/_lib/constants";
 
@@ -10,13 +10,13 @@ export default (): JSX.Element => {
   return (
     <Footer className={worksans.className}>
       <FooterDiv>
-        <Text size="xs">
+        <P>
           ~ built by{" "}
           <b>
-            <TextShadow>peter simone</TextShadow>
+            <Shadow>peter simone</Shadow>
           </b>{" "}
           using nextjs ~
-        </Text>
+        </P>
         <FooterContacts>
           {contacts.map((contact, ind) => (
             <a key={ind} href={contact.link} target="_blank" referrerPolicy="no-referrer">

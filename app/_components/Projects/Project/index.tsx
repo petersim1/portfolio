@@ -1,6 +1,5 @@
-import { jakarta } from "@/_theme/fonts";
 import { Social, IconSmall } from "@/_components/Icon";
-import { P, H3 } from "@/_components/Text";
+import { H3, ClipText } from "@/_components/Text";
 import { OGImage } from "@/_components/Image";
 import { Project, Links, Tags, ImageHolder } from "./styled";
 import { DataI } from "@/_lib/types";
@@ -8,7 +7,7 @@ import { Pill } from "@/_components/Common";
 
 export default ({ data }: { data: DataI }): JSX.Element => {
   return (
-    <Project className={jakarta.className}>
+    <Project>
       <H3>{data.title}</H3>
       <ImageHolder $round>
         <OGImage $url={data.description.image} />
@@ -30,7 +29,7 @@ export default ({ data }: { data: DataI }): JSX.Element => {
           <Pill text={tool} key={ind2} />
         ))}
       </Tags>
-      <P>{data.description.text}</P>
+      <ClipText $lines={3}>{data.description.text}</ClipText>
     </Project>
   );
 };
