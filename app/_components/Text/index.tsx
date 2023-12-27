@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import styled from "styled-components";
+import styled, { css, CSSProp } from "styled-components";
 import { Row, Centered } from "@/_components/Common";
 
 export const P = styled.p`
@@ -11,9 +11,15 @@ export const P = styled.p`
   font-weight: 400;
 `;
 
+export const SubHeader = styled.p`
+  font-size: 0.75rem;
+  line-height: 1rem;
+`;
+
 export const H1 = styled.h1`
   font-size: 3.75rem;
   font-weight: 700;
+  letter-spacing: -0.025em;
 
   @media screen and (max-width: ${({ theme }): string => theme.breakpoints.xl}px) {
     font-size: 3rem;
@@ -21,14 +27,16 @@ export const H1 = styled.h1`
 `;
 
 export const H2 = styled.h2`
-  font-size: 1.5rem;
+  font-size: 2.25rem;
   font-weight: 900;
+  letter-spacing: -0.025em;
 `;
 
 export const H3 = styled.h3`
-  font-size: 1.125rem;
-  line-height: 1.15rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
 `;
 
 export const Shadow = styled.span`
@@ -43,6 +51,44 @@ export const ShowGradient = styled.span`
 export const Faint = styled.span`
   color: ${({ theme }): string => theme.colors.faint};
 `;
+
+const ClipText = styled.p<{ $lines: number; $open: boolean }>`
+  font-size: 0.875rem;
+  line-height: 1.2rem;
+  font-weight: 400;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: ${({ $lines }): number => $lines};
+  line-clamp: ${({ $lines }): number => $lines};
+  -webkit-box-orient: vertical;
+  max-height: ${({ $lines }): string => `calc(${$lines} * 1.2rem)`};
+  transition: max-height ${({ theme }): string => theme.transitions.speedMdEase};
+  cursor: pointer;
+
+  ${({ $open }): CSSProp =>
+    $open &&
+    css`
+      max-height: calc(20 * 1.2rem);
+      -webkit-line-clamp: 20;
+      line-clamp: 20;
+    `}
+`;
+
+export const ClippedText = ({
+  children,
+  $lines,
+}: {
+  children: React.ReactNode;
+  $lines: number;
+}): JSX.Element => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <ClipText $lines={$lines} $open={open} onClick={(): void => setOpen(!open)}>
+      {children}
+    </ClipText>
+  );
+};
 
 const GradientBlockText = styled(Row)<{ $posX: number; $posY: number }>`
   background: radial-gradient(

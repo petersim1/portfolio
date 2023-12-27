@@ -135,6 +135,26 @@ export const ThemedGlobalStyle = createGlobalStyle`
   article {
     overflow: hidden;
   }
+
+  article h1 {
+    font-size: 2rem;
+    letter-spacing: -0.016em;
+  }
+  article h2 {
+    font-size: 1.75rem;
+    letter-spacing: -0.016em;
+  }
+  article h3 {
+    font-size: 1.5rem;
+    letter-spacing: -0.016em;
+  }
+  article h4 {
+    font-size: 1.25rem;
+    letter-spacing: -0.016em;
+  }
+  article p {
+    line-height: 1.5rem;
+  }
   
   article > * {
     margin-top: 1rem;

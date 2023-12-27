@@ -17,7 +17,7 @@ I've always been interested in the game of Blackjack and understanding how "opti
 
 ***
 
-## The game of Blackjack
+# The game of Blackjack
 
 Blackjack is a game played against the house. The objective is to get a higher card total than the house, without going over 21. At a given point in time, depending on the cards at play, a player can <mark>hit</mark>, <mark>stay</mark>, <mark>double</mark>, <mark>split</mark>, <mark>surrender</mark>. For the purpose of this analysis, I don't care about <mark>insurance</mark> or any other side bets. In blackjack, possible actions are conditional on the state that you are in, and the number of moves you have already taken. For example, after electing to hit, you can no longer double, surrender, or split, so the action space changes. If you don't have a pair, you can't split, etc...
 
@@ -50,7 +50,7 @@ I use 6 decks, and cards are not replaced until a "stop card" is reached, which 
 
 ***
 
-## Reinforcement Learning
+# Reinforcement Learning
 
 Reinforcement learning is an application of machine learning where we're specifically tasked with maximizing some cumulative reward from a series of states and actions taken.
 
@@ -60,13 +60,13 @@ Think of trying to create an agent that moves through a maze. We don't have “g
 
 In the game of blackjack, we have an environment. Let's think of this as the rules of the game, the objective, and generally just the boundaries of what's possible in the game. At each point during the game, we observe a state. Simply put, this includes a player's current cards and the face-up house card (let's assume we have no idea what the card count is, as we easily forget what cards we've seen previously). We are presented with a policy of possible actions to take. What is our optimal action according to this policy? Can we learn what the optimal action should be? We simply care about maximizing our expected total reward from the series of actions taken.
 
-### Model-Free vs Model-Based
+## Model-Free vs Model-Based
 
 There are 2 approaches that we can take for reinforcement learning. One is **model-based** learning, where we explicitly learn a model of the environment. We'd learn transition probabilities, which is the probability of taking an action, and rewards. In **model-free** learning, we don't explicitly learn a model of the environment, and instead, the model directly interacts with the environment and learns through trial and error.
 
 There are tradeoffs to each method. Model-based approaches can be more efficient. Model-free approaches can be more generalizable and easier to implement. While the dynamics of Blackjack are quite simple, there are stochastic elements via the shoe and random cards that can be drawn at a given time. For this blackjack approach, I elect to use model-free reinforcement learning via Q learning.
 
-### Exploration vs. Exploitation
+## Exploration vs. Exploitation
 
 Exploration vs. Exploitation is a core problem of reinforcement learning. How much new exploration do we do of the space, versus how much do exploit the current knowledge of what we know is “good” or “bad”. Each have their tradeoffs, to some extent. If we always exploit our current knowledge, we'll never find potentially better alternative actions. If we always explore, we'll never take advantage of the learned knowledge of good actions. There are ways around this during the training process, such as:
 
@@ -82,7 +82,7 @@ Exploration vs. Exploitation is a core problem of reinforcement learning. How mu
 
 In this analysis, I use an $\epsilon$-Greedy action selection policy, which I decay over time such that we initially mostly explore, and over time we exploit better actions.
 
-### Q values
+## Q values
 
 Blackjack is an episodic task; observe a state, take an action, receive a reward, and repeat until the gameplay ends, meaning we've reached a terminal state. In blackjack, we don't observe rewards for every action, we only observe these rewards upon a terminal step that completes a round. In a markov decision process, Q Learning finds an optimal policy that maximizes the expected value of the total reward over all states visited in a sequence. Q values can be thought of as measures of actions in a given state.
 
@@ -102,7 +102,7 @@ Q[(10, 4, false)] = {
 }
 ```
 
-### On-Policy vs. Off-Policy
+## On-Policy vs. Off-Policy
 
 There are 2 different types of model-free reinforcement learning algorithms that I could use: **on-policy** and **off-policy** learning. On-policy uses the same strategy for both the behavior and target policies, it learns the Q values for the policy it's currently following. Off-policy learns the Q values for the optimal policy, which might be different than the one it uses during exploration. This doesn't seem like too big of a difference at first, but hopefully I can explain this a bit more.
 
@@ -167,7 +167,7 @@ for _ in range(n_episodes):
 
 For this analysis, I elect to use Q Learning.
 
-### Q learning
+## Q learning
 
 Just to reiterate above, we have the following to define our update to the Q values:
 
@@ -191,7 +191,7 @@ This requires storing the Q values of all state-action pairs in memory. In our c
 
 ***
 
-## My Approach
+# My Approach
 
 I created some extensible python modules to be able to play this game. It consists of 3 main modules, which are the <mark>Cards</mark> , <mark>Player</mark> , <mark>Game</mark> modules. I won't go into the detail of these, but we're able to efficiently dictate gameplay for 1 to many players.
 
@@ -219,7 +219,7 @@ for i in range(n_episodes):
 
 Q values are updated after each timestep, not after each episode. We're able to achieve more efficient training this way, and also reduces the time complexity a bit.
 
-### Action Masking
+## Action Masking
 
 In order to properly sample from the Q space and determine the optimal policy, each player's turn has the action space masked according to their current state. For example, “double” is only available as a first move of a hand. This means that after the player's first move for a hand, “double” is masked in the action space and will never be sampled from or be selected as an optimal play. Doing this, versus adding additional partitions to the state-action pairs, allows me to share more information across iterations.
 
@@ -227,7 +227,7 @@ For example, I've seen implementations where the state-action pair includes <mar
 
 Consider infrequent states, such as having a pair. We'll use a pair of 7's, for example. If we used <mark>can_split</mark> as a state, we'd have $(14, house, false, true)$. We'd have very little knowledge about the other actions, as this state is so so infrequently visited. By abstracting away <mark>can_split</mark>, and using action masking, when a pair of 7's is observed, we can borrow information about <mark>hit</mark>, <mark>stay</mark>, <mark>double</mark>, <mark>surrender</mark> for all card combinations that give us $14$.
 
-### Training
+## Training
 
 We can simulate gameplay and learn an optimal policy in each iteration. So, Q values are updated every timestep, but the learned policy is only evaluated every $50,000$ iterations, to speed up training.
 
@@ -245,11 +245,11 @@ Some states are visited very infrequently. Empirically I found that Q values did
   caption="Percent correct moves compared to the baseline optimal strategy"
 />
 
-### Evaluation
+## Evaluation
 
 Now that the model is trained, I can evaluate its performance and its value function.
 
-#### Performance
+### Performance
 
 Below I compare policies and their reward distributions. To do this, I play $1,000$ games of $100$ rounds of blackjack, for each policy. For each of these games, I can find the average reward per hand per round, and plot the distribution of these.
 
@@ -275,7 +275,7 @@ While we have a rewards distribution, we can can capture the expected value of r
 - **Random**: -0.4243
 - **Mimic House**: -0.0628
 
-#### Value Function
+### Value Function
 
 Next, I can determine the value function to be able to visualize our state values.
 
@@ -314,7 +314,7 @@ It's quite neat seeing these value functions arise. I think for the most part th
 
 ***
 
-## Additional Analyses
+# Additional Analyses
 
 There are so many additional analyses that can be done having created the Blackjack gameplay modules, outlined the blackjack environment, and trained the RL agent.
 
@@ -336,7 +336,7 @@ Lastly, I found it quite interesting to assess how your expected value changes a
 
 It's a classic example of bankroll across various games. No matter what policy you follow, or how adept of a player you are, if you have a smaller bankroll, you are at a disadvantage. At least following a more optimal policy will help mitigate that risk, but only so much. Simply by chance, you might lose enough consecutive hands that would cause you be out of money. This is why we see drastic drops in EV compared to different bankrolls of players, despite following the same exact policy.
 
-## Conclusion
+# Conclusion
 
 In this post, I walked through an overview of blackjack gameplay, reinforcement learning, and the model-free, off-policy Q learning algorithm followed by some additional analyses. While we're only using player total, house total, and useable ace as our state, we can extend this. Next, I'll dive into adapting this approach to Deep Neural Networks...
 

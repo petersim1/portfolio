@@ -18,12 +18,12 @@ const MaskHolder = styled(Column)<{ $top: string }>`
   top: ${({ $top }): string => $top};
 
   & svg {
-    transform: rotate(270deg);
+    // position: absolute;
     opacity: 0.25;
     fill: gray;
     stroke: gray;
-    min-width: 100vh;
-    min-height: 100vw;
+    min-width: 100vw;
+    min-height: 100vh;
   }
 `;
 

@@ -47,9 +47,12 @@ export const ImageHolder = styled(Column)`
 `;
 
 export const TableDiv = styled.div<{ $hide: boolean }>`
-  border-collapse: collapse;
-  margin: auto;
   overflow-x: scroll;
+
+  & > table {
+    margin: auto;
+    border-collapse: collapse;
+  }
 
   & caption {
     margin-bottom: 5px;
@@ -66,7 +69,7 @@ export const TableDiv = styled.div<{ $hide: boolean }>`
 const UrlPreviewDiv = styled(Column)`
   ${Centered}
   width: 100%;
-  margin: 1rem 0;
+  margin: 2rem 0;
 
   & a {
     display: inline-block;
@@ -80,7 +83,7 @@ const UrlPreviewBlock = styled.div<{ $landscape?: boolean }>`
   display: ${({ $landscape }): string => ($landscape ? "flex" : "block")};
   border-radius: ${({ theme }): string => theme.borderRadius};
   max-width: 100%;
-  border: 1px solid rgb(225, 232, 237);
+  border: 1px solid ${({ theme }): string => theme.colors.borderColor};
   overflow: hidden;
   flex-direction: row;
   align-items: center;
@@ -90,23 +93,24 @@ const UrlPreviewBlock = styled.div<{ $landscape?: boolean }>`
     css`
       width: 400px;
       max-width: 100%;
-      border: 1px solid rgb(225, 232, 237);
       display: block;
     `,
   )}
 `;
 
 const UrlPreviewImage = styled.div<{ $landscape: boolean }>`
-  overflow: hidden;
-  width: 100%;
-  min-width: calc(1.9 * (24px + 16px + 3 * 1.5rem));
+  height: ${({ $landscape }): string => ($landscape ? "calc(24px + 16px + 3 * 1.5rem)" : "unset")};
+  aspect-ratio: 1.9 / 1;
+  border-color: ${({ theme }): string => theme.colors.borderColor};
+  border-style: solid;
   border-bottom-width: ${({ $landscape }): string => ($landscape ? "0px" : "1px")};
   border-right-width: ${({ $landscape }): string => ($landscape ? "1px" : "0px")};
-  border-color: rgb(225, 232, 237);
-  border-style: solid;
+  border-top-width: 0px;
+  border-left-width: 0px;
   ${getBreakpoint(
     "sm",
     css`
+      height: unset !important;
       border-right-width: 0px;
       border-bottom-width: 1px;
     `,

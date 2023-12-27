@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "styled-components";
-import { Column, Centered } from "@/_components/Common";
+import { Row, Column, Centered } from "@/_components/Common";
 
 export const Wrapper = styled(Column)`
   ${Centered};
@@ -14,9 +14,10 @@ export const Title = styled.div`
   width: 100%;
 `;
 
-export const Projects = styled(Column)`
-  ${Centered}
+export const Projects = styled(Row)`
+  justify-content: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
-  gap: ${({ theme }): string => theme.gaps.rem5};
+  gap: ${({ theme }): string => theme.gaps.rem3};
 `;

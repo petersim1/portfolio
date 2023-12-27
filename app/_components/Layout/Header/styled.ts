@@ -27,6 +27,7 @@ export const NavHolder = styled.div`
   justify-content: center;
   gap: 20px;
   padding: 20px 0;
+  font-size: 1.5rem;
 
   & h4 {
     color: transparent;

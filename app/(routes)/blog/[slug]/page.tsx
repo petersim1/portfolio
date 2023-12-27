@@ -2,7 +2,8 @@ import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 
-import { Pill } from "@/_components/Common";
+import { Main, Pill } from "@/_components/Common";
+import { H2, SubHeader } from "@/_components/Text";
 import mdComponents, { Back } from "@/_components/Blog/components";
 import { Faint } from "@/_components/Text";
 import * as BlogStyled from "@/_components/Blog";
@@ -54,24 +55,28 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
   }
 
   return (
-    <main style={{ flex: "1 0 0" }}>
+    <Main>
       <BlogStyled.Holder>
         <BlogStyled.BlogHolder>
           <Back url="/blog" />
           <article>
-            <h2>{post.title}</h2>
+            <H2>{post.title}</H2>
+            <SubHeader>
+              <time>
+                <Faint>{getFormattedDate(post.date)}</Faint>
+              </time>
+              <Faint> • </Faint>
+              <Faint>{post.readingTime.text}</Faint>
+            </SubHeader>
             <BlogStyled.Tags>
               {post.tags.map((tag, ind2) => (
                 <Pill key={ind2} text={tag} />
               ))}
             </BlogStyled.Tags>
-            <time>
-              <Faint>{getFormattedDate(post.date)}</Faint>
-            </time>
             <Content post={post} components={components} />
           </article>
         </BlogStyled.BlogHolder>
       </BlogStyled.Holder>
-    </main>
+    </Main>
   );
 };

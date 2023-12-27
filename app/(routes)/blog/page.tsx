@@ -3,9 +3,9 @@ import { Metadata, ResolvingMetadata } from "next";
 import { allPosts, type Post } from "contentlayer/generated";
 
 import * as BlogStyled from "@/_components/Blog";
-import { H1, Faint, P } from "@/_components/Text";
+import { H1, Faint, P, H3, SubHeader } from "@/_components/Text";
 import { getFormattedDate } from "@/_lib/utils";
-import { Pill } from "@/_components/Common";
+import { Main, Pill } from "@/_components/Common";
 
 export const generateMetadata = async (_, parent: ResolvingMetadata): Promise<Metadata> => {
   const parentMeta = await parent;
@@ -35,7 +35,7 @@ export default (): JSX.Element => {
     (a: Post, b: Post) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
   return (
-    <main style={{ flex: "1 0 0" }}>
+    <Main>
       <BlogStyled.Holder>
         <H1>Blog Posts</H1>
         <BlogStyled.BlogHolder>
@@ -43,10 +43,16 @@ export default (): JSX.Element => {
             {posts.map((post, ind) => (
               <BlogStyled.Preview key={ind}>
                 <BlogStyled.Header>
-                  <P>{post.title}</P>
-                  <time>
-                    <Faint>{getFormattedDate(post.date)}</Faint>
-                  </time>
+                  <H3>{post.title}</H3>
+                  <div style={{ width: "100%" }}>
+                    <SubHeader>
+                      <time>
+                        <Faint>{getFormattedDate(post.date)}</Faint>
+                      </time>
+                      <Faint> • </Faint>
+                      <Faint>{post.readingTime.text}</Faint>
+                    </SubHeader>
+                  </div>
                 </BlogStyled.Header>
                 <P>{post.excerpt}</P>
                 <BlogStyled.Tags>
@@ -55,9 +61,6 @@ export default (): JSX.Element => {
                   ))}
                 </BlogStyled.Tags>
                 <BlogStyled.Footer>
-                  <P>
-                    <Faint>{post.readingTime.text}</Faint>
-                  </P>
                   <BlogStyled.ReadMore href={post.url}>
                     <P>{"Read ->"}</P>
                   </BlogStyled.ReadMore>
@@ -67,6 +70,6 @@ export default (): JSX.Element => {
           </BlogStyled.Previews>
         </BlogStyled.BlogHolder>
       </BlogStyled.Holder>
-    </main>
+    </Main>
   );
 };

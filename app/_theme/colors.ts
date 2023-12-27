@@ -23,20 +23,21 @@ export const colors = {
   common: {
     sun: "#F28C38",
     blue: "#0092ca",
+    borderColor: "rgb(97, 97, 97)",
   },
   dark: {
     bg: "#121212",
-    font: "#FFFFFF",
-    faint: opacify(0.5, "#FFFFFF"),
-    shadow: "rgba(255,255,255,0.3)",
+    font: opacify(0.87, "#FFFFFF"),
+    faint: opacify(0.6, "#FFFFFF"),
+    shadow: "rgba(255,255,255,0.4)",
     gradientFrom: "rgb(195, 251, 214) 10%",
     gradientTo: "rgb(0, 204, 255) 70%",
   },
   light: {
     bg: "#FAFAFA",
     font: "#000000",
-    faint: opacify(0.5, "#000000"),
-    shadow: "rgba(0,0,0,0.2)",
+    faint: opacify(0.6, "#000000"),
+    shadow: "rgba(0,0,0,0.4)",
     gradientFrom: "rgb(150, 219, 173) 10%",
     gradientTo: "rgb(0, 204, 255) 70%",
   },
@@ -50,16 +51,16 @@ export const codeColors = {
     jsxliterals: "#6266d1",
   },
   dark: {
-    class: "#2d5e9d",
-    identifier: "#354150",
-    string: "#00a99a",
-    code: "rgba(240, 240, 240, 1)",
-  },
-  light: {
     class: "#4c97f8",
     identifier: "#fff",
     string: "#0fa295",
     code: "rgba(30, 30, 30, 1)",
+  },
+  light: {
+    class: "#2d5e9d",
+    identifier: "#354150",
+    string: "#00a99a",
+    code: "rgba(240, 240, 240, 1)",
   },
 };
 
