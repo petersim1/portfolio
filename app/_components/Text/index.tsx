@@ -52,20 +52,23 @@ export const Faint = styled.span`
   color: ${({ theme }): string => theme.colors.faint};
 `;
 
-const ClipText = styled(P)<{ $lines: number; $open: boolean }>`
+const ClipText = styled.p<{ $lines: number; $open: boolean }>`
+  font-size: 0.875rem;
+  line-height: 1.2rem;
+  font-weight: 400;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: ${({ $lines }): number => $lines};
   line-clamp: ${({ $lines }): number => $lines};
   -webkit-box-orient: vertical;
-  max-height: ${({ $lines }): string => `calc(${$lines} * 1.5rem)`};
+  max-height: ${({ $lines }): string => `calc(${$lines} * 1.2rem)`};
   transition: max-height ${({ theme }): string => theme.transitions.speedMdEase};
   cursor: pointer;
 
   ${({ $open }): CSSProp =>
     $open &&
     css`
-      max-height: calc(20 * 1.5rem);
+      max-height: calc(20 * 1.2rem);
       -webkit-line-clamp: 20;
       line-clamp: 20;
     `}

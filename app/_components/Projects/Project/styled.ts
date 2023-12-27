@@ -1,40 +1,58 @@
 "use client";
 
-import styled, { css, CSSProp } from "styled-components";
-import { Row, Column, Centered } from "@/_components/Common";
+import styled, { css } from "styled-components";
+import { Row, Column } from "@/_components/Common";
+import { getBreakpoint } from "@/_theme";
 
 export const Project = styled(Column)`
-  ${Centered}
-  width: clamp(320px, 100%, 800px);
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 0 40%;
+  min-width: 320px;
+  max-width: 440px;
   gap: ${({ theme }): string => theme.gaps.md};
-  text-align: center;
+  border: 1px solid ${({ theme }): string => theme.colors.borderColor};
+  border-radius: ${({ theme }): string => theme.borderRadius};
+  padding: 15px;
+  text-align: left;
+  box-shadow: -2px 2px 10px transparent;
+  background-color: ${({ theme }): string => theme.colors.bg};
+  transition: box-shadow ${({ theme }): string => theme.transitions.speedMdEase};
+
+  &:hover {
+    box-shadow: -2px 2px 10px ${({ theme }): string => theme.colors.borderColor};
+  }
+
+  ${getBreakpoint(
+    "xs",
+    css`
+      min-width: 100%;
+    `,
+  )}
 `;
 
 export const Links = styled(Row)`
-  gap: ${({ theme }): string => theme.gaps.lg};
+  gap: ${({ theme }): string => theme.gaps.md};
+  align-self: flex-end;
+  font-size: 15px;
 
   & a {
     height: 100%;
-    height: 15px;
     display: flex;
     aspect-ratio: 1 / 1;
   }
 `;
 
 export const Tags = styled(Row)`
-  ${Centered}
+  align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: ${({ theme }): string => theme.gaps.md};
 `;
 
-export const ImageHolder = styled.div<{ $round: boolean }>`
+export const ImageHolder = styled.div`
   width: 100%;
-  max-width: 400px;
   overflow: hidden;
-  ${({ $round, theme }): CSSProp =>
-    $round &&
-    css`
-      border-radius: ${theme.borderRadius};
-      box-shadow: -3px 3px 5px ${theme.colors.shadow};
-    `};
+  border: 1px solid ${({ theme }): string => theme.colors.borderColor};
+  border-radius: ${({ theme }): string => theme.borderRadius};
 `;

@@ -3,7 +3,7 @@ import { worksans } from "@/_lib/fonts";
 import { contacts } from "@/_lib/constants";
 
 import { Footer, FooterDiv, FooterContacts } from "./styled";
-import { Social, IconSmall } from "@/_components/Icon";
+import { Social, IconSized } from "@/_components/Icon";
 
 export default (): JSX.Element => {
   // const { stars, forks } = await github();
@@ -20,9 +20,9 @@ export default (): JSX.Element => {
         <FooterContacts>
           {contacts.map((contact, ind) => (
             <a key={ind} href={contact.link} target="_blank" referrerPolicy="no-referrer">
-              <IconSmall>
+              <IconSized $size="15px">
                 <Social type={contact.type} />
-              </IconSmall>
+              </IconSized>
             </a>
           ))}
         </FooterContacts>

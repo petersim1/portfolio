@@ -16,22 +16,10 @@ const Icon = css`
   }
 `;
 
-export const IconSmall = styled.div`
-  height: 20px;
-  width: 20px;
+export const IconSized = styled.div<{ $size: string }>`
   ${Icon}
-`;
-
-export const IconMedium = styled.div`
-  height: 30px;
-  width: 30px;
-  ${Icon}
-`;
-
-export const IconLarge = styled.div`
-  height: 40px;
-  width: 40px;
-  ${Icon}
+  height: ${({ $size }): string => $size};
+  width: ${({ $size }): string => $size};
 `;
 
 export const Social = (props: React.HTMLProps<SVGElement>): JSX.Element => {
