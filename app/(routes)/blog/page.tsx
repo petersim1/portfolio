@@ -2,7 +2,7 @@ import { Metadata, ResolvingMetadata } from "next";
 
 import { allPosts, type Post } from "contentlayer/generated";
 
-import { BlogStyled } from "@/_components/Blog";
+import * as BlogStyled from "@/_components/Blog";
 import { H1, Faint, P } from "@/_components/Text";
 import { getFormattedDate } from "@/_lib/utils";
 import { Pill } from "@/_components/Common";

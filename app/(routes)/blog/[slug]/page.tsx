@@ -5,7 +5,8 @@ import { allPosts } from "contentlayer/generated";
 import { Pill } from "@/_components/Common";
 import mdComponents, { Back } from "@/_components/Blog/components";
 import { Faint } from "@/_components/Text";
-import Blog, { BlogStyled } from "@/_components/Blog";
+import * as BlogStyled from "@/_components/Blog";
+import Content from "@/_components/Blog/Content";
 import { getFormattedDate } from "@/_lib/utils";
 
 const components = {
@@ -67,7 +68,7 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
             <time>
               <Faint>{getFormattedDate(post.date)}</Faint>
             </time>
-            <Blog post={post} components={components} />
+            <Content post={post} components={components} />
           </article>
         </BlogStyled.BlogHolder>
       </BlogStyled.Holder>
