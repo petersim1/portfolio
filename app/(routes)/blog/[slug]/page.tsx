@@ -65,6 +65,8 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
               <time>
                 <Faint>{getFormattedDate(post.date)}</Faint>
               </time>
+              <Faint> • </Faint>
+              <Faint>{post.readingTime.text}</Faint>
             </SubHeader>
             <BlogStyled.Tags>
               {post.tags.map((tag, ind2) => (
