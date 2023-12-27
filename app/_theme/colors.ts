@@ -51,16 +51,16 @@ export const codeColors = {
     jsxliterals: "#6266d1",
   },
   dark: {
-    class: "#2d5e9d",
-    identifier: "#354150",
-    string: "#00a99a",
-    code: "rgba(240, 240, 240, 1)",
-  },
-  light: {
     class: "#4c97f8",
     identifier: "#fff",
     string: "#0fa295",
     code: "rgba(30, 30, 30, 1)",
+  },
+  light: {
+    class: "#2d5e9d",
+    identifier: "#354150",
+    string: "#00a99a",
+    code: "rgba(240, 240, 240, 1)",
   },
 };
 

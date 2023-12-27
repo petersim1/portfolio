@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 
 import { Main, Pill } from "@/_components/Common";
+import { H2, SubHeader } from "@/_components/Text";
 import mdComponents, { Back } from "@/_components/Blog/components";
 import { Faint } from "@/_components/Text";
 import * as BlogStyled from "@/_components/Blog";
@@ -59,15 +60,17 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
         <BlogStyled.BlogHolder>
           <Back url="/blog" />
           <article>
-            <h2>{post.title}</h2>
+            <H2>{post.title}</H2>
+            <SubHeader>
+              <time>
+                <Faint>{getFormattedDate(post.date)}</Faint>
+              </time>
+            </SubHeader>
             <BlogStyled.Tags>
               {post.tags.map((tag, ind2) => (
                 <Pill key={ind2} text={tag} />
               ))}
             </BlogStyled.Tags>
-            <time>
-              <Faint>{getFormattedDate(post.date)}</Faint>
-            </time>
             <Content post={post} components={components} />
           </article>
         </BlogStyled.BlogHolder>

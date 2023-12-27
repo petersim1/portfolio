@@ -47,9 +47,12 @@ export const ImageHolder = styled(Column)`
 `;
 
 export const TableDiv = styled.div<{ $hide: boolean }>`
-  border-collapse: collapse;
-  margin: auto;
   overflow-x: scroll;
+
+  & > table {
+    margin: auto;
+    border-collapse: collapse;
+  }
 
   & caption {
     margin-bottom: 5px;

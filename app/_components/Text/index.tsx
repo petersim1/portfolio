@@ -19,6 +19,7 @@ export const SubHeader = styled.p`
 export const H1 = styled.h1`
   font-size: 3.75rem;
   font-weight: 700;
+  letter-spacing: -0.025em;
 
   @media screen and (max-width: ${({ theme }): string => theme.breakpoints.xl}px) {
     font-size: 3rem;
@@ -26,8 +27,9 @@ export const H1 = styled.h1`
 `;
 
 export const H2 = styled.h2`
-  font-size: 1.5rem;
+  font-size: 2.25rem;
   font-weight: 900;
+  letter-spacing: -0.025em;
 `;
 
 export const H3 = styled.h3`
