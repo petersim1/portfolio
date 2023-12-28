@@ -1,20 +1,15 @@
+/**
+ * Opacifies an input Hex color
+ * @param {num} amount
+ * @param {string} hexColor #RRBBGG
+ * @returns {string} hexColor #RRBBGGAA
+ */
+
 export const opacify = (amount: number, hexColor: string): string => {
-  if (!hexColor.startsWith("#")) {
-    return hexColor;
-  }
-
-  if (hexColor.length !== 7) {
-    throw new Error(
-      `opacify: provided color ${hexColor} was not in hexadecimal format (e.g. #000000)`,
-    );
-  }
-
-  if (amount < 0 || amount > 1) {
-    throw new Error("opacify: provided amount should be between 0 and 100");
-  }
-
-  const opacityHex = Math.round(amount * 255).toString(16);
-  const opacitySuffix = opacityHex.length < 2 ? `0${opacityHex}` : opacityHex;
+  // converts
+  const opacitySuffix = Math.round(amount * 255)
+    .toString(16)
+    .padStart(2, "0");
 
   return `${hexColor.slice(0, 7)}${opacitySuffix}`;
 };
