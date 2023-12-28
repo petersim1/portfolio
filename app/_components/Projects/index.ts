@@ -12,6 +12,7 @@ export const Wrapper = styled(Column)`
 export const Title = styled.div`
   height: 35vh;
   width: 100%;
+  text-align: center;
 `;
 
 export const Projects = styled(Row)`
