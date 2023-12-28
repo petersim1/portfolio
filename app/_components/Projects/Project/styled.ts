@@ -16,7 +16,7 @@ export const Project = styled(Column)`
   padding: 15px;
   text-align: left;
   box-shadow: -2px 2px 10px transparent;
-  background-color: ${({ theme }): string => theme.colors.bg};
+  background-color: ${({ theme }): string => theme.colors.card};
   transition: box-shadow ${({ theme }): string => theme.transitions.speedMdEase};
 
   &:hover {
