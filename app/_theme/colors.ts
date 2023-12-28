@@ -92,7 +92,7 @@ export const colors = {
     font: "#FFFFFF",
     text: opacify(0.87, "#FFFFFF"),
     faint: opacify(0.6, "#FFFFFF"),
-    card: grayscale(1.5, "#121212"),
+    card: grayscale(1.6, "#121212"),
     pill: mix(0.5, "#00ccff", "#FAFAFA"),
     shadow: opacify(0.4, "#FFFFFF"),
     gradientFrom: "rgb(195, 251, 214) 10%",

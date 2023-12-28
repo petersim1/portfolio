@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { P } from "@/_components/Text";
 import { spacemono } from "@/_lib/fonts";
-
 import { Nav, NavDiv, NavHolder, NavItems } from "./styled";
 
 export default (): JSX.Element => {
@@ -16,7 +15,7 @@ export default (): JSX.Element => {
         </NavHolder>
         <NavItems>
           <Link href="/blog">
-            <P>BLOG</P>
+            <P>Blog </P>
           </Link>
         </NavItems>
       </NavDiv>
