@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { P } from "@/_components/Text";
-import { spacemono } from "@/_lib/fonts";
+import { spacemono } from "@/_theme/fonts";
 import { Nav, NavDiv, NavHolder, NavItems } from "./styled";
 
 export default (): JSX.Element => {

@@ -2,7 +2,7 @@
 
 import styled, { css, CSSProp } from "styled-components";
 import { getBreakpoint } from "@/_theme";
-import { inconsolata } from "@/_lib/fonts";
+import { inconsolata } from "@/_theme/fonts";
 
 export const CommonPad = css`
   padding: ${({ theme }): string => theme.mainPad};

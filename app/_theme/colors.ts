@@ -83,7 +83,6 @@ export const mix = (ratio: number, color1: string, color2: string): string => {
 export const colors = {
   common: {
     sun: "#F28C38",
-    blue: "#0092ca",
     borderColor: "rgba(97, 97, 97, 0.5)",
     primary: "#00ccff",
   },
@@ -117,6 +116,7 @@ export const codeColors = {
     keyword: "#f47067",
     comment: "#a19595",
     jsxliterals: "#6266d1",
+    blockquote: "#0092ca",
   },
   dark: {
     class: "#4c97f8",

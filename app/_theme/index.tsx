@@ -205,7 +205,7 @@ export const ThemedGlobalStyle = createGlobalStyle`
     bottom: 0;
     width: 3px;
     border-radius: 10px;
-    background-color: ${({ theme }): string => theme.colors.blue};
+    background-color: ${({ theme }): string => theme.code.blockquote};
   }
 
   @media (prefers-reduced-motion:no-preference){
