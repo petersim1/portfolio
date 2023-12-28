@@ -72,7 +72,7 @@ export default (): JSX.Element => {
           </H2>
         </CenteredFill>
       </Section>
-      <Mask offsetTop={25} offsetBottom={0} />
+      <Mask offsetTop={25} offsetBottom={25} />
     </main>
   );
 };

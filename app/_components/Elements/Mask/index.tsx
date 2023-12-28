@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { NN } from "@/_lib/assets";
-import styled, { css, CSSProp } from "styled-components";
+import styled from "styled-components";
 import { Column, Centered } from "@/_components/Common";
 
 const MaskHolder = styled(Column)`
@@ -26,7 +26,15 @@ const MaskHolder = styled(Column)`
   }
 `;
 
-const Mask = styled.div<{ $pos: number }>`
+const Mask = styled.div.attrs<{ $pos: number }>((props) => ({
+  style: {
+    background: `conic-gradient(
+      from 90deg at -25% 0%,
+      transparent 0%,
+      ${props.theme.colors.bg} ${props.$pos}%
+    )`,
+  },
+}))`
   position: absolute;
   top: 0;
   bottom: 0;
@@ -34,13 +42,6 @@ const Mask = styled.div<{ $pos: number }>`
   overflow: hidden;
   height: 100vh;
   width: 100vw;
-  background: ${({ $pos, theme }): CSSProp => css`
-    conic-gradient(
-      from 90deg at -25% 0%,
-      transparent 0%,
-      ${theme.colors.bg} ${$pos}%
-    )
-  `};
 `;
 
 export default ({
