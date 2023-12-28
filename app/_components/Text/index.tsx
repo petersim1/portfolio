@@ -39,6 +39,13 @@ export const H3 = styled.h3`
   letter-spacing: -0.025em;
 `;
 
+export const H4 = styled.h4`
+  font-size: 1.5rem;
+  line-height: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+`;
+
 export const Shadow = styled.span`
   text-shadow: 5px 5px 10px ${({ theme }): string => theme.colors.shadow};
 `;

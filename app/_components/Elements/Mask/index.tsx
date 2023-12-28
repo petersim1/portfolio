@@ -1,13 +1,12 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 
-import { useScrollContext } from "@/_providers/scroll";
 import { NN } from "@/_lib/assets";
 import styled, { css, CSSProp } from "styled-components";
 import { Column, Centered } from "@/_components/Common";
 
-const MaskHolder = styled(Column)<{ $top: string }>`
+const MaskHolder = styled(Column)`
   ${Centered}
   position: absolute;
   height: 100vh;
@@ -15,7 +14,7 @@ const MaskHolder = styled(Column)<{ $top: string }>`
   left: 0;
   z-index: 0;
   overflow: hidden;
-  top: ${({ $top }): string => $top};
+  top: 100vh;
 
   & svg {
     // position: absolute;
@@ -36,21 +35,55 @@ const Mask = styled.div<{ $pos: number }>`
   height: 100vh;
   width: 100vw;
   background: ${({ $pos, theme }): CSSProp => css`
-    linear-gradient(
-      -60deg,
-      ${theme.colors.bg} ${$pos}%,
-      transparent
+    conic-gradient(
+      from 90deg at -25% 0%,
+      transparent 0%,
+      ${theme.colors.bg} ${$pos}%
     )
   `};
 `;
 
-export default (): JSX.Element => {
-  const { breakpoints, progress } = useScrollContext();
-  const totHeight = useMemo(() => breakpoints[1] - breakpoints[0], [breakpoints]);
+export default ({
+  offsetTop,
+  offsetBottom,
+}: {
+  offsetTop: number;
+  offsetBottom: number;
+}): JSX.Element => {
+  // offsetTop/Bottom is a number in terms of "vh"
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const handleProgress = (): void => {
+      const el = document.getElementById("blurb");
+      if (!el) return;
+      const { top, height } = el.getBoundingClientRect();
+      const { innerHeight } = window;
+
+      const trueOffsetTop = (innerHeight * offsetTop) / 100;
+      const trueOffsetBottom = (innerHeight * offsetBottom) / 100;
+
+      const prog = Math.max(
+        0,
+        Math.min(
+          1,
+          (innerHeight - top - trueOffsetTop) / (height + trueOffsetBottom - trueOffsetTop),
+        ),
+      );
+
+      setProgress(100 * prog);
+    };
+    handleProgress();
+    window.addEventListener("scroll", handleProgress);
+    return () => {
+      window.removeEventListener("scroll", handleProgress);
+    };
+  }, []);
+
   return (
-    <MaskHolder $top={`${(breakpoints[0] + totHeight) / 2}px`}>
+    <MaskHolder>
       <NN />
-      <Mask $pos={100 - progress[1]} />
+      <Mask $pos={progress / 4} />
     </MaskHolder>
   );
 };

@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-import { CommonPad, Row, HoverDim } from "@/_components/Common";
+import { CommonPad, Row, HoverDim, Centered } from "@/_components/Common";
 
 export const Nav = styled.nav`
   position: absolute;
@@ -20,23 +20,13 @@ export const NavDiv = styled.div`
   width: 100%;
 `;
 
-export const NavHolder = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+export const NavHolder = styled(Row)`
+  ${Centered}
   padding: 20px 0;
-  font-size: 1.5rem;
 
   & h4 {
-    color: transparent;
     text-transform: uppercase;
-    background: ${({ theme }): string => theme.colors.primary};
-    background-clip: text;
-    -webkit-background-clip: text;
-    font-weight: 700;
-    line-height: 1.6rem;
+    color: ${({ theme }): string => theme.colors.primary};
   }
 `;
 
