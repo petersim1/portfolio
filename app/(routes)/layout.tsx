@@ -3,7 +3,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import "katex/dist/katex.min.css";
 import { ThemeProvider } from "@/_providers/theme";
-import { ScrollProvider } from "@/_providers/scroll";
 import StyledComponentRegistry from "@/_providers/ssr_styled";
 import { Metadata, Viewport } from "next";
 
@@ -51,10 +50,8 @@ export default ({ children }: { children: React.ReactNode }): JSX.Element => {
       <body style={{ visibility: "hidden" }}>
         <StyledComponentRegistry>
           <ThemeProvider>
-            <ScrollProvider>
-              <Layout>{children}</Layout>
-              <Light />
-            </ScrollProvider>
+            <Layout>{children}</Layout>
+            <Light />
           </ThemeProvider>
         </StyledComponentRegistry>
       </body>

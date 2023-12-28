@@ -121,10 +121,16 @@ export const ThemedGlobalStyle = createGlobalStyle`
   h3,
   h4,
   h5,
-  h6,
+  h6 {
+    margin: 0;
+    line-height: normal;
+    color: ${({ theme }): string => theme.colors.font};
+  }
+
   p {
     margin: 0;
     line-height: normal;
+    color: ${({ theme }): string => theme.colors.text};
   }
 
   a {
@@ -199,7 +205,7 @@ export const ThemedGlobalStyle = createGlobalStyle`
     bottom: 0;
     width: 3px;
     border-radius: 10px;
-    background-color: ${({ theme }): string => theme.colors.blue};
+    background-color: ${({ theme }): string => theme.code.blockquote};
   }
 
   @media (prefers-reduced-motion:no-preference){

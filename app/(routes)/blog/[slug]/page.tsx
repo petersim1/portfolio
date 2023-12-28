@@ -70,7 +70,7 @@ export default ({ params }: { params: { slug: string } }): JSX.Element => {
             </SubHeader>
             <BlogStyled.Tags>
               {post.tags.map((tag, ind2) => (
-                <Pill key={ind2} text={tag} />
+                <Pill key={ind2}>{tag}</Pill>
               ))}
             </BlogStyled.Tags>
             <Content post={post} components={components} />

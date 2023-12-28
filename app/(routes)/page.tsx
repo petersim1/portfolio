@@ -8,7 +8,7 @@ import { projects } from "@/_lib/constants";
 export default (): JSX.Element => {
   return (
     <main>
-      <Section $minHeight="100vh" id="intro" data-offset-top={0} data-offset-bottom={50}>
+      <Section $minHeight="100vh" id="intro">
         <CenteredFill>
           <GradientBlock>
             <H1>
@@ -24,7 +24,7 @@ export default (): JSX.Element => {
           </GradientBlock>
         </CenteredFill>
       </Section>
-      <Section $minHeight="100vh" id="blurb" data-offset-top={75} data-offset-bottom={0}>
+      <Section $minHeight="100vh" id="blurb">
         <CenteredFill>
           <GradientBlock>
             <H1>
@@ -37,7 +37,7 @@ export default (): JSX.Element => {
           </GradientBlock>
         </CenteredFill>
       </Section>
-      <Section id="projects" data-offset-top={0} data-offset-bottom={0}>
+      <Section id="projects">
         <Projects.Wrapper>
           <Projects.Title>
             <GradientBlock>
@@ -53,7 +53,7 @@ export default (): JSX.Element => {
           </Projects.Projects>
         </Projects.Wrapper>
       </Section>
-      <Section $minHeight="100vh" id="contact" data-offset-top={0} data-offset-bottom={0}>
+      <Section $minHeight="100vh" id="contact">
         <CenteredFill>
           <H2>
             Feel free to{" "}
@@ -72,7 +72,7 @@ export default (): JSX.Element => {
           </H2>
         </CenteredFill>
       </Section>
-      <Mask />
+      <Mask offsetTop={25} offsetBottom={25} />
     </main>
   );
 };

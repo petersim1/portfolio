@@ -1,5 +1,4 @@
 import { P, Shadow } from "@/_components/Text";
-import { worksans } from "@/_lib/fonts";
 import { contacts } from "@/_lib/constants";
 
 import { Footer, FooterDiv, FooterContacts } from "./styled";
@@ -8,7 +7,7 @@ import { Social, IconSized } from "@/_components/Icon";
 export default (): JSX.Element => {
   // const { stars, forks } = await github();
   return (
-    <Footer className={worksans.className}>
+    <Footer>
       <FooterDiv>
         <P>
           ~ built by{" "}

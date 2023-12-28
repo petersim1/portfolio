@@ -2,7 +2,7 @@
 
 import styled, { css, CSSProp } from "styled-components";
 import { getBreakpoint } from "@/_theme";
-import { inconsolata } from "@/_lib/fonts";
+import { inconsolata } from "@/_theme/fonts";
 
 export const CommonPad = css`
   padding: ${({ theme }): string => theme.mainPad};
@@ -66,29 +66,11 @@ export const Br = styled.br<{ $mobileOnly?: boolean }>`
     `}
 `;
 
-const PillOuter = styled.div`
+export const Pill = styled.div`
+  ${inconsolata.style};
+  color: black;
+  background-color: ${({ theme }): string => theme.colors.pill};
   font-size: 0.6rem;
-  padding: 1px;
   border-radius: ${({ theme }): string => theme.borderRadius};
-  background: linear-gradient(
-    90deg,
-    ${({ theme }): string => theme.colors.gradientFrom},
-    ${({ theme }): string => theme.colors.gradientTo}
-  );
-  position: relative;
-  text-transform: lowercase;
-`;
-
-const PillInner = styled.div`
   padding: 2px 7px;
-  border-radius: 10px;
-  background-color: ${({ theme }): string => theme.colors.bg};
 `;
-
-export const Pill = ({ text }: { text: string }): JSX.Element => {
-  return (
-    <PillOuter className={inconsolata.className}>
-      <PillInner>{text}</PillInner>
-    </PillOuter>
-  );
-};

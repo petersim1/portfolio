@@ -57,7 +57,7 @@ export default (): JSX.Element => {
                 <P>{post.excerpt}</P>
                 <BlogStyled.Tags>
                   {post.tags.map((tag, ind2) => (
-                    <Pill key={ind2} text={tag} />
+                    <Pill key={ind2}>{tag}</Pill>
                   ))}
                 </BlogStyled.Tags>
                 <BlogStyled.Footer>

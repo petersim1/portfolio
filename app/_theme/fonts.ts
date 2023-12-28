@@ -1,6 +1,17 @@
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inconsolata, Space_Mono } from "next/font/google";
 
-export const jakarta = Plus_Jakarta_Sans({
+const inconsolata = Inconsolata({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "800"],
+  weight: ["400", "700", "900"],
+  preload: true,
+  display: "swap",
 });
+
+const spacemono = Space_Mono({
+  weight: ["700"],
+  subsets: ["latin"],
+  preload: true,
+  display: "swap",
+});
+
+export { inconsolata, spacemono };

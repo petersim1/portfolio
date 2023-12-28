@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-import { CommonPad } from "@/_components/Common";
+import { CommonPad, Row, HoverDim, Centered } from "@/_components/Common";
 
 export const Nav = styled.nav`
   position: absolute;
@@ -20,33 +20,30 @@ export const NavDiv = styled.div`
   width: 100%;
 `;
 
-export const NavHolder = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+export const NavHolder = styled(Row)`
+  ${Centered}
   padding: 20px 0;
-  font-size: 1.5rem;
 
   & h4 {
-    color: transparent;
     text-transform: uppercase;
-    background: linear-gradient(
-      90deg,
-      ${({ theme }): string => theme.colors.gradientFrom},
-      ${({ theme }): string => theme.colors.gradientTo}
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    font-weight: 700;
-    line-height: 1.6rem;
+    color: ${({ theme }): string => theme.colors.primary};
   }
 `;
 
-export const NavItems = styled.div`
+export const NavItems = styled(Row)`
   position: absolute;
   right: 0;
   top: 50%;
   transform: translate(0, -50%);
+  gap: ${({ theme }): string => theme.gaps.sm};
+
+  & a {
+    display: inline-block;
+    padding: 3px 7px;
+    border-radius: ${({ theme }): string => theme.borderRadius};
+    background: ${({ theme }): string => theme.colors.card};
+    transition: opacity ${({ theme }): string => theme.transitions.speedMdEase};
+    border: 1px solid ${({ theme }): string => theme.colors.borderColor};
+    ${HoverDim}
+  }
 `;
