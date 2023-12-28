@@ -14,7 +14,7 @@ export default ({ data }: { data: DataI }): JSX.Element => {
       </ImageHolder>
       <Tags>
         {data.description.tools.concat(data.description.languages).map((tool, ind2) => (
-          <Pill text={tool} key={ind2} />
+          <Pill key={ind2}>{tool}</Pill>
         ))}
       </Tags>
       <ClippedText $lines={3}>{data.description.text}</ClippedText>

@@ -73,9 +73,9 @@ export const mix = (ratio: number, color1: string, color2: string): string => {
   const colorRgb1 = hexToRgb(color1);
   const colorRgb2 = hexToRgb(color2);
 
-  const r = Math.round((1 - ratio) * colorRgb1.r + ratio * colorRgb2.r);
-  const g = Math.round((1 - ratio) * colorRgb1.g + ratio * colorRgb2.g);
-  const b = Math.round((1 - ratio) * colorRgb1.b + ratio * colorRgb2.b);
+  const r = Math.round(ratio * colorRgb1.r + (1 - ratio) * colorRgb2.r);
+  const g = Math.round(ratio * colorRgb1.g + (1 - ratio) * colorRgb2.g);
+  const b = Math.round(ratio * colorRgb1.b + (1 - ratio) * colorRgb2.b);
 
   return RgbToHex(r, g, b);
 };
@@ -86,7 +86,6 @@ export const colors = {
     blue: "#0092ca",
     borderColor: "rgba(97, 97, 97, 0.5)",
     primary: "#00ccff",
-    primary1: mix(0.625, "#00ccff", "#FAFAFA"),
   },
   dark: {
     bg: "#121212",
@@ -94,7 +93,8 @@ export const colors = {
     text: opacify(0.87, "#FFFFFF"),
     faint: opacify(0.6, "#FFFFFF"),
     card: grayscale(1.5, "#121212"),
-    shadow: "rgba(255,255,255,0.4)",
+    pill: mix(0.5, "#00ccff", "#FAFAFA"),
+    shadow: opacify(0.4, "#FFFFFF"),
     gradientFrom: "rgb(195, 251, 214) 10%",
     gradientTo: "#00ccff 70%",
   },
@@ -104,7 +104,8 @@ export const colors = {
     text: "#000000",
     faint: opacify(0.6, "#000000"),
     card: grayscale(0.98, "#FAFAFA"),
-    shadow: "rgba(0,0,0,0.4)",
+    pill: mix(0.4, "#00ccff", "#FAFAFA"),
+    shadow: opacify(0.4, "#000000"),
     gradientFrom: "rgb(150, 219, 173) 10%",
     gradientTo: "#00ccff 70%",
   },
