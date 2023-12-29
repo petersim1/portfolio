@@ -15,12 +15,13 @@ export const Project = styled(Column)`
   border-radius: ${({ theme }): string => theme.borderRadius};
   padding: 15px;
   text-align: left;
-  box-shadow: 0 0 10px transparent;
+  position: relative;
+  box-shadow: ${({ theme }): string => theme.shadow.boxActive};
   background-color: ${({ theme }): string => theme.colors.card};
   transition: box-shadow ${({ theme }): string => theme.transitions.speedMdEase};
 
   &:hover {
-    box-shadow: 0 0 10px ${({ theme }): string => theme.colors.borderColor};
+    box-shadow: ${({ theme }): string => theme.shadow.boxInactive};
   }
 
   ${getBreakpoint(

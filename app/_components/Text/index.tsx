@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import styled, { css, CSSProp } from "styled-components";
+import styled from "styled-components";
 import { Row, Centered } from "@/_components/Common";
 
 export const P = styled.p`
@@ -65,20 +65,12 @@ const ClipText = styled.p<{ $lines: number; $open: boolean }>`
   font-weight: 400;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: ${({ $lines }): number => $lines};
-  line-clamp: ${({ $lines }): number => $lines};
+  -webkit-line-clamp: ${({ $lines, $open }): number => ($open ? 20 : $lines)};
+  line-clamp: ${({ $lines, $open }): number => ($open ? 20 : $lines)};
   -webkit-box-orient: vertical;
-  max-height: ${({ $lines }): string => `calc(${$lines} * 1.2rem)`};
+  max-height: ${({ $lines, $open }): string => `calc(${$open ? 20 : $lines} * 1.2rem)`};
   transition: max-height ${({ theme }): string => theme.transitions.speedMdEase};
   cursor: pointer;
-
-  ${({ $open }): CSSProp =>
-    $open &&
-    css`
-      max-height: calc(20 * 1.2rem);
-      -webkit-line-clamp: 20;
-      line-clamp: 20;
-    `}
 `;
 
 export const ClippedText = ({

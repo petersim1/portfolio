@@ -3,7 +3,7 @@
  * @param {string} hexColor
  * @returns {{r: number; g: number; b: number}} r g b channel
  */
-const hexToRgb = (hexColor: string): { r: number; g: number; b: number } => {
+export const hexToRgb = (hexColor: string): { r: number; g: number; b: number } => {
   const hex = hexColor.replace(/^#/, "");
 
   const bigInt = parseInt(hex, 16);
@@ -37,13 +37,13 @@ const commonColors = {
   faint: 0.6,
 };
 
-export const colors = {
+const colors = {
   dark: {
     bg: commonColors.dark,
     font: commonColors.white,
     text: opacify(commonColors.white, 0.87),
     faint: opacify(commonColors.white, 0.6),
-    card: `color-mix(in oklab, ${commonColors.dark}, ${commonColors.light} 10%)`,
+    card: `color-mix(in oklab, ${commonColors.dark}, ${commonColors.light} 5%)`,
     pill: `color-mix(in oklab, ${commonColors.primary}, ${commonColors.light} 50%)`,
     shadow: opacify(commonColors.light, 0.4),
     gradientFrom: "rgb(195, 251, 214) 10%",
@@ -62,7 +62,32 @@ export const colors = {
   },
 };
 
-export const codeColors = {
+const shadows = {
+  dark: {
+    text: opacify(commonColors.light, 0.4),
+    boxActive:
+      "0px 2px 2px 0px hsla(0,0%,0%,0.14), \
+    0px 3px 1px -2px hsla(0,0%,0%,0.12), \
+    0px 1px 5px 0px hsla(0,0%,0%,0.2);",
+    boxInactive:
+      "0px 2px 2px 0px transparent, \
+    0px 3px 1px -2px transparent, \
+    0px 1px 5px 0px transparent;",
+  },
+  light: {
+    text: opacify(commonColors.dark, 0.4),
+    boxActive:
+      "0px 2px 2px 0px hsla(0,0%,0%,0.14), \
+    0px 3px 1px -2px hsla(0,0%,0%,0.12), \
+    0px 1px 5px 0px hsla(0,0%,0%,0.2);",
+    boxInactive:
+      "0px 2px 2px 0px transparent, \
+    0px 3px 1px -2px transparent, \
+    0px 1px 5px 0px transparent;",
+  },
+};
+
+const codeColors = {
   common: {
     sign: "#8996a3",
     keyword: "#f47067",
@@ -93,6 +118,9 @@ export const darkTheme = {
     ...codeColors.common,
     ...codeColors.dark,
   },
+  shadow: {
+    ...shadows.dark,
+  },
 };
 
 export const lightTheme = {
@@ -103,5 +131,8 @@ export const lightTheme = {
   code: {
     ...codeColors.common,
     ...codeColors.light,
+  },
+  shadow: {
+    ...shadows.light,
   },
 };
