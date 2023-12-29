@@ -71,7 +71,7 @@ export const Pill = styled.div`
   ${inconsolata.style};
   color: black;
   background-color: ${({ theme }): string => theme.colors.pill};
-  font-size: 0.6rem;
+  font-size: clamp(12px, 0.6rem, 0.6rem);
   border-radius: ${({ theme }): string => theme.borderRadius};
   padding: 2px 7px;
 `;
