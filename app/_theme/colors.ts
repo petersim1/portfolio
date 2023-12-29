@@ -1,19 +1,4 @@
 /**
- * Opacifies an input Hex color
- * @param {number} amount
- * @param {string} hexColor #RRBBGG
- * @returns {string} hexColor #RRBBGGAA
- */
-export const opacify = (amount: number, hexColor: string): string => {
-  // converts
-  const opacitySuffix = Math.round(amount * 255)
-    .toString(16)
-    .padStart(2, "0");
-
-  return `${hexColor.slice(0, 7)}${opacitySuffix}`;
-};
-
-/**
  * Converts Hex #RRGGBB to RGB() value
  * @param {string} hexColor
  * @returns {{r: number; g: number; b: number}} r g b channel
@@ -30,83 +15,50 @@ const hexToRgb = (hexColor: string): { r: number; g: number; b: number } => {
 };
 
 /**
- * Converts RGB() to Hex #RRGGBB
- * @param {number} r
- * @param {number} g
- * @param {number} b
- * @returns {string} Hex value ##RRGGBB
+ * Opacifies an input Hex color
+ * @param {number} amount
+ * @param {string} hexColor #RRBBGG
+ * @returns {string} rgba color rgba(r,g,b,a)
  */
-const RgbToHex = (r: number, g: number, b: number): string => {
-  const color =
-    r.toString(16).padStart(2, "0") +
-    g.toString(16).padStart(2, "0") +
-    b.toString(16).padStart(2, "0");
-
-  return "#" + color;
-};
-
-/**
- * Specifically used for white/black Hex value #RRGGBB, used to lighten/darken
- * Constraints the output to a max of 255 per channel
- * @param {number} amount, >= 0
- * @param {string} hexColor
- * @returns {string} Hex value ##RRGGBB
- */
-export const grayscale = (amount: number, hexColor: string): string => {
+export const opacify = (hexColor: string, amount: number): string => {
   const { r, g, b } = hexToRgb(hexColor);
 
-  const rNew = Math.round(Math.min(255, r * amount));
-  const gNew = Math.round(Math.min(255, g * amount));
-  const bNew = Math.round(Math.min(255, b * amount));
-
-  return RgbToHex(rNew, gNew, bNew);
+  return `rgba(${r}, ${g}, ${b}, ${amount})`;
 };
 
-/**
- * Mixes two Hex colors #RRGGBB based off a ratio
- * @param {number} ratio, amount to retain from color1
- * @param {string} color1, base color Hex
- * @param {string} color2, mix color Hex
- * @returns {string} Hex value ##RRGGBB after mixing
- */
-export const mix = (ratio: number, color1: string, color2: string): string => {
-  const colorRgb1 = hexToRgb(color1);
-  const colorRgb2 = hexToRgb(color2);
-
-  const r = Math.round(ratio * colorRgb1.r + (1 - ratio) * colorRgb2.r);
-  const g = Math.round(ratio * colorRgb1.g + (1 - ratio) * colorRgb2.g);
-  const b = Math.round(ratio * colorRgb1.b + (1 - ratio) * colorRgb2.b);
-
-  return RgbToHex(r, g, b);
+const commonColors = {
+  sun: "#F28C38",
+  borderColor: "rgba(97, 97, 97, 0.5)",
+  primary: "#00ccff",
+  light: "#FAFAFA",
+  dark: "#121212",
+  black: "#000000",
+  white: "#FFFFFF",
+  faint: 0.6,
 };
 
 export const colors = {
-  common: {
-    sun: "#F28C38",
-    borderColor: "rgba(97, 97, 97, 0.5)",
-    primary: "#00ccff",
-  },
   dark: {
-    bg: "#121212",
-    font: "#FFFFFF",
-    text: opacify(0.87, "#FFFFFF"),
-    faint: opacify(0.6, "#FFFFFF"),
-    card: grayscale(1.6, "#121212"),
-    pill: mix(0.5, "#00ccff", "#FAFAFA"),
-    shadow: opacify(0.4, "#FFFFFF"),
+    bg: commonColors.dark,
+    font: commonColors.white,
+    text: opacify(commonColors.white, 0.87),
+    faint: opacify(commonColors.white, 0.6),
+    card: `color-mix(in oklab, ${commonColors.dark}, ${commonColors.light} 10%)`,
+    pill: `color-mix(in oklab, ${commonColors.primary}, ${commonColors.light} 50%)`,
+    shadow: opacify(commonColors.light, 0.4),
     gradientFrom: "rgb(195, 251, 214) 10%",
-    gradientTo: "#00ccff 70%",
+    gradientTo: `${commonColors.primary} 70%`,
   },
   light: {
-    bg: "#FAFAFA",
-    font: "#000000",
-    text: "#000000",
-    faint: opacify(0.6, "#000000"),
-    card: grayscale(0.98, "#FAFAFA"),
-    pill: mix(0.4, "#00ccff", "#FAFAFA"),
-    shadow: opacify(0.4, "#000000"),
+    bg: commonColors.light,
+    font: commonColors.black,
+    text: opacify(commonColors.black, 0.87),
+    faint: opacify(commonColors.black, 0.6),
+    card: `color-mix(in oklab, ${commonColors.light}, ${commonColors.dark} 5%)`,
+    pill: `color-mix(in oklab, ${commonColors.primary}, ${commonColors.light} 40%)`,
+    shadow: opacify(commonColors.dark, 0.4),
     gradientFrom: "rgb(150, 219, 173) 10%",
-    gradientTo: "#00ccff 70%",
+    gradientTo: `${commonColors.primary} 70%`,
   },
 };
 
@@ -134,7 +86,7 @@ export const codeColors = {
 
 export const darkTheme = {
   colors: {
-    ...colors.common,
+    ...commonColors,
     ...colors.dark,
   },
   code: {
@@ -145,7 +97,7 @@ export const darkTheme = {
 
 export const lightTheme = {
   colors: {
-    ...colors.common,
+    ...commonColors,
     ...colors.light,
   },
   code: {
