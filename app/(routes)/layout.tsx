@@ -1,4 +1,3 @@
-// import "@/globals.css";
 // while this is in the dist, I still get an error...?
 // eslint-disable-next-line import/no-extraneous-dependencies
 import "katex/dist/katex.min.css";

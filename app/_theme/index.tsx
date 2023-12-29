@@ -105,13 +105,6 @@ export const ThemedGlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  main {
-    flex: 1 0 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
   button {
     font-family: inherit !important;
   }
