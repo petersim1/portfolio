@@ -47,7 +47,7 @@ export const H4 = styled.h4`
 `;
 
 export const Shadow = styled.span`
-  text-shadow: 2px 2px 5px ${({ theme }): string => theme.colors.shadow};
+  text-shadow: 2px 2px 5px ${({ theme }): string => theme.shadow.text};
 `;
 
 export const ShowGradient = styled.span`

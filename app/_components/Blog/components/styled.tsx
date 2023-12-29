@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 import { Tweet } from "react-tweet";
 import { useEffect, useState } from "react";
 
-import { Column, Centered } from "@/_components/Common";
+import { Column, Centered, HoverDim } from "@/_components/Common";
 import { OGImage } from "@/_components/Image";
 import { P, Faint } from "@/_components/Text";
 import { getBreakpoint } from "@/_theme";
@@ -21,6 +21,8 @@ export const BackArrow = styled.div`
 
 export const LinkUnderline = styled(Link)`
   text-decoration: underline;
+  transition: opacity ${({ theme }): string => theme.transitions.speedMdEase};
+  ${HoverDim}
 `;
 
 export const ImageHolder = styled(Column)`
