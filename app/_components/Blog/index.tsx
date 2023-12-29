@@ -7,7 +7,7 @@ import { Row, Column, HoverDim } from "@/_components/Common";
 export const Holder = styled(Column)`
   justify-content: flex-start;
   align-items: center;
-  padding-top: calc(1.6rem + 40px + 40px);
+  padding-top: calc(1.6rem + 20px + 20px);
   padding-bottom: 5rem;
   min-height: 100%;
 

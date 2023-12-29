@@ -1,14 +1,14 @@
 import Mask from "@/_components/Elements/Mask";
 import { GradientBlock, ShowGradient, H1, H2, Shadow } from "@/_components/Text";
-import { Section, Br, CenteredFill } from "@/_components/Common";
+import { Main, Section, Br, CenteredFill } from "@/_components/Common";
 import * as Projects from "@/_components/Projects";
 import Project from "@/_components/Projects/Project";
 import { projects } from "@/_lib/constants";
 
 export default (): JSX.Element => {
   return (
-    <main>
-      <Section $minHeight="100vh" id="intro">
+    <Main>
+      <Section $fillHeight id="intro">
         <CenteredFill>
           <GradientBlock>
             <H1>
@@ -24,7 +24,7 @@ export default (): JSX.Element => {
           </GradientBlock>
         </CenteredFill>
       </Section>
-      <Section $minHeight="100vh" id="blurb">
+      <Section $fillHeight id="blurb">
         <CenteredFill>
           <GradientBlock>
             <H1>
@@ -53,7 +53,7 @@ export default (): JSX.Element => {
           </Projects.Projects>
         </Projects.Wrapper>
       </Section>
-      <Section $minHeight="100vh" id="contact">
+      <Section $fillHeight id="contact">
         <CenteredFill>
           <H2>
             Feel free to{" "}
@@ -73,6 +73,6 @@ export default (): JSX.Element => {
         </CenteredFill>
       </Section>
       <Mask offsetTop={25} offsetBottom={25} />
-    </main>
+    </Main>
   );
 };

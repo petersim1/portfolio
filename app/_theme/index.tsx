@@ -19,10 +19,9 @@ const TRANSITIONS = {
 };
 
 const FONTSIZE = {
-  sm: "14px",
-  md: "15px",
-  lg: "16px",
-  xl: "18px",
+  sm: "16px",
+  md: "18px",
+  lg: "20px",
 };
 
 const OPACITIES = {
@@ -38,6 +37,7 @@ const GAPS = {
   md: "12px",
   lg: "24px",
   xl: "32px",
+  xxl: "40px",
   rem05: "0.5rem",
   rem1: "1rem",
   rem2: "2rem",
@@ -77,6 +77,33 @@ export const getBreakpoint = (size: string, innerCSS: CSSProp): CSSProp => {
   `;
 };
 
+// ${getBreakpoint(
+//   "xxl",
+//   css`
+//     html {
+//       font-size: ${({ theme }): string => theme.fontsize.lg};
+//     }
+//   `,
+// )}
+
+// ${getBreakpoint(
+//   "xl",
+//   css`
+//     html {
+//       font-size: ${({ theme }): string => theme.fontsize.md};
+//     }
+//   `,
+// )}
+
+// ${getBreakpoint(
+//   "sm",
+//   css`
+//     html {
+//       font-size: ${({ theme }): string => theme.fontsize.sm};
+//     }
+//   `,
+// )}
+
 export const ThemedGlobalStyle = createGlobalStyle`
   :root {
     --sh-class: ${({ theme }): string => theme.code.class};
@@ -98,18 +125,11 @@ export const ThemedGlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-size: ${({ theme }): string => theme.fontsize.xl};
+    font-size: calc(15px + 0.390625vw);
     color: ${({ theme }): string => theme.colors.font};
     background: ${({ theme }): string => theme.colors.bg};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  main {
-    flex: 1 0 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 
   button {
@@ -213,31 +233,4 @@ export const ThemedGlobalStyle = createGlobalStyle`
         scroll-behavior:smooth
     }
   }
-
-  ${getBreakpoint(
-    "xxl",
-    css`
-      html {
-        font-size: ${({ theme }): string => theme.fontsize.lg};
-      }
-    `,
-  )}
-
-  ${getBreakpoint(
-    "xl",
-    css`
-      html {
-        font-size: ${({ theme }): string => theme.fontsize.md};
-      }
-    `,
-  )}
-
-  ${getBreakpoint(
-    "xs",
-    css`
-      html {
-        font-size: ${({ theme }): string => theme.fontsize.sm};
-      }
-    `,
-  )}
 `;

@@ -33,22 +33,23 @@ export const Main = styled.main`
   flex: 1 0 0;
 `;
 
-export const CenteredFill = styled(Row)`
+export const CenteredFill = styled(Column)`
   ${Centered}
-  height: 100%;
   width: 100%;
   text-align: center;
 `;
 
-export const Section = styled.section<{ $minHeight?: string }>`
+export const Section = styled.section<{ $fillHeight?: boolean }>`
   ${CommonPad}
   width: 100%;
-  position: relative;
+  display: flex;
   z-index: 1;
-  ${({ $minHeight }): CSSProp =>
-    $minHeight &&
+  position: relative;
+  ${({ $fillHeight }): CSSProp =>
+    $fillHeight &&
     css`
-      min-height: ${$minHeight};
+      min-height: 100vh;
+      min-height: 100svh;
     `}
 `;
 
@@ -70,7 +71,7 @@ export const Pill = styled.div`
   ${inconsolata.style};
   color: black;
   background-color: ${({ theme }): string => theme.colors.pill};
-  font-size: 0.6rem;
+  font-size: clamp(12px, 0.6rem, 0.6rem);
   border-radius: ${({ theme }): string => theme.borderRadius};
   padding: 2px 7px;
 `;

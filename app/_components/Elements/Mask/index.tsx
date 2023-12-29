@@ -10,19 +10,22 @@ const MaskHolder = styled(Column)`
   ${Centered}
   position: absolute;
   height: 100vh;
+  height: 100svh;
   right: 0;
   left: 0;
   z-index: 0;
   overflow: hidden;
   top: 100vh;
+  top: 100svh;
 
   & svg {
     // position: absolute;
-    opacity: 0.25;
+    opacity: 0.4;
     fill: gray;
     stroke: gray;
     min-width: 100vw;
     min-height: 100vh;
+    min-height: 100svh;
   }
 `;
 
@@ -41,6 +44,7 @@ const Mask = styled.div.attrs<{ $pos: number }>((props) => ({
   right: 0;
   overflow: hidden;
   height: 100vh;
+  height: 100svh;
   width: 100vw;
 `;
 
