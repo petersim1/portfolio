@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import styled from "styled-components";
-import { Row, Column, HoverDim } from "@/_components/Common";
+import { Row, Column, HoverDim, Card } from "@/_components/Common";
 
 export const Holder = styled(Column)`
   justify-content: flex-start;
@@ -26,13 +26,9 @@ export const Previews = styled(Column)`
   gap: ${({ theme }): string => theme.gaps.rem2};
 `;
 
-export const Preview = styled(Column)`
-  gap: ${({ theme }): string => theme.gaps.md};
+export const Preview = styled(Card)`
   align-items: flex-start;
-  background-color: ${({ theme }): string => theme.colors.bg};
   padding: 24px;
-  border-radius: ${({ theme }): string => theme.borderRadius};
-  border: 1px solid ${({ theme }): string => theme.colors.borderColor};
 `;
 
 export const Header = styled(Row)`

@@ -1,27 +1,18 @@
 "use client";
 
 import styled, { css } from "styled-components";
-import { Row, Column } from "@/_components/Common";
+import { Row, Card } from "@/_components/Common";
 import { getBreakpoint } from "@/_theme";
 
-export const Project = styled(Column)`
+export const Project = styled(Card)`
   justify-content: center;
   align-items: flex-start;
   flex: 1 0 40%;
   min-width: 320px;
   max-width: 440px;
-  gap: ${({ theme }): string => theme.gaps.md};
-  border: 1px solid ${({ theme }): string => theme.colors.borderColor};
-  border-radius: ${({ theme }): string => theme.borderRadius};
   padding: 15px;
   text-align: left;
-  box-shadow: 0 0 10px transparent;
-  background-color: ${({ theme }): string => theme.colors.card};
-  transition: box-shadow ${({ theme }): string => theme.transitions.speedMdEase};
-
-  &:hover {
-    box-shadow: 0 0 10px ${({ theme }): string => theme.colors.borderColor};
-  }
+  position: relative;
 
   ${getBreakpoint(
     "xs",
