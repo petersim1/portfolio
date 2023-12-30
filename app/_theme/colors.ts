@@ -43,7 +43,7 @@ const colors = {
     font: commonColors.white,
     text: opacify(commonColors.white, 0.87),
     faint: opacify(commonColors.white, 0.6),
-    card: `color-mix(in oklab, ${commonColors.dark}, ${commonColors.light} 5%)`,
+    card: `color-mix(in oklab, ${commonColors.dark}, ${commonColors.light} 7.5%)`,
     pill: `color-mix(in oklab, ${commonColors.primary}, ${commonColors.light} 50%)`,
     gradientFrom: "rgb(195, 251, 214) 10%",
     gradientTo: `${commonColors.primary} 70%`,
@@ -53,7 +53,7 @@ const colors = {
     font: commonColors.black,
     text: opacify(commonColors.black, 0.87),
     faint: opacify(commonColors.black, 0.6),
-    card: `color-mix(in oklab, ${commonColors.light}, ${commonColors.dark} 5%)`,
+    card: `color-mix(in oklab, ${commonColors.light}, ${commonColors.dark} 3%)`,
     pill: `color-mix(in oklab, ${commonColors.primary}, ${commonColors.light} 40%)`,
     gradientFrom: "rgb(150, 219, 173) 10%",
     gradientTo: `${commonColors.primary} 70%`,
@@ -63,25 +63,11 @@ const colors = {
 const shadows = {
   dark: {
     text: opacify(commonColors.light, 0.4),
-    boxActive:
-      "0px 2px 2px 0px hsla(0,0%,40%,0.14), \
-    0px 3px 1px -2px hsla(0,0%,40%,0.12), \
-    0px 1px 5px 0px hsla(0,0%,40%,0.2);",
-    boxInactive:
-      "0px 2px 2px 0px transparent, \
-    0px 3px 1px -2px transparent, \
-    0px 1px 5px 0px transparent;",
+    box: "0 0 0 1px rgba(255, 255, 255, 0.145), 0px 1px 2px rgba(0,0,0,.16)",
   },
   light: {
     text: opacify(commonColors.dark, 0.4),
-    boxActive:
-      "0px 2px 2px 0px hsla(0,0%,0%,0.14), \
-    0px 3px 1px -2px hsla(0,0%,0%,0.12), \
-    0px 1px 5px 0px hsla(0,0%,0%,0.2);",
-    boxInactive:
-      "0px 2px 2px 0px transparent, \
-    0px 3px 1px -2px transparent, \
-    0px 1px 5px 0px transparent;",
+    box: "0 0 0 1px rgba(0,0,0,.08), 0px 2px 2px rgba(0,0,0,.04)",
   },
 };
 

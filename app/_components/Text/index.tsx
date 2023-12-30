@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Row, Centered } from "@/_components/Common";
+import { getBreakpoint } from "@/_theme";
 
 export const P = styled.p`
   font-size: 1rem;
@@ -48,6 +49,13 @@ export const H4 = styled.h4`
 
 export const Shadow = styled.span`
   text-shadow: 2px 2px 5px ${({ theme }): string => theme.shadow.text};
+
+  ${getBreakpoint(
+    "sm",
+    css`
+      text-shadow: 1px 1px 3px ${({ theme }): string => theme.shadow.text};
+    `,
+  )}
 `;
 
 export const ShowGradient = styled.span`

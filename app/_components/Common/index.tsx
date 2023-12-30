@@ -69,14 +69,12 @@ export const Br = styled.br<{ $mobileOnly?: boolean }>`
 
 export const Card = styled(Column)`
   gap: ${({ theme }): string => theme.gaps.md};
-  border: 1px solid ${({ theme }): string => theme.colors.borderColor};
   border-radius: ${({ theme }): string => theme.borderRadius};
-  box-shadow: ${({ theme }): string => theme.shadow.boxActive};
-  background-color: ${({ theme }): string => theme.colors.card};
-  transition: box-shadow ${({ theme }): string => theme.transitions.speedMdEase};
+  box-shadow: ${({ theme }): string => theme.shadow.box};
+  transition: background-color ${({ theme }): string => theme.transitions.speedMdEase};
 
   &:hover {
-    box-shadow: ${({ theme }): string => theme.shadow.boxInactive};
+    background-color: ${({ theme }): string => theme.colors.card};
   }
 `;
 

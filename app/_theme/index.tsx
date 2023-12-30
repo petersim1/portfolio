@@ -25,7 +25,7 @@ const FONTSIZE = {
 };
 
 const OPACITIES = {
-  hover: 0.75,
+  hover: 0.6,
   disabled: 0.5,
   click: 0.4,
   enabled: 1,

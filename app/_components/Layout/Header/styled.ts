@@ -40,15 +40,13 @@ export const NavItems = styled(Row)`
   & a {
     display: inline-block;
     padding: 3px 7px;
-    box-shadow: ${({ theme }): string => theme.shadow.boxActive};
+    box-shadow: ${({ theme }): string => theme.shadow.box};
     border-radius: ${({ theme }): string => theme.borderRadius};
-    background: ${({ theme }): string => theme.colors.card};
     transition: all ${({ theme }): string => theme.transitions.speedMdEase};
-    border: 1px solid ${({ theme }): string => theme.colors.borderColor};
     ${HoverDim}
 
     &:hover {
-      box-shadow: ${({ theme }): string => theme.shadow.boxInactive};
+      background-color: ${({ theme }): string => theme.colors.card};
     }
   }
 `;
