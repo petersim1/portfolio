@@ -44,6 +44,6 @@ export const Tags = styled(Row)`
 export const ImageHolder = styled.div`
   width: 100%;
   overflow: hidden;
-  border: 1px solid ${({ theme }): string => theme.colors.borderColor};
+  box-shadow: ${({ theme }): string => theme.shadow.box};
   border-radius: ${({ theme }): string => theme.borderRadius};
 `;
