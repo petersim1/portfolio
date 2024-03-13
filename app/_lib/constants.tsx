@@ -15,6 +15,29 @@ export const education = [
 
 export const projects = [
   {
+    title: "Bevor",
+    year: 2023,
+    description: {
+      text: "Co-developed a decentralized auditing protocol within the web3 ecosystem \
+      (with plans to fully build). Built out the marketing page, protocol dApp,\
+      helped guide the DAO and protocol designs, conducted market research, and presented to\
+      incubator programs and partners. Integrated on/off-chain data.",
+      image: "/images/og_bevor.png",
+      languages: ["javascript", "solidity", "html", "css", "sql"],
+      tools: ["nextjs", "wagmi", "ethersjs", "DAOs", "smart contracts", "prisma", "postgres"],
+      links: [
+        {
+          type: "site",
+          link: "https://bevor.io/",
+        },
+        {
+          type: "github",
+          link: "https://github.com/Bevor-Protocol",
+        },
+      ],
+    },
+  },
+  {
     title: "Blackjack Gameplay",
     year: 2023,
     description: {
@@ -63,29 +86,6 @@ export const projects = [
         {
           type: "github",
           link: "https://github.com/petersim1/strava-next",
-        },
-      ],
-    },
-  },
-  {
-    title: "Bevor",
-    year: 2023,
-    description: {
-      text: "Co-developed a POC (with plans to fully build) for a decentralized\
-      auditing protocol within the web3 ecosystem. Built out the marketing page, protocol dApp,\
-      helped guide the DAO and protocol designs, conducted market research, and presented to\
-      incubator programs and partners.",
-      image: "/images/og_bevor.png",
-      languages: ["javascript", "solidity", "html", "css"],
-      tools: ["nextjs", "wagmi", "ethersjs", "DAOs", "smart contracts"],
-      links: [
-        {
-          type: "site",
-          link: "https://bevor.io/",
-        },
-        {
-          type: "github",
-          link: "https://github.com/Bevor-Protocol",
         },
       ],
     },
