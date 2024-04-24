@@ -8,6 +8,26 @@ import { projects } from "@/_lib/constants";
 export default (): JSX.Element => {
   return (
     <Main>
+      <Section $fillHeight id="mock">
+        <CenteredFill>
+          <GradientBlock style={{ textAlign: "left", width: "100%", maxWidth: "1100px" }}>
+            <H1>
+              <ShowGradient>Peter Simone</ShowGradient>
+            </H1>
+            <H2>
+              <span>I'm a </span>
+              <ShowGradient>data scientist</ShowGradient>
+              <span> & </span>
+              <ShowGradient>full stack developer</ShowGradient>
+              <span>. I like to </span>
+              <ShowGradient>build things</ShowGradient>
+              <span> & </span>
+              <ShowGradient>learn</ShowGradient>
+              <span> how stuff works.</span>
+            </H2>
+          </GradientBlock>
+        </CenteredFill>
+      </Section>
       <Section $fillHeight id="intro">
         <CenteredFill>
           <GradientBlock>
