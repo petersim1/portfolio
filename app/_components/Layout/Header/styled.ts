@@ -2,40 +2,20 @@
 
 import styled from "styled-components";
 
-import { CommonPad, Row, HoverDim, Centered } from "@/_components/Common";
+import { CommonPad, Row, HoverDim } from "@/_components/Common";
 
 export const Nav = styled.nav`
-  position: absolute;
-  width: 100%;
-  top: 0;
-  margin: auto;
-  z-index: 999;
-  transform: translateY(0);
-  transition: transform ${({ theme }): string => theme.transitions.speedMdEase};
   ${CommonPad}
 `;
 
-export const NavDiv = styled.div`
-  position: relative;
-  width: 100%;
-`;
-
 export const NavHolder = styled(Row)`
-  ${Centered}
+  justify-content: space-between;
   padding: 20px 0;
-
-  & h4 {
-    text-transform: uppercase;
-    color: ${({ theme }): string => theme.colors.primary};
-  }
 `;
 
 export const NavItems = styled(Row)`
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translate(0, -50%);
   gap: ${({ theme }): string => theme.gaps.sm};
+  font-size: 0.85rem;
 
   & a {
     display: inline-block;

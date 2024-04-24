@@ -9,7 +9,7 @@ export default (): JSX.Element => {
   return (
     <Footer>
       <FooterDiv>
-        <P>
+        <P style={{ fontSize: "0.8rem" }}>
           ~ built by{" "}
           <b>
             <Shadow>peter simone</Shadow>
@@ -19,7 +19,7 @@ export default (): JSX.Element => {
         <FooterContacts>
           {contacts.map((contact, ind) => (
             <a key={ind} href={contact.link} target="_blank" referrerPolicy="no-referrer">
-              <IconSized $size="20px">
+              <IconSized $size="18px">
                 <Social type={contact.type} />
               </IconSized>
             </a>

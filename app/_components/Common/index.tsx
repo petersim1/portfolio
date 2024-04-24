@@ -45,6 +45,7 @@ export const Section = styled.section<{ $fillHeight?: boolean }>`
   display: flex;
   z-index: 1;
   position: relative;
+  height: 100%;
   ${({ $fillHeight }): CSSProp =>
     $fillHeight &&
     css`
