@@ -9,7 +9,7 @@ export default (): JSX.Element => {
     <Main>
       <Section id="projects">
         <Projects.Wrapper>
-          <H2 style={{ width: "90%" }}>some projects I've worked on</H2>
+          <H2>some projects I've worked on</H2>
           <Projects.Projects>
             {projects.map((data, ind) => (
               <Project data={data} key={ind} />

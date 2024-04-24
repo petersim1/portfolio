@@ -97,18 +97,23 @@ export const ClippedText = ({
   );
 };
 
-const GradientBlockText = styled(Column)<{ $posX: number; $posY: number }>`
-  background: radial-gradient(
-    circle at ${({ $posX, $posY }): string => `${$posX}% ${$posY}%`},
-    ${({ theme }): string => theme.colors.gradientFrom},
-    ${({ theme }): string => theme.colors.gradientTo}
-  );
+const GradientBlockText = styled(Column).attrs<{ $posX: number; $posY: number }>((props) => ({
+  style: {
+    background: `radial-gradient(
+      circle at ${props.$posX}% ${props.$posY}%,
+      ${props.theme.colors.gradientFrom},
+      ${props.theme.colors.gradientTo}
+    )`,
+  },
+}))`
   background-blend-mode: saturation;
-  background-clip: text;
-  -webkit-background-clip: text;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
   width: 100%;
   height: 100%;
   justify-content: center;
+  text-align: left;
+  max-width: 1100px;
 `;
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {

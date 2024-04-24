@@ -10,6 +10,7 @@ export const Holder = styled(Column)`
   padding-top: calc(1.6rem + 20px + 20px);
   padding-bottom: 5rem;
   min-height: 100%;
+  gap: ${({ theme }): string => theme.gaps.rem3};
 
   & > h1 {
     margin-bottom: ${({ theme }): string => theme.gaps.rem2};
@@ -28,7 +29,7 @@ export const Previews = styled(Column)`
 
 export const Preview = styled(Card)`
   align-items: flex-start;
-  padding: 24px;
+  padding: 12px;
 `;
 
 export const Header = styled(Row)`
@@ -50,7 +51,7 @@ export const Header = styled(Row)`
 export const Footer = styled(Row)`
   width: 100%;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 `;
 
 export const Tags = styled(Row)`
@@ -62,6 +63,7 @@ export const Tags = styled(Row)`
 export const ReadMore = styled(Link)`
   display: inline-block;
   margin-left: auto;
+  white-space: nowrap;
   transition: opacity ${({ theme }): string => theme.transitions.speedMdEase};
   ${HoverDim}
 `;

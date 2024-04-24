@@ -6,6 +6,7 @@ import { CommonPad, Row, HoverDim } from "@/_components/Common";
 
 export const Nav = styled.nav`
   ${CommonPad}
+  z-index: 999;
 `;
 
 export const NavHolder = styled(Row)`

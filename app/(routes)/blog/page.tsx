@@ -3,7 +3,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { allPosts, type Post } from "contentlayer/generated";
 
 import * as BlogStyled from "@/_components/Blog";
-import { H1, Faint, P, H3, SubHeader } from "@/_components/Text";
+import { H2, Faint, P, H3, SubHeader } from "@/_components/Text";
 import { getFormattedDate } from "@/_lib/utils";
 import { Main, Pill } from "@/_components/Common";
 
@@ -37,7 +37,7 @@ export default (): JSX.Element => {
   return (
     <Main>
       <BlogStyled.Holder>
-        <H1>Blog Posts</H1>
+        <H2>blog posts</H2>
         <BlogStyled.BlogHolder>
           <BlogStyled.Previews>
             {posts.map((post, ind) => (
@@ -55,12 +55,12 @@ export default (): JSX.Element => {
                   </div>
                 </BlogStyled.Header>
                 <P>{post.excerpt}</P>
-                <BlogStyled.Tags>
-                  {post.tags.map((tag, ind2) => (
-                    <Pill key={ind2}>{tag}</Pill>
-                  ))}
-                </BlogStyled.Tags>
                 <BlogStyled.Footer>
+                  <BlogStyled.Tags>
+                    {post.tags.map((tag, ind2) => (
+                      <Pill key={ind2}>{tag}</Pill>
+                    ))}
+                  </BlogStyled.Tags>
                   <BlogStyled.ReadMore href={post.url}>
                     <P>{"Read ->"}</P>
                   </BlogStyled.ReadMore>
