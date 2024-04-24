@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 import styled, { css } from "styled-components";
-import { Row, Centered } from "@/_components/Common";
 import { getBreakpoint } from "@/_theme";
+import { Column } from "../Common";
 
 export const P = styled.p`
   font-size: 1rem;
@@ -29,7 +29,7 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   font-size: 2.25rem;
-  font-weight: 900;
+  font-weight: 500;
   letter-spacing: -0.025em;
 `;
 
@@ -97,21 +97,35 @@ export const ClippedText = ({
   );
 };
 
-const GradientBlockText = styled(Row)<{ $posX: number; $posY: number }>`
-  background: radial-gradient(
-    circle at ${({ $posX, $posY }): string => `${$posX}% ${$posY}%`},
-    ${({ theme }): string => theme.colors.gradientFrom},
-    ${({ theme }): string => theme.colors.gradientTo}
-  );
+const GradientBlockText = styled(Column).attrs<{ $posX: number; $posY: number }>((props) => ({
+  style: {
+    background: `radial-gradient(
+      circle at ${props.$posX}% ${props.$posY}%,
+      ${props.theme.colors.gradientFrom},
+      ${props.theme.colors.gradientTo}
+    )`,
+  },
+}))`
   background-blend-mode: saturation;
-  background-clip: text;
-  -webkit-background-clip: text;
-  ${Centered}
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
   width: 100%;
   height: 100%;
+  justify-content: center;
+  text-align: left;
+  max-width: 1100px;
 `;
 
-export const GradientBlock = ({ children }: { children: React.ReactNode }): JSX.Element => {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+}
+
+export const GradientBlock: React.FC<Props> = ({
+  children,
+  ...rest
+}: {
+  children: React.ReactNode;
+}) => {
   const [posX, setPosX] = useState(50);
   const [posY, setPosY] = useState(0);
   const handleHover = (event: React.MouseEvent<HTMLDivElement>): void => {
@@ -128,7 +142,7 @@ export const GradientBlock = ({ children }: { children: React.ReactNode }): JSX.
   };
 
   return (
-    <GradientBlockText onMouseMove={handleHover} $posX={posX} $posY={posY}>
+    <GradientBlockText onMouseMove={handleHover} $posX={posX} $posY={posY} {...rest}>
       {children}
     </GradientBlockText>
   );

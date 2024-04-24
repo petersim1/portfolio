@@ -6,13 +6,9 @@ import { Row, Column, Centered } from "@/_components/Common";
 export const Wrapper = styled(Column)`
   ${Centered};
   width: 100%;
-  padding-top: 10vh;
-`;
-
-export const Title = styled.div`
-  height: 35vh;
-  width: 100%;
-  text-align: center;
+  padding-top: calc(1.6rem + 20px + 20px);
+  padding-bottom: 5rem;
+  gap: ${({ theme }): string => theme.gaps.rem3};
 `;
 
 export const Projects = styled(Row)`

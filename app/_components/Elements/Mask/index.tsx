@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 import { NN } from "@/_lib/assets";
 import styled from "styled-components";
 import { Column, Centered } from "@/_components/Common";
@@ -15,29 +13,24 @@ const MaskHolder = styled(Column)`
   left: 0;
   z-index: 0;
   overflow: hidden;
-  top: 100vh;
-  top: 100svh;
+  top: 0;
 
   & svg {
-    // position: absolute;
-    opacity: 0.4;
-    fill: gray;
-    stroke: gray;
+    opacity: 0.2;
+    fill: currentColor;
+    stroke: currentColor;
     min-width: 100vw;
     min-height: 100vh;
     min-height: 100svh;
   }
 `;
 
-const Mask = styled.div.attrs<{ $pos: number }>((props) => ({
-  style: {
-    background: `conic-gradient(
-      from 90deg at -25% 0%,
-      transparent 0%,
-      ${props.theme.colors.bg} ${props.$pos}%
-    )`,
-  },
-}))`
+const Mask = styled.div`
+  background: radial-gradient(
+    circle at 20% 50%,
+    ${({ theme }): string => theme.colors.bg},
+    transparent
+  );
   position: absolute;
   top: 0;
   bottom: 0;
@@ -48,47 +41,11 @@ const Mask = styled.div.attrs<{ $pos: number }>((props) => ({
   width: 100vw;
 `;
 
-export default ({
-  offsetTop,
-  offsetBottom,
-}: {
-  offsetTop: number;
-  offsetBottom: number;
-}): JSX.Element => {
-  // offsetTop/Bottom is a number in terms of "vh"
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const handleProgress = (): void => {
-      const el = document.getElementById("blurb");
-      if (!el) return;
-      const { top, height } = el.getBoundingClientRect();
-      const { innerHeight } = window;
-
-      const trueOffsetTop = (innerHeight * offsetTop) / 100;
-      const trueOffsetBottom = (innerHeight * offsetBottom) / 100;
-
-      const prog = Math.max(
-        0,
-        Math.min(
-          1,
-          (innerHeight - top - trueOffsetTop) / (height + trueOffsetBottom - trueOffsetTop),
-        ),
-      );
-
-      setProgress(100 * prog);
-    };
-    handleProgress();
-    window.addEventListener("scroll", handleProgress);
-    return () => {
-      window.removeEventListener("scroll", handleProgress);
-    };
-  }, []);
-
+export default (): JSX.Element => {
   return (
     <MaskHolder>
       <NN />
-      <Mask $pos={progress / 4} />
+      <Mask />
     </MaskHolder>
   );
 };
