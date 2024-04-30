@@ -8,7 +8,7 @@ const inconsolata = Inconsolata({
 });
 
 const spacemono = Space_Mono({
-  weight: ["700"],
+  weight: ["400", "700"],
   subsets: ["latin"],
   preload: true,
   display: "swap",

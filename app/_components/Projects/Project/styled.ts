@@ -1,29 +1,30 @@
 "use client";
 
-import styled, { css } from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Row, Card } from "@/_components/Common";
-import { getBreakpoint } from "@/_theme";
 
-export const Project = styled(Card)`
-  justify-content: center;
+const appear = keyframes`
+  0% {
+    opacity: 0;
+    translate: 0 40px;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+`;
+
+export const Project = styled(Card)<{ $delay?: number }>`
+  justify-content: space-between;
   align-items: flex-start;
-  width: 90%;
+  width: 500px;
+  max-width: 100%;
   padding: 15px;
   text-align: left;
   position: relative;
-
-  ${getBreakpoint(
-    "xxl",
-    css`
-      width: 100%;
-    `,
-  )}
-`;
-
-export const Header = styled(Row)`
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  opacity: 0;
+  animation: ${appear} 1s forwards;
+  animation-delay: ${({ $delay }): number => $delay ?? 0}s;
 `;
 
 export const Links = styled(Row)`

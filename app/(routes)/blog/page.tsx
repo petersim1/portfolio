@@ -3,9 +3,10 @@ import { Metadata, ResolvingMetadata } from "next";
 import { allPosts, type Post } from "contentlayer/generated";
 
 import * as BlogStyled from "@/_components/Blog";
-import { H2, Faint, P, H3, SubHeader } from "@/_components/Text";
+import { H2, Faint, P, H3, SubHeader, Underline } from "@/_components/Text";
 import { getFormattedDate } from "@/_lib/utils";
 import { Main, Pill } from "@/_components/Common";
+import { spacemono } from "@/_theme/fonts";
 
 export const generateMetadata = async (_, parent: ResolvingMetadata): Promise<Metadata> => {
   const parentMeta = await parent;
@@ -37,13 +38,15 @@ export default (): JSX.Element => {
   return (
     <Main>
       <BlogStyled.Holder>
-        <H2>blog posts</H2>
+        <Underline>
+          <H2 className={spacemono.className}>blog posts</H2>
+        </Underline>
         <BlogStyled.BlogHolder>
           <BlogStyled.Previews>
             {posts.map((post, ind) => (
               <BlogStyled.Preview key={ind}>
                 <BlogStyled.Header>
-                  <H3>{post.title}</H3>
+                  <H3 className={spacemono.className}>{post.title}</H3>
                   <div style={{ width: "100%" }}>
                     <SubHeader>
                       <time>

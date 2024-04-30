@@ -13,7 +13,7 @@ export const Wrapper = styled(Column)`
 
 export const Projects = styled(Row)`
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   flex-wrap: wrap;
   width: 100%;
   gap: ${({ theme }): string => theme.gaps.rem3};

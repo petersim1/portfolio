@@ -72,11 +72,6 @@ export const Card = styled(Column)`
   gap: ${({ theme }): string => theme.gaps.md};
   border-radius: ${({ theme }): string => theme.borderRadius};
   box-shadow: ${({ theme }): string => theme.shadow.box};
-  transition: background-color ${({ theme }): string => theme.transitions.speedMdEase};
-
-  &:hover {
-    background-color: ${({ theme }): string => theme.colors.card};
-  }
 `;
 
 export const Pill = styled.div`

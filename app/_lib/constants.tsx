@@ -18,10 +18,7 @@ export const projects = [
     title: "Bevor",
     year: 2023,
     description: {
-      text: "Co-developed a decentralized auditing protocol within the web3 ecosystem \
-      (with plans to fully build). Built out the marketing page, protocol dApp,\
-      helped guide the DAO and protocol designs, conducted market research, and presented to\
-      incubator programs and partners. Integrated on/off-chain data.",
+      text: "Decentralized audit facilitation platform for the web3 ecosystem.",
       image: "/images/og_bevor.png",
       languages: ["javascript", "solidity", "html", "css", "sql"],
       tools: ["nextjs", "wagmi", "ethersjs", "DAOs", "smart contracts", "prisma", "postgres"],
@@ -41,12 +38,8 @@ export const projects = [
     title: "Blackjack Gameplay",
     year: 2023,
     description: {
-      text: "Wrote custom python modules to handle blackjack gameplay, and deployed\
-      a Starlette Websocket server to allow users to interact with it.\
-      Created a NextJS application to interface with the websocket server and have users\
-      play blackjack. With a Deep Q Learning model that I previously trained for learning\
-      optimal blackjack strategy, I converted the pytorch model to ONNX and host it directly\
-      on the client, so users can see optimal moves.",
+      text: "Application for playing and learning optimal strategy in Blackjack, \
+      using a Deep Reinforcement Learning model for inference.",
       image:
         "https://mirror-media.imgix.net/publication-images/1PBrFqkO8npyjOLoNQt4-.jpeg?height=320&width=640&h=320&w=640&auto=compress",
       languages: ["python", "typescript", "javascript"],
@@ -71,10 +64,7 @@ export const projects = [
     title: "Strava Visualizer",
     year: 2023,
     description: {
-      text: "Engineered an application based off Strava's API, allowing users\
-      to oauth with their strava account and view an aggregate data visualization of\
-      their routes. Solely reliant on Browser Storage API's, so no data is retained\
-      by the application itself.",
+      text: "Connect with Strava and view your historical route overlays.",
       image: "/images/og_strava.png",
       languages: ["javascript", "html", "css"],
       tools: ["nextjs", "indexeddb", "strava api", "oauth", "jwt", "d3.js"],
@@ -94,12 +84,8 @@ export const projects = [
     title: "Active Listening AI",
     year: 2023,
     description: {
-      text: "Developed a microservice for actively listening to video conferencing\
-      calls and automating post-call form-filling processes for various types\
-      of form responses. Integrated with 3rd party services for audio streaming,\
-      speech recognition, LLM's, AI tooling, and vector databases. Built out a \
-      custom Starlette API for internal use. Led the development, established performance\
-      criteria, and created documentation.",
+      text: "AI orchestration pipeline for automating form-filling processes \
+      from video conferencing conversations, using LLM's, speech recognition models, and RAG methods.",
       image: "",
       languages: ["python"],
       tools: [
@@ -118,11 +104,8 @@ export const projects = [
     title: "Sightings",
     year: 2023,
     description: {
-      text: "NextJS application allowing users to oauth with slack and\
-      display their top content in a given set of channels over time.\
-      Built a Starlette ASGI python REST API to handle authorization, Slack\
-      SDK integration, and post-processing. Built a custom a frontend with protected routing. This\
-      drastically helped with content ingestion and dispersal.",
+      text: "Hub for teams to aggregate team communication, and assist with knowledge dispersal and \
+      insight generation, all based off Slack channel messages.",
       image: "/images/sightings_og.png",
       languages: ["python", "javascript", "html", "css"],
       tools: [
@@ -147,8 +130,7 @@ export const projects = [
     title: "TL;DR",
     year: 2023,
     description: {
-      text: "Built a full-stack app integrated with OpenAI's API to allow users to upload\
-      PDF's, extract text, and produce summaries, regardless of the model's context window size.",
+      text: "Summarize PDF documents of any length using LLM's",
       image: "/images/og_tldr.jpg",
       languages: ["javascript", "html", "css"],
       tools: ["nextjs", "openai api", "orm"],
@@ -164,9 +146,7 @@ export const projects = [
     title: "Agree",
     year: 2023,
     description: {
-      text: "Built a full-stack product to allow users to create and view immutable contracts\
-      on-chain. Built using web3 tools, it allows users to interact with custom smart contracts.\
-      Assisted with contract design and aligned with existing ERC standards.",
+      text: "On-chain protocol for document signing and money-movement, built at an ETH Global hackathon",
       image: "/images/og_agree.jpeg",
       languages: ["javascript", "html", "css"],
       tools: ["nextjs", "ethersjs", "wagmi", "firebase", "smart contracts", "rest api"],
@@ -192,10 +172,6 @@ export const contacts = [
   {
     type: "twitter",
     link: "https://twitter.com/pete_sim1",
-  },
-  {
-    type: "mirror",
-    link: "https://mirror.xyz/0x6a3b4A12739eAFB1DaD6edbA890862121e218EFC",
   },
   {
     type: "email",

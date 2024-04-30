@@ -16,7 +16,7 @@ export const NavHolder = styled(Row)`
 
 export const NavItems = styled(Row)`
   gap: ${({ theme }): string => theme.gaps.sm};
-  font-size: 0.85rem;
+  font-size: 0.75rem;
 
   & a {
     display: inline-block;

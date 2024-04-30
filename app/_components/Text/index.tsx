@@ -67,6 +67,20 @@ export const Faint = styled.span`
   color: ${({ theme }): string => theme.colors.faint};
 `;
 
+export const Underline = styled.div`
+  position: relative;
+  &:before {
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+    height: 2px;
+    background: ${({ theme }): string =>
+      `linear-gradient(to right, ${theme.colors.gradientFrom}, ${theme.colors.gradientTo})`};
+  }
+`;
+
 const ClipText = styled.p<{ $lines: number; $open: boolean }>`
   font-size: 0.875rem;
   line-height: 1.2rem;
