@@ -4,6 +4,8 @@ import "katex/dist/katex.min.css";
 import { ThemeProvider } from "@/_providers/theme";
 import StyledComponentRegistry from "@/_providers/ssr_styled";
 import { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Layout from "@/_components/Layout";
 import Light from "@/_components/Elements/Light";
@@ -53,6 +55,8 @@ export default ({ children }: { children: React.ReactNode }): JSX.Element => {
             <Light />
           </ThemeProvider>
         </StyledComponentRegistry>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
