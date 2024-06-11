@@ -54,6 +54,15 @@ const MdImage = ({ src, caption }: { src: string; caption?: string }): JSX.Eleme
   );
 };
 
+const Video = ({ src }: { src: string }): JSX.Element => {
+  return (
+    <video controls width="250">
+      <source src="/media/cc0-videos/flower.webm" type="video/webm" />
+      <source src={src} type="video/quicktime" />
+    </video>
+  );
+};
+
 const Table = ({
   header,
   rows,
@@ -109,6 +118,7 @@ export default {
   code: Code,
   a: DynamicLink,
   MdImage,
+  Video,
   Table,
   UrlPreview,
 };
